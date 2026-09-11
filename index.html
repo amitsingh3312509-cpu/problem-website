@@ -4,2251 +4,578 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Amit's Cake House</title>
+<title>SIH Problem Idea Form</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    font-family:Arial, sans-serif;
-    background:#fff7fa;
-    color:#222;
-    line-height:1.5;
+  background:#f1f3f4;
+  color:#202124;
 }
 
-button,
-input,
-select,
-textarea{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:linear-gradient(135deg,#d81b60,#ff4081);
-    color:white;
-    box-shadow:0 4px 15px rgba(0,0,0,.18);
-}
-
+/* Header */
 .header{
-    max-width:1150px;
-    margin:auto;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+  background:#673ab7;
+  color:white;
+  padding:22px 18px;
 }
 
-.logo h1{
-    font-size:27px;
+.header h1{
+  font-size:25px;
 }
 
-.logo p{
-    font-size:13px;
-    margin-top:3px;
+.header p{
+  margin-top:7px;
+  font-size:14px;
 }
 
-.language select{
-    width:auto;
-    margin:0;
-    padding:9px 12px;
-    border:0;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-.notice{
-    background:#222;
-    color:white;
-    overflow:hidden;
-    white-space:nowrap;
-    padding:8px 0;
-}
-
-.notice span{
-    display:inline-block;
-    padding-left:100%;
-    animation:scrollNotice 20s linear infinite;
-}
-
-@keyframes scrollNotice{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-100%);
-    }
-}
-
-.hero{
-    max-width:1150px;
-    margin:20px auto;
-    padding:45px 20px;
-    text-align:center;
-    border-radius:24px;
-    background:linear-gradient(135deg,#ffe0eb,#fff);
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
-}
-
-.hero h2{
-    color:#d81b60;
-    font-size:34px;
-    margin-bottom:12px;
-}
-
-.hero p{
-    max-width:850px;
-    margin:auto;
-    color:#555;
-    font-size:16px;
-}
-
+/* Main */
 .container{
-    max-width:1150px;
-    margin:auto;
-    padding:15px;
+  max-width:720px;
+  margin:25px auto;
+  padding:0 12px;
 }
 
-.section-title{
-    text-align:center;
-    color:#d81b60;
-    margin:30px 0 20px;
+/* Title */
+.title-card{
+  background:white;
+  border-radius:8px;
+  border-top:9px solid #673ab7;
+  padding:25px;
+  margin-bottom:16px;
+  box-shadow:0 1px 4px #ccc;
 }
 
-.cake-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.title-card h2{
+  font-size:27px;
+  margin-bottom:12px;
 }
 
-.cake-card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.10);
-    transition:.25s;
+.title-card p{
+  color:#5f6368;
+  line-height:1.6;
 }
 
-.cake-card:hover{
-    transform:translateY(-5px);
+.required{
+  color:#d93025;
 }
 
-.cake-photo{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    display:block;
-    background:#eee;
+/* Form Card */
+.card{
+  background:white;
+  border-radius:8px;
+  padding:23px;
+  margin-bottom:16px;
+  box-shadow:0 1px 4px #ddd;
 }
 
-.card-content{
-    padding:16px;
-}
-
-.cake-name{
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:8px;
-}
-
-.quality{
-    display:inline-block;
-    background:#fff0f5;
-    color:#d81b60;
-    border-radius:20px;
-    padding:6px 10px;
-    font-size:12px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.price{
-    color:#e91e63;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-.add-btn{
-    width:100%;
-    border:0;
-    border-radius:9px;
-    padding:13px;
-    background:#e91e63;
-    color:white;
-    font-weight:bold;
-    font-size:15px;
-}
-
-.box{
-    background:white;
-    margin-top:30px;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-}
-
-.cart-item{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    padding:13px 0;
-    border-bottom:1px solid #eee;
-}
-
-.cart-name{
-    font-weight:bold;
-}
-
-.qty{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.qty button{
-    width:34px;
-    height:34px;
-    border:0;
-    border-radius:8px;
-    background:#fce4ec;
-    color:#c2185b;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.remove-btn{
-    border:0;
-    background:#ffebee;
-    color:#c62828;
-    border-radius:7px;
-    padding:8px 10px;
-}
-
-.total-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    padding:8px 0;
-}
-
-.grand{
-    margin-top:8px;
-    padding-top:14px;
-    border-top:1px solid #ddd;
-    font-size:21px;
-    color:#d81b60;
-    font-weight:bold;
-}
-
-.advance{
-    color:#00897b;
-    font-weight:bold;
-}
-
-.cod{
-    color:#ef6c00;
-    font-weight:bold;
-}
-
-label{
-    display:block;
-    font-weight:bold;
-    font-size:14px;
-    margin-top:8px;
+.card label{
+  display:block;
+  font-size:16px;
+  font-weight:500;
+  margin-bottom:12px;
 }
 
 input,
 select,
 textarea{
-    width:100%;
-    padding:12px;
-    margin-top:6px;
-    margin-bottom:14px;
-    border:1px solid #ddd;
-    border-radius:9px;
-    outline:none;
-    font-size:15px;
-    background:white;
+  width:100%;
+  border:none;
+  border-bottom:1px solid #aaa;
+  padding:12px 4px;
+  font-size:16px;
+  outline:none;
+  background:white;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-bottom:2px solid #673ab7;
 }
 
 textarea{
-    min-height:90px;
-    resize:vertical;
+  min-height:110px;
+  resize:vertical;
 }
 
-.payment-info{
-    background:#fff8e1;
-    border-left:4px solid #ff9800;
-    padding:15px;
-    border-radius:9px;
-    line-height:1.8;
+/* Yes No */
+.options{
+  display:flex;
+  gap:35px;
+  margin-top:10px;
 }
 
-.payment-amount{
-    font-size:25px;
-    color:#00897b;
-    font-weight:bold;
+.option{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-weight:normal !important;
 }
 
-.upi-box{
-    margin-top:18px;
-    padding:20px;
-    text-align:center;
-    background:#f8f8f8;
-    border-radius:14px;
+.option input{
+  width:18px;
+  height:18px;
+  accent-color:#673ab7;
 }
 
-.upi-box h3{
-    margin-bottom:10px;
+/* Submit */
+.bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:22px 0 40px;
 }
 
-#qrCode{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin:15px auto;
-    min-height:20px;
+.clear{
+  border:none;
+  background:none;
+  color:#673ab7;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
 }
 
-#qrCode img,
-#qrCode canvas{
-    width:230px !important;
-    height:230px !important;
-    background:white;
-    padding:8px;
-    border-radius:10px;
+.submit{
+  border:none;
+  background:#673ab7;
+  color:white;
+  padding:13px 28px;
+  border-radius:5px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.upi-id{
-    margin:12px 0;
-    font-size:17px;
-    font-weight:bold;
-    word-break:break-all;
-}
-
-.copy-btn,
-.pay-btn,
-.paid-btn,
-.submit-btn{
-    width:100%;
-    border:0;
-    border-radius:9px;
-    padding:13px;
-    color:white;
-    font-size:15px;
-    font-weight:bold;
-    margin-top:9px;
-}
-
-.copy-btn{
-    background:#555;
-}
-
-.pay-btn{
-    background:#00897b;
-}
-
-.paid-btn{
-    background:#1976d2;
-}
-
-.submit-btn{
-    background:#e91e63;
-    font-size:16px;
-    margin-top:15px;
-}
-
-.payment-status{
-    display:none;
-    margin-top:14px;
-    padding:13px;
-    border-radius:9px;
-    background:#e8f5e9;
-    color:#2e7d32;
-    font-weight:bold;
-}
-
-.warning{
-    margin-top:14px;
-    padding:12px;
-    border-radius:9px;
-    background:#fff3e0;
-    color:#e65100;
-    font-size:13px;
-}
-
-.contact{
-    line-height:2;
+.submit:hover{
+  background:#512da8;
 }
 
 footer{
-    margin-top:35px;
-    padding:30px 15px;
-    background:#222;
-    color:white;
-    text-align:center;
-    line-height:1.9;
+  text-align:center;
+  color:#777;
+  font-size:13px;
+  padding-bottom:30px;
 }
 
-.floating{
-    position:fixed;
-    right:15px;
-    bottom:15px;
-    z-index:999;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.float-btn{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-    color:white;
-    font-size:22px;
-    box-shadow:0 4px 14px rgba(0,0,0,.25);
-}
-
-.whatsapp{
-    background:#25d366;
-}
-
-.call{
-    background:#1976d2;
-}
-
-@media(max-width:850px){
-
-    .cake-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
+/* Mobile */
 @media(max-width:600px){
 
-    .header{
-        flex-direction:column;
-        text-align:center;
-    }
+  .header h1{
+    font-size:21px;
+  }
 
-    .logo h1{
-        font-size:24px;
-    }
+  .title-card h2{
+    font-size:23px;
+  }
 
-    .hero{
-        margin:15px;
-        padding:35px 15px;
-    }
+  .title-card,
+  .card{
+    padding:20px;
+  }
 
-    .hero h2{
-        font-size:27px;
-    }
-
-    .cake-grid{
-        grid-template-columns:1fr;
-    }
-
-    .cake-photo{
-        height:230px;
-    }
-
-    .cart-item{
-        flex-wrap:wrap;
-    }
-
+  .options{
+    gap:22px;
+  }
 }
-
 </style>
 </head>
 
 <body>
 
-<header>
-
 <div class="header">
-
-<div class="logo">
-
-<h1 data-i18n="brand">
-Amit's Cake House
-</h1>
-
-<p data-i18n="owner">
-Owner: Amit Kumar Singh
-</p>
-
+  <h1>Smart India Hackathon</h1>
+  <p>Problem Idea Selection & Student Response Form</p>
 </div>
-
-<div class="language">
-
-<select
-id="languageSelect"
-onchange="changeLanguage(this.value)">
-
-<option value="en">
-🇬🇧 English
-</option>
-
-<option value="hi">
-🇮🇳 हिन्दी
-</option>
-
-</select>
-
-</div>
-
-</div>
-
-</header>
-
-
-<div class="notice">
-
-<span data-i18n="notice">
-
-🎂 Premium 12+ Quality Cakes |
-50% Advance Payment |
-50% Cash on Delivery |
-Fresh Cakes
-
-</span>
-
-</div>
-
-
-<section class="hero">
-
-<h2 data-i18n="heroTitle">
-Fresh & Premium Cakes
-</h2>
-
-<p data-i18n="heroText">
-
-Order delicious cakes online from Amit's Cake House.
-Choose your favourite cake, pay 50% advance through UPI
-and pay the remaining 50% by Cash on Delivery.
-
-</p>
-
-</section>
-
 
 <div class="container">
 
-<h2
-class="section-title"
-data-i18n="menuTitle">
+  <div class="title-card">
 
-Our Cake Collection
+    <h2>SIH Problem Idea Form</h2>
 
-</h2>
+    <p>
+      Please fill in your details and select whether
+      you want to work on the proposed problem statement.
+    </p>
 
+    <br>
 
-<div
-id="cakeList"
-class="cake-grid">
-</div>
+    <p>
+      <span class="required">*</span>
+      Required question
+    </p>
 
+  </div>
 
-<div class="box">
 
-<h2
-class="section-title"
-data-i18n="cartTitle">
+  <form
+    action="https://formsubmit.co/amitsingh3312509@gmail.com"
+    method="POST"
+  >
 
-🛒 Your Cart
+    <!-- FormSubmit settings -->
 
-</h2>
+    <input
+      type="hidden"
+      name="_subject"
+      value="SIH Problem Idea Response"
+    >
 
+    <input
+      type="hidden"
+      name="_captcha"
+      value="false"
+    >
 
-<div id="cartItems">
+    <input
+      type="hidden"
+      name="_template"
+      value="table"
+    >
 
-<p data-i18n="emptyCart">
-Your cart is empty.
-</p>
+    <input
+      type="hidden"
+      name="_next"
+      value="https://YOUR-USERNAME.github.io/thankyou.html"
+    >
 
-</div>
 
+    <!-- NAME -->
 
-<div class="total-row">
+    <div class="card">
 
-<span data-i18n="cakeTotal">
-Cake Total
-</span>
+      <label>
+        Student Name <span class="required">*</span>
+      </label>
 
-<strong>
-₹<span id="cakeTotal">0.00</span>
-</strong>
+      <input
+        type="text"
+        name="Student Name"
+        placeholder="Enter your full name"
+        required
+      >
 
-</div>
+    </div>
 
 
-<label data-i18n="deliveryType">
-Delivery Type
-</label>
+    <!-- BRANCH -->
 
+    <div class="card">
 
-<select
-id="deliveryType"
-onchange="updateTotal()">
+      <label>
+        Branch <span class="required">*</span>
+      </label>
 
-<option value="pickup" data-i18n="pickup">
-Pickup — ₹0
-</option>
+      <select
+        name="Branch"
+        required
+      >
 
-<option value="0-3" data-i18n="km03">
-0–3 KM — ₹20
-</option>
+        <option value="">
+          Select your branch
+        </option>
 
-<option value="3-7" data-i18n="km37">
-3–7 KM — ₹40
-</option>
+        <option value="Computer Science and Engineering">
+          Computer Science and Engineering (CSE)
+        </option>
 
-<option value="7-12" data-i18n="km712">
-7–12 KM — ₹60
-</option>
+        <option value="Information Technology">
+          Information Technology (IT)
+        </option>
 
-<option value="12+" data-i18n="km12plus">
-12 KM+ — ₹100
-</option>
+        <option value="Electronics and Communication">
+          Electronics & Communication (ECE)
+        </option>
 
-</select>
+        <option value="Electrical Engineering">
+          Electrical Engineering (EE)
+        </option>
 
+        <option value="Mechanical Engineering">
+          Mechanical Engineering (ME)
+        </option>
 
-<div class="total-row">
+        <option value="Civil Engineering">
+          Civil Engineering (CE)
+        </option>
 
-<span data-i18n="deliveryCharge">
-Delivery Charge
-</span>
+        <option value="Other">
+          Other
+        </option>
 
-<strong>
-₹<span id="deliveryCharge">0.00</span>
-</strong>
+      </select>
 
-</div>
+    </div>
 
 
-<div class="total-row grand">
+    <!-- ROLL NUMBER -->
 
-<span data-i18n="grandTotal">
-Grand Total
-</span>
+    <div class="card">
 
-<strong>
-₹<span id="grandTotal">0.00</span>
-</strong>
+      <label>
+        Roll Number <span class="required">*</span>
+      </label>
 
-</div>
+      <input
+        type="text"
+        name="Roll Number"
+        placeholder="Enter your roll number"
+        required
+      >
 
+    </div>
 
-<div class="total-row advance">
 
-<span data-i18n="advanceAmount">
-50% Advance
-</span>
+    <!-- PROBLEM IDEA NAME -->
 
-<strong>
-₹<span id="advanceAmount">0.00</span>
-</strong>
+    <div class="card">
 
-</div>
+      <label>
+        Problem Idea Name <span class="required">*</span>
+      </label>
 
+      <input
+        type="text"
+        name="Problem Idea Name"
+        placeholder="Example: LandGuard AI"
+        required
+      >
 
-<div class="total-row cod">
+    </div>
 
-<span data-i18n="codAmount">
-50% Cash on Delivery
-</span>
 
-<strong>
-₹<span id="codAmount">0.00</span>
-</strong>
+    <!-- PROBLEM CODE -->
 
-</div>
+    <div class="card">
 
-</div>
+      <label>
+        Problem Statement Code <span class="required">*</span>
+      </label>
 
+      <input
+        type="text"
+        name="Problem Statement Code"
+        placeholder="Example: SIH26017"
+        required
+      >
 
-<div class="box">
+    </div>
 
-<h2
-class="section-title"
-data-i18n="paymentTitle">
 
-💳 Payment
+    <!-- PROBLEM STATEMENT -->
 
-</h2>
+    <div class="card">
 
+      <label>
+        Problem Statement / Idea
+        <span class="required">*</span>
+      </label>
 
-<div class="payment-info">
+      <textarea
+        name="Problem Statement"
+        placeholder="Write the problem statement or your idea..."
+        required
+      ></textarea>
 
-<strong data-i18n="paymentRule">
-50% Advance Payment is compulsory.
-</strong>
+    </div>
 
-<br>
 
-<span data-i18n="paymentExplain">
+    <!-- REASON -->
 
-Pay 50% advance online through UPI.
-The remaining 50% will be paid by Cash on Delivery.
+    <div class="card">
 
-</span>
+      <label>
+        Why do you want to work on this problem?
+        <span class="required">*</span>
+      </label>
 
-<br><br>
+      <textarea
+        name="Reason"
+        placeholder="Write your reason..."
+        required
+      ></textarea>
 
-<span data-i18n="payNow">
-Amount to Pay Now:
-</span>
+    </div>
 
-<br>
 
-<span class="payment-amount">
-₹<span id="paymentAmount">0.00</span>
-</span>
+    <!-- YES NO -->
 
-</div>
+    <div class="card">
 
+      <label>
+        Do you want to work on this problem?
+        <span class="required">*</span>
+      </label>
 
-<div class="upi-box">
+      <div class="options">
 
-<h3 data-i18n="scanTitle">
-📱 Scan QR & Pay
-</h3>
+        <label class="option">
+          <input
+            type="radio"
+            name="Want To Work"
+            value="Yes"
+            required
+          >
+          Yes
+        </label>
 
+        <label class="option">
+          <input
+            type="radio"
+            name="Want To Work"
+            value="No"
+          >
+          No
+        </label>
 
-<div id="qrCode">
-</div>
+      </div>
 
+    </div>
 
-<div class="upi-id">
 
-<span data-i18n="upiLabel">
-UPI ID:
-</span>
+    <!-- DATE -->
 
-<br>
+    <div class="card">
 
-<span id="upiDisplay">
-7309277213-1@nyes
-</span>
+      <label>
+        Date <span class="required">*</span>
+      </label>
 
-</div>
+      <input
+        type="date"
+        name="Date"
+        id="date"
+        required
+      >
 
+    </div>
 
-<button
-type="button"
-class="copy-btn"
-onclick="copyUPI()"
-data-i18n="copyUPI">
 
-📋 Copy UPI ID
+    <!-- TIME -->
 
-</button>
+    <div class="card">
 
+      <label>
+        Time <span class="required">*</span>
+      </label>
 
-<button
-type="button"
-class="pay-btn"
-onclick="payAdvance()"
-data-i18n="payButton">
+      <input
+        type="time"
+        name="Time"
+        id="time"
+        required
+      >
 
-💳 Pay 50% Advance
+    </div>
 
-</button>
 
+    <!-- DAY -->
 
-<button
-type="button"
-class="paid-btn"
-onclick="openPaymentConfirmation()"
-data-i18n="paidButton">
+    <div class="card">
 
-✅ I Have Paid Advance
+      <label>
+        Day <span class="required">*</span>
+      </label>
 
-</button>
+      <select
+        name="Day"
+        id="day"
+        required
+      >
 
+        <option value="">
+          Select day
+        </option>
 
-<div
-id="paymentStatus"
-class="payment-status">
-</div>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
 
+      </select>
 
-<div
-class="warning"
-data-i18n="paymentWarning">
+    </div>
 
-After payment, enter your UPI Transaction ID below.
-The owner should verify the payment before processing the order.
 
-</div>
+    <!-- BUTTON -->
 
-</div>
+    <div class="bottom">
 
-</div>
+      <button
+        type="reset"
+        class="clear"
+      >
+        Clear form
+      </button>
 
+      <button
+        type="submit"
+        class="submit"
+      >
+        Submit
+      </button>
 
-<div class="box">
+    </div>
 
-<h2
-class="section-title"
-data-i18n="orderTitle">
+  </form>
 
-📝 Customer & Delivery Details
 
-</h2>
-
-
-<form
-id="orderForm"
-action="https://formsubmit.co/amitsingh3312509@gmail.com"
-method="POST"
-onsubmit="return validateOrder()">
-
-
-<input
-type="hidden"
-name="_subject"
-value="New Cake Order - Amit's Cake House">
-
-<input
-type="hidden"
-name="_captcha"
-value="false">
-
-<input
-type="hidden"
-name="_template"
-value="table">
-
-<input
-type="hidden"
-name="Order Details"
-id="orderData">
-
-<input
-type="hidden"
-name="Cake Total"
-id="hiddenCakeTotal">
-
-<input
-type="hidden"
-name="Delivery Charge"
-id="hiddenDelivery">
-
-<input
-type="hidden"
-name="Grand Total"
-id="hiddenGrand">
-
-<input
-type="hidden"
-name="50% Advance"
-id="hiddenAdvance">
-
-<input
-type="hidden"
-name="50% COD"
-id="hiddenCOD">
-
-<input
-type="hidden"
-name="Payment Status"
-id="hiddenPaymentStatus">
-
-
-<label data-i18n="nameLabel">
-Customer Name
-</label>
-
-<input
-type="text"
-name="Customer Name"
-id="customerName"
-required
-data-placeholder="namePlaceholder"
-placeholder="Enter your name">
-
-
-<label data-i18n="mobileLabel">
-Mobile Number
-</label>
-
-<input
-type="tel"
-name="Mobile"
-id="mobile"
-required
-pattern="[0-9]{10}"
-maxlength="10"
-inputmode="numeric"
-data-placeholder="mobilePlaceholder"
-placeholder="10 digit mobile number">
-
-
-<label data-i18n="emailLabel">
-Email
-</label>
-
-<input
-type="email"
-name="Email"
-id="email"
-required
-data-placeholder="emailPlaceholder"
-placeholder="Enter your email">
-
-
-<label data-i18n="dateLabel">
-Delivery Date
-</label>
-
-<input
-type="date"
-name="Delivery Date"
-id="deliveryDate"
-required>
-
-
-<label data-i18n="timeLabel">
-Delivery Time
-</label>
-
-<input
-type="time"
-name="Delivery Time"
-id="deliveryTime"
-required>
-
-
-<label data-i18n="areaLabel">
-Village / Area
-</label>
-
-<input
-type="text"
-name="Village / Area"
-id="village"
-required
-data-placeholder="areaPlaceholder"
-placeholder="Enter village or area">
-
-
-<label data-i18n="pincodeLabel">
-Pincode
-</label>
-
-<input
-type="text"
-name="Pincode"
-id="pincode"
-required
-pattern="[0-9]{6}"
-maxlength="6"
-inputmode="numeric"
-data-placeholder="pincodePlaceholder"
-placeholder="6 digit pincode">
-
-
-<label data-i18n="addressLabel">
-Full Delivery Address
-</label>
-
-<textarea
-name="Full Address"
-id="address"
-required
-data-placeholder="addressPlaceholder"
-placeholder="Enter complete delivery address"></textarea>
-
-
-<label data-i18n="messageLabel">
-Cake Message / Design
-</label>
-
-<textarea
-name="Cake Message / Design"
-id="cakeMessage"
-data-placeholder="messagePlaceholder"
-placeholder="Example: Happy Birthday Amit"></textarea>
-
-
-<label data-i18n="instructionLabel">
-Special Instructions
-</label>
-
-<textarea
-name="Special Instructions"
-id="instructions"
-data-placeholder="instructionPlaceholder"
-placeholder="Any special requirement?"></textarea>
-
-
-<div id="paymentConfirmArea" style="display:none;">
-
-<label data-i18n="transactionLabel">
-UPI Transaction ID
-</label>
-
-<input
-type="text"
-name="UPI Transaction ID"
-id="transactionId"
-data-placeholder="transactionPlaceholder"
-placeholder="Enter UPI transaction ID">
-
-
-<label data-i18n="paymentConfirmLabel">
-Payment Confirmation
-</label>
-
-<select
-name="Customer Payment Confirmation"
-id="paymentConfirm">
-
-<option value="" data-i18n="selectPayment">
-Select confirmation
-</option>
-
-<option value="YES" data-i18n="yesPaid">
-Yes, I have paid 50% advance
-</option>
-
-</select>
+  <footer>
+    Smart India Hackathon • Student Problem Selection Form
+  </footer>
 
 </div>
 
-
-<button
-type="submit"
-class="submit-btn"
-data-i18n="submitButton">
-
-🎂 Place Cake Order
-
-</button>
-
-</form>
-
-</div>
-
-
-<div class="box contact">
-
-<h2
-class="section-title"
-data-i18n="contactTitle">
-
-📞 Contact
-
-</h2>
-
-<p>
-<strong data-i18n="ownerLabel">Owner:</strong>
-Amit Kumar Singh
-</p>
-
-<p>
-<strong data-i18n="callLabel">Call:</strong>
-7309277213
-</p>
-
-<p>
-<strong data-i18n="whatsappLabel">WhatsApp:</strong>
-7309277213
-</p>
-
-</div>
-
-</div>
-
-
-<footer>
-
-<strong data-i18n="footerBrand">
-Amit's Cake House
-</strong>
-
-<br>
-
-<span data-i18n="footerOwner">
-Owner: Amit Kumar Singh
-</span>
-
-<br>
-
-<span data-i18n="footerCreated">
-Created with ❤️ by Amit Kumar Singh
-</span>
-
-</footer>
-
-
-<div class="floating">
-
-<a
-class="float-btn whatsapp"
-href="https://wa.me/7309277213"
-target="_blank">
-
-💬
-
-</a>
-
-<a
-class="float-btn call"
-href="tel:+917309277213">
-
-📞
-
-</a>
-
-</div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-   /* ================================
-   CAKE DATA
-================================ */
 
-const cakes = [
+/* Automatically set today's date */
+const dateInput = document.getElementById("date");
+const timeInput = document.getElementById("time");
+const dayInput = document.getElementById("day");
 
-{
-    id:1,
-    name:{
-        en:"Chocolate Cake",
-        hi:"चॉकलेट केक"
-    },
-    price:599,
-    image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
-},
+const now = new Date();
 
-{
-    id:2,
-    name:{
-        en:"Black Forest Cake",
-        hi:"ब्लैक फॉरेस्ट केक"
-    },
-    price:549,
-    image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=85"
-},
+const year = now.getFullYear();
+const month = String(now.getMonth()+1).padStart(2,"0");
+const date = String(now.getDate()).padStart(2,"0");
 
-{
-    id:3,
-    name:{
-        en:"Red Velvet Cake",
-        hi:"रेड वेलवेट केक"
-    },
-    price:699,
-    image:"https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=900&q=85"
-},
+dateInput.value = `${year}-${month}-${date}`;
 
-{
-    id:4,
-    name:{
-        en:"Pineapple Cake",
-        hi:"पाइनएप्पल केक"
-    },
-    price:499,
-    image:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=85"
-},
 
-{
-    id:5,
-    name:{
-        en:"Strawberry Cake",
-        hi:"स्ट्रॉबेरी केक"
-    },
-    price:549,
-    image:"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=85"
-},
+/* Automatically set current time */
 
-{
-    id:6,
-    name:{
-        en:"Vanilla Cake",
-        hi:"वेनिला केक"
-    },
-    price:449,
-    image:"https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=900&q=85"
-},
+const hours = String(now.getHours()).padStart(2,"0");
+const minutes = String(now.getMinutes()).padStart(2,"0");
 
-{
-    id:7,
-    name:{
-        en:"Butterscotch Cake",
-        hi:"बटरस्कॉच केक"
-    },
-    price:599,
-    image:"https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85"
-},
+timeInput.value = `${hours}:${minutes}`;
 
-{
-    id:8,
-    name:{
-        en:"Mango Cake",
-        hi:"मैंगो केक"
-    },
-    price:549,
-    image:"https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=900&q=85"
-},
 
-{
-    id:9,
-    name:{
-        en:"KitKat Cake",
-        hi:"किटकैट केक"
-    },
-    price:749,
-    image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
-},
+/* Automatically select current day */
 
-{
-    id:10,
-    name:{
-        en:"Oreo Cake",
-        hi:"ओरियो केक"
-    },
-    price:699,
-    image:"https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=900&q=85"
-},
-
-{
-    id:11,
-    name:{
-        en:"Rasmalai Cake",
-        hi:"रसमलाई केक"
-    },
-    price:799,
-    image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
-},
-
-{
-    id:12,
-    name:{
-        en:"Photo Cake",
-        hi:"फोटो केक"
-    },
-    price:899,
-    image:"https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=900&q=85"
-},
-
-{
-    id:13,
-    name:{
-        en:"Fruit Cake",
-        hi:"फ्रूट केक"
-    },
-    price:649,
-    image:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=85"
-},
-
-{
-    id:14,
-    name:{
-        en:"Custom Design Cake",
-        hi:"कस्टम डिजाइन केक"
-    },
-    price:2,
-    image:"https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=900&q=85"
-}
-
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
 ];
 
-
-/* ================================
-   LANGUAGE DATA
-================================ */
-
-const translations = {
-
-en:{
-
-brand:"Amit's Cake House",
-owner:"Owner: Amit Kumar Singh",
-
-notice:"🎂 Premium 12+ Quality Cakes | 50% Advance Payment | 50% Cash on Delivery | Fresh Cakes",
-
-heroTitle:"Fresh & Premium Cakes",
-
-heroText:"Order delicious cakes online from Amit's Cake House. Choose your favourite cake, pay 50% advance through UPI and pay the remaining 50% by Cash on Delivery.",
-
-menuTitle:"Our Cake Collection",
-
-cartTitle:"🛒 Your Cart",
-emptyCart:"Your cart is empty.",
-
-cakeTotal:"Cake Total",
-deliveryType:"Delivery Type",
-
-pickup:"Pickup — ₹0",
-km03:"0–3 KM — ₹20",
-km37:"3–7 KM — ₹40",
-km712:"7–12 KM — ₹60",
-km12plus:"12 KM+ — ₹100",
-
-deliveryCharge:"Delivery Charge",
-grandTotal:"Grand Total",
-advanceAmount:"50% Advance",
-codAmount:"50% Cash on Delivery",
-
-paymentTitle:"💳 Payment",
-
-paymentRule:"50% Advance Payment is compulsory.",
-
-paymentExplain:"Pay 50% advance online through UPI. The remaining 50% will be paid by Cash on Delivery.",
-
-payNow:"Amount to Pay Now:",
-
-scanTitle:"📱 Scan QR & Pay",
-
-upiLabel:"UPI ID:",
-
-copyUPI:"📋 Copy UPI ID",
-
-payButton:"💳 Pay 50% Advance",
-
-paidButton:"✅ I Have Paid Advance",
-
-paymentWarning:"After payment, enter your UPI Transaction ID below. The owner should verify the payment before processing the order.",
-
-orderTitle:"📝 Customer & Delivery Details",
-
-nameLabel:"Customer Name",
-mobileLabel:"Mobile Number",
-emailLabel:"Email",
-dateLabel:"Delivery Date",
-timeLabel:"Delivery Time",
-areaLabel:"Village / Area",
-pincodeLabel:"Pincode",
-addressLabel:"Full Delivery Address",
-messageLabel:"Cake Message / Design",
-instructionLabel:"Special Instructions",
-
-transactionLabel:"UPI Transaction ID",
-paymentConfirmLabel:"Payment Confirmation",
-
-selectPayment:"Select confirmation",
-yesPaid:"Yes, I have paid 50% advance",
-
-submitButton:"🎂 Place Cake Order",
-
-contactTitle:"📞 Contact",
-
-ownerLabel:"Owner:",
-callLabel:"Call:",
-whatsappLabel:"WhatsApp:",
-
-footerBrand:"Amit's Cake House",
-footerOwner:"Owner: Amit Kumar Singh",
-footerCreated:"Created with ❤️ by Amit Kumar Singh",
-
-namePlaceholder:"Enter your name",
-mobilePlaceholder:"10 digit mobile number",
-emailPlaceholder:"Enter your email",
-areaPlaceholder:"Enter village or area",
-pincodePlaceholder:"6 digit pincode",
-addressPlaceholder:"Enter complete delivery address",
-messagePlaceholder:"Example: Happy Birthday Amit",
-instructionPlaceholder:"Any special requirement?",
-transactionPlaceholder:"Enter UPI transaction ID"
-
-},
-
-hi:{
-
-brand:"अमित्स केक हाउस",
-owner:"मालिक: अमित कुमार सिंह",
-
-notice:"🎂 प्रीमियम 12+ क्वालिटी केक | 50% एडवांस भुगतान | 50% कैश ऑन डिलीवरी | ताज़ा केक",
-
-heroTitle:"ताज़ा और प्रीमियम केक",
-
-heroText:"अमित्स केक हाउस से स्वादिष्ट केक ऑनलाइन ऑर्डर करें। अपना पसंदीदा केक चुनें, UPI से 50% एडवांस भुगतान करें और बाकी 50% कैश ऑन डिलीवरी पर भुगतान करें।",
-
-menuTitle:"हमारे केक का कलेक्शन",
-
-cartTitle:"🛒 आपकी कार्ट",
-emptyCart:"आपकी कार्ट खाली है।",
-
-cakeTotal:"केक का कुल मूल्य",
-deliveryType:"डिलीवरी का प्रकार",
-
-pickup:"पिकअप — ₹0",
-km03:"0–3 KM — ₹20",
-km37:"3–7 KM — ₹40",
-km712:"7–12 KM — ₹60",
-km12plus:"12 KM+ — ₹100",
-
-deliveryCharge:"डिलीवरी शुल्क",
-grandTotal:"कुल भुगतान",
-advanceAmount:"50% एडवांस",
-codAmount:"50% कैश ऑन डिलीवरी",
-
-paymentTitle:"💳 भुगतान",
-
-paymentRule:"50% एडवांस भुगतान अनिवार्य है।",
-
-paymentExplain:"UPI के माध्यम से 50% एडवांस ऑनलाइन भुगतान करें। बाकी 50% राशि कैश ऑन डिलीवरी पर देनी होगी।",
-
-payNow:"अभी भुगतान करें:",
-
-scanTitle:"📱 QR स्कैन करके भुगतान करें",
-
-upiLabel:"UPI ID:",
-
-copyUPI:"📋 UPI ID कॉपी करें",
-
-payButton:"💳 50% एडवांस भुगतान करें",
-
-paidButton:"✅ मैंने एडवांस भुगतान कर दिया है",
-
-paymentWarning:"भुगतान करने के बाद नीचे अपना UPI Transaction ID दर्ज करें। ऑर्डर प्रोसेस करने से पहले मालिक द्वारा भुगतान की जाँच की जानी चाहिए।",
-
-orderTitle:"📝 ग्राहक और डिलीवरी विवरण",
-
-nameLabel:"ग्राहक का नाम",
-mobileLabel:"मोबाइल नंबर",
-emailLabel:"ईमेल",
-dateLabel:"डिलीवरी की तारीख",
-timeLabel:"डिलीवरी का समय",
-areaLabel:"गाँव / क्षेत्र",
-pincodeLabel:"पिनकोड",
-addressLabel:"पूरा डिलीवरी पता",
-messageLabel:"केक पर लिखने वाला संदेश / डिजाइन",
-instructionLabel:"विशेष निर्देश",
-
-transactionLabel:"UPI Transaction ID",
-paymentConfirmLabel:"भुगतान की पुष्टि",
-
-selectPayment:"पुष्टि चुनें",
-yesPaid:"हाँ, मैंने 50% एडवांस भुगतान कर दिया है",
-
-submitButton:"🎂 केक ऑर्डर करें",
-
-contactTitle:"📞 संपर्क",
-
-ownerLabel:"मालिक:",
-callLabel:"कॉल:",
-whatsappLabel:"व्हाट्सऐप:",
-
-footerBrand:"अमित्स केक हाउस",
-footerOwner:"मालिक: अमित कुमार सिंह",
-footerCreated:"❤️ अमित कुमार सिंह द्वारा बनाया गया",
-
-namePlaceholder:"अपना नाम दर्ज करें",
-mobilePlaceholder:"10 अंकों का मोबाइल नंबर",
-emailPlaceholder:"अपना ईमेल दर्ज करें",
-areaPlaceholder:"गाँव या क्षेत्र दर्ज करें",
-pincodePlaceholder:"6 अंकों का पिनकोड",
-addressPlaceholder:"पूरा डिलीवरी पता दर्ज करें",
-messagePlaceholder:"उदाहरण: हैप्पी बर्थडे अमित",
-instructionPlaceholder:"कोई विशेष आवश्यकता?",
-transactionPlaceholder:"UPI Transaction ID दर्ज करें"
-
-}
-
-};
-
-
-/* ================================
-   VARIABLES
-================================ */
-
-let currentLanguage = "en";
-
-let cart = [];
-
-let paymentDone = false;
-
-const SHOP_UPI_ID = "7309277213-1@nyes";
-
-
-/* ================================
-   DISPLAY CAKES
-================================ */
-
-function displayCakes(){
-
-    const cakeList = document.getElementById("cakeList");
-
-    cakeList.innerHTML = "";
-
-    cakes.forEach(cake => {
-
-        const card = document.createElement("div");
-
-        card.className = "cake-card";
-
-        card.innerHTML = `
-
-            <img
-                class="cake-photo"
-                src="${cake.image}"
-                alt="${cake.name[currentLanguage]}"
-                loading="lazy"
-            >
-
-            <div class="card-content">
-
-                <div class="cake-name">
-                    ${cake.name[currentLanguage]}
-                </div>
-
-                <div class="quality">
-                    Premium 12+ Quality
-                </div>
-
-                <div class="price">
-                    ₹${cake.price}
-                </div>
-
-                <button
-                    class="add-btn"
-                    onclick="addToCart(${cake.id})">
-
-                    ${currentLanguage === "hi"
-                    ? "🛒 कार्ट में जोड़ें"
-                    : "🛒 Add to Cart"}
-
-                </button>
-
-            </div>
-        `;
-
-        cakeList.appendChild(card);
-
-    });
-
-}
-
-
-/* ================================
-   ADD TO CART
-================================ */
-
-function addToCart(id){
-
-    const existing = cart.find(item => item.id === id);
-
-    if(existing){
-
-        existing.qty++;
-
-    }else{
-
-        cart.push({
-            id:id,
-            qty:1
-        });
-
-    }
-
-    renderCart();
-
-    document.getElementById("cartItems")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
-
-}
-
-
-/* ================================
-   CHANGE QUANTITY
-================================ */
-
-function increaseQty(id){
-
-    const item = cart.find(item => item.id === id);
-
-    if(item){
-
-        item.qty++;
-
-    }
-
-    renderCart();
-
-}
-
-
-function decreaseQty(id){
-
-    const item = cart.find(item => item.id === id);
-
-    if(!item) return;
-
-    item.qty--;
-
-    if(item.qty <= 0){
-
-        cart = cart.filter(item => item.id !== id);
-
-    }
-
-    renderCart();
-
-}
-
-
-/* ================================
-   REMOVE ITEM
-================================ */
-
-function removeFromCart(id){
-
-    cart = cart.filter(item => item.id !== id);
-
-    renderCart();
-
-}
-
-
-/* ================================
-   CART RENDER
-================================ */
-
-function renderCart(){
-
-    const cartItems = document.getElementById("cartItems");
-
-    if(cart.length === 0){
-
-        cartItems.innerHTML = `
-
-        <p>
-            ${translations[currentLanguage].emptyCart}
-        </p>
-
-        `;
-
-        updateTotal();
-
-        return;
-    }
-
-
-    cartItems.innerHTML = "";
-
-
-    cart.forEach(item => {
-
-        const cake = cakes.find(c => c.id === item.id);
-
-        const row = document.createElement("div");
-
-        row.className = "cart-item";
-
-
-        row.innerHTML = `
-
-            <div>
-
-                <div class="cart-name">
-                    ${cake.name[currentLanguage]}
-                </div>
-
-                <div>
-                    ₹${cake.price} × ${item.qty}
-                </div>
-
-            </div>
-
-
-            <div class="qty">
-
-                <button
-                    type="button"
-                    onclick="decreaseQty(${cake.id})">
-                    −
-                </button>
-
-                <strong>
-                    ${item.qty}
-                </strong>
-
-                <button
-                    type="button"
-                    onclick="increaseQty(${cake.id})">
-                    +
-                </button>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="remove-btn"
-                onclick="removeFromCart(${cake.id})">
-
-                ${currentLanguage === "hi"
-                ? "हटाएँ"
-                : "Remove"}
-
-            </button>
-
-        `;
-
-        cartItems.appendChild(row);
-
-    });
-
-
-    updateTotal();
-
-}
-
-
-/* ================================
-   GET CAKE TOTAL
-================================ */
-
-function getCakeTotal(){
-
-    let total = 0;
-
-    cart.forEach(item => {
-
-        const cake = cakes.find(c => c.id === item.id);
-
-        if(cake){
-
-            total += cake.price * item.qty;
-
-        }
-
-    });
-
-    return total;
-
-}
-
-
-/* ================================
-   DELIVERY CHARGE
-================================ */
-
-function getDeliveryCharge(){
-
-    const type =
-        document.getElementById("deliveryType").value;
-
-    const charges = {
-
-        pickup:0,
-        "0-3":20,
-        "3-7":40,
-        "7-12":60,
-        "12+":100
-
-    };
-
-    return charges[type] || 0;
-
-}
-
-
-/* ================================
-   UPDATE TOTAL
-================================ */
-
-function updateTotal(){
-
-    const cakeTotal = getCakeTotal();
-
-    const delivery = getDeliveryCharge();
-
-    const grand = cakeTotal + delivery;
-
-    const advance = grand / 2;
-
-    const cod = grand - advance;
-
-
-    document.getElementById("cakeTotal")
-        .textContent = cakeTotal.toFixed(2);
-
-    document.getElementById("deliveryCharge")
-        .textContent = delivery.toFixed(2);
-
-    document.getElementById("grandTotal")
-        .textContent = grand.toFixed(2);
-
-    document.getElementById("advanceAmount")
-        .textContent = advance.toFixed(2);
-
-    document.getElementById("codAmount")
-        .textContent = cod.toFixed(2);
-
-    document.getElementById("paymentAmount")
-        .textContent = advance.toFixed(2);
-
-
-    document.getElementById("hiddenCakeTotal")
-        .value = "₹" + cakeTotal.toFixed(2);
-
-    document.getElementById("hiddenDelivery")
-        .value = "₹" + delivery.toFixed(2);
-
-    document.getElementById("hiddenGrand")
-        .value = "₹" + grand.toFixed(2);
-
-    document.getElementById("hiddenAdvance")
-        .value = "₹" + advance.toFixed(2);
-
-    document.getElementById("hiddenCOD")
-        .value = "₹" + cod.toFixed(2);
-
-
-    generateQR();
-
-}
-
-
-/* ================================
-   UPI LINK
-================================ */
-
-function getUPILink(){
-
-    const amount =
-        (getCakeTotal() + getDeliveryCharge()) / 2;
-
-    const encodedName =
-        encodeURIComponent("Amit's Cake House");
-
-    const encodedNote =
-        encodeURIComponent("50% Cake Order Advance");
-
-    return `upi://pay?pa=${SHOP_UPI_ID}&pn=${encodedName}&am=${amount.toFixed(2)}&cu=INR&tn=${encodedNote}`;
-
-}
-
-
-/* ================================
-   QR CODE
-================================ */
-
-function generateQR(){
-
-    const qrBox =
-        document.getElementById("qrCode");
-
-    if(!qrBox) return;
-
-    qrBox.innerHTML = "";
-
-
-    const amount =
-        (getCakeTotal() + getDeliveryCharge()) / 2;
-
-
-    if(amount <= 0){
-
-        qrBox.innerHTML = `
-            <p>
-            ${currentLanguage === "hi"
-            ? "पहले केक कार्ट में जोड़ें"
-            : "Add a cake to generate payment QR"}
-            </p>
-        `;
-
-        return;
-    }
-
-
-    new QRCode(qrBox,{
-
-        text:getUPILink(),
-
-        width:230,
-        height:230,
-
-        correctLevel:QRCode.CorrectLevel.M
-
-    });
-
-   }
-   /* ================================
-   COPY UPI
-================================ */
-
-function copyUPI(){
-
-    navigator.clipboard.writeText(SHOP_UPI_ID)
-    .then(() => {
-
-        alert(
-            currentLanguage === "hi"
-            ? "UPI ID कॉपी हो गई है।"
-            : "UPI ID copied successfully."
-        );
-
-    })
-    .catch(() => {
-
-        alert(
-            currentLanguage === "hi"
-            ? "UPI ID: " + SHOP_UPI_ID
-            : "UPI ID: " + SHOP_UPI_ID
-        );
-
-    });
-
-}
-
-
-/* ================================
-   PAY ADVANCE
-================================ */
-
-function payAdvance(){
-
-    const total = getCakeTotal() + getDeliveryCharge();
-
-    if(total <= 0){
-
-        alert(
-            currentLanguage === "hi"
-            ? "पहले कार्ट में केक जोड़ें।"
-            : "Please add a cake to the cart first."
-        );
-
-        return;
-    }
-
-
-    const upiLink = getUPILink();
-
-    window.location.href = upiLink;
-
-}
-
-
-/* ================================
-   PAYMENT CONFIRMATION
-================================ */
-
-function openPaymentConfirmation(){
-
-    const total = getCakeTotal() + getDeliveryCharge();
-
-    if(total <= 0){
-
-        alert(
-            currentLanguage === "hi"
-            ? "पहले कार्ट में केक जोड़ें।"
-            : "Please add a cake to the cart first."
-        );
-
-        return;
-    }
-
-
-    paymentDone = true;
-
-
-    document.getElementById("paymentConfirmArea")
-        .style.display = "block";
-
-
-    const status =
-        document.getElementById("paymentStatus");
-
-
-    status.style.display = "block";
-
-
-    status.textContent =
-        currentLanguage === "hi"
-        ? "✅ भुगतान ग्राहक द्वारा किया हुआ बताया गया है। Transaction ID दर्ज करें। मालिक द्वारा भुगतान verify किया जाएगा।"
-        : "✅ Payment marked as paid by customer. Enter the Transaction ID. The owner must verify the payment.";
-
-
-    document.getElementById("hiddenPaymentStatus")
-        .value =
-        "Customer marked 50% advance as paid - Owner verification required";
-
-
-    document.getElementById("transactionId")
-        .focus();
-
-}
-
-
-/* ================================
-   LANGUAGE CHANGE
-================================ */
-
-function changeLanguage(language){
-
-    currentLanguage = language;
-
-
-    const t = translations[language];
-
-
-    /*
-       Change all normal text
-    */
-
-    document.querySelectorAll("[data-i18n]")
-        .forEach(element => {
-
-            const key =
-                element.getAttribute("data-i18n");
-
-            if(t[key] !== undefined){
-
-                element.textContent = t[key];
-
-            }
-
-        });
-
-
-    /*
-       Change placeholders
-    */
-
-    document.querySelectorAll("[data-placeholder]")
-        .forEach(element => {
-
-            const key =
-                element.getAttribute("data-placeholder");
-
-            if(t[key] !== undefined){
-
-                element.placeholder = t[key];
-
-            }
-
-        });
-
-
-    /*
-       Rebuild cake cards so cake names
-       and buttons also change
-    */
-
-    displayCakes();
-
-
-    /*
-       Rebuild cart so cart cake names
-       also change
-    */
-
-    renderCart();
-
-
-    /*
-       Regenerate QR
-    */
-
-    generateQR();
-
-}
-
-
-/* ================================
-   ORDER DETAILS
-================================ */
-
-function createOrderDetails(){
-
-    let details = "";
-
-
-    cart.forEach(item => {
-
-        const cake =
-            cakes.find(c => c.id === item.id);
-
-
-        if(cake){
-
-            details +=
-            cake.name[currentLanguage]
-            + " × "
-            + item.qty
-            + " = ₹"
-            + (cake.price * item.qty).toFixed(2)
-            + "\n";
-
-        }
-
-    });
-
-
-    return details;
-
-}
-
-
-/* ================================
-   FORM VALIDATION
-================================ */
-
-function validateOrder(){
-
-    if(cart.length === 0){
-
-        alert(
-            currentLanguage === "hi"
-            ? "कृपया पहले कम से कम एक केक कार्ट में जोड़ें।"
-            : "Please add at least one cake to the cart."
-        );
-
-        return false;
-    }
-
-
-    if(!paymentDone){
-
-        alert(
-            currentLanguage === "hi"
-            ? "ऑर्डर करने से पहले 50% एडवांस भुगतान करें और 'मैंने एडवांस भुगतान कर दिया है' बटन दबाएँ।"
-            : "Please pay the 50% advance and click 'I Have Paid Advance' before placing the order."
-        );
-
-        return false;
-    }
-
-
-    const transactionId =
-        document.getElementById("transactionId").value.trim();
-
-
-    if(transactionId.length < 4){
-
-        alert(
-            currentLanguage === "hi"
-            ? "कृपया अपना UPI Transaction ID दर्ज करें।"
-            : "Please enter your UPI Transaction ID."
-        );
-
-        document.getElementById("transactionId").focus();
-
-        return false;
-    }
-
-
-    const confirmation =
-        document.getElementById("paymentConfirm").value;
-
-
-    if(confirmation !== "YES"){
-
-        alert(
-            currentLanguage === "hi"
-            ? "कृपया भुगतान की पुष्टि करें।"
-            : "Please confirm the advance payment."
-        );
-
-        return false;
-    }
-
-
-    /*
-       Put complete cart information
-       into FormSubmit hidden field.
-    */
-
-    document.getElementById("orderData").value =
-        createOrderDetails();
-
-
-    /*
-       Update hidden totals
-    */
-
-    updateTotal();
-
-
-    document.getElementById("hiddenPaymentStatus")
-        .value =
-        "Customer marked 50% advance as paid - Owner verification required";
-
-
-    return true;
-
-}
-
-
-/* ================================
-   DATE SETUP
-================================ */
-
-function setMinimumDate(){
-
-    const today =
-        new Date().toISOString().split("T")[0];
-
-
-    document.getElementById("deliveryDate")
-        .min = today;
-
-}
-
-
-/* ================================
-   INITIALIZE WEBSITE
-================================ */
-
-document.addEventListener("DOMContentLoaded",function(){
-
-    displayCakes();
-
-    renderCart();
-
-    updateTotal();
-
-    setMinimumDate();
-
-    document.getElementById("upiDisplay")
-        .textContent = SHOP_UPI_ID;
-
-});
-
-
-/* ================================
-   PREVENT EMPTY PAYMENT
-================================ */
-
-document.getElementById("deliveryType")
-    .addEventListener("change",function(){
-
-        updateTotal();
-
-    });
-
+dayInput.value = days[now.getDay()];
 
 </script>
 
 </body>
 </html>
-   
