@@ -4,576 +4,2566 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIH Problem Idea Form</title>
+<title>Kisan Procurement Tracker | SIH26032</title>
 
 <style>
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
 body{
-  background:#f1f3f4;
-  color:#202124;
+  background:#f4f7f9;
+  color:#172033;
 }
 
-/* Header */
-.header{
-  background:#673ab7;
+header{
+  background:linear-gradient(135deg,#087f5b,#0ca678);
   color:white;
-  padding:22px 18px;
+  padding:14px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 4px 15px #0002;
 }
 
-.header h1{
-  font-size:25px;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.header p{
-  margin-top:7px;
-  font-size:14px;
+.logo-icon{
+  font-size:30px;
 }
 
-/* Main */
-.container{
-  max-width:720px;
-  margin:25px auto;
-  padding:0 12px;
+.logo h1{
+  font-size:20px;
 }
 
-/* Title */
-.title-card{
-  background:white;
+.logo p{
+  font-size:11px;
+  opacity:.9;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.nav-link{
+  color:white;
+  text-decoration:none;
+  padding:9px 11px;
   border-radius:8px;
-  border-top:9px solid #673ab7;
-  padding:25px;
-  margin-bottom:16px;
-  box-shadow:0 1px 4px #ccc;
+  cursor:pointer;
+  font-size:13px;
 }
 
-.title-card h2{
+.nav-link:hover,
+.nav-link.active{
+  background:#ffffff25;
+}
+
+.lang-btn,
+.menu-btn{
+  border:0;
+  cursor:pointer;
+}
+
+.lang-btn{
+  background:#ffffff20;
+  color:white;
+  border:1px solid #ffffff55;
+  padding:9px 12px;
+  border-radius:8px;
+}
+
+.menu-btn{
+  display:none;
+  background:none;
+  color:white;
   font-size:27px;
-  margin-bottom:12px;
 }
 
-.title-card p{
-  color:#5f6368;
-  line-height:1.6;
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section{
+  display:none;
+  padding:30px 0;
+}
+
+.section.active{
+  display:block;
+}
+
+/* HERO */
+
+.hero{
+  margin-top:20px;
+  padding:48px 25px;
+  text-align:center;
+  background:linear-gradient(135deg,#e8fff5,#fff);
+  border-radius:20px;
+  box-shadow:0 5px 25px #0000000c;
+}
+
+.badge{
+  display:inline-block;
+  background:#d9f7eb;
+  color:#087f5b;
+  padding:7px 13px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.hero h2{
+  color:#075c43;
+  font-size:38px;
+  margin:15px 0 12px;
+}
+
+.hero p{
+  max-width:720px;
+  margin:auto;
+  line-height:1.7;
+  color:#657181;
+}
+
+.hero-buttons{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  padding:12px 18px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-primary{
+  background:#087f5b;
+  color:white;
+}
+
+.btn-primary:hover{
+  background:#056347;
+}
+
+.btn-secondary{
+  background:#e0f7ee;
+  color:#087f5b;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin:22px 0;
+}
+
+.stat-card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 4px 17px #0000000b;
+  border-left:4px solid #087f5b;
+}
+
+.stat-icon{
+  font-size:24px;
+}
+
+.stat-card h3{
+  color:#087f5b;
+  font-size:27px;
+  margin:7px 0;
+}
+
+.stat-card p{
+  color:#6b7685;
+  font-size:13px;
+}
+
+/* CARD */
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:25px;
+  margin-bottom:20px;
+  box-shadow:0 4px 18px #0000000b;
+}
+
+.card h2{
+  color:#17352c;
+  margin-bottom:8px;
+}
+
+.card-description{
+  color:#6b7685;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* STEPS */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.step{
+  text-align:center;
+  padding:20px;
+  border:1px solid #e1e8e5;
+  border-radius:13px;
+}
+
+.step-number{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto auto 12px;
+  background:#087f5b;
+  color:white;
+  border-radius:50%;
+  font-weight:bold;
+}
+
+.step p{
+  color:#6b7685;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* FORM */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+label{
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:7px;
 }
 
 .required{
-  color:#d93025;
-}
-
-/* Form Card */
-.card{
-  background:white;
-  border-radius:8px;
-  padding:23px;
-  margin-bottom:16px;
-  box-shadow:0 1px 4px #ddd;
-}
-
-.card label{
-  display:block;
-  font-size:16px;
-  font-weight:500;
-  margin-bottom:12px;
+  color:#dc2626;
 }
 
 input,
 select,
 textarea{
   width:100%;
-  border:none;
-  border-bottom:1px solid #aaa;
-  padding:12px 4px;
-  font-size:16px;
+  padding:12px;
+  border:1px solid #d5dce3;
+  border-radius:8px;
   outline:none;
-  background:white;
+  font-size:14px;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-  border-bottom:2px solid #673ab7;
+  border-color:#087f5b;
+  box-shadow:0 0 0 3px #087f5b15;
 }
 
 textarea{
-  min-height:110px;
+  min-height:100px;
   resize:vertical;
 }
 
-/* Yes No */
-.options{
-  display:flex;
-  gap:35px;
-  margin-top:10px;
+.form-submit{
+  margin-top:20px;
 }
 
-.option{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  font-weight:normal !important;
+/* TOKEN */
+
+#tokenResult{
+  display:none;
+  margin-top:25px;
 }
 
-.option input{
-  width:18px;
-  height:18px;
-  accent-color:#673ab7;
+.token-card{
+  border:2px solid #087f5b;
+  background:#effff8;
+  border-radius:16px;
+  padding:25px;
+  text-align:center;
 }
 
-/* Submit */
-.bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:22px 0 40px;
+.token-card h2{
+  color:#087f5b;
 }
 
-.clear{
-  border:none;
-  background:none;
-  color:#673ab7;
-  font-weight:bold;
-  font-size:15px;
-  cursor:pointer;
-}
-
-.submit{
-  border:none;
-  background:#673ab7;
+.big-token{
+  display:inline-block;
+  margin:15px 0;
+  padding:13px 22px;
+  background:#087f5b;
   color:white;
-  padding:13px 28px;
-  border-radius:5px;
-  font-size:16px;
+  border-radius:9px;
+  font-size:25px;
   font-weight:bold;
+}
+
+.token-info{
+  max-width:600px;
+  margin:auto;
+  text-align:left;
+}
+
+.token-info p{
+  padding:8px 0;
+  border-bottom:1px solid #dcebe5;
+}
+
+.token-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.token-actions button{
+  background:#17352c;
+  color:white;
+  border:0;
+  padding:10px 15px;
+  border-radius:8px;
   cursor:pointer;
 }
 
-.submit:hover{
-  background:#512da8;
+/* SEARCH */
+
+.search-box,
+.status-search{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
 }
+
+.search-box input,
+.status-search input{
+  flex:1;
+}
+
+/* STATUS */
+
+.status-card{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 20px #0002;
+}
+
+.status-card p{
+  padding:9px 0;
+  border-bottom:1px solid #edf0f2;
+}
+
+.status-timeline{
+  margin-top:20px;
+}
+
+.timeline-item{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px 0;
+  position:relative;
+}
+
+.timeline-item:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  left:16px;
+  top:45px;
+  height:30px;
+  width:2px;
+  background:#dce3e1;
+}
+
+.timeline-item span{
+  width:33px;
+  height:33px;
+  background:#e7eceb;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2;
+  font-weight:bold;
+}
+
+.timeline-item.active span{
+  background:#087f5b;
+  color:white;
+}
+
+.timeline-item small{
+  display:block;
+  color:#77828e;
+  margin-top:3px;
+}
+
+.error-box{
+  max-width:650px;
+  margin:15px auto;
+  padding:15px;
+  border-radius:9px;
+  background:#feecec;
+  color:#b42318;
+  text-align:center;
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:750px;
+}
+
+th,
+td{
+  padding:12px 9px;
+  border-bottom:1px solid #e7ecef;
+  text-align:left;
+  font-size:13px;
+}
+
+th{
+  background:#eef9f5;
+  color:#075c43;
+}
+
+.status-badge{
+  background:#e1f7ec;
+  color:#087f5b;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* FOOTER */
 
 footer{
+  background:#12352c;
+  color:white;
   text-align:center;
-  color:#777;
-  font-size:13px;
-  padding-bottom:30px;
+  padding:28px 10px;
+  margin-top:25px;
 }
 
-/* Mobile */
+footer p{
+  margin:6px;
+  font-size:13px;
+  opacity:.85;
+}
+
+/* TOAST */
+
+#toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:9999;
+  padding:14px 18px;
+  border-radius:9px;
+  color:white;
+  font-weight:bold;
+  display:none;
+  box-shadow:0 8px 25px #0003;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .menu-btn{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    position:absolute;
+    top:67px;
+    left:0;
+    width:100%;
+    background:#087f5b;
+    flex-direction:column;
+    padding:10px;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  .nav-link{
+    width:100%;
+    text-align:center;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+}
+
 @media(max-width:600px){
 
-  .header h1{
-    font-size:21px;
+  .container{
+    width:94%;
   }
 
-  .title-card h2{
-    font-size:23px;
+  .logo h1{
+    font-size:16px;
   }
 
-  .title-card,
-  .card{
-    padding:20px;
+  .logo p{
+    font-size:9px;
   }
 
-  .options{
-    gap:22px;
+  .hero{
+    padding:32px 17px;
   }
+
+  .hero h2{
+    font-size:27px;
+  }
+
+  .stats{
+    gap:10px;
+  }
+
+  .stat-card{
+    padding:15px;
+  }
+
+  .stat-card h3{
+    font-size:22px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+  .search-box,
+  .status-search{
+    flex-direction:column;
+  }
+
+  .big-token{
+    font-size:20px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>Smart India Hackathon</h1>
-  <p>Problem Idea Selection & Student Response Form</p>
-</div>
+<header>
 
-<div class="container">
+  <div class="logo">
 
-  <div class="title-card">
+    <div class="logo-icon">🌾</div>
 
-    <h2>SIH Problem Idea Form</h2>
+    <div>
+      <h1>Kisan Procurement Tracker</h1>
+      <p>Smart India Hackathon • SIH26032</p>
+    </div>
+
+  </div>
+
+  <button
+    class="menu-btn"
+    onclick="toggleMenu()">
+    ☰
+  </button>
+
+  <nav id="mainNav">
+
+    <a
+      class="nav-link active"
+      data-section="home"
+      onclick="showSection('home')">
+      🏠 Home
+    </a>
+
+    <a
+      class="nav-link"
+      data-section="registration"
+      onclick="showSection('registration')">
+      👨‍🌾 Farmer Registration
+    </a>
+
+    <a
+      class="nav-link"
+      data-section="schedule"
+      onclick="showSection('schedule')">
+      📅 Procurement Schedule
+    </a>
+
+    <a
+      class="nav-link"
+      data-section="status"
+      onclick="showSection('status')">
+      🔍 My Status
+    </a>
+
+    <a
+      class="nav-link"
+      data-section="officer"
+      onclick="showSection('officer')">
+      🏛️ Officer Dashboard
+    </a>
+
+    <button
+      class="lang-btn"
+      id="languageBtn"
+      onclick="toggleLanguage()">
+      हिंदी
+    </button>
+
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+<!-- HOME -->
+
+<section
+  id="home"
+  class="section active">
+
+  <div class="hero">
+
+    <span class="badge">
+      SIH26032 • Digital Procurement Solution
+    </span>
+
+    <h2>
+      Kisan Procurement Tracker
+    </h2>
 
     <p>
-      Please fill in your details and select whether
-      you want to work on the proposed problem statement.
+      किसानों को procurement schedule, token और
+      procurement status की जानकारी एक ही digital
+      platform पर उपलब्ध कराने का प्रयास।
     </p>
 
-    <br>
+    <div class="hero-buttons">
 
-    <p>
-      <span class="required">*</span>
-      Required question
-    </p>
+      <button
+        class="btn btn-primary"
+        onclick="showSection('registration')">
+        👨‍🌾 Register as Farmer
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="showSection('status')">
+        🔍 Check My Status
+      </button>
+
+    </div>
 
   </div>
 
 
-  <form
-    action="https://formsubmit.co/amitsingh3312509@gmail.com"
-    method="POST"
-  >
+  <div class="stats">
 
-    <!-- FormSubmit settings -->
-
-    <input
-      type="hidden"
-      name="_subject"
-      value="SIH Problem Idea Response"
-    >
-
-    <input
-      type="hidden"
-      name="_captcha"
-      value="false"
-    >
-
-    <input
-      type="hidden"
-      name="_template"
-      value="table"
-    >
-
-    <input
-      type="hidden"
-      name="_next"
-      value="https://YOUR-USERNAME.github.io/thankyou.html"
-    >
-
-
-    <!-- NAME -->
-
-    <div class="card">
-
-      <label>
-        Student Name <span class="required">*</span>
-      </label>
-
-      <input
-        type="text"
-        name="Student Name"
-        placeholder="Enter your full name"
-        required
-      >
-
+    <div class="stat-card">
+      <div class="stat-icon">👨‍🌾</div>
+      <h3 id="registeredCount">1250</h3>
+      <p>Registered Farmers</p>
     </div>
 
-
-    <!-- BRANCH -->
-
-    <div class="card">
-
-      <label>
-        Branch <span class="required">*</span>
-      </label>
-
-      <select
-        name="Branch"
-        required
-      >
-
-        <option value="">
-          Select your branch
-        </option>
-
-        <option value="Computer Science and Engineering">
-          Computer Science and Engineering (CSE)
-        </option>
-
-        <option value="Information Technology">
-          Information Technology (IT)
-        </option>
-
-        <option value="Electronics and Communication">
-          Electronics & Communication (ECE)
-        </option>
-
-        <option value="Electrical Engineering">
-          Electrical Engineering (EE)
-        </option>
-
-        <option value="Mechanical Engineering">
-          Mechanical Engineering (ME)
-        </option>
-
-        <option value="Civil Engineering">
-          Civil Engineering (CE)
-        </option>
-
-        <option value="Other">
-          Other
-        </option>
-
-      </select>
-
+    <div class="stat-card">
+      <div class="stat-icon">🏢</div>
+      <h3>42</h3>
+      <p>Procurement Centres</p>
     </div>
 
-
-    <!-- ROLL NUMBER -->
-
-    <div class="card">
-
-      <label>
-        Roll Number <span class="required">*</span>
-      </label>
-
-      <input
-        type="text"
-        name="Roll Number"
-        placeholder="Enter your roll number"
-        required
-      >
-
+    <div class="stat-card">
+      <div class="stat-icon">🎫</div>
+      <h3 id="todayTokenCount">386</h3>
+      <p>Today's Tokens</p>
     </div>
 
-
-    <!-- PROBLEM IDEA NAME -->
-
-    <div class="card">
-
-      <label>
-        Problem Idea Name <span class="required">*</span>
-      </label>
-
-      <input
-        type="text"
-        name="Problem Idea Name"
-        placeholder="Example: LandGuard AI"
-        required
-      >
-
+    <div class="stat-card">
+      <div class="stat-icon">📊</div>
+      <h3>82%</h3>
+      <p>Procurement Completed</p>
     </div>
 
-
-    <!-- PROBLEM CODE -->
-
-    <div class="card">
-
-      <label>
-        Problem Statement Code <span class="required">*</span>
-      </label>
-
-      <input
-        type="text"
-        name="Problem Statement Code"
-        placeholder="Example: SIH26017"
-        required
-      >
-
-    </div>
+  </div>
 
 
-    <!-- PROBLEM STATEMENT -->
+  <div class="card">
 
-    <div class="card">
+    <h2>How It Works</h2>
 
-      <label>
-        Problem Statement / Idea
-        <span class="required">*</span>
-      </label>
+    <p class="card-description">
+      किसान के लिए आसान तीन-step process
+    </p>
 
-      <textarea
-        name="Problem Statement"
-        placeholder="Write the problem statement or your idea..."
-        required
-      ></textarea>
+    <div class="steps">
 
-    </div>
+      <div class="step">
 
+        <div class="step-number">1</div>
 
-    <!-- REASON -->
+        <h3>Register</h3>
 
-    <div class="card">
+        <p>
+          अपनी जानकारी और crop details भरकर
+          registration करें।
+        </p>
 
-      <label>
-        Why do you want to work on this problem?
-        <span class="required">*</span>
-      </label>
+      </div>
 
-      <textarea
-        name="Reason"
-        placeholder="Write your reason..."
-        required
-      ></textarea>
+      <div class="step">
 
-    </div>
+        <div class="step-number">2</div>
 
+        <h3>Get Token</h3>
 
-    <!-- YES NO -->
+        <p>
+          Registration के बाद unique procurement
+          token प्राप्त करें।
+        </p>
 
-    <div class="card">
+      </div>
 
-      <label>
-        Do you want to work on this problem?
-        <span class="required">*</span>
-      </label>
+      <div class="step">
 
-      <div class="options">
+        <div class="step-number">3</div>
 
-        <label class="option">
-          <input
-            type="radio"
-            name="Want To Work"
-            value="Yes"
-            required
-          >
-          Yes
-        </label>
+        <h3>Track Status</h3>
 
-        <label class="option">
-          <input
-            type="radio"
-            name="Want To Work"
-            value="No"
-          >
-          No
-        </label>
+        <p>
+          Token Number से अपनी procurement
+          status check करें।
+        </p>
 
       </div>
 
     </div>
 
+  </div>
 
-    <!-- DATE -->
+</section>
 
-    <div class="card">
 
-      <label>
-        Date <span class="required">*</span>
-      </label>
+<!-- REGISTRATION -->
+
+<section
+  id="registration"
+  class="section">
+
+  <div class="card">
+
+    <h2>👨‍🌾 Farmer Registration</h2>
+
+    <p class="card-description">
+      Procurement के लिए अपनी जानकारी भरें।
+    </p>
+
+
+    <form id="farmerForm">
+
+      <div class="form-grid">
+
+        <div class="form-group">
+
+          <label>
+            Farmer Name <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="farmerName"
+            placeholder="Enter farmer name"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Mobile Number <span class="required">*</span>
+          </label>
+
+          <input
+            type="tel"
+            id="mobile"
+            maxlength="10"
+            inputmode="numeric"
+            placeholder="10 digit mobile number"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Village <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="village"
+            placeholder="Enter village"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            District <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="district"
+            placeholder="Enter district"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Crop <span class="required">*</span>
+          </label>
+
+          <select id="crop" required>
+
+            <option value="">
+              Select Crop
+            </option>
+
+            <option value="Wheat">
+              Wheat
+            </option>
+
+            <option value="Paddy">
+              Paddy
+            </option>
+
+            <option value="Maize">
+              Maize
+            </option>
+
+            <option value="Mustard">
+              Mustard
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Quantity (Quintal) <span class="required">*</span>
+          </label>
+
+          <input
+            type="number"
+            id="quantity"
+            min="1"
+            step="0.01"
+            placeholder="Example: 25"
+            required>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Procurement Centre <span class="required">*</span>
+          </label>
+
+          <select id="centre" required>
+
+            <option value="">
+              Select Centre
+            </option>
+
+            <option value="Bansdih Procurement Centre">
+              Bansdih Procurement Centre
+            </option>
+
+            <option value="Ballia Procurement Centre">
+              Ballia Procurement Centre
+            </option>
+
+            <option value="Jaunpur Procurement Centre">
+              Jaunpur Procurement Centre
+            </option>
+
+            <option value="Azamgarh Procurement Centre">
+              Azamgarh Procurement Centre
+            </option>
+
+            <option value="Ghazipur Procurement Centre">
+              Ghazipur Procurement Centre
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Preferred Date <span class="required">*</span>
+          </label>
+
+          <input
+            type="date"
+            id="preferredDate"
+            required>
+
+        </div>
+
+
+        <div class="form-group full">
+
+          <label>
+            Additional Information
+          </label>
+
+          <textarea
+            id="additionalInfo"
+            placeholder="Any additional information..."></textarea>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-submit">
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+          🎫 Generate Procurement Token
+        </button>
+
+      </div>
+
+    </form>
+
+
+    <div id="tokenResult"></div>
+
+  </div>
+
+</section>
+
+
+<!-- SCHEDULE -->
+
+<section
+  id="schedule"
+  class="section">
+
+  <div class="card">
+
+    <h2>📅 Procurement Schedule</h2>
+
+    <p class="card-description">
+      अपने procurement centre का schedule देखें।
+    </p>
+
+
+    <div class="search-box">
 
       <input
-        type="date"
-        name="Date"
-        id="date"
-        required
-      >
+        type="text"
+        id="scheduleSearch"
+        oninput="filterSchedule()"
+        placeholder="Search centre, district or date...">
 
     </div>
 
 
-    <!-- TIME -->
+    <div class="table-wrap">
 
-    <div class="card">
+      <table id="scheduleTable">
 
-      <label>
-        Time <span class="required">*</span>
-      </label>
+        <thead>
+
+          <tr>
+            <th>Centre</th>
+            <th>District</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Available Tokens</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>Bansdih Procurement Centre</td>
+            <td>Ballia</td>
+            <td>15-09-2026</td>
+            <td>09:00 AM - 05:00 PM</td>
+            <td>120</td>
+          </tr>
+
+          <tr>
+            <td>Ballia Procurement Centre</td>
+            <td>Ballia</td>
+            <td>16-09-2026</td>
+            <td>09:00 AM - 05:00 PM</td>
+            <td>95</td>
+          </tr>
+
+          <tr>
+            <td>Jaunpur Procurement Centre</td>
+            <td>Jaunpur</td>
+            <td>17-09-2026</td>
+            <td>09:00 AM - 05:00 PM</td>
+            <td>80</td>
+          </tr>
+
+          <tr>
+            <td>Azamgarh Procurement Centre</td>
+            <td>Azamgarh</td>
+            <td>18-09-2026</td>
+            <td>09:00 AM - 05:00 PM</td>
+            <td>70</td>
+          </tr>
+
+          <tr>
+            <td>Ghazipur Procurement Centre</td>
+            <td>Ghazipur</td>
+            <td>19-09-2026</td>
+            <td>09:00 AM - 05:00 PM</td>
+            <td>60</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MY STATUS -->
+
+<section
+  id="status"
+  class="section">
+
+  <div class="card">
+
+    <h2 style="text-align:center;">
+      🔍 My Procurement Status
+    </h2>
+
+    <p
+      class="card-description"
+      style="text-align:center;">
+      अपना Token Number डालकर registration status देखें।
+    </p>
+
+
+    <div class="status-search">
 
       <input
-        type="time"
-        name="Time"
-        id="time"
-        required
-      >
-
-    </div>
-
-
-    <!-- DAY -->
-
-    <div class="card">
-
-      <label>
-        Day <span class="required">*</span>
-      </label>
-
-      <select
-        name="Day"
-        id="day"
-        required
-      >
-
-        <option value="">
-          Select day
-        </option>
-
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-        <option>Saturday</option>
-        <option>Sunday</option>
-
-      </select>
-
-    </div>
-
-
-    <!-- BUTTON -->
-
-    <div class="bottom">
+        type="text"
+        id="statusToken"
+        placeholder="Example: KPT-2026-4582">
 
       <button
-        type="reset"
-        class="clear"
-      >
-        Clear form
-      </button>
-
-      <button
-        type="submit"
-        class="submit"
-      >
-        Submit
+        class="btn btn-primary"
+        onclick="checkStatus()">
+        Check Status
       </button>
 
     </div>
 
-  </form>
+
+    <div id="statusResult"></div>
+
+  </div>
+
+</section>
 
 
-  <footer>
-    Smart India Hackathon • Student Problem Selection Form
-  </footer>
+<!-- OFFICER DASHBOARD -->
 
-</div>
+<section
+  id="officer"
+  class="section">
 
+  <div class="card">
 
-<script>
+    <h2>🏛️ Officer Dashboard</h2>
 
-/* Automatically set today's date */
-const dateInput = document.getElementById("date");
-const timeInput = document.getElementById("time");
-const dayInput = document.getElementById("day");
-
-const now = new Date();
-
-const year = now.getFullYear();
-const month = String(now.getMonth()+1).padStart(2,"0");
-const date = String(now.getDate()).padStart(2,"0");
-
-dateInput.value = `${year}-${month}-${date}`;
+    <p class="card-description">
+      Farmer registrations और procurement requests
+      की monitoring।
+    </p>
 
 
-/* Automatically set current time */
+    <div class="stats">
 
-const hours = String(now.getHours()).padStart(2,"0");
-const minutes = String(now.getMinutes()).padStart(2,"0");
+      <div class="stat-card">
+        <div class="stat-icon">👨‍🌾</div>
+        <h3 id="officerCount">0</h3>
+        <p>New Registrations</p>
+      </div>
 
-timeInput.value = `${hours}:${minutes}`;
+      <div class="stat-card">
+        <div class="stat-icon">🎫</div>
+        <h3>386</h3>
+        <p>Today's Tokens</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <h3>82%</h3>
+        <p>Completed</p>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">⏳</div>
+        <h3>18%</h3>
+        <p>Pending</p>
+      </div>
+
+    </div>
 
 
-/* Automatically select current day */
+    <div class="table-wrap">
 
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
+      <table>
 
-dayInput.value = days[now.getDay()];
+        <thead>
+
+          <tr>
+            <th>Token</th>
+            <th>Farmer</th>
+            <th>Village</th>
+            <th>Crop</th>
+            <th>Quantity</th>
+            <th>Centre</th>
+            <th>Status</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="officerTableBody">
+
+          <tr>
+            <td
+              colspan="7"
+              style="text-align:center;">
+              अभी कोई new registration नहीं है।
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <h3>🌾 Kisan Procurement Tracker</h3>
+
+  <p>Smart India Hackathon • SIH26032</p>
+
+  <p>
+    Farmers First • Digital Procurement • Better Monitoring
+  </p>
+
+  <p>Created by Amit Kumar Singh</p>
+
+</footer>
+
+
+<div id="toast"></div>
+
+
+<!--
+====================================================
+PART 2 को इसके बाद paste करना है
+====================================================
+-->
+  <script>
+
+/* ================================
+   KISAN PROCUREMENT TRACKER
+   PART 2 - JAVASCRIPT
+================================ */
+
+
+/* ---------- NAVIGATION ---------- */
+
+function showSection(sectionId){
+
+  document.querySelectorAll(".section").forEach(section=>{
+    section.classList.remove("active");
+  });
+
+  const section = document.getElementById(sectionId);
+
+  if(section){
+    section.classList.add("active");
+  }
+
+  document.querySelectorAll(".nav-link").forEach(link=>{
+    link.classList.remove("active");
+
+    if(link.dataset.section === sectionId){
+      link.classList.add("active");
+    }
+  });
+
+  document.getElementById("mainNav").classList.remove("show");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* ---------- MOBILE MENU ---------- */
+
+function toggleMenu(){
+
+  document
+    .getElementById("mainNav")
+    .classList.toggle("show");
+
+}
+
+
+/* ---------- LANGUAGE BUTTON ---------- */
+
+let hindiMode = false;
+
+function toggleLanguage(){
+
+  hindiMode = !hindiMode;
+
+  const button =
+    document.getElementById("languageBtn");
+
+  if(hindiMode){
+
+    button.textContent = "English";
+
+    showToast(
+      "Hindi mode selected",
+      "success"
+    );
+
+  }else{
+
+    button.textContent = "हिंदी";
+
+    showToast(
+      "English mode selected",
+      "success"
+    );
+
+  }
+
+}
+
+
+/* ---------- TOAST ---------- */
+
+function showToast(message,type="success"){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.style.display = "block";
+
+  if(type === "error"){
+    toast.style.background = "#c62828";
+  }else{
+    toast.style.background = "#087f5b";
+  }
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer =
+    setTimeout(()=>{
+      toast.style.display = "none";
+    },3000);
+
+}
+
+
+/* ---------- SAFE HTML ---------- */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* ---------- TOKEN GENERATOR ---------- */
+
+function generateToken(){
+
+  const year =
+    new Date().getFullYear();
+
+  const random =
+    Math.floor(1000 + Math.random()*9000);
+
+  return "KPT-" + year + "-" + random;
+
+}
+
+
+/* ---------- GET ALL FARMER RECORDS ---------- */
+
+function getFarmers(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem("kptFarmers") || "[]"
+    );
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+/* ---------- SAVE FARMER ---------- */
+
+function saveFarmers(farmers){
+
+  localStorage.setItem(
+    "kptFarmers",
+    JSON.stringify(farmers)
+  );
+
+}
+
+
+/* ---------- DATE FORMAT ---------- */
+
+function formatDate(dateString){
+
+  if(!dateString) return "-";
+
+  const date =
+    new Date(dateString + "T00:00:00");
+
+  return date.toLocaleDateString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"2-digit",
+      year:"numeric"
+    }
+  );
+
+}
+
+
+/* ---------- SET MINIMUM DATE ---------- */
+
+function setMinimumDate(){
+
+  const dateInput =
+    document.getElementById("preferredDate");
+
+  if(!dateInput) return;
+
+  const today =
+    new Date();
+
+  const year =
+    today.getFullYear();
+
+  const month =
+    String(today.getMonth()+1).padStart(2,"0");
+
+  const day =
+    String(today.getDate()).padStart(2,"0");
+
+  dateInput.min =
+    `${year}-${month}-${day}`;
+
+}
+
+setMinimumDate();
+
+
+/* ---------- REGISTRATION FORM ---------- */
+
+document
+  .getElementById("farmerForm")
+  .addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const farmerName =
+      document.getElementById("farmerName")
+      .value.trim();
+
+    const mobile =
+      document.getElementById("mobile")
+      .value.trim();
+
+    const village =
+      document.getElementById("village")
+      .value.trim();
+
+    const district =
+      document.getElementById("district")
+      .value.trim();
+
+    const crop =
+      document.getElementById("crop")
+      .value;
+
+    const quantity =
+      document.getElementById("quantity")
+      .value;
+
+    const centre =
+      document.getElementById("centre")
+      .value;
+
+    const preferredDate =
+      document.getElementById("preferredDate")
+      .value;
+
+    const additionalInfo =
+      document.getElementById("additionalInfo")
+      .value.trim();
+
+
+    /* MOBILE VALIDATION */
+
+    if(!/^[6-9][0-9]{9}$/.test(mobile)){
+
+      showToast(
+        "Please enter a valid 10 digit mobile number.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* QUANTITY VALIDATION */
+
+    if(Number(quantity) <= 0){
+
+      showToast(
+        "Quantity must be greater than 0.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* TOKEN */
+
+    let token =
+      generateToken();
+
+    const farmers =
+      getFarmers();
+
+
+    /* TOKEN DUPLICATE CHECK */
+
+    while(
+      farmers.some(
+        farmer => farmer.token === token
+      )
+    ){
+
+      token =
+        generateToken();
+
+    }
+
+
+    /* FARMER OBJECT */
+
+    const farmer = {
+
+      token: token,
+
+      farmerName: farmerName,
+
+      mobile: mobile,
+
+      village: village,
+
+      district: district,
+
+      crop: crop,
+
+      quantity: quantity,
+
+      centre: centre,
+
+      preferredDate: preferredDate,
+
+      additionalInfo: additionalInfo,
+
+      status: "Token Generated",
+
+      createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    /* SAVE */
+
+    farmers.push(farmer);
+
+    saveFarmers(farmers);
+
+
+    /* SHOW TOKEN */
+
+    showTokenResult(farmer);
+
+
+    /* UPDATE DASHBOARD */
+
+    updateDashboard();
+
+
+    /* UPDATE COUNTER */
+
+    updateRegistrationCount();
+
+
+    /* FORM RESET */
+
+    document
+      .getElementById("farmerForm")
+      .reset();
+
+
+    /* SHOW MESSAGE */
+
+    showToast(
+      "Registration successful! Token generated.",
+      "success"
+    );
+
+
+    /*
+      PART 3 में FormSubmit function
+      add किया जाएगा।
+    */
+
+    if(
+      typeof sendToFormSubmit === "function"
+    ){
+
+      sendToFormSubmit(farmer);
+
+    }
+
+});
+
+
+/* ---------- SHOW TOKEN ---------- */
+
+function showTokenResult(farmer){
+
+  const box =
+    document.getElementById("tokenResult");
+
+  box.style.display = "block";
+
+
+  box.innerHTML = `
+
+    <div class="token-card">
+
+      <div class="token-icon">
+        🎫
+      </div>
+
+      <h2>
+        Registration Successful
+      </h2>
+
+      <p>
+        आपका Procurement Token Number:
+      </p>
+
+      <div class="big-token">
+        ${escapeHTML(farmer.token)}
+      </div>
+
+
+      <div class="token-info">
+
+        <p>
+          <strong>Farmer:</strong>
+          ${escapeHTML(farmer.farmerName)}
+        </p>
+
+        <p>
+          <strong>Village:</strong>
+          ${escapeHTML(farmer.village)}
+        </p>
+
+        <p>
+          <strong>District:</strong>
+          ${escapeHTML(farmer.district)}
+        </p>
+
+        <p>
+          <strong>Crop:</strong>
+          ${escapeHTML(farmer.crop)}
+        </p>
+
+        <p>
+          <strong>Quantity:</strong>
+          ${escapeHTML(farmer.quantity)}
+          Quintal
+        </p>
+
+        <p>
+          <strong>Centre:</strong>
+          ${escapeHTML(farmer.centre)}
+        </p>
+
+        <p>
+          <strong>Preferred Date:</strong>
+          ${formatDate(farmer.preferredDate)}
+        </p>
+
+        <p>
+          <strong>Status:</strong>
+          <span class="status-badge">
+            Token Generated
+          </span>
+        </p>
+
+      </div>
+
+
+      <div class="token-actions">
+
+        <button
+          onclick="copyToken('${farmer.token}')">
+          📋 Copy Token
+        </button>
+
+        <button
+          onclick="printToken('${farmer.token}')">
+          🖨️ Print
+        </button>
+
+        <button
+          onclick="goToStatus('${farmer.token}')">
+          🔍 Check Status
+        </button>
+
+      </div>
+
+
+      <p class="small-note">
+        इस Token Number को सुरक्षित रखें।
+        इसी से आप अपना status check कर सकते हैं।
+      </p>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ---------- COPY TOKEN ---------- */
+
+function copyToken(token){
+
+  navigator.clipboard
+    .writeText(token)
+    .then(()=>{
+
+      showToast(
+        "Token copied successfully!",
+        "success"
+      );
+
+    })
+    .catch(()=>{
+
+      showToast(
+        "Token: " + token,
+        "success"
+      );
+
+    });
+
+}
+
+
+/* ---------- GO TO STATUS ---------- */
+
+function goToStatus(token){
+
+  document
+    .getElementById("statusToken")
+    .value = token;
+
+  showSection("status");
+
+  checkStatus();
+
+}
+
+
+/* ---------- CHECK STATUS ---------- */
+
+function checkStatus(){
+
+  const input =
+    document
+      .getElementById("statusToken")
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  const result =
+    document.getElementById("statusResult");
+
+
+  if(!input){
+
+    result.innerHTML = `
+      <div class="error-box">
+        कृपया Token Number enter करें।
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  const farmers =
+    getFarmers();
+
+
+  const farmer =
+    farmers.find(
+      item =>
+        item.token.toUpperCase() === input
+    );
+
+
+  if(!farmer){
+
+    result.innerHTML = `
+      <div class="error-box">
+        ❌ Token नहीं मिला।
+        कृपया सही Token Number enter करें।
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  /* STATUS RESULT */
+
+  result.innerHTML = `
+
+    <div class="status-card">
+
+      <h2>
+        🎫 ${escapeHTML(farmer.token)}
+      </h2>
+
+      <br>
+
+      <p>
+        <strong>Farmer Name:</strong>
+        ${escapeHTML(farmer.farmerName)}
+      </p>
+
+      <p>
+        <strong>Village:</strong>
+        ${escapeHTML(farmer.village)}
+      </p>
+
+      <p>
+        <strong>Crop:</strong>
+        ${escapeHTML(farmer.crop)}
+      </p>
+
+      <p>
+        <strong>Quantity:</strong>
+        ${escapeHTML(farmer.quantity)}
+        Quintal
+      </p>
+
+      <p>
+        <strong>Procurement Centre:</strong>
+        ${escapeHTML(farmer.centre)}
+      </p>
+
+      <p>
+        <strong>Preferred Date:</strong>
+        ${formatDate(farmer.preferredDate)}
+      </p>
+
+      <p>
+        <strong>Current Status:</strong>
+        <span class="status-badge">
+          ${escapeHTML(farmer.status)}
+        </span>
+      </p>
+
+
+      <div class="status-timeline">
+
+        <div class="timeline-item active">
+
+          <span>✓</span>
+
+          <div>
+            <strong>Registration Completed</strong>
+            <small>
+              Farmer registration received
+            </small>
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item active">
+
+          <span>✓</span>
+
+          <div>
+            <strong>Token Generated</strong>
+            <small>
+              Token successfully generated
+            </small>
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span>3</span>
+
+          <div>
+            <strong>Procurement Scheduled</strong>
+            <small>
+              Centre and date assigned
+            </small>
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span>4</span>
+
+          <div>
+            <strong>Procurement</strong>
+            <small>
+              Crop procurement at centre
+            </small>
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span>5</span>
+
+          <div>
+            <strong>Payment</strong>
+            <small>
+              Payment status
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ---------- SCHEDULE SEARCH ---------- */
+
+function filterSchedule(){
+
+  const search =
+    document
+      .getElementById("scheduleSearch")
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  const rows =
+    document.querySelectorAll(
+      "#scheduleTable tbody tr"
+    );
+
+
+  rows.forEach(row=>{
+
+    const text =
+      row.textContent.toLowerCase();
+
+    row.style.display =
+      text.includes(search)
+        ? ""
+        : "none";
+
+  });
+
+}
+
+
+/* ---------- DASHBOARD ---------- */
+
+function updateDashboard(){
+
+  const farmers =
+    getFarmers();
+
+  const body =
+    document.getElementById(
+      "officerTableBody"
+    );
+
+
+  const count =
+    document.getElementById(
+      "officerCount"
+    );
+
+
+  count.textContent =
+    farmers.length;
+
+
+  if(farmers.length === 0){
+
+    body.innerHTML = `
+      <tr>
+        <td colspan="7"
+            style="text-align:center;">
+          अभी कोई registration नहीं है।
+        </td>
+      </tr>
+    `;
+
+    return;
+
+  }
+
+
+  body.innerHTML =
+    farmers
+      .slice()
+      .reverse()
+      .map(farmer=>`
+
+        <tr>
+
+          <td>
+            <strong>
+              ${escapeHTML(farmer.token)}
+            </strong>
+          </td>
+
+          <td>
+            ${escapeHTML(farmer.farmerName)}
+          </td>
+
+          <td>
+            ${escapeHTML(farmer.village)}
+          </td>
+
+          <td>
+            ${escapeHTML(farmer.crop)}
+          </td>
+
+          <td>
+            ${escapeHTML(farmer.quantity)}
+          </td>
+
+          <td>
+            ${escapeHTML(farmer.centre)}
+          </td>
+
+          <td>
+            <span class="status-badge">
+              ${escapeHTML(farmer.status)}
+            </span>
+          </td>
+
+        </tr>
+
+      `)
+      .join("");
+
+}
+
+
+/* ---------- REGISTRATION COUNTER ---------- */
+
+function updateRegistrationCount(){
+
+  const farmers =
+    getFarmers();
+
+  const count =
+    document.getElementById(
+      "registeredCount"
+    );
+
+  const baseCount = 1250;
+
+  count.textContent =
+    baseCount + farmers.length;
+
+}
+
+
+/* ---------- PRINT TOKEN ---------- */
+
+function printToken(token){
+
+  const farmers =
+    getFarmers();
+
+  const farmer =
+    farmers.find(
+      item => item.token === token
+    );
+
+
+  if(!farmer){
+
+    showToast(
+      "Token record नहीं मिला।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const printWindow =
+    window.open(
+      "",
+      "_blank",
+      "width=700,height=700"
+    );
+
+
+  if(!printWindow){
+
+    showToast(
+      "Please allow pop-ups for printing.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  printWindow.document.write(`
+
+    <!DOCTYPE html>
+
+    <html>
+
+    <head>
+
+      <title>
+        Procurement Token
+      </title>
+
+      <style>
+
+        body{
+          font-family:Arial;
+          padding:40px;
+          color:#172033;
+        }
+
+        .receipt{
+          max-width:600px;
+          margin:auto;
+          border:2px solid #087f5b;
+          padding:30px;
+          border-radius:15px;
+        }
+
+        h1{
+          text-align:center;
+          color:#087f5b;
+        }
+
+        .token{
+          text-align:center;
+          font-size:30px;
+          font-weight:bold;
+          padding:15px;
+          margin:20px 0;
+          background:#e8fff5;
+          color:#087f5b;
+        }
+
+        p{
+          border-bottom:1px solid #ddd;
+          padding:9px;
+        }
+
+        .footer{
+          text-align:center;
+          margin-top:25px;
+          font-size:12px;
+        }
+
+      </style>
+
+    </head>
+
+
+    <body>
+
+      <div class="receipt">
+
+        <h1>
+          🌾 Kisan Procurement Tracker
+        </h1>
+
+        <h3 style="text-align:center;">
+          Procurement Token Receipt
+        </h3>
+
+        <div class="token">
+          ${escapeHTML(farmer.token)}
+        </div>
+
+        <p>
+          <strong>Farmer:</strong>
+          ${escapeHTML(farmer.farmerName)}
+        </p>
+
+        <p>
+          <strong>Mobile:</strong>
+          ${escapeHTML(farmer.mobile)}
+        </p>
+
+        <p>
+          <strong>Village:</strong>
+          ${escapeHTML(farmer.village)}
+        </p>
+
+        <p>
+          <strong>District:</strong>
+          ${escapeHTML(farmer.district)}
+        </p>
+
+        <p>
+          <strong>Crop:</strong>
+          ${escapeHTML(farmer.crop)}
+        </p>
+
+        <p>
+          <strong>Quantity:</strong>
+          ${escapeHTML(farmer.quantity)}
+          Quintal
+        </p>
+
+        <p>
+          <strong>Centre:</strong>
+          ${escapeHTML(farmer.centre)}
+        </p>
+
+        <p>
+          <strong>Preferred Date:</strong>
+          ${formatDate(farmer.preferredDate)}
+        </p>
+
+        <p>
+          <strong>Status:</strong>
+          ${escapeHTML(farmer.status)}
+        </p>
+
+        <div class="footer">
+          Created by Amit Kumar Singh
+        </div>
+
+      </div>
+
+    </body>
+
+    </html>
+
+  `);
+
+
+  printWindow.document.close();
+
+  printWindow.focus();
+
+  setTimeout(()=>{
+    printWindow.print();
+  },500);
+
+}
+
+
+/* ---------- INITIAL LOAD ---------- */
+
+updateDashboard();
+
+updateRegistrationCount();
+
+
+/* ---------- ENTER KEY FOR STATUS ---------- */
+
+document
+  .getElementById("statusToken")
+  .addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Enter"){
+
+        checkStatus();
+
+      }
+
+    }
+  );
+
+
+/* ---------- MOBILE NUMBER ONLY ---------- */
+
+document
+  .getElementById("mobile")
+  .addEventListener(
+    "input",
+    function(){
+
+      this.value =
+        this.value
+          .replace(/\D/g,"")
+          .slice(0,10);
+
+    }
+  );
+
+
+console.log(
+  "Kisan Procurement Tracker loaded successfully."
+);
+
+/* =====================================
+   PART 3 - FORMSUBMIT.CO
+   ===================================== */
+
+const FORM_CONFIG = {
+
+  email: "YOUR_EMAIL@gmail.com",
+
+  subject:
+    "New Farmer Procurement Registration",
+
+  next:
+    "https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/thankyou.html"
+
+};
+
+
+/* ---------- SEND DATA TO FORMSUBMIT ---------- */
+
+function sendToFormSubmit(farmer){
+
+  /* Email check */
+
+  if(
+    !FORM_CONFIG.email ||
+    FORM_CONFIG.email.includes("YOUR_EMAIL")
+  ){
+
+    showToast(
+      "FormSubmit के लिए अपना email Part 3 में डालें।",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const form =
+    document.createElement("form");
+
+  form.method = "POST";
+
+  form.action =
+    "https://formsubmit.co/" +
+    encodeURIComponent(FORM_CONFIG.email);
+
+  form.style.display = "none";
+
+
+  /* ---------- FORM FIELD ---------- */
+
+  function addField(name,value){
+
+    const input =
+      document.createElement("input");
+
+    input.type = "hidden";
+
+    input.name = name;
+
+    input.value = value ?? "";
+
+    form.appendChild(input);
+
+  }
+
+
+  addField(
+    "_subject",
+    FORM_CONFIG.subject
+  );
+
+
+  addField(
+    "_template",
+    "table"
+  );
+
+
+  addField(
+    "_captcha",
+    "false"
+  );
+
+
+  addField(
+    "_next",
+    FORM_CONFIG.next
+  );
+
+
+  /* ---------- FARMER DATA ---------- */
+
+  addField(
+    "Token Number",
+    farmer.token
+  );
+
+  addField(
+    "Farmer Name",
+    farmer.farmerName
+  );
+
+  addField(
+    "Mobile Number",
+    farmer.mobile
+  );
+
+  addField(
+    "Village",
+    farmer.village
+  );
+
+  addField(
+    "District",
+    farmer.district
+  );
+
+  addField(
+    "Crop",
+    farmer.crop
+  );
+
+  addField(
+    "Quantity Quintal",
+    farmer.quantity
+  );
+
+  addField(
+    "Procurement Centre",
+    farmer.centre
+  );
+
+  addField(
+    "Preferred Date",
+    formatDate(farmer.preferredDate)
+  );
+
+  addField(
+    "Current Status",
+    farmer.status
+  );
+
+  addField(
+    "Additional Information",
+    farmer.additionalInfo
+  );
+
+  addField(
+    "Registration Time",
+    new Date().toLocaleString("en-IN")
+  );
+
+
+  document.body.appendChild(form);
+
+
+  /*
+    FormSubmit पर data भेजना
+  */
+
+  form.submit();
+
+}
+
+
+/* =====================================
+   PART 3 COMPLETE
+===================================== */
 
 </script>
 
