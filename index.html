@@ -1,174 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Kisan Procurement Tracker | SIH26032</title>
+<meta name="theme-color" content="#0b6b4b">
+<meta name="description"
+content="Bharat LandStack - Public Land Information & GIS Demo">
+
+<title>Bharat LandStack | Public Land Portal</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  background:#f4f7f9;
-  color:#172033;
+  background:#f3f7f5;
+  color:#17251f;
 }
 
+/* HEADER */
+
 header{
-  background:linear-gradient(135deg,#087f5b,#0ca678);
-  color:white;
-  padding:14px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 4px 15px #0002;
+  background:#075b40;
+  color:white;
+  box-shadow:0 3px 18px #0003;
+}
+
+.nav{
+  max-width:1250px;
+  margin:auto;
+  min-height:72px;
+  padding:10px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
+  font-size:21px;
+  font-weight:800;
 }
 
-.logo-icon{
-  font-size:30px;
-}
-
-.logo h1{
-  font-size:20px;
-}
-
-.logo p{
-  font-size:11px;
-  opacity:.9;
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-.nav-link{
-  color:white;
-  text-decoration:none;
-  padding:9px 11px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:13px;
-}
-
-.nav-link:hover,
-.nav-link.active{
-  background:#ffffff25;
-}
-
-.lang-btn,
-.menu-btn{
-  border:0;
-  cursor:pointer;
-}
-
-.lang-btn{
-  background:#ffffff20;
-  color:white;
-  border:1px solid #ffffff55;
-  padding:9px 12px;
-  border-radius:8px;
-}
-
-.menu-btn{
-  display:none;
-  background:none;
-  color:white;
-  font-size:27px;
-}
-
-.container{
-  width:92%;
-  max-width:1200px;
-  margin:auto;
-}
-
-.section{
-  display:none;
-  padding:30px 0;
-}
-
-.section.active{
+.logo small{
   display:block;
+  font-size:11px;
+  opacity:.8;
+  margin-top:3px;
+}
+
+.navlinks{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.navlinks button{
+  border:0;
+  color:white;
+  background:#ffffff18;
+  padding:9px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.navlinks button:hover{
+  background:white;
+  color:#075b40;
+}
+
+/* NOTICE */
+
+.notice{
+  background:#f0b429;
+  color:#201600;
+  padding:9px;
+  overflow:hidden;
+  white-space:nowrap;
+  font-size:14px;
+}
+
+.notice span{
+  display:inline-block;
+  padding-left:100%;
+  animation:scroll 22s linear infinite;
+}
+
+@keyframes scroll{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-100%);
+  }
 }
 
 /* HERO */
 
 .hero{
-  margin-top:20px;
-  padding:48px 25px;
+  max-width:1250px;
+  margin:25px auto;
+  padding:55px 25px;
+  border-radius:28px;
+  background:
+    linear-gradient(135deg,#dff5eb,#ffffff);
   text-align:center;
-  background:linear-gradient(135deg,#e8fff5,#fff);
-  border-radius:20px;
-  box-shadow:0 5px 25px #0000000c;
+  box-shadow:0 7px 25px #073f2b12;
 }
 
 .badge{
   display:inline-block;
-  background:#d9f7eb;
-  color:#087f5b;
+  background:#d2f0e3;
+  color:#075b40;
   padding:7px 13px;
   border-radius:30px;
-  font-size:12px;
   font-weight:bold;
+  font-size:13px;
+  margin-bottom:15px;
 }
 
-.hero h2{
-  color:#075c43;
-  font-size:38px;
-  margin:15px 0 12px;
+.hero h1{
+  font-size:clamp(31px,6vw,57px);
+  color:#075b40;
+  margin-bottom:14px;
 }
 
 .hero p{
-  max-width:720px;
+  max-width:800px;
   margin:auto;
+  color:#56675f;
   line-height:1.7;
-  color:#657181;
+  font-size:17px;
 }
 
 .hero-buttons{
-  margin-top:24px;
   display:flex;
   justify-content:center;
-  gap:10px;
+  gap:12px;
   flex-wrap:wrap;
+  margin-top:25px;
 }
+
+/* BUTTONS */
 
 .btn{
   border:0;
-  padding:12px 18px;
-  border-radius:9px;
+  padding:13px 19px;
+  border-radius:12px;
   cursor:pointer;
   font-weight:bold;
+  font-size:14px;
 }
 
-.btn-primary{
-  background:#087f5b;
+.primary{
+  background:#087a54;
   color:white;
 }
 
-.btn-primary:hover{
-  background:#056347;
+.primary:hover{
+  background:#055e41;
 }
 
-.btn-secondary{
-  background:#e0f7ee;
-  color:#087f5b;
+.light{
+  background:white;
+  color:#087a54;
+  border:1px solid #087a54;
+}
+
+/* CONTAINER */
+
+.container{
+  max-width:1250px;
+  margin:35px auto;
+  padding:0 18px;
+}
+
+.title{
+  text-align:center;
+  margin:40px 0 22px;
+}
+
+.title h2{
+  color:#075b40;
+  font-size:29px;
+}
+
+.title p{
+  margin-top:7px;
+  color:#69766f;
 }
 
 /* STATS */
@@ -177,88 +211,303 @@ nav{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:15px;
-  margin:22px 0;
 }
 
-.stat-card{
+.stat{
   background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 4px 17px #0000000b;
-  border-left:4px solid #087f5b;
+  padding:22px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 5px 20px #153c2a10;
 }
 
 .stat-icon{
-  font-size:24px;
+  font-size:30px;
 }
 
-.stat-card h3{
-  color:#087f5b;
+.stat h3{
+  color:#087a54;
+  margin:7px;
   font-size:27px;
-  margin:7px 0;
 }
 
-.stat-card p{
-  color:#6b7685;
-  font-size:13px;
+.stat p{
+  color:#68766f;
 }
 
-/* CARD */
+/* SEARCH */
 
-.card{
+.search-panel{
   background:white;
-  border-radius:16px;
-  padding:25px;
-  margin-bottom:20px;
-  box-shadow:0 4px 18px #0000000b;
+  padding:24px;
+  border-radius:20px;
+  box-shadow:0 5px 20px #153c2a10;
 }
 
-.card h2{
-  color:#17352c;
-  margin-bottom:8px;
+.search-row{
+  display:flex;
+  gap:10px;
 }
 
-.card-description{
-  color:#6b7685;
-  font-size:14px;
-  margin-bottom:20px;
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccd9d2;
+  border-radius:11px;
+  outline:none;
+  background:#fbfdfc;
 }
 
-/* STEPS */
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#087a54;
+}
 
-.steps{
+/* MAP */
+
+.map-layout{
+  display:grid;
+  grid-template-columns:1.7fr 1fr;
+  gap:18px;
+  margin-top:20px;
+}
+
+.map{
+  min-height:470px;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(90deg,#ffffff33 1px,transparent 1px),
+    linear-gradient(#ffffff33 1px,transparent 1px),
+    #cfe5bd;
+  background-size:42px 42px;
+  border:8px solid white;
+  box-shadow:0 5px 20px #153c2a18;
+}
+
+.road{
+  position:absolute;
+  background:#e8d8b5;
+  height:28px;
+  width:120%;
+  left:-10%;
+  top:48%;
+  transform:rotate(-13deg);
+}
+
+.road2{
+  position:absolute;
+  background:#eee1c7;
+  width:24px;
+  height:120%;
+  left:57%;
+  top:-10%;
+  transform:rotate(18deg);
+}
+
+.water{
+  position:absolute;
+  background:#9ed6e8;
+  width:38%;
+  height:28%;
+  right:-5%;
+  bottom:-5%;
+  border-radius:50% 20% 0 20%;
+}
+
+.parcel{
+  position:absolute;
+  cursor:pointer;
+  border:2px solid #087a54;
+  background:#54a982aa;
+  transition:.2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.parcel:hover{
+  background:#087a54cc;
+  color:white;
+  transform:scale(1.04);
+}
+
+.p1{
+  width:125px;
+  height:90px;
+  left:12%;
+  top:18%;
+}
+
+.p2{
+  width:145px;
+  height:105px;
+  left:38%;
+  top:13%;
+}
+
+.p3{
+  width:120px;
+  height:100px;
+  right:12%;
+  top:27%;
+}
+
+.p4{
+  width:155px;
+  height:95px;
+  left:20%;
+  bottom:14%;
+}
+
+.p5{
+  width:130px;
+  height:110px;
+  right:16%;
+  bottom:13%;
+}
+
+.map-label{
+  position:absolute;
+  left:15px;
+  top:15px;
+  background:white;
+  padding:8px 11px;
+  border-radius:9px;
+  box-shadow:0 3px 10px #0002;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* PARCEL INFO */
+
+.info{
+  background:white;
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 5px 20px #153c2a10;
+}
+
+.info h3{
+  color:#075b40;
+  margin-bottom:15px;
+}
+
+.info-item{
+  padding:12px 0;
+  border-bottom:1px solid #e7eee9;
+}
+
+.info-item span{
+  display:block;
+  color:#758078;
+  font-size:12px;
+  margin-bottom:4px;
+}
+
+.info-item strong{
+  color:#21352b;
+}
+
+.verified{
+  display:inline-block;
+  background:#dff7e9;
+  color:#087a54;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* CARDS */
+
+.cards{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.step{
-  text-align:center;
-  padding:20px;
-  border:1px solid #e1e8e5;
-  border-radius:13px;
+.card{
+  background:white;
+  border-radius:19px;
+  padding:23px;
+  box-shadow:0 5px 20px #153c2a10;
 }
 
-.step-number{
-  width:44px;
-  height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:auto auto 12px;
-  background:#087f5b;
+.card-icon{
+  font-size:35px;
+}
+
+.card h3{
+  color:#075b40;
+  margin:10px 0;
+}
+
+.card p{
+  color:#68766f;
+  line-height:1.65;
+}
+
+/* TABLE */
+
+.table-wrap{
+  overflow:auto;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 5px 20px #153c2a10;
+}
+
+table{
+  width:100%;
+  min-width:720px;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:14px;
+  text-align:left;
+  border-bottom:1px solid #e5ece7;
+}
+
+th{
+  background:#075b40;
   color:white;
-  border-radius:50%;
+}
+
+.tag{
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:11px;
   font-weight:bold;
 }
 
-.step p{
-  color:#6b7685;
-  font-size:13px;
-  line-height:1.5;
+.green{
+  background:#ddf6e7;
+  color:#087a54;
+}
+
+.yellow{
+  background:#fff1c8;
+  color:#906400;
+}
+
+.red{
+  background:#ffe0e0;
+  color:#a10000;
 }
 
 /* FORM */
+
+.form-box{
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 5px 20px #153c2a10;
+}
 
 .form-grid{
   display:grid;
@@ -266,293 +515,127 @@ nav{
   gap:16px;
 }
 
-.form-group{
-  display:flex;
-  flex-direction:column;
+label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
 }
 
-.form-group.full{
+.full{
   grid-column:1/-1;
 }
 
-label{
-  font-size:14px;
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.required{
-  color:#dc2626;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #d5dce3;
-  border-radius:8px;
-  outline:none;
-  font-size:14px;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#087f5b;
-  box-shadow:0 0 0 3px #087f5b15;
-}
-
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-.form-submit{
-  margin-top:20px;
-}
-
-/* TOKEN */
-
-#tokenResult{
+.result{
   display:none;
-  margin-top:25px;
-}
-
-.token-card{
-  border:2px solid #087f5b;
-  background:#effff8;
-  border-radius:16px;
-  padding:25px;
-  text-align:center;
-}
-
-.token-card h2{
-  color:#087f5b;
-}
-
-.big-token{
-  display:inline-block;
-  margin:15px 0;
-  padding:13px 22px;
-  background:#087f5b;
-  color:white;
-  border-radius:9px;
-  font-size:25px;
-  font-weight:bold;
-}
-
-.token-info{
-  max-width:600px;
-  margin:auto;
-  text-align:left;
-}
-
-.token-info p{
-  padding:8px 0;
-  border-bottom:1px solid #dcebe5;
-}
-
-.token-actions{
-  display:flex;
-  justify-content:center;
-  gap:10px;
   margin-top:18px;
-  flex-wrap:wrap;
+  padding:18px;
+  border-radius:14px;
 }
 
-.token-actions button{
-  background:#17352c;
-  color:white;
-  border:0;
-  padding:10px 15px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-/* SEARCH */
-
-.search-box,
-.status-search{
-  display:flex;
-  gap:10px;
-  margin-bottom:20px;
-}
-
-.search-box input,
-.status-search input{
-  flex:1;
-}
-
-/* STATUS */
-
-.status-card{
-  max-width:700px;
-  margin:auto;
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 5px 20px #0002;
-}
-
-.status-card p{
-  padding:9px 0;
-  border-bottom:1px solid #edf0f2;
-}
-
-.status-timeline{
-  margin-top:20px;
-}
-
-.timeline-item{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:13px 0;
-  position:relative;
-}
-
-.timeline-item:not(:last-child)::after{
-  content:"";
-  position:absolute;
-  left:16px;
-  top:45px;
-  height:30px;
-  width:2px;
-  background:#dce3e1;
-}
-
-.timeline-item span{
-  width:33px;
-  height:33px;
-  background:#e7eceb;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2;
-  font-weight:bold;
-}
-
-.timeline-item.active span{
-  background:#087f5b;
-  color:white;
-}
-
-.timeline-item small{
+.success{
   display:block;
-  color:#77828e;
-  margin-top:3px;
+  background:#e0f7e9;
+  border:1px solid #84cda2;
 }
 
-.error-box{
-  max-width:650px;
-  margin:15px auto;
-  padding:15px;
-  border-radius:9px;
-  background:#feecec;
-  color:#b42318;
-  text-align:center;
-}
-
-/* TABLE */
-
-.table-wrap{
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:750px;
-}
-
-th,
-td{
-  padding:12px 9px;
-  border-bottom:1px solid #e7ecef;
-  text-align:left;
-  font-size:13px;
-}
-
-th{
-  background:#eef9f5;
-  color:#075c43;
-}
-
-.status-badge{
-  background:#e1f7ec;
-  color:#087f5b;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:11px;
-  font-weight:bold;
+.error{
+  display:block;
+  background:#ffe4e4;
+  border:1px solid #df8888;
 }
 
 /* FOOTER */
 
 footer{
-  background:#12352c;
+  margin-top:55px;
+  background:#102d22;
   color:white;
+  padding:40px 18px 80px;
   text-align:center;
-  padding:28px 10px;
-  margin-top:25px;
 }
 
 footer p{
-  margin:6px;
-  font-size:13px;
-  opacity:.85;
+  color:#c8d5cf;
+  margin:8px;
 }
 
-/* TOAST */
+/* BOTTOM */
 
-#toast{
+.bottom{
   position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:9999;
-  padding:14px 18px;
-  border-radius:9px;
+  z-index:900;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  background:white;
+  padding:7px;
+  border-radius:30px;
+  box-shadow:0 5px 25px #0004;
+  display:flex;
+  gap:5px;
+}
+
+.bottom button{
+  border:0;
+  background:#087a54;
   color:white;
+  padding:10px 13px;
+  border-radius:22px;
+  cursor:pointer;
   font-weight:bold;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:3000;
   display:none;
-  box-shadow:0 8px 25px #0003;
+  align-items:center;
+  justify-content:center;
+  background:#0008;
+  padding:20px;
+}
+
+.modal-box{
+  background:white;
+  max-width:550px;
+  width:100%;
+  border-radius:20px;
+  padding:25px;
+  position:relative;
+  max-height:90vh;
+  overflow:auto;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:10px;
+  border:0;
+  background:none;
+  font-size:27px;
+  cursor:pointer;
 }
 
 /* MOBILE */
 
 @media(max-width:850px){
 
-  .menu-btn{
-    display:block;
-  }
-
-  nav{
-    display:none;
-    position:absolute;
-    top:67px;
-    left:0;
-    width:100%;
-    background:#087f5b;
+  .nav{
     flex-direction:column;
-    padding:10px;
-  }
-
-  nav.show{
-    display:flex;
-  }
-
-  .nav-link{
-    width:100%;
-    text-align:center;
   }
 
   .stats{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
   }
 
-  .steps{
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .map-layout{
     grid-template-columns:1fr;
   }
 
@@ -560,56 +643,43 @@ footer p{
 
 @media(max-width:600px){
 
-  .container{
-    width:94%;
-  }
-
-  .logo h1{
-    font-size:16px;
-  }
-
-  .logo p{
-    font-size:9px;
-  }
-
-  .hero{
-    padding:32px 17px;
-  }
-
-  .hero h2{
-    font-size:27px;
-  }
-
   .stats{
-    gap:10px;
-  }
-
-  .stat-card{
-    padding:15px;
-  }
-
-  .stat-card h3{
-    font-size:22px;
+    grid-template-columns:1fr 1fr;
   }
 
   .form-grid{
     grid-template-columns:1fr;
   }
 
-  .form-group.full{
+  .full{
     grid-column:auto;
   }
 
-  .search-box,
-  .status-search{
+  .search-row{
     flex-direction:column;
   }
 
-  .big-token{
-    font-size:20px;
+  .hero{
+    margin:15px 10px;
+    padding:40px 15px;
+  }
+
+  .container{
+    padding:0 12px;
+  }
+
+  .bottom{
+    width:95%;
+    justify-content:center;
+  }
+
+  .bottom button{
+    font-size:11px;
+    padding:9px;
   }
 
 }
+
 </style>
 </head>
 
@@ -617,1953 +687,2311 @@ footer p{
 
 <header>
 
-  <div class="logo">
+<div class="nav">
 
-    <div class="logo-icon">🌾</div>
+<div class="logo">
+  🗺️ Bharat LandStack
+  <small>Digital Public Land Governance</small>
+</div>
 
-    <div>
-      <h1>Kisan Procurement Tracker</h1>
-      <p>Smart India Hackathon • SIH26032</p>
-    </div>
+<div class="navlinks">
 
-  </div>
+<button onclick="go('home')">Home</button>
 
-  <button
-    class="menu-btn"
-    onclick="toggleMenu()">
-    ☰
-  </button>
+<button onclick="go('mapSection')">GIS Map</button>
 
-  <nav id="mainNav">
+<button onclick="go('records')">Records</button>
 
-    <a
-      class="nav-link active"
-      data-section="home"
-      onclick="showSection('home')">
-      🏠 Home
-    </a>
+<button onclick="go('services')">Services</button>
 
-    <a
-      class="nav-link"
-      data-section="registration"
-      onclick="showSection('registration')">
-      👨‍🌾 Farmer Registration
-    </a>
+<button onclick="go('help')">Help</button>
 
-    <a
-      class="nav-link"
-      data-section="schedule"
-      onclick="showSection('schedule')">
-      📅 Procurement Schedule
-    </a>
+<button onclick="toggleLanguage()">
+  हिंदी / English
+</button>
 
-    <a
-      class="nav-link"
-      data-section="status"
-      onclick="showSection('status')">
-      🔍 My Status
-    </a>
+</div>
 
-    <a
-      class="nav-link"
-      data-section="officer"
-      onclick="showSection('officer')">
-      🏛️ Officer Dashboard
-    </a>
-
-    <button
-      class="lang-btn"
-      id="languageBtn"
-      onclick="toggleLanguage()">
-      हिंदी
-    </button>
-
-  </nav>
+</div>
 
 </header>
 
 
-<main class="container">
+<div class="notice">
 
-<!-- HOME -->
+<span id="notice">
+📢 Public Demo: यह portal sample/demo land data पर आधारित है। किसी भी वास्तविक भूमि लेन-देन से पहले आधिकारिक रिकॉर्ड की पुष्टि करें।
+</span>
 
-<section
-  id="home"
-  class="section active">
-
-  <div class="hero">
-
-    <span class="badge">
-      SIH26032 • Digital Procurement Solution
-    </span>
-
-    <h2>
-      Kisan Procurement Tracker
-    </h2>
-
-    <p>
-      किसानों को procurement schedule, token और
-      procurement status की जानकारी एक ही digital
-      platform पर उपलब्ध कराने का प्रयास।
-    </p>
-
-    <div class="hero-buttons">
-
-      <button
-        class="btn btn-primary"
-        onclick="showSection('registration')">
-        👨‍🌾 Register as Farmer
-      </button>
-
-      <button
-        class="btn btn-secondary"
-        onclick="showSection('status')">
-        🔍 Check My Status
-      </button>
-
-    </div>
-
-  </div>
+</div>
 
 
-  <div class="stats">
+<main id="home">
 
-    <div class="stat-card">
-      <div class="stat-icon">👨‍🌾</div>
-      <h3 id="registeredCount">1250</h3>
-      <p>Registered Farmers</p>
-    </div>
+<section class="hero">
 
-    <div class="stat-card">
-      <div class="stat-icon">🏢</div>
-      <h3>42</h3>
-      <p>Procurement Centres</p>
-    </div>
+<div class="badge">
+  SIH 2026 • Land Governance Prototype
+</div>
 
-    <div class="stat-card">
-      <div class="stat-icon">🎫</div>
-      <h3 id="todayTokenCount">386</h3>
-      <p>Today's Tokens</p>
-    </div>
+<h1 id="heroTitle">
+  भारत LandStack
+</h1>
 
-    <div class="stat-card">
-      <div class="stat-icon">📊</div>
-      <h3>82%</h3>
-      <p>Procurement Completed</p>
-    </div>
+<p id="heroText">
 
-  </div>
+एक citizen-friendly digital platform जहाँ parcel,
+land record और public land services को एक ही
+स्थान पर समझने और explore करने का prototype दिया गया है।
 
+</p>
 
-  <div class="card">
+<div class="hero-buttons">
 
-    <h2>How It Works</h2>
+<button class="btn primary"
+onclick="go('mapSection')">
+  🗺️ GIS Map खोलें
+</button>
 
-    <p class="card-description">
-      किसान के लिए आसान तीन-step process
-    </p>
+<button class="btn light"
+onclick="go('services')">
+  📋 Public Services
+</button>
 
-    <div class="steps">
-
-      <div class="step">
-
-        <div class="step-number">1</div>
-
-        <h3>Register</h3>
-
-        <p>
-          अपनी जानकारी और crop details भरकर
-          registration करें।
-        </p>
-
-      </div>
-
-      <div class="step">
-
-        <div class="step-number">2</div>
-
-        <h3>Get Token</h3>
-
-        <p>
-          Registration के बाद unique procurement
-          token प्राप्त करें।
-        </p>
-
-      </div>
-
-      <div class="step">
-
-        <div class="step-number">3</div>
-
-        <h3>Track Status</h3>
-
-        <p>
-          Token Number से अपनी procurement
-          status check करें।
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- REGISTRATION -->
+<div class="container">
 
-<section
-  id="registration"
-  class="section">
+<div class="stats">
 
-  <div class="card">
+<div class="stat">
+<div class="stat-icon">🗺️</div>
+<h3>5</h3>
+<p>Demo Parcels</p>
+</div>
 
-    <h2>👨‍🌾 Farmer Registration</h2>
+<div class="stat">
+<div class="stat-icon">🔗</div>
+<h3>6</h3>
+<p>Data Layers</p>
+</div>
 
-    <p class="card-description">
-      Procurement के लिए अपनी जानकारी भरें।
-    </p>
+<div class="stat">
+<div class="stat-icon">📄</div>
+<h3>24+</h3>
+<p>Sample Records</p>
+</div>
 
+<div class="stat">
+<div class="stat-icon">👥</div>
+<h3>3</h3>
+<p>User Services</p>
+</div>
 
-    <form id="farmerForm">
+</div>
 
-      <div class="form-grid">
 
-        <div class="form-group">
+<section id="mapSection">
 
-          <label>
-            Farmer Name <span class="required">*</span>
-          </label>
+<div class="title">
 
-          <input
-            type="text"
-            id="farmerName"
-            placeholder="Enter farmer name"
-            required>
+<h2>🗺️ Public GIS Parcel Explorer</h2>
 
-        </div>
+<p>
+किसी parcel पर click करके उसका sample information देखें
+</p>
 
+</div>
 
-        <div class="form-group">
 
-          <label>
-            Mobile Number <span class="required">*</span>
-          </label>
+<div class="search-panel">
 
-          <input
-            type="tel"
-            id="mobile"
-            maxlength="10"
-            inputmode="numeric"
-            placeholder="10 digit mobile number"
-            required>
+<div class="search-row">
 
-        </div>
+<input
+id="parcelSearch"
+placeholder="ULPIN / Owner / Village खोजें..."
+>
 
+<button
+class="btn primary"
+onclick="searchParcel()">
+🔎 Search
+</button>
 
-        <div class="form-group">
+</div>
 
-          <label>
-            Village <span class="required">*</span>
-          </label>
+</div>
 
-          <input
-            type="text"
-            id="village"
-            placeholder="Enter village"
-            required>
 
-        </div>
+<div class="map-layout">
 
 
-        <div class="form-group">
+<div class="map">
 
-          <label>
-            District <span class="required">*</span>
-          </label>
+<div class="map-label">
+📍 Demo Village • GIS View
+</div>
 
-          <input
-            type="text"
-            id="district"
-            placeholder="Enter district"
-            required>
+<div class="road"></div>
+<div class="road2"></div>
+<div class="water"></div>
 
-        </div>
 
+<div
+class="parcel p1"
+onclick="selectParcel('ULPIN-UP-001')">
+P-001
+</div>
 
-        <div class="form-group">
 
-          <label>
-            Crop <span class="required">*</span>
-          </label>
+<div
+class="parcel p2"
+onclick="selectParcel('ULPIN-UP-002')">
+P-002
+</div>
 
-          <select id="crop" required>
 
-            <option value="">
-              Select Crop
-            </option>
+<div
+class="parcel p3"
+onclick="selectParcel('ULPIN-UP-003')">
+P-003
+</div>
 
-            <option value="Wheat">
-              Wheat
-            </option>
 
-            <option value="Paddy">
-              Paddy
-            </option>
+<div
+class="parcel p4"
+onclick="selectParcel('ULPIN-UP-004')">
+P-004
+</div>
 
-            <option value="Maize">
-              Maize
-            </option>
 
-            <option value="Mustard">
-              Mustard
-            </option>
+<div
+class="parcel p5"
+onclick="selectParcel('ULPIN-UP-005')">
+P-005
+</div>
 
-            <option value="Other">
-              Other
-            </option>
+</div>
 
-          </select>
 
-        </div>
+<div class="info" id="parcelInfo">
 
+<h3>
+📌 Parcel Information
+</h3>
 
-        <div class="form-group">
+<div class="info-item">
+<span>ULPIN</span>
+<strong id="infoUlpIn">
+किसी parcel को चुनें
+</strong>
+</div>
 
-          <label>
-            Quantity (Quintal) <span class="required">*</span>
-          </label>
+<div class="info-item">
+<span>Owner</span>
+<strong id="infoOwner">—</strong>
+</div>
 
-          <input
-            type="number"
-            id="quantity"
-            min="1"
-            step="0.01"
-            placeholder="Example: 25"
-            required>
+<div class="info-item">
+<span>Village</span>
+<strong id="infoVillage">—</strong>
+</div>
 
-        </div>
+<div class="info-item">
+<span>Land Use</span>
+<strong id="infoUse">—</strong>
+</div>
 
+<div class="info-item">
+<span>Area</span>
+<strong id="infoArea">—</strong>
+</div>
 
-        <div class="form-group">
+<div class="info-item">
+<span>Record Status</span>
+<strong id="infoStatus">—</strong>
+</div>
 
-          <label>
-            Procurement Centre <span class="required">*</span>
-          </label>
+<br>
 
-          <select id="centre" required>
+<button
+class="btn primary"
+onclick="openFullRecord()">
+📄 Full Record
+</button>
 
-            <option value="">
-              Select Centre
-            </option>
+</div>
 
-            <option value="Bansdih Procurement Centre">
-              Bansdih Procurement Centre
-            </option>
+</div>
 
-            <option value="Ballia Procurement Centre">
-              Ballia Procurement Centre
-            </option>
+</section>
+<!-- =========================
+     PART 2/3
+========================= -->
 
-            <option value="Jaunpur Procurement Centre">
-              Jaunpur Procurement Centre
-            </option>
 
-            <option value="Azamgarh Procurement Centre">
-              Azamgarh Procurement Centre
-            </option>
+<section id="records">
 
-            <option value="Ghazipur Procurement Centre">
-              Ghazipur Procurement Centre
-            </option>
+<div class="title">
 
-          </select>
+<h2>📄 Public Land Records</h2>
 
-        </div>
+<p>
+Sample land records को ULPIN, owner या village के आधार पर खोजें
+</p>
 
+</div>
 
-        <div class="form-group">
 
-          <label>
-            Preferred Date <span class="required">*</span>
-          </label>
+<div class="search-panel">
 
-          <input
-            type="date"
-            id="preferredDate"
-            required>
+<div class="search-row">
 
-        </div>
+<input
+id="recordSearch"
+type="text"
+placeholder="ULPIN / Owner / Village..."
+>
 
+<button
+class="btn primary"
+onclick="searchRecords()">
+🔎 Search Record
+</button>
 
-        <div class="form-group full">
+</div>
 
-          <label>
-            Additional Information
-          </label>
+</div>
 
-          <textarea
-            id="additionalInfo"
-            placeholder="Any additional information..."></textarea>
 
-        </div>
+<br>
 
-      </div>
 
+<div class="table-wrap">
 
-      <div class="form-submit">
+<table>
+
+<thead>
+
+<tr>
+
+<th>ULPIN</th>
+
+<th>Owner</th>
+
+<th>Village</th>
+
+<th>Area</th>
+
+<th>Land Use</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="recordTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<!-- PUBLIC SERVICES -->
+
+<section id="services">
+
+<div class="title">
+
+<h2>🏛️ Public Land Services</h2>
+
+<p>
+Citizens के लिए आसान और transparent digital services
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="card-icon">
+🔎
+</div>
+
+<h3>
+Land Record Search
+</h3>
+
+<p>
+ULPIN, village या owner के आधार पर उपलब्ध
+sample land information खोजें।
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="go('records')">
+
+Search Record
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+🗺️
+</div>
+
+<h3>
+GIS Parcel Map
+</h3>
+
+<p>
+Map पर available demo parcels को select करके
+उनकी basic information देखें।
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="go('mapSection')">
+
+Open GIS Map
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+⚠️
+</div>
+
+<h3>
+Boundary Issue Report
+</h3>
+
+<p>
+Land boundary या public record से संबंधित
+समस्या के लिए demo grievance submit करें।
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="go('help')">
+
+Report Issue
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+📊
+</div>
+
+<h3>
+Village Dashboard
+</h3>
+
+<p>
+किसी village में parcels, land-use categories
+और records का sample overview देखें।
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="showVillageStats()">
+
+View Dashboard
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+📑
+</div>
+
+<h3>
+Record Verification
+
+</h3>
+
+<p>
+किसी record की basic demo verification स्थिति
+और data source indicator देखें।
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="showVerification()">
+
+Verify Record
+
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+📢
+</div>
+
+<h3>
+Public Notices
+
+</h3>
+
+<p>
+Land governance, survey और public services से
+संबंधित महत्वपूर्ण notices देखें।
+</p>
+
+<br>
+
+<button
+class="btn primary"
+onclick="showNotices()">
+
+View Notices
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- VILLAGE DASHBOARD -->
+
+<section id="dashboard">
+
+<div class="title">
+
+<h2>📊 Village Land Dashboard</h2>
+
+<p>
+Demo village का sample data overview
+</p>
+
+</div>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🏠
+</div>
+
+<h3>
+248
+</h3>
+
+<p>
+Total Parcels
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🌾
+</div>
+
+<h3>
+142
+</h3>
+
+<p>
+Agricultural
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🏘️
+</div>
+
+<h3>
+71
+</h3>
+
+<p>
+Residential
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">
+🏛️
+</div>
+
+<h3>
+35
+</h3>
+
+<p>
+Public / Other
+</p>
+
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+🌾 Agricultural Land
+</h3>
+
+<p>
+Approximately 57% sample parcels agricultural
+land category में हैं।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🏘️ Residential Land
+</h3>
+
+<p>
+Residential category में homes और built-up
+sample parcels शामिल हैं।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🏛️ Public Land
+</h3>
+
+<p>
+School, road, community और अन्य public-use
+categories का sample data।
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- GRIEVANCE -->
+
+<section id="help">
+
+<div class="title">
+
+<h2>⚠️ Public Grievance</h2>
+
+<p>
+Land record या boundary issue की सूचना दें
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+
+<div class="form-grid">
+
+
+<div>
+
+<label>
+नाम *
+</label>
+
+<input
+id="gName"
+type="text"
+placeholder="अपना नाम">
+
+</div>
+
+
+<div>
+
+<label>
+मोबाइल नंबर *
+</label>
+
+<input
+id="gMobile"
+type="tel"
+maxlength="10"
+placeholder="10 digit mobile">
+
+</div>
+
+
+<div>
+
+<label>
+जिला
+</label>
+
+<select id="gDistrict">
+
+<option value="">
+जिला चुनें
+</option>
+
+<option>
+Ballia
+</option>
+
+<option>
+Jaunpur
+</option>
+
+<option>
+Varanasi
+</option>
+
+<option>
+Lucknow
+</option>
+
+<option>
+Azamgarh
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+Village / Area
+</label>
+
+<input
+id="gVillage"
+type="text"
+placeholder="गाँव / क्षेत्र">
+
+</div>
+
+
+<div>
+
+<label>
+Issue Type
+</label>
+
+<select id="gType">
+
+<option>
+Boundary Issue
+</option>
+
+<option>
+Record Information
+</option>
+
+<option>
+Map Issue
+</option>
+
+<option>
+Ownership Information
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>
+ULPIN / Plot No.
+</label>
+
+<input
+id="gPlot"
+type="text"
+placeholder="यदि उपलब्ध हो">
+
+</div>
+
+
+<div class="full">
+
+<label>
+समस्या का विवरण *
+</label>
+
+<textarea
+id="gMessage"
+rows="5"
+placeholder="अपनी समस्या विस्तार से लिखें...">
+</textarea>
+
+</div>
+
+
+<div class="full">
+
+<label>
+
+<input
+id="gAgree"
+type="checkbox"
+style="width:auto">
+
+मैं पुष्टि करता/करती हूँ कि दी गई जानकारी सही है।
+
+</label>
+
+</div>
+
+
+<div class="full">
+
+<button
+class="btn primary"
+onclick="submitGrievance()">
+
+📤 Grievance Submit करें
+
+</button>
+
+
+<button
+class="btn light"
+onclick="resetGrievance()">
+
+Reset
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<div
+id="grievanceResult"
+class="result">
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section>
+
+<div class="title">
+
+<h2>
+⚙️ यह Portal कैसे काम करता है?
+</h2>
+
+<p>
+Simple 4-step public workflow
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="card-icon">
+1️⃣
+</div>
+
+<h3>
+Search
+</h3>
+
+<p>
+Citizen ULPIN, village या available land
+information से record खोजता है।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+2️⃣
+</div>
+
+<h3>
+Explore
+</h3>
+
+<p>
+GIS map पर parcel की basic information
+देखी जा सकती है।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+3️⃣
+</div>
+
+<h3>
+Verify
+</h3>
+
+<p>
+Record की official source से verification
+करने का option दिया जाता है।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+4️⃣
+</div>
+
+<h3>
+Report
+</h3>
+
+<p>
+Issue होने पर citizen grievance information
+submit कर सकता है।
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- IMPORTANT INFORMATION -->
+
+<section>
+
+<div class="title">
+
+<h2>
+🔐 Important Information
+</h2>
+
+</div>
+
+
+<div class="form-box">
+
+<p style="line-height:1.8;color:#53645b;">
+
+<strong>Privacy:</strong>
+इस prototype में केवल demonstration के लिए
+स्थानीय browser storage का उपयोग किया जाता है।
+
+<br><br>
+
+<strong>Accuracy:</strong>
+यह website वास्तविक सरकारी land database से
+connected नहीं है। यहाँ दिखाया गया land owner,
+ULPIN, area और status data केवल sample/demo data है।
+
+<br><br>
+
+<strong>Verification:</strong>
+किसी जमीन की खरीद, बिक्री, ownership transfer,
+loan या legal decision से पहले संबंधित सरकारी
+land-record authority से वास्तविक record verify करें।
+
+</p>
+
+</div>
+
+</section>
+
+
+</div>
+<script>
+
+/* =========================================
+   BHARAT LANDSTACK
+   PUBLIC GIS LAND GOVERNANCE PROTOTYPE
+========================================= */
+
+
+/* ---------- SAMPLE PARCEL DATA ---------- */
+
+const parcels = [
+
+  {
+    ulpin:"ULPIN-UP-001",
+    owner:"Rajesh Kumar",
+    village:"Bansdih",
+    district:"Ballia",
+    area:"0.85 Hectare",
+    use:"Agricultural",
+    status:"Verified",
+    survey:"Survey-2026-A"
+  },
+
+  {
+    ulpin:"ULPIN-UP-002",
+    owner:"Suresh Yadav",
+    village:"Narayanpur",
+    district:"Ballia",
+    area:"1.20 Hectare",
+    use:"Agricultural",
+    status:"Verified",
+    survey:"Survey-2026-B"
+  },
+
+  {
+    ulpin:"ULPIN-UP-003",
+    owner:"Public Authority",
+    village:"Bansdih",
+    district:"Ballia",
+    area:"0.42 Hectare",
+    use:"Public Land",
+    status:"Verified",
+    survey:"Survey-2026-C"
+  },
+
+  {
+    ulpin:"ULPIN-UP-004",
+    owner:"Anita Devi",
+    village:"Bansdih",
+    district:"Ballia",
+    area:"0.63 Hectare",
+    use:"Residential",
+    status:"Pending",
+    survey:"Survey-2026-D"
+  },
+
+  {
+    ulpin:"ULPIN-UP-005",
+    owner:"Mohan Singh",
+    village:"Narayanpur",
+    district:"Ballia",
+    area:"1.05 Hectare",
+    use:"Agricultural",
+    status:"Verified",
+    survey:"Survey-2026-E"
+  }
+
+];
+
+
+/* ---------- RECORD TABLE ---------- */
+
+function renderRecords(data = parcels){
+
+  const table =
+    document.getElementById("recordTable");
+
+  if(!table) return;
+
+  table.innerHTML = "";
+
+  data.forEach(item => {
+
+    let statusClass = "green";
+
+    if(item.status === "Pending"){
+      statusClass = "yellow";
+    }
+
+    if(item.status === "Disputed"){
+      statusClass = "red";
+    }
+
+    const row =
+      document.createElement("tr");
+
+    row.innerHTML = `
+
+      <td>
+        <strong>${item.ulpin}</strong>
+      </td>
+
+      <td>${item.owner}</td>
+
+      <td>
+        ${item.village}, ${item.district}
+      </td>
+
+      <td>${item.area}</td>
+
+      <td>${item.use}</td>
+
+      <td>
+        <span class="tag ${statusClass}">
+          ${item.status}
+        </span>
+      </td>
+
+      <td>
 
         <button
-          type="submit"
-          class="btn btn-primary">
-          🎫 Generate Procurement Token
+          class="btn primary"
+          style="padding:8px 10px"
+          onclick="selectParcel('${item.ulpin}')">
+
+          View
+
         </button>
 
-      </div>
+      </td>
 
-    </form>
+    `;
 
+    table.appendChild(row);
 
-    <div id="tokenResult"></div>
-
-  </div>
-
-</section>
-
-
-<!-- SCHEDULE -->
-
-<section
-  id="schedule"
-  class="section">
-
-  <div class="card">
-
-    <h2>📅 Procurement Schedule</h2>
-
-    <p class="card-description">
-      अपने procurement centre का schedule देखें।
-    </p>
-
-
-    <div class="search-box">
-
-      <input
-        type="text"
-        id="scheduleSearch"
-        oninput="filterSchedule()"
-        placeholder="Search centre, district or date...">
-
-    </div>
-
-
-    <div class="table-wrap">
-
-      <table id="scheduleTable">
-
-        <thead>
-
-          <tr>
-            <th>Centre</th>
-            <th>District</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Available Tokens</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>Bansdih Procurement Centre</td>
-            <td>Ballia</td>
-            <td>15-09-2026</td>
-            <td>09:00 AM - 05:00 PM</td>
-            <td>120</td>
-          </tr>
-
-          <tr>
-            <td>Ballia Procurement Centre</td>
-            <td>Ballia</td>
-            <td>16-09-2026</td>
-            <td>09:00 AM - 05:00 PM</td>
-            <td>95</td>
-          </tr>
-
-          <tr>
-            <td>Jaunpur Procurement Centre</td>
-            <td>Jaunpur</td>
-            <td>17-09-2026</td>
-            <td>09:00 AM - 05:00 PM</td>
-            <td>80</td>
-          </tr>
-
-          <tr>
-            <td>Azamgarh Procurement Centre</td>
-            <td>Azamgarh</td>
-            <td>18-09-2026</td>
-            <td>09:00 AM - 05:00 PM</td>
-            <td>70</td>
-          </tr>
-
-          <tr>
-            <td>Ghazipur Procurement Centre</td>
-            <td>Ghazipur</td>
-            <td>19-09-2026</td>
-            <td>09:00 AM - 05:00 PM</td>
-            <td>60</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- MY STATUS -->
-
-<section
-  id="status"
-  class="section">
-
-  <div class="card">
-
-    <h2 style="text-align:center;">
-      🔍 My Procurement Status
-    </h2>
-
-    <p
-      class="card-description"
-      style="text-align:center;">
-      अपना Token Number डालकर registration status देखें।
-    </p>
-
-
-    <div class="status-search">
-
-      <input
-        type="text"
-        id="statusToken"
-        placeholder="Example: KPT-2026-4582">
-
-      <button
-        class="btn btn-primary"
-        onclick="checkStatus()">
-        Check Status
-      </button>
-
-    </div>
-
-
-    <div id="statusResult"></div>
-
-  </div>
-
-</section>
-
-
-<!-- OFFICER DASHBOARD -->
-
-<section
-  id="officer"
-  class="section">
-
-  <div class="card">
-
-    <h2>🏛️ Officer Dashboard</h2>
-
-    <p class="card-description">
-      Farmer registrations और procurement requests
-      की monitoring।
-    </p>
-
-
-    <div class="stats">
-
-      <div class="stat-card">
-        <div class="stat-icon">👨‍🌾</div>
-        <h3 id="officerCount">0</h3>
-        <p>New Registrations</p>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">🎫</div>
-        <h3>386</h3>
-        <p>Today's Tokens</p>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">📦</div>
-        <h3>82%</h3>
-        <p>Completed</p>
-      </div>
-
-      <div class="stat-card">
-        <div class="stat-icon">⏳</div>
-        <h3>18%</h3>
-        <p>Pending</p>
-      </div>
-
-    </div>
-
-
-    <div class="table-wrap">
-
-      <table>
-
-        <thead>
-
-          <tr>
-            <th>Token</th>
-            <th>Farmer</th>
-            <th>Village</th>
-            <th>Crop</th>
-            <th>Quantity</th>
-            <th>Centre</th>
-            <th>Status</th>
-          </tr>
-
-        </thead>
-
-        <tbody id="officerTableBody">
-
-          <tr>
-            <td
-              colspan="7"
-              style="text-align:center;">
-              अभी कोई new registration नहीं है।
-            </td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-  <h3>🌾 Kisan Procurement Tracker</h3>
-
-  <p>Smart India Hackathon • SIH26032</p>
-
-  <p>
-    Farmers First • Digital Procurement • Better Monitoring
-  </p>
-
-  <p>Created by Amit Kumar Singh Nandani Singh Rajput jee</p>
-
-</footer>
-
-
-<div id="toast"></div>
-
-
-<!--
-====================================================
-PART 2 को इसके बाद paste करना है
-====================================================
--->
-  <script>
-
-/* ================================
-   KISAN PROCUREMENT TRACKER
-   PART 2 - JAVASCRIPT
-================================ */
-
-
-/* ---------- NAVIGATION ---------- */
-
-function showSection(sectionId){
-
-  document.querySelectorAll(".section").forEach(section=>{
-    section.classList.remove("active");
   });
 
-  const section = document.getElementById(sectionId);
+}
 
-  if(section){
-    section.classList.add("active");
+
+/* ---------- RECORD SEARCH ---------- */
+
+function searchRecords(){
+
+  const input =
+    document.getElementById("recordSearch");
+
+  if(!input) return;
+
+  const query =
+    input.value
+      .trim()
+      .toLowerCase();
+
+
+  if(!query){
+
+    renderRecords();
+
+    return;
+
   }
 
-  document.querySelectorAll(".nav-link").forEach(link=>{
-    link.classList.remove("active");
 
-    if(link.dataset.section === sectionId){
-      link.classList.add("active");
-    }
-  });
+  const results =
+    parcels.filter(item => {
 
-  document.getElementById("mainNav").classList.remove("show");
+      const allData = (
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+        item.ulpin + " " +
+        item.owner + " " +
+        item.village + " " +
+        item.district + " " +
+        item.area + " " +
+        item.use + " " +
+        item.status
+
+      ).toLowerCase();
+
+      return allData.includes(query);
+
+    });
+
+
+  renderRecords(results);
+
+
+  if(results.length === 0){
+
+    document.getElementById("recordTable")
+      .innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="7"
+            style="text-align:center;padding:30px">
+
+            ❌ कोई record नहीं मिला।
+
+          </td>
+
+        </tr>
+
+      `;
+
+  }
+
 }
 
 
-/* ---------- MOBILE MENU ---------- */
+/* ---------- SELECT PARCEL ---------- */
 
-function toggleMenu(){
+function selectParcel(ulpin){
 
-  document
-    .getElementById("mainNav")
-    .classList.toggle("show");
-
-}
-
-
-/* ---------- LANGUAGE BUTTON ---------- */
-
-let hindiMode = false;
-
-function toggleLanguage(){
-
-  hindiMode = !hindiMode;
-
-  const button =
-    document.getElementById("languageBtn");
-
-  if(hindiMode){
-
-    button.textContent = "English";
-
-    showToast(
-      "Hindi mode selected",
-      "success"
+  const parcel =
+    parcels.find(
+      item => item.ulpin === ulpin
     );
 
-  }else{
 
-    button.textContent = "हिंदी";
+  if(!parcel){
 
-    showToast(
-      "English mode selected",
-      "success"
-    );
+    alert("Parcel record नहीं मिला।");
+
+    return;
 
   }
 
-}
 
+  document.getElementById("infoUlpIn")
+    .textContent = parcel.ulpin;
 
-/* ---------- TOAST ---------- */
+  document.getElementById("infoOwner")
+    .textContent = parcel.owner;
 
-function showToast(message,type="success"){
+  document.getElementById("infoVillage")
+    .textContent =
+      parcel.village + ", " + parcel.district;
 
-  const toast =
-    document.getElementById("toast");
+  document.getElementById("infoUse")
+    .textContent = parcel.use;
 
-  toast.textContent = message;
+  document.getElementById("infoArea")
+    .textContent = parcel.area;
 
-  toast.style.display = "block";
+  document.getElementById("infoStatus")
+    .innerHTML = `
 
-  if(type === "error"){
-    toast.style.background = "#c62828";
-  }else{
-    toast.style.background = "#087f5b";
-  }
+      <span class="verified">
+        ${parcel.status}
+      </span>
 
-  clearTimeout(window.toastTimer);
+    `;
 
-  window.toastTimer =
-    setTimeout(()=>{
-      toast.style.display = "none";
-    },3000);
-
-}
-
-
-/* ---------- SAFE HTML ---------- */
-
-function escapeHTML(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* ---------- TOKEN GENERATOR ---------- */
-
-function generateToken(){
-
-  const year =
-    new Date().getFullYear();
-
-  const random =
-    Math.floor(1000 + Math.random()*9000);
-
-  return "KPT-" + year + "-" + random;
-
-}
-
-
-/* ---------- GET ALL FARMER RECORDS ---------- */
-
-function getFarmers(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem("kptFarmers") || "[]"
-    );
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-/* ---------- SAVE FARMER ---------- */
-
-function saveFarmers(farmers){
 
   localStorage.setItem(
-    "kptFarmers",
-    JSON.stringify(farmers)
+    "selectedParcel",
+    JSON.stringify(parcel)
   );
 
-}
 
-
-/* ---------- DATE FORMAT ---------- */
-
-function formatDate(dateString){
-
-  if(!dateString) return "-";
-
-  const date =
-    new Date(dateString + "T00:00:00");
-
-  return date.toLocaleDateString(
-    "en-IN",
-    {
-      day:"2-digit",
-      month:"2-digit",
-      year:"numeric"
-    }
-  );
-
-}
-
-
-/* ---------- SET MINIMUM DATE ---------- */
-
-function setMinimumDate(){
-
-  const dateInput =
-    document.getElementById("preferredDate");
-
-  if(!dateInput) return;
-
-  const today =
-    new Date();
-
-  const year =
-    today.getFullYear();
-
-  const month =
-    String(today.getMonth()+1).padStart(2,"0");
-
-  const day =
-    String(today.getDate()).padStart(2,"0");
-
-  dateInput.min =
-    `${year}-${month}-${day}`;
-
-}
-
-setMinimumDate();
-
-
-/* ---------- REGISTRATION FORM ---------- */
-
-document
-  .getElementById("farmerForm")
-  .addEventListener("submit",function(event){
-
-    event.preventDefault();
-
-
-    const farmerName =
-      document.getElementById("farmerName")
-      .value.trim();
-
-    const mobile =
-      document.getElementById("mobile")
-      .value.trim();
-
-    const village =
-      document.getElementById("village")
-      .value.trim();
-
-    const district =
-      document.getElementById("district")
-      .value.trim();
-
-    const crop =
-      document.getElementById("crop")
-      .value;
-
-    const quantity =
-      document.getElementById("quantity")
-      .value;
-
-    const centre =
-      document.getElementById("centre")
-      .value;
-
-    const preferredDate =
-      document.getElementById("preferredDate")
-      .value;
-
-    const additionalInfo =
-      document.getElementById("additionalInfo")
-      .value.trim();
-
-
-    /* MOBILE VALIDATION */
-
-    if(!/^[6-9][0-9]{9}$/.test(mobile)){
-
-      showToast(
-        "Please enter a valid 10 digit mobile number.",
-        "error"
-      );
-
-      return;
-
-    }
-
-
-    /* QUANTITY VALIDATION */
-
-    if(Number(quantity) <= 0){
-
-      showToast(
-        "Quantity must be greater than 0.",
-        "error"
-      );
-
-      return;
-
-    }
-
-
-    /* TOKEN */
-
-    let token =
-      generateToken();
-
-    const farmers =
-      getFarmers();
-
-
-    /* TOKEN DUPLICATE CHECK */
-
-    while(
-      farmers.some(
-        farmer => farmer.token === token
-      )
-    ){
-
-      token =
-        generateToken();
-
-    }
-
-
-    /* FARMER OBJECT */
-
-    const farmer = {
-
-      token: token,
-
-      farmerName: farmerName,
-
-      mobile: mobile,
-
-      village: village,
-
-      district: district,
-
-      crop: crop,
-
-      quantity: quantity,
-
-      centre: centre,
-
-      preferredDate: preferredDate,
-
-      additionalInfo: additionalInfo,
-
-      status: "Token Generated",
-
-      createdAt:
-        new Date().toISOString()
-
-    };
-
-
-    /* SAVE */
-
-    farmers.push(farmer);
-
-    saveFarmers(farmers);
-
-
-    /* SHOW TOKEN */
-
-    showTokenResult(farmer);
-
-
-    /* UPDATE DASHBOARD */
-
-    updateDashboard();
-
-
-    /* UPDATE COUNTER */
-
-    updateRegistrationCount();
-
-
-    /* FORM RESET */
-
-    document
-      .getElementById("farmerForm")
-      .reset();
-
-
-    /* SHOW MESSAGE */
-
-    showToast(
-      "Registration successful! Token generated.",
-      "success"
-    );
-
-
-    /*
-      PART 3 में FormSubmit function
-      add किया जाएगा।
-    */
-
-    if(
-      typeof sendToFormSubmit === "function"
-    ){
-
-      sendToFormSubmit(farmer);
-
-    }
-
-});
-
-
-/* ---------- SHOW TOKEN ---------- */
-
-function showTokenResult(farmer){
-
-  const box =
-    document.getElementById("tokenResult");
-
-  box.style.display = "block";
-
-
-  box.innerHTML = `
-
-    <div class="token-card">
-
-      <div class="token-icon">
-        🎫
-      </div>
-
-      <h2>
-        Registration Successful
-      </h2>
-
-      <p>
-        आपका Procurement Token Number:
-      </p>
-
-      <div class="big-token">
-        ${escapeHTML(farmer.token)}
-      </div>
-
-
-      <div class="token-info">
-
-        <p>
-          <strong>Farmer:</strong>
-          ${escapeHTML(farmer.farmerName)}
-        </p>
-
-        <p>
-          <strong>Village:</strong>
-          ${escapeHTML(farmer.village)}
-        </p>
-
-        <p>
-          <strong>District:</strong>
-          ${escapeHTML(farmer.district)}
-        </p>
-
-        <p>
-          <strong>Crop:</strong>
-          ${escapeHTML(farmer.crop)}
-        </p>
-
-        <p>
-          <strong>Quantity:</strong>
-          ${escapeHTML(farmer.quantity)}
-          Quintal
-        </p>
-
-        <p>
-          <strong>Centre:</strong>
-          ${escapeHTML(farmer.centre)}
-        </p>
-
-        <p>
-          <strong>Preferred Date:</strong>
-          ${formatDate(farmer.preferredDate)}
-        </p>
-
-        <p>
-          <strong>Status:</strong>
-          <span class="status-badge">
-            Token Generated
-          </span>
-        </p>
-
-      </div>
-
-
-      <div class="token-actions">
-
-        <button
-          onclick="copyToken('${farmer.token}')">
-          📋 Copy Token
-        </button>
-
-        <button
-          onclick="printToken('${farmer.token}')">
-          🖨️ Print
-        </button>
-
-        <button
-          onclick="goToStatus('${farmer.token}')">
-          🔍 Check Status
-        </button>
-
-      </div>
-
-
-      <p class="small-note">
-        इस Token Number को सुरक्षित रखें।
-        इसी से आप अपना status check कर सकते हैं।
-      </p>
-
-    </div>
-
-  `;
-
-}
-
-
-/* ---------- COPY TOKEN ---------- */
-
-function copyToken(token){
-
-  navigator.clipboard
-    .writeText(token)
-    .then(()=>{
-
-      showToast(
-        "Token copied successfully!",
-        "success"
-      );
-
-    })
-    .catch(()=>{
-
-      showToast(
-        "Token: " + token,
-        "success"
-      );
-
+  document.getElementById("mapSection")
+    .scrollIntoView({
+      behavior:"smooth"
     });
 
 }
 
 
-/* ---------- GO TO STATUS ---------- */
+/* ---------- FULL RECORD ---------- */
 
-function goToStatus(token){
+function openFullRecord(){
 
-  document
-    .getElementById("statusToken")
-    .value = token;
-
-  showSection("status");
-
-  checkStatus();
-
-}
+  const saved =
+    localStorage.getItem("selectedParcel");
 
 
-/* ---------- CHECK STATUS ---------- */
+  if(!saved){
 
-function checkStatus(){
+    openModal(`
 
-  const input =
-    document
-      .getElementById("statusToken")
-      .value
-      .trim()
-      .toUpperCase();
-
-
-  const result =
-    document.getElementById("statusResult");
-
-
-  if(!input){
-
-    result.innerHTML = `
-      <div class="error-box">
-        कृपया Token Number enter करें।
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  const farmers =
-    getFarmers();
-
-
-  const farmer =
-    farmers.find(
-      item =>
-        item.token.toUpperCase() === input
-    );
-
-
-  if(!farmer){
-
-    result.innerHTML = `
-      <div class="error-box">
-        ❌ Token नहीं मिला।
-        कृपया सही Token Number enter करें।
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  /* STATUS RESULT */
-
-  result.innerHTML = `
-
-    <div class="status-card">
-
-      <h2>
-        🎫 ${escapeHTML(farmer.token)}
-      </h2>
+      <h2>📄 Parcel Record</h2>
 
       <br>
 
       <p>
-        <strong>Farmer Name:</strong>
-        ${escapeHTML(farmer.farmerName)}
+        पहले GIS map से कोई parcel select करें।
       </p>
 
-      <p>
-        <strong>Village:</strong>
-        ${escapeHTML(farmer.village)}
-      </p>
+    `);
 
-      <p>
-        <strong>Crop:</strong>
-        ${escapeHTML(farmer.crop)}
-      </p>
+    return;
 
-      <p>
-        <strong>Quantity:</strong>
-        ${escapeHTML(farmer.quantity)}
-        Quintal
-      </p>
-
-      <p>
-        <strong>Procurement Centre:</strong>
-        ${escapeHTML(farmer.centre)}
-      </p>
-
-      <p>
-        <strong>Preferred Date:</strong>
-        ${formatDate(farmer.preferredDate)}
-      </p>
-
-      <p>
-        <strong>Current Status:</strong>
-        <span class="status-badge">
-          ${escapeHTML(farmer.status)}
-        </span>
-      </p>
+  }
 
 
-      <div class="status-timeline">
-
-        <div class="timeline-item active">
-
-          <span>✓</span>
-
-          <div>
-            <strong>Registration Completed</strong>
-            <small>
-              Farmer registration received
-            </small>
-          </div>
-
-        </div>
+  const parcel =
+    JSON.parse(saved);
 
 
-        <div class="timeline-item active">
+  openModal(`
 
-          <span>✓</span>
+    <h2>📄 Land Record Details</h2>
 
-          <div>
-            <strong>Token Generated</strong>
-            <small>
-              Token successfully generated
-            </small>
-          </div>
+    <br>
 
-        </div>
+    <div class="info-item">
 
+      <span>ULPIN</span>
 
-        <div class="timeline-item">
-
-          <span>3</span>
-
-          <div>
-            <strong>Procurement Scheduled</strong>
-            <small>
-              Centre and date assigned
-            </small>
-          </div>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <span>4</span>
-
-          <div>
-            <strong>Procurement</strong>
-            <small>
-              Crop procurement at centre
-            </small>
-          </div>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <span>5</span>
-
-          <div>
-            <strong>Payment</strong>
-            <small>
-              Payment status
-            </small>
-          </div>
-
-        </div>
-
-      </div>
+      <strong>
+        ${parcel.ulpin}
+      </strong>
 
     </div>
+
+
+    <div class="info-item">
+
+      <span>Owner / Rights Holder</span>
+
+      <strong>
+        ${parcel.owner}
+      </strong>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <span>Village</span>
+
+      <strong>
+        ${parcel.village}
+      </strong>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <span>District</span>
+
+      <strong>
+        ${parcel.district}
+      </strong>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <span>Area</span>
+
+      <strong>
+        ${parcel.area}
+      </strong>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <span>Land Use</span>
+
+      <strong>
+        ${parcel.use}
+      </strong>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <span>Record Status</span>
+
+      <strong>
+        ${parcel.status}
+      </strong>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <span>Survey Reference</span>
+
+      <strong>
+        ${parcel.survey}
+      </strong>
+
+    </div>
+
+
+    <br>
+
+    <p style="
+      color:#68766f;
+      line-height:1.6;
+      font-size:13px;
+    ">
+
+      ⚠️ यह prototype record है।
+      वास्तविक ownership या legal verification
+      के लिए official land-record authority से
+      पुष्टि आवश्यक है।
+
+    </p>
+
+  `);
+
+}
+
+
+/* ---------- PARCEL SEARCH ---------- */
+
+function searchParcel(){
+
+  const input =
+    document.getElementById("parcelSearch");
+
+
+  if(!input) return;
+
+
+  const query =
+    input.value
+      .trim()
+      .toLowerCase();
+
+
+  if(!query){
+
+    alert(
+      "कृपया ULPIN, owner या village लिखें।"
+    );
+
+    return;
+
+  }
+
+
+  const found =
+    parcels.find(item => {
+
+      const text = (
+
+        item.ulpin + " " +
+        item.owner + " " +
+        item.village + " " +
+        item.district
+
+      ).toLowerCase();
+
+
+      return text.includes(query);
+
+    });
+
+
+  if(found){
+
+    selectParcel(found.ulpin);
+
+  }else{
+
+    openModal(`
+
+      <h2>🔎 Search Result</h2>
+
+      <br>
+
+      <p>
+        ❌ कोई matching parcel नहीं मिला।
+      </p>
+
+      <br>
+
+      <p>
+        Example:
+        <strong>ULPIN-UP-001</strong>,
+        <strong>Bansdih</strong> या
+        <strong>Rajesh</strong> खोजें।
+      </p>
+
+    `);
+
+  }
+
+}
+
+
+/* ---------- GRIEVANCE ---------- */
+
+function submitGrievance(){
+
+  const name =
+    document.getElementById("gName")
+      .value.trim();
+
+
+  const mobile =
+    document.getElementById("gMobile")
+      .value.trim();
+
+
+  const district =
+    document.getElementById("gDistrict")
+      .value;
+
+
+  const village =
+    document.getElementById("gVillage")
+      .value.trim();
+
+
+  const type =
+    document.getElementById("gType")
+      .value;
+
+
+  const plot =
+    document.getElementById("gPlot")
+      .value.trim();
+
+
+  const message =
+    document.getElementById("gMessage")
+      .value.trim();
+
+
+  const agree =
+    document.getElementById("gAgree")
+      .checked;
+
+
+  const result =
+    document.getElementById(
+      "grievanceResult"
+    );
+
+
+  if(
+    !name ||
+    !mobile ||
+    !message
+  ){
+
+    result.className =
+      "result error";
+
+    result.innerHTML = `
+
+      <strong>
+        ❌ Required information missing
+      </strong>
+
+      <br><br>
+
+      नाम, मोबाइल और समस्या का विवरण
+      भरना जरूरी है।
+
+    `;
+
+    return;
+
+  }
+
+
+  if(
+    !/^[0-9]{10}$/.test(mobile)
+  ){
+
+    result.className =
+      "result error";
+
+    result.innerHTML = `
+
+      <strong>
+        ❌ Mobile number गलत है।
+      </strong>
+
+      <br><br>
+
+      कृपया 10 digit mobile number दर्ज करें।
+
+    `;
+
+    return;
+
+  }
+
+
+  if(!agree){
+
+    result.className =
+      "result error";
+
+    result.innerHTML = `
+
+      <strong>
+        ⚠️ Confirmation required
+      </strong>
+
+      <br><br>
+
+      कृपया confirmation checkbox select करें।
+
+    `;
+
+    return;
+
+  }
+
+
+  const grievanceId =
+    "GRV-" +
+    new Date().getFullYear() +
+    "-" +
+    Math.floor(
+      10000 + Math.random() * 90000
+    );
+
+
+  const grievance = {
+
+    grievanceId:grievanceId,
+
+    name:name,
+
+    mobile:mobile,
+
+    district:district,
+
+    village:village,
+
+    type:type,
+
+    plot:plot,
+
+    message:message,
+
+    date:new Date().toLocaleString(
+      "hi-IN"
+    )
+
+  };
+
+
+  localStorage.setItem(
+    "landGrievance",
+    JSON.stringify(grievance)
+  );
+
+
+  result.className =
+    "result success";
+
+
+  result.innerHTML = `
+
+    <h3>
+      ✅ Grievance Submitted
+    </h3>
+
+    <br>
+
+    <p>
+      <strong>Grievance ID:</strong>
+      ${grievanceId}
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      ${name}
+    </p>
+
+    <p>
+      <strong>Issue:</strong>
+      ${type}
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      ${grievance.date}
+    </p>
+
+    <br>
+
+    <small>
+      यह demo submission browser में save हुई है।
+      वास्तविक government submission के लिए backend/API
+      connection आवश्यक होगा।
+    </small>
 
   `;
 
 }
 
 
-/* ---------- SCHEDULE SEARCH ---------- */
+/* ---------- RESET GRIEVANCE ---------- */
 
-function filterSchedule(){
+function resetGrievance(){
 
-  const search =
-    document
-      .getElementById("scheduleSearch")
-      .value
-      .toLowerCase()
-      .trim();
+  document.getElementById("gName")
+    .value = "";
 
+  document.getElementById("gMobile")
+    .value = "";
 
-  const rows =
-    document.querySelectorAll(
-      "#scheduleTable tbody tr"
-    );
+  document.getElementById("gDistrict")
+    .value = "";
 
+  document.getElementById("gVillage")
+    .value = "";
 
-  rows.forEach(row=>{
+  document.getElementById("gPlot")
+    .value = "";
 
-    const text =
-      row.textContent.toLowerCase();
+  document.getElementById("gMessage")
+    .value = "";
 
-    row.style.display =
-      text.includes(search)
-        ? ""
-        : "none";
-
-  });
-
-}
+  document.getElementById("gAgree")
+    .checked = false;
 
 
-/* ---------- DASHBOARD ---------- */
-
-function updateDashboard(){
-
-  const farmers =
-    getFarmers();
-
-  const body =
-    document.getElementById(
-      "officerTableBody"
-    );
-
-
-  const count =
-    document.getElementById(
-      "officerCount"
-    );
-
-
-  count.textContent =
-    farmers.length;
-
-
-  if(farmers.length === 0){
-
-    body.innerHTML = `
-      <tr>
-        <td colspan="7"
-            style="text-align:center;">
-          अभी कोई registration नहीं है।
-        </td>
-      </tr>
-    `;
-
-    return;
-
-  }
-
-
-  body.innerHTML =
-    farmers
-      .slice()
-      .reverse()
-      .map(farmer=>`
-
-        <tr>
-
-          <td>
-            <strong>
-              ${escapeHTML(farmer.token)}
-            </strong>
-          </td>
-
-          <td>
-            ${escapeHTML(farmer.farmerName)}
-          </td>
-
-          <td>
-            ${escapeHTML(farmer.village)}
-          </td>
-
-          <td>
-            ${escapeHTML(farmer.crop)}
-          </td>
-
-          <td>
-            ${escapeHTML(farmer.quantity)}
-          </td>
-
-          <td>
-            ${escapeHTML(farmer.centre)}
-          </td>
-
-          <td>
-            <span class="status-badge">
-              ${escapeHTML(farmer.status)}
-            </span>
-          </td>
-
-        </tr>
-
-      `)
-      .join("");
+  document.getElementById(
+    "grievanceResult"
+  ).style.display = "none";
 
 }
 
 
-/* ---------- REGISTRATION COUNTER ---------- */
+/* ---------- VILLAGE DASHBOARD ---------- */
 
-function updateRegistrationCount(){
+function showVillageStats(){
 
-  const farmers =
-    getFarmers();
-
-  const count =
-    document.getElementById(
-      "registeredCount"
-    );
-
-  const baseCount = 1250;
-
-  count.textContent =
-    baseCount + farmers.length;
+  go("dashboard");
 
 }
 
 
-/* ---------- PRINT TOKEN ---------- */
+/* ---------- VERIFICATION ---------- */
 
-function printToken(token){
+function showVerification(){
 
-  const farmers =
-    getFarmers();
+  openModal(`
 
-  const farmer =
-    farmers.find(
-      item => item.token === token
-    );
+    <h2>
+      🔐 Record Verification
+    </h2>
 
+    <br>
 
-  if(!farmer){
+    <p>
+      इस prototype में records के साथ
+      verification indicator दिखाया गया है।
+    </p>
 
-    showToast(
-      "Token record नहीं मिला।",
-      "error"
-    );
+    <br>
 
-    return;
+    <div class="info-item">
 
-  }
+      <span>Data Type</span>
 
+      <strong>
+        Demonstration Dataset
+      </strong>
 
-  const printWindow =
-    window.open(
-      "",
-      "_blank",
-      "width=700,height=700"
-    );
+    </div>
 
 
-  if(!printWindow){
+    <div class="info-item">
 
-    showToast(
-      "Please allow pop-ups for printing.",
-      "error"
-    );
+      <span>GIS Layer</span>
 
-    return;
+      <strong>
+        Demo Parcel Layer
+      </strong>
 
-  }
-
-
-  printWindow.document.write(`
-
-    <!DOCTYPE html>
-
-    <html>
-
-    <head>
-
-      <title>
-        Procurement Token
-      </title>
-
-      <style>
-
-        body{
-          font-family:Arial;
-          padding:40px;
-          color:#172033;
-        }
-
-        .receipt{
-          max-width:600px;
-          margin:auto;
-          border:2px solid #087f5b;
-          padding:30px;
-          border-radius:15px;
-        }
-
-        h1{
-          text-align:center;
-          color:#087f5b;
-        }
-
-        .token{
-          text-align:center;
-          font-size:30px;
-          font-weight:bold;
-          padding:15px;
-          margin:20px 0;
-          background:#e8fff5;
-          color:#087f5b;
-        }
-
-        p{
-          border-bottom:1px solid #ddd;
-          padding:9px;
-        }
-
-        .footer{
-          text-align:center;
-          margin-top:25px;
-          font-size:12px;
-        }
-
-      </style>
-
-    </head>
+    </div>
 
 
-    <body>
+    <div class="info-item">
 
-      <div class="receipt">
+      <span>Verification</span>
 
-        <h1>
-          🌾 Kisan Procurement Tracker
-        </h1>
+      <strong>
+        Prototype Verification
+      </strong>
 
-        <h3 style="text-align:center;">
-          Procurement Token Receipt
-        </h3>
+    </div>
 
-        <div class="token">
-          ${escapeHTML(farmer.token)}
-        </div>
 
-        <p>
-          <strong>Farmer:</strong>
-          ${escapeHTML(farmer.farmerName)}
-        </p>
+    <br>
 
-        <p>
-          <strong>Mobile:</strong>
-          ${escapeHTML(farmer.mobile)}
-        </p>
+    <p style="
+      color:#a06000;
+      background:#fff3d2;
+      padding:12px;
+      border-radius:10px;
+    ">
 
-        <p>
-          <strong>Village:</strong>
-          ${escapeHTML(farmer.village)}
-        </p>
+      ⚠️ Prototype data को official legal
+      land record न मानें।
 
-        <p>
-          <strong>District:</strong>
-          ${escapeHTML(farmer.district)}
-        </p>
-
-        <p>
-          <strong>Crop:</strong>
-          ${escapeHTML(farmer.crop)}
-        </p>
-
-        <p>
-          <strong>Quantity:</strong>
-          ${escapeHTML(farmer.quantity)}
-          Quintal
-        </p>
-
-        <p>
-          <strong>Centre:</strong>
-          ${escapeHTML(farmer.centre)}
-        </p>
-
-        <p>
-          <strong>Preferred Date:</strong>
-          ${formatDate(farmer.preferredDate)}
-        </p>
-
-        <p>
-          <strong>Status:</strong>
-          ${escapeHTML(farmer.status)}
-        </p>
-
-        <div class="footer">
-          Created by Amit Kumar Singh
-        </div>
-
-      </div>
-
-    </body>
-
-    </html>
+    </p>
 
   `);
 
+}
 
-  printWindow.document.close();
 
-  printWindow.focus();
+/* ---------- NOTICES ---------- */
 
-  setTimeout(()=>{
-    printWindow.print();
-  },500);
+function showNotices(){
+
+  openModal(`
+
+    <h2>
+      📢 Public Notices
+    </h2>
+
+    <br>
+
+    <div class="info-item">
+
+      <strong>
+        🗺️ Digital Survey
+      </strong>
+
+      <p>
+        Digital land survey और map information
+        को citizen-friendly तरीके से उपलब्ध कराने
+        का उद्देश्य है।
+      </p>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <strong>
+        🔎 Record Verification
+      </strong>
+
+      <p>
+        Legal या property transaction से पहले
+        official records verify करें।
+      </p>
+
+    </div>
+
+
+    <div class="info-item">
+
+      <strong>
+        🔐 Data Safety
+      </strong>
+
+      <p>
+        Sensitive personal information public
+        website पर unnecessarily share न करें।
+      </p>
+
+    </div>
+
+  `);
 
 }
 
 
-/* ---------- INITIAL LOAD ---------- */
+/* ---------- MODAL ---------- */
 
-updateDashboard();
+function openModal(content){
 
-updateRegistrationCount();
+  const modal =
+    document.getElementById("modal");
+
+  const modalContent =
+    document.getElementById(
+      "modalContent"
+    );
 
 
-/* ---------- ENTER KEY FOR STATUS ---------- */
+  if(!modal || !modalContent) return;
 
-document
-  .getElementById("statusToken")
-  .addEventListener(
+
+  modalContent.innerHTML =
+    content;
+
+
+  modal.style.display =
+    "flex";
+
+}
+
+
+function closeModal(){
+
+  const modal =
+    document.getElementById("modal");
+
+
+  if(modal){
+
+    modal.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* ---------- NAVIGATION ---------- */
+
+function go(id){
+
+  const element =
+    document.getElementById(id);
+
+
+  if(element){
+
+    element.scrollIntoView({
+
+      behavior:"smooth",
+
+      block:"start"
+
+    });
+
+  }
+
+}
+
+
+/* ---------- LANGUAGE ---------- */
+
+let englishMode = false;
+
+
+function toggleLanguage(){
+
+  englishMode =
+    !englishMode;
+
+
+  const title =
+    document.getElementById(
+      "heroTitle"
+    );
+
+
+  const text =
+    document.getElementById(
+      "heroText"
+    );
+
+
+  const notice =
+    document.getElementById(
+      "notice"
+    );
+
+
+  if(englishMode){
+
+    title.textContent =
+      "Bharat LandStack";
+
+    text.textContent =
+      "A citizen-friendly digital platform to explore sample land parcels, GIS information and public land governance services.";
+
+    notice.textContent =
+      "📢 Public Demo: This portal uses sample/demo land data. Always verify actual land records with the concerned official authority.";
+
+  }else{
+
+    title.textContent =
+      "भारत LandStack";
+
+    text.textContent =
+      "एक citizen-friendly digital platform जहाँ parcel, land record और public land services को एक ही स्थान पर समझने और explore करने का prototype दिया गया है।";
+
+    notice.textContent =
+      "📢 Public Demo: यह portal sample/demo land data पर आधारित है। किसी भी वास्तविक भूमि लेन-देन से पहले आधिकारिक रिकॉर्ड की पुष्टि करें।";
+
+  }
+
+}
+
+
+/* ---------- MOBILE NUMBER VALIDATION ---------- */
+
+const mobileFields = [
+
+  "gMobile"
+
+];
+
+
+mobileFields.forEach(id => {
+
+  const field =
+    document.getElementById(id);
+
+
+  if(field){
+
+    field.addEventListener(
+      "input",
+      function(){
+
+        this.value =
+          this.value.replace(
+            /[^0-9]/g,
+            ""
+          );
+
+      }
+    );
+
+  }
+
+});
+
+
+/* ---------- SEARCH ENTER KEY ---------- */
+
+const parcelSearch =
+  document.getElementById(
+    "parcelSearch"
+  );
+
+
+if(parcelSearch){
+
+  parcelSearch.addEventListener(
     "keydown",
     function(event){
 
       if(event.key === "Enter"){
 
-        checkStatus();
+        searchParcel();
 
       }
 
     }
   );
 
+}
 
-/* ---------- MOBILE NUMBER ONLY ---------- */
 
-document
-  .getElementById("mobile")
-  .addEventListener(
-    "input",
-    function(){
+const recordSearch =
+  document.getElementById(
+    "recordSearch"
+  );
 
-      this.value =
-        this.value
-          .replace(/\D/g,"")
-          .slice(0,10);
+
+if(recordSearch){
+
+  recordSearch.addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Enter"){
+
+        searchRecords();
+
+      }
 
     }
   );
 
-
-console.log(
-  "Kisan Procurement Tracker loaded successfully."
-);
-
-/* =====================================
-   PART 3 - FORMSUBMIT.CO
-   ===================================== */
-
-const FORM_CONFIG = {
-
-  email: "amitsingh3312509@gmail.com",
-
-  subject:
-    "New Farmer Procurement Registration",
-
-  next:
-    "https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/thankyou.html"
-
-};
+}
 
 
-/* ---------- SEND DATA TO FORMSUBMIT ---------- */
+/* ---------- MODAL OUTSIDE CLICK ---------- */
 
-function sendToFormSubmit(farmer){
-
-  /* Email check */
-
-  if(
-    !FORM_CONFIG.email ||
-    FORM_CONFIG.email.includes("YOUR_EMAIL")
-  ){
-
-    showToast(
-      "FormSubmit के लिए अपना email Part 3 में डालें।",
-      "error"
-    );
-
-    return;
-
-  }
+const modal =
+  document.getElementById("modal");
 
 
-  const form =
-    document.createElement("form");
+if(modal){
 
-  form.method = "POST";
+  modal.addEventListener(
+    "click",
+    function(event){
 
-  form.action =
-    "https://formsubmit.co/" +
-    encodeURIComponent(FORM_CONFIG.email);
+      if(event.target === modal){
 
-  form.style.display = "none";
+        closeModal();
 
+      }
 
-  /* ---------- FORM FIELD ---------- */
-
-  function addField(name,value){
-
-    const input =
-      document.createElement("input");
-
-    input.type = "hidden";
-
-    input.name = name;
-
-    input.value = value ?? "";
-
-    form.appendChild(input);
-
-  }
-
-
-  addField(
-    "_subject",
-    FORM_CONFIG.subject
+    }
   );
-
-
-  addField(
-    "_template",
-    "table"
-  );
-
-
-  addField(
-    "_captcha",
-    "false"
-  );
-
-
-  addField(
-    "_next",
-    FORM_CONFIG.next
-  );
-
-
-  /* ---------- FARMER DATA ---------- */
-
-  addField(
-    "Token Number",
-    farmer.token
-  );
-
-  addField(
-    "Farmer Name",
-    farmer.farmerName
-  );
-
-  addField(
-    "Mobile Number",
-    farmer.mobile
-  );
-
-  addField(
-    "Village",
-    farmer.village
-  );
-
-  addField(
-    "District",
-    farmer.district
-  );
-
-  addField(
-    "Crop",
-    farmer.crop
-  );
-
-  addField(
-    "Quantity Quintal",
-    farmer.quantity
-  );
-
-  addField(
-    "Procurement Centre",
-    farmer.centre
-  );
-
-  addField(
-    "Preferred Date",
-    formatDate(farmer.preferredDate)
-  );
-
-  addField(
-    "Current Status",
-    farmer.status
-  );
-
-  addField(
-    "Additional Information",
-    farmer.additionalInfo
-  );
-
-  addField(
-    "Registration Time",
-    new Date().toLocaleString("en-IN")
-  );
-
-
-  document.body.appendChild(form);
-
-
-  /*
-    FormSubmit पर data भेजना
-  */
-
-  form.submit();
 
 }
 
 
-/* =====================================
-   PART 3 COMPLETE
-===================================== */
+/* ---------- ESC KEY ---------- */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+/* ---------- INITIALIZE ---------- */
+
+renderRecords();
+
+
+/* ---------- CONSOLE ---------- */
+
+console.log(
+  "Bharat LandStack Public GIS Prototype Loaded"
+);
+
+</script>
+
+
+</main>
+
+
+<footer>
+
+<h2>
+🗺️ Bharat LandStack
+</h2>
+
+<p>
+Digital Public Land Governance Prototype
+</p>
+
+<p>
+Citizen • GIS • Land Records • Public Services
+</p>
+
+<p>
+© <span id="year"></span>
+Bharat LandStack
+</p>
+
+<p>
+⚠️ यह demonstration/prototype website है।
+वास्तविक land ownership या legal record के लिए
+official government source से verification करें।
+</p>
+
+<p style="
+  margin-top:18px;
+  font-weight:bold;
+">
+
+Created by Amit Kumar Singh,Nandani Singh Rajput Jee❤️❤️
+
+</p>
+
+</footer>
+
+
+<!-- BOTTOM MOBILE NAVIGATION -->
+
+<div class="bottom">
+
+<button onclick="go('home')">
+🏠 Home
+</button>
+
+<button onclick="go('mapSection')">
+🗺️ Map
+</button>
+
+<button onclick="go('records')">
+📄 Records
+</button>
+
+<button onclick="go('services')">
+🏛️ Services
+</button>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div
+class="modal"
+id="modal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+<div id="modalContent">
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* YEAR */
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+/* AUTO SEARCH */
+
+const ps =
+document.getElementById(
+  "parcelSearch"
+);
+
+if(ps){
+
+  ps.addEventListener(
+    "input",
+    function(){
+
+      if(this.value.trim().length >= 3){
+
+        const q =
+          this.value
+            .trim()
+            .toLowerCase();
+
+        const found =
+          parcels.find(item => {
+
+            return (
+
+              item.ulpin.toLowerCase()
+                .includes(q) ||
+
+              item.owner.toLowerCase()
+                .includes(q) ||
+
+              item.village.toLowerCase()
+                .includes(q) ||
+
+              item.district.toLowerCase()
+                .includes(q)
+
+            );
+
+          });
+
+        if(found){
+
+          selectParcel(
+            found.ulpin
+          );
+
+        }
+
+      }
+
+    }
+  );
+
+}
 
 </script>
 
