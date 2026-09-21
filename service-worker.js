@@ -1,32 +1,25 @@
 const CACHE_NAME =
   "smart-coaching-v1";
 
-
 const FILES_TO_CACHE = [
-
   "./",
-
   "./index.html",
-
-  "./manifest.json"
-
+  "./manifest.json",
+  "./logo.png",
+  "./creator-photo.jpg"
 ];
 
 
 self.addEventListener(
   "install",
-  function(event){
+  event => {
 
     event.waitUntil(
 
       caches.open(CACHE_NAME)
-        .then(function(cache){
-
-          return cache.addAll(
-            FILES_TO_CACHE
-          );
-
-        })
+        .then(cache =>
+          cache.addAll(FILES_TO_CACHE)
+        )
 
     );
 
@@ -38,34 +31,28 @@ self.addEventListener(
 
 self.addEventListener(
   "activate",
-  function(event){
+  event => {
 
     event.waitUntil(
 
       caches.keys()
-        .then(function(names){
+        .then(keys =>
 
-          return Promise.all(
+          Promise.all(
 
-            names
-              .filter(function(name){
+            keys
+              .filter(
+                key =>
+                  key !== CACHE_NAME
+              )
+              .map(
+                key =>
+                  caches.delete(key)
+              )
 
-                return name !==
-                  CACHE_NAME;
+          )
 
-              })
-
-              .map(function(name){
-
-                return caches.delete(
-                  name
-                );
-
-              })
-
-          );
-
-        })
+        )
 
     );
 
@@ -77,17 +64,21 @@ self.addEventListener(
 
 self.addEventListener(
   "fetch",
-  function(event){
+  event => {
 
     event.respondWith(
 
       caches.match(event.request)
-        .then(function(response){
+        .then(cached =>
 
-          return response ||
-            fetch(event.request);
+          cached ||
+          fetch(event.request)
+            .catch(
+              () =>
+                caches.match("./")
+            )
 
-        })
+        )
 
     );
 
