@@ -1,522 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#4f46e5"
-  >
-
-  <meta
-    name="description"
-    content="Smart Coaching Student Registration and Attendance System"
-  >
-
-  <link
-    rel="manifest"
-    href="manifest.json"
-  >
-
-  <title>Smart Coaching Institute</title>
-
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    body{
-      font-family:Arial,sans-serif;
-      background:#f3f6ff;
-      color:#222;
-    }
-
-    .container{
-      width:95%;
-      max-width:850px;
-      margin:auto;
-    }
-
-    .coaching-header{
-      background:linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed
-      );
-      color:white;
-      text-align:center;
-      padding:22px 10px;
-      border-radius:0 0 25px 25px;
-      box-shadow:0 4px 15px #bbb;
-    }
-
-    .coaching-logo{
-      width:75px;
-      height:75px;
-      margin:auto;
-      background:white;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-    }
-
-    .coaching-logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .coaching-name{
-      font-size:26px;
-      font-weight:bold;
-      margin-top:10px;
-    }
-
-    .tagline{
-      font-size:13px;
-      margin-top:5px;
-    }
-
-    .card{
-      background:white;
-      margin:20px 0;
-      padding:20px;
-      border-radius:18px;
-      box-shadow:0 3px 12px #ddd;
-    }
-
-    h2{
-      color:#4f46e5;
-      margin-bottom:15px;
-    }
-
-    label{
-      display:block;
-      font-weight:bold;
-      margin:12px 0 6px;
-    }
-
-    input,
-    select{
-      width:100%;
-      padding:12px;
-      border:1px solid #ccc;
-      border-radius:10px;
-      font-size:15px;
-    }
-
-    button{
-      border:0;
-      padding:12px 18px;
-      border-radius:10px;
-      background:#4f46e5;
-      color:white;
-      font-weight:bold;
-      cursor:pointer;
-      margin-top:12px;
-    }
-
-    .steps{
-      display:flex;
-      justify-content:space-between;
-      gap:5px;
-      margin:20px 0;
-    }
-
-    .step{
-      flex:1;
-      text-align:center;
-      padding:8px 3px;
-      border-radius:8px;
-      background:#ddd;
-      font-size:12px;
-    }
-
-    .step.active{
-      background:#4f46e5;
-      color:white;
-    }
-
-    .creator{
-      text-align:center;
-      padding:15px;
-    }
-
-    .creator img{
-      width:90px;
-      height:90px;
-      object-fit:cover;
-      border-radius:50%;
-      border:4px solid #4f46e5;
-    }
-
-    @media(max-width:600px){
-      .coaching-name{
-        font-size:21px;
-      }
-
-      .steps{
-        font-size:10px;
-      }
-    }
-  </style>
-  </head>
+<head>
 
 <meta charset="UTF-8">
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-      content="#673ab7">
-
-<title>Smart Coaching Management System</title>
+<title>SIH Problem Idea Form</title>
 
 <style>
 
 /* =========================
-   RESET
+   BASIC
 ========================= */
 
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
 }
 
 body{
-    background:#f2f4ff;
-    color:#222;
+  background:#f1f3f4;
+  color:#202124;
+  line-height:1.5;
 }
 
 
 /* =========================
-   MAIN CONTAINER
+   HEADER
+========================= */
+
+.header{
+  background:linear-gradient(135deg,#673ab7,#512da8);
+  color:white;
+  padding:25px 18px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.header-inner{
+  max-width:720px;
+  margin:auto;
+}
+
+.header h1{
+  font-size:27px;
+  margin-bottom:6px;
+}
+
+.header p{
+  font-size:14px;
+  opacity:.95;
+}
+
+
+/* =========================
+   CONTAINER
 ========================= */
 
 .container{
-    width:94%;
-    max-width:900px;
-    margin:auto;
+  max-width:720px;
+  margin:25px auto;
+  padding:0 12px;
 }
 
 
 /* =========================
-   COACHING HEADER
+   TITLE CARD
 ========================= */
 
-.coaching-header{
-    background:white;
-
-    text-align:center;
-
-    padding:20px 15px;
-
-    margin-bottom:22px;
-
-    border-radius:
-    0 0 25px 25px;
-
-    box-shadow:
-    0 5px 20px
-    rgba(0,0,0,.08);
+.title-card{
+  background:white;
+  border-radius:10px;
+  border-top:9px solid #673ab7;
+  padding:26px;
+  margin-bottom:17px;
+  box-shadow:0 2px 7px rgba(0,0,0,.12);
 }
 
-.coaching-logo{
-    width:58px;
-    height:58px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#673ab7;
-
-    color:white;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:29px;
-
-    box-shadow:
-    0 4px 12px
-    rgba(103,58,183,.3);
+.title-card h2{
+  font-size:27px;
+  margin-bottom:12px;
+  color:#202124;
 }
 
-.coaching-name{
-    color:#673ab7;
-
-    font-size:25px;
-
-    font-weight:bold;
-
-    margin-top:9px;
+.title-card p{
+  color:#5f6368;
+  line-height:1.7;
 }
 
-.coaching-tagline{
-    color:#777;
-
-    font-size:14px;
-
-    margin-top:5px;
+.required{
+  color:#d93025;
+  font-weight:bold;
 }
 
 
 /* =========================
-   STEP BAR
-========================= */
-
-.steps{
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:5px 8px;
-
-    margin-bottom:35px;
-}
-
-.steps-line{
-    position:absolute;
-
-    left:34px;
-    right:34px;
-
-    top:50%;
-
-    height:4px;
-
-    background:#ddd;
-
-    transform:
-    translateY(-50%);
-
-    z-index:0;
-}
-
-.step-circle{
-    width:54px;
-    height:54px;
-
-    border-radius:50%;
-
-    background:#ddd;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:21px;
-
-    font-weight:bold;
-
-    z-index:1;
-
-    transition:.3s;
-}
-
-.step-circle.active{
-    background:#673ab7;
-
-    color:white;
-
-    box-shadow:
-    0 4px 12px
-    rgba(103,58,183,.3);
-}
-
-
-/* =========================
-   CARD
+   FORM CARD
 ========================= */
 
 .card{
-    background:white;
-
-    border-radius:25px;
-
-    padding:26px;
-
-    margin-bottom:28px;
-
-    box-shadow:
-    0 8px 30px
-    rgba(0,0,0,.08);
+  background:white;
+  border-radius:10px;
+  padding:23px;
+  margin-bottom:17px;
+  box-shadow:0 2px 7px rgba(0,0,0,.10);
 }
 
-
-/* =========================
-   HEADINGS
-========================= */
-
-.title{
-    color:#673ab7;
-
-    font-size:29px;
-
-    margin-bottom:8px;
-}
-
-.subtitle{
-    color:#777;
-
-    font-size:17px;
-
-    margin-bottom:28px;
-}
-
-
-/* =========================
-   FORM
-========================= */
-
-label{
-    display:block;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    margin:
-    18px 0 8px;
+.card label{
+  display:block;
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:11px;
 }
 
 input,
-select{
-    width:100%;
-
-    padding:16px;
-
-    border:
-    1px solid #ccc;
-
-    border-radius:15px;
-
-    font-size:17px;
-
-    outline:none;
-
-    background:white;
+select,
+textarea{
+  width:100%;
+  border:none;
+  border-bottom:1px solid #aaa;
+  padding:12px 4px;
+  font-size:16px;
+  outline:none;
+  background:white;
+  color:#202124;
 }
 
 input:focus,
-select:focus{
-    border:
-    2px solid #673ab7;
+select:focus,
+textarea:focus{
+  border-bottom:2px solid #673ab7;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#9aa0a6;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
 }
 
 
 /* =========================
-   BUTTON
+   RADIO BUTTONS
 ========================= */
 
-button{
-    border:none;
-
-    border-radius:14px;
-
-    padding:16px 20px;
-
-    font-size:17px;
-
-    font-weight:bold;
-
-    cursor:pointer;
+.options{
+  display:flex;
+  gap:35px;
+  margin-top:12px;
 }
 
-.primary-btn{
-    width:100%;
-
-    background:#673ab7;
-
-    color:white;
-
-    margin-top:28px;
+.option{
+  display:flex !important;
+  align-items:center;
+  gap:9px;
+  font-weight:normal !important;
+  margin:0 !important;
+  cursor:pointer;
 }
 
-.secondary-btn{
-    width:100%;
-
-    background:#eeeeee;
-
-    color:#333;
-
-    margin-top:15px;
+.option input{
+  width:18px;
+  height:18px;
+  accent-color:#673ab7;
 }
 
 
 /* =========================
-   HIDDEN
+   BUTTON AREA
 ========================= */
 
-.hidden{
-    display:none !important;
+.bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:24px 0 35px;
+}
+
+.clear{
+  border:none;
+  background:none;
+  color:#673ab7;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  padding:10px;
+}
+
+.clear:hover{
+  color:#512da8;
+}
+
+.submit{
+  border:none;
+  background:#673ab7;
+  color:white;
+  padding:13px 30px;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.submit:hover{
+  background:#512da8;
+}
+
+.submit:disabled{
+  opacity:.7;
+  cursor:not-allowed;
 }
 
 
 /* =========================
-   CREATOR
+   THANK YOU
 ========================= */
+
+.thankyou{
+  display:none;
+  background:white;
+  border-radius:12px;
+  padding:45px 25px;
+  text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+  margin-bottom:25px;
+}
+
+.thank-icon{
+  width:75px;
+  height:75px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:#e8f5e9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+}
+
+.thankyou h2{
+  color:#673ab7;
+  font-size:29px;
+  margin-bottom:12px;
+}
+
+.thankyou p{
+  color:#5f6368;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.back-btn{
+  margin-top:25px;
+  padding:12px 25px;
+  border:none;
+  border-radius:6px;
+  background:#673ab7;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.back-btn:hover{
+  background:#512da8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+  color:#777;
+  font-size:13px;
+  padding:5px 10px 30px;
+  line-height:1.7;
+}
 
 .creator{
-    text-align:center;
-
-    margin:
-    65px 0 70px;
-}
-
-.creator-photo{
-    width:82px;
-    height:82px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:
-    3px solid #673ab7;
-
-    padding:2px;
-
-    background:white;
-}
-
-.creator-name{
-    color:#673ab7;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    margin-top:10px;
-}
-
-.creator-sub{
-    color:#777;
-
-    font-size:15px;
-
-    margin-top:4px;
+  color:#673ab7;
+  font-size:14px;
+  font-weight:bold;
 }
 
 
@@ -526,27 +299,62 @@ button{
 
 @media(max-width:600px){
 
-    .container{
-        width:94%;
-    }
+  .header{
+    padding:21px 16px;
+  }
 
-    .coaching-name{
-        font-size:23px;
-    }
+  .header h1{
+    font-size:22px;
+  }
 
-    .step-circle{
-        width:52px;
-        height:52px;
-    }
+  .header p{
+    font-size:13px;
+  }
 
-    .card{
-        padding:24px 20px;
-    }
+  .container{
+    margin:18px auto;
+    padding:0 10px;
+  }
 
-    .title{
-        font-size:28px;
-    }
+  .title-card,
+  .card{
+    padding:20px;
+    border-radius:9px;
+  }
 
+  .title-card h2{
+    font-size:23px;
+  }
+
+  .card label{
+    font-size:15px;
+  }
+
+  input,
+  select,
+  textarea{
+    font-size:15px;
+  }
+
+  .options{
+    gap:24px;
+  }
+
+  .bottom{
+    margin-bottom:25px;
+  }
+
+  .submit{
+    padding:12px 24px;
+  }
+
+  .thankyou{
+    padding:38px 20px;
+  }
+
+  .thankyou h2{
+    font-size:26px;
+  }
 }
 
 </style>
@@ -557,2971 +365,738 @@ button{
 <body>
 
 
-<!-- =====================================
-     MAIN CONTAINER
-===================================== -->
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
+
+  <div class="header-inner">
+
+    <h1>Smart India Hackathon</h1>
+
+    <p>
+      Problem Idea Selection & Student Response Form
+    </p>
+
+  </div>
+
+</div>
+
 
 <div class="container">
 
 
-<!-- =====================================
-     COACHING HEADER
-===================================== -->
+<!-- =========================
+     FORM AREA
+========================= -->
 
-<div class="coaching-header">
-
-    <div class="coaching-logo">
-        🎓
-    </div>
-
-    <div class="coaching-name">
-        Smart Coaching Institute
-    </div>
-
-    <div class="coaching-tagline">
-        Quality Education • Better Future
-    </div>
-
-</div>
+<div id="formArea">
 
 
-<!-- =====================================
-     5 STEP INDICATOR
-===================================== -->
+  <!-- TITLE -->
 
-<div class="steps">
+  <div class="title-card">
 
-    <div class="steps-line"></div>
+    <h2>SIH Problem Idea Form</h2>
 
-
-    <div
-        class="step-circle active"
-        id="circle1">
-
-        1
-
-    </div>
-
-
-    <div
-        class="step-circle"
-        id="circle2">
-
-        2
-
-    </div>
-
-
-    <div
-        class="step-circle"
-        id="circle3">
-
-        3
-
-    </div>
-
-
-    <div
-        class="step-circle"
-        id="circle4">
-
-        4
-
-    </div>
-
-
-    <div
-        class="step-circle"
-        id="circle5">
-
-        5
-
-    </div>
-
-</div>
-
-
-<!-- =====================================
-     STEP 1
-===================================== -->
-
-<div
-    class="card step-page"
-    id="step1">
-
-
-    <h1 class="title">
-
-        Student Information
-
-    </h1>
-
-
-    <p class="subtitle">
-
-        Step 1 of 5 • Enter student details
-
+    <p>
+      Please fill in your details and select whether
+      you want to work on the proposed problem statement.
     </p>
 
+    <br>
 
-    <!-- STUDENT NAME -->
+    <p>
+      <span class="required">*</span>
+      Required question
+    </p>
 
-    <label>
+  </div>
 
+
+  <!-- =========================
+       FORM
+  ========================= -->
+
+  <form
+    id="sihForm"
+    action="https://formsubmit.co/amitsingh3312509@gmail.com"
+    method="POST"
+  >
+
+
+    <!-- FORMSUBMIT SETTINGS -->
+
+    <input
+      type="hidden"
+      name="_subject"
+      value="SIH Problem Idea Response"
+    >
+
+    <input
+      type="hidden"
+      name="_captcha"
+      value="false"
+    >
+
+    <input
+      type="hidden"
+      name="_template"
+      value="table"
+    >
+
+
+    <!-- =========================
+         STUDENT NAME
+    ========================= -->
+
+    <div class="card">
+
+      <label>
         Student Name
+        <span class="required">*</span>
+      </label>
 
-    </label>
-
-    <input
+      <input
         type="text"
-        id="studentName"
-        placeholder="Enter student name"
-        autocomplete="name">
-
-
-    <!-- FATHER NAME -->
-
-    <label>
-
-        Father's Name
-
-    </label>
-
-    <input
-        type="text"
-        id="fatherName"
-        placeholder="Enter father's name">
-
-
-    <!-- MOBILE -->
-
-    <label>
-
-        Mobile Number
-
-    </label>
-
-    <input
-        type="tel"
-        id="mobile"
-        maxlength="10"
-        inputmode="numeric"
-        placeholder="Enter 10 digit mobile">
-
-
-    <!-- ROLL -->
-
-    <label>
-
-        Roll Number
-
-    </label>
-
-    <input
-        type="text"
-        id="roll"
-        placeholder="Enter roll number">
-
-
-    <!-- NEXT -->
-
-    <button
-        class="primary-btn"
-        onclick="goToStep(2)">
-
-        Next →
-
-    </button>
-
-
-</div>
-
-
-<!-- =====================================
-     CREATOR
-===================================== -->
-
-<div class="creator">
-
-
-    <img
-        id="creatorPhoto"
-        class="creator-photo"
-        alt="Created by Amit Kumar Singh, Nandani Singh Rajput ❤️❤️">
-
-
-    <div class="creator-name">
-
-        Created by Amit Kumar Singh, Nandani Singh Rajput ❤️❤️
+        name="Student Name"
+        placeholder="Enter your full name"
+        autocomplete="name"
+        required
+      >
 
     </div>
 
 
-    <div class="creator-sub">
-
-        Smart Coaching Management System
-
-    </div>
-
-
-</div>
-
-
-</div>
-
-
-<script>
-
-/* =====================================
-   CREATOR PHOTO
-===================================== */
-
-/*
-   अभी आपकी photo का नाम:
-
-   creator-photo.jpg
-
-   रखा गया है।
-
-   Part 5 में इसे public photo link
-   से भी जोड़ देंगे।
-*/
-
-const CREATOR_PHOTO =
-"creator-photo.jpg";
-
-
-document.getElementById(
-    "creatorPhoto"
-).src = CREATOR_PHOTO;
-
-
-/* =====================================
-   STEP FUNCTION
-===================================== */
-
-function goToStep(step){
-
-    /*
-       अभी Part 1 में केवल Step 1 है।
-       बाकी steps Part 2, 3, 4 और 5 में
-       इसी function के साथ जुड़ेंगे।
-    */
-
-    if(step === 2){
-
-        const name =
-        document.getElementById(
-            "studentName"
-        ).value.trim();
-
-
-        const father =
-        document.getElementById(
-            "fatherName"
-        ).value.trim();
-
-
-        const mobile =
-        document.getElementById(
-            "mobile"
-        ).value.trim();
-
-
-        const roll =
-        document.getElementById(
-            "roll"
-        ).value.trim();
-
-
-        if(!name){
-
-            alert(
-                "Please enter student name."
-            );
-
-            return;
-        }
-
-
-        if(!father){
-
-            alert(
-                "Please enter father's name."
-            );
-
-            return;
-        }
-
-
-        if(!/^[0-9]{10}$/.test(mobile)){
-
-            alert(
-                "Please enter a valid 10 digit mobile number."
-            );
-
-            return;
-        }
-
-
-        if(!roll){
-
-            alert(
-                "Please enter roll number."
-            );
-
-            return;
-        }
-
-
-        /*
-           Part 2 आने के बाद
-           Step 2 दिखाई देगा।
-        */
-
-        const next =
-        document.getElementById(
-            "step2"
-        );
-
-        if(next){
-
-            document
-            .querySelectorAll(".step-page")
-            .forEach(function(page){
-
-                page.classList.add(
-                    "hidden"
-                );
-
-            });
-
-
-            next.classList.remove(
-                "hidden"
-            );
-
-
-            document
-            .querySelectorAll(".step-circle")
-            .forEach(function(circle){
-
-                circle.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-            document
-            .getElementById(
-                "circle2"
-            )
-            .classList.add(
-                "active"
-            );
-
-        }
-
-    }
-
-}
-
-</script>
-<!-- =====================================
-     STEP 2
-===================================== -->
-
-<div
-    class="card step-page hidden"
-    id="step2">
-
-    <h1 class="title">
-        Course Details
-    </h1>
-
-    <p class="subtitle">
-        Step 2 of 5 • Select class and batch
-    </p>
-
-
-    <!-- COURSE -->
-
-    <label>
-        Class / Course
-    </label>
-
-    <select id="course">
+    <!-- =========================
+         BRANCH
+    ========================= -->
+
+    <div class="card">
+
+      <label>
+        Branch
+        <span class="required">*</span>
+      </label>
+
+      <select
+        name="Branch"
+        required
+      >
 
         <option value="">
-            Select Class / Course
+          Select your branch
         </option>
 
-        <option value="Class 9">
-            Class 9
+        <option value="Computer Science and Engineering">
+          Computer Science and Engineering (CSE)
         </option>
 
-        <option value="Class 10">
-            Class 10
+        <option value="Information Technology">
+          Information Technology (IT)
         </option>
 
-        <option value="Class 11">
-            Class 11
+        <option value="Electronics and Communication">
+          Electronics & Communication (ECE)
         </option>
 
-        <option value="Class 12">
-            Class 12
+        <option value="Electrical Engineering">
+          Electrical Engineering (EE)
         </option>
 
-        <option value="JEE">
-            JEE
+        <option value="Mechanical Engineering">
+          Mechanical Engineering (ME)
         </option>
 
-        <option value="NEET">
-            NEET
-        </option>
-
-        <option value="Foundation">
-            Foundation
+        <option value="Civil Engineering">
+          Civil Engineering (CE)
         </option>
 
         <option value="Other">
-            Other
+          Other
         </option>
 
-    </select>
-
-
-    <!-- BATCH -->
-
-    <label>
-        Batch
-    </label>
-
-    <select id="batch">
-
-        <option value="">
-            Select Batch
-        </option>
-
-        <option value="Morning Batch">
-            Morning Batch
-        </option>
-
-        <option value="Afternoon Batch">
-            Afternoon Batch
-        </option>
-
-        <option value="Evening Batch">
-            Evening Batch
-        </option>
-
-    </select>
-
-
-    <!-- ADMISSION DATE -->
-
-    <label>
-        Admission Date
-    </label>
-
-    <input
-        type="date"
-        id="admissionDate">
-
-
-    <!-- NEXT -->
-
-    <button
-        class="primary-btn"
-        onclick="goToStep(3)">
-
-        Next →
-
-    </button>
-
-
-    <!-- BACK -->
-
-    <button
-        class="secondary-btn"
-        onclick="goBackToStep(1)">
-
-        ← Back
-
-    </button>
-
-</div>
-
-
-<!-- =====================================
-     STEP 3
-===================================== -->
-
-<div
-    class="card step-page hidden"
-    id="step3">
-
-    <h1 class="title">
-        Select Subjects
-    </h1>
-
-    <p class="subtitle">
-        Step 3 of 5 • Select student subjects
-    </p>
-
-
-    <div id="subjectArea">
-
-        <p style="color:#777;">
-            Please select a class/course first.
-        </p>
+      </select>
 
     </div>
 
 
-    <button
-        class="primary-btn"
-        onclick="goToStep(4)">
+    <!-- =========================
+         ROLL NUMBER
+    ========================= -->
 
-        Next →
-
-    </button>
+    <div class="card">
 
+      <label>
+        Roll Number
+        <span class="required">*</span>
+      </label>
 
-    <button
-        class="secondary-btn"
-        onclick="goBackToStep(2)">
+      <input
+        type="text"
+        name="Roll Number"
+        placeholder="Enter your roll number"
+        required
+      >
 
-        ← Back
+    </div>
 
-    </button>
 
-</div>
+    <!-- =========================
+         IDEA NAME
+    ========================= -->
 
+    <div class="card">
 
-<script>
+      <label>
+        Problem Idea Name
+        <span class="required">*</span>
+      </label>
 
-/* =====================================
-   SUBJECT LIST
-===================================== */
+      <input
+        type="text"
+        name="Problem Idea Name"
+        placeholder="Example: LandGuard AI"
+        required
+      >
 
-const subjectList = {
+    </div>
 
-    "Class 9":[
-        "Hindi",
-        "English",
-        "Mathematics",
-        "Science",
-        "Social Science"
-    ],
 
-    "Class 10":[
-        "Hindi",
-        "English",
-        "Mathematics",
-        "Science",
-        "Social Science"
-    ],
+    <!-- =========================
+         PROBLEM CODE
+    ========================= -->
 
-    "Class 11":[
-        "Physics",
-        "Chemistry",
-        "Mathematics",
-        "Biology",
-        "English"
-    ],
+    <div class="card">
 
-    "Class 12":[
-        "Physics",
-        "Chemistry",
-        "Mathematics",
-        "Biology",
-        "English"
-    ],
+      <label>
+        Problem Statement Code
+        <span class="required">*</span>
+      </label>
 
-    "JEE":[
-        "Physics",
-        "Chemistry",
-        "Mathematics"
-    ],
+      <input
+        type="text"
+        name="Problem Statement Code"
+        placeholder="Example: SIH26017"
+        required
+      >
 
-    "NEET":[
-        "Physics",
-        "Chemistry",
-        "Biology"
-    ],
+    </div>
 
-    "Foundation":[
-        "Mathematics",
-        "Science",
-        "English",
-        "Reasoning"
-    ],
 
-    "Other":[
-        "Subject 1",
-        "Subject 2",
-        "Subject 3"
-    ]
+    <!-- =========================
+         PROBLEM STATEMENT
+    ========================= -->
 
-};
+    <div class="card">
 
+      <label>
+        Problem Statement / Idea
+        <span class="required">*</span>
+      </label>
 
-/* =====================================
-   SHOW SUBJECTS
-===================================== */
+      <textarea
+        name="Problem Statement"
+        placeholder="Write the problem statement or your idea..."
+        required
+      ></textarea>
 
-document
-.getElementById("course")
-.addEventListener(
-    "change",
-    showSubjects
-);
+    </div>
 
 
-function showSubjects(){
+    <!-- =========================
+         REASON
+    ========================= -->
 
-    const course =
-    document
-    .getElementById("course")
-    .value;
+    <div class="card">
 
+      <label>
+        Why do you want to work on this problem?
+        <span class="required">*</span>
+      </label>
 
-    const area =
-    document
-    .getElementById("subjectArea");
+      <textarea
+        name="Reason"
+        placeholder="Write your reason..."
+        required
+      ></textarea>
 
+    </div>
 
-    if(!course){
 
-        area.innerHTML = `
-            <p style="color:#777;">
-                Please select a class/course first.
-            </p>
-        `;
+    <!-- =========================
+         YES / NO
+    ========================= -->
 
-        return;
-    }
+    <div class="card">
 
+      <label>
+        Do you want to work on this problem?
+        <span class="required">*</span>
+      </label>
 
-    const list =
-    subjectList[course] || [];
 
+      <div class="options">
 
-    area.innerHTML = `
 
-        <div class="subject-grid">
+        <label class="option">
 
-            ${
-                list.map(function(subject){
+          <input
+            type="radio"
+            name="Want To Work"
+            value="Yes"
+            required
+          >
 
-                    return `
+          Yes
 
-                        <div
-                            class="subject-item">
-
-                            <label>
-
-                                <input
-                                    type="checkbox"
-                                    class="subject-check"
-                                    value="${subject}">
-
-                                ${subject}
-
-                            </label>
-
-                        </div>
-
-                    `;
-
-                }).join("")
-            }
-
-        </div>
-
-    `;
-}
-
-
-/* =====================================
-   DATE
-===================================== */
-
-document
-.getElementById("admissionDate")
-.value =
-new Date()
-.toISOString()
-.split("T")[0];
-
-
-/* =====================================
-   STEP NAVIGATION
-===================================== */
-
-function goToStep(step){
-
-    /* STEP 2 VALIDATION */
-
-    if(step === 3){
-
-        const course =
-        document
-        .getElementById("course")
-        .value;
-
-
-        const batch =
-        document
-        .getElementById("batch")
-        .value;
-
-
-        if(!course){
-
-            alert(
-                "Please select Class / Course."
-            );
-
-            return;
-        }
-
-
-        if(!batch){
-
-            alert(
-                "Please select Batch."
-            );
-
-            return;
-        }
-
-
-        showSubjects();
-    }
-
-
-    /* STEP 3 */
-
-    if(step === 4){
-
-        const selected =
-        document
-        .querySelectorAll(
-            ".subject-check:checked"
-        );
-
-
-        if(selected.length === 0){
-
-            alert(
-                "Please select at least one subject."
-            );
-
-            return;
-        }
-    }
-
-
-    /* HIDE ALL */
-
-    document
-    .querySelectorAll(".step-page")
-    .forEach(function(page){
-
-        page.classList.add(
-            "hidden"
-        );
-
-    });
-
-
-    /* SHOW SELECTED */
-
-    const selectedPage =
-    document.getElementById(
-        "step" + step
-    );
-
-
-    if(selectedPage){
-
-        selectedPage.classList.remove(
-            "hidden"
-        );
-    }
-
-
-    /* UPDATE CIRCLE */
-
-    document
-    .querySelectorAll(".step-circle")
-    .forEach(function(circle){
-
-        circle.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    const circle =
-    document.getElementById(
-        "circle" + step
-    );
-
-
-    if(circle){
-
-        circle.classList.add(
-            "active"
-        );
-    }
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================
-   BACK
-===================================== */
-
-function goBackToStep(step){
-
-    document
-    .querySelectorAll(".step-page")
-    .forEach(function(page){
-
-        page.classList.add(
-            "hidden"
-        );
-
-    });
-
-
-    document
-    .getElementById(
-        "step" + step
-    )
-    .classList.remove(
-        "hidden"
-    );
-
-
-    document
-    .querySelectorAll(".step-circle")
-    .forEach(function(circle){
-
-        circle.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    document
-    .getElementById(
-        "circle" + step
-    )
-    .classList.add(
-        "active"
-    );
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-</script>
-  <!-- =====================================
-     STEP 4 — STUDENT PHOTO
-===================================== -->
-
-<div
-    class="card step-page hidden"
-    id="step4">
-
-    <h1 class="title">
-        Student Photo
-    </h1>
-
-    <p class="subtitle">
-        Step 4 of 5 • Upload student photo
-    </p>
-
-
-    <div class="photo-box">
-
-        <label>
-            Student Photo
         </label>
 
-        <input
-            type="file"
-            id="studentPhoto"
-            accept="image/*"
-            onchange="previewStudentPhoto(event)">
+
+        <label class="option">
+
+          <input
+            type="radio"
+            name="Want To Work"
+            value="No"
+          >
+
+          No
+
+        </label>
 
 
-        <img
-            id="photoPreview"
-            class="photo-preview"
-            alt="Student Photo">
-
-        <p
-            style="
-            color:#777;
-            margin-top:10px;
-            font-size:14px;
-            ">
-
-            JPG, PNG or WEBP • Maximum 2 MB
-
-        </p>
+      </div>
 
     </div>
 
 
-    <button
-        class="primary-btn"
-        onclick="goToStep(5)">
+    <!-- =========================
+         DATE
+    ========================= -->
 
-        Next →
+    <div class="card">
 
-    </button>
+      <label>
+        Date
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="date"
+        name="Date"
+        id="date"
+        required
+      >
+
+    </div>
 
 
-    <button
-        class="secondary-btn"
-        onclick="goBackToStep(3)">
+    <!-- =========================
+         TIME
+    ========================= -->
 
-        ← Back
+    <div class="card">
 
-    </button>
+      <label>
+        Time
+        <span class="required">*</span>
+      </label>
+
+      <input
+        type="time"
+        name="Time"
+        id="time"
+        required
+      >
+
+    </div>
+
+
+    <!-- =========================
+         DAY
+    ========================= -->
+
+    <div class="card">
+
+      <label>
+        Day
+        <span class="required">*</span>
+      </label>
+
+      <select
+        name="Day"
+        id="day"
+        required
+      >
+
+        <option value="">
+          Select day
+        </option>
+
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+
+      </select>
+
+    </div>
+
+
+    <!-- =========================
+         BUTTONS
+    ========================= -->
+
+    <div class="bottom">
+
+      <button
+        type="reset"
+        class="clear"
+        id="clearBtn"
+      >
+        Clear form
+      </button>
+
+
+      <button
+        type="submit"
+        class="submit"
+        id="submitBtn"
+      >
+        Submit
+      </button>
+
+    </div>
+
+
+  </form>
 
 </div>
 
 
-
-<!-- =====================================
-     STEP 5 — CONFIRMATION
-===================================== -->
+<!-- =========================
+     THANK YOU
+========================= -->
 
 <div
-    class="card step-page hidden"
-    id="step5">
-
-    <h1 class="title">
-        Confirm Registration
-    </h1>
-
-    <p class="subtitle">
-        Step 5 of 5 • Check student details
-    </p>
-
-
-    <div
-        id="studentSummary">
-
-        <!-- Summary will appear here -->
-
-    </div>
-
-
-    <button
-        class="primary-btn"
-        onclick="registerStudent()">
-
-        ✅ Register Student
-
-    </button>
-
-
-    <button
-        class="secondary-btn"
-        onclick="goBackToStep(4)">
-
-        ← Back
-
-    </button>
-
-</div>
-
-
-
-<script>
-
-/* =====================================
-   CURRENT STUDENT PHOTO
-===================================== */
-
-let studentPhotoData = "";
-
-
-/* =====================================
-   PHOTO PREVIEW
-===================================== */
-
-function previewStudentPhoto(event){
-
-    const file =
-    event.target.files[0];
-
-
-    if(!file){
-        return;
-    }
-
-
-    /* MAX 2 MB */
-
-    if(file.size > 2 * 1024 * 1024){
-
-        alert(
-            "Photo must be less than 2 MB."
-        );
-
-        event.target.value = "";
-
-        return;
-    }
-
-
-    const reader =
-    new FileReader();
-
-
-    reader.onload = function(e){
-
-        studentPhotoData =
-        e.target.result;
-
-
-        const preview =
-        document.getElementById(
-            "photoPreview"
-        );
-
-
-        preview.src =
-        studentPhotoData;
-
-
-        preview.style.display =
-        "block";
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-}
-
-
-
-/* =====================================
-   STEP 5 SUMMARY
-===================================== */
-
-function createStudentSummary(){
-
-    const name =
-    document
-    .getElementById("studentName")
-    .value
-    .trim();
-
-
-    const father =
-    document
-    .getElementById("fatherName")
-    .value
-    .trim();
-
-
-    const mobile =
-    document
-    .getElementById("mobile")
-    .value
-    .trim();
-
-
-    const roll =
-    document
-    .getElementById("roll")
-    .value
-    .trim();
-
-
-    const course =
-    document
-    .getElementById("course")
-    .value;
-
-
-    const batch =
-    document
-    .getElementById("batch")
-    .value;
-
-
-    const date =
-    document
-    .getElementById("admissionDate")
-    .value;
-
-
-    const selectedSubjects =
-    Array.from(
-        document.querySelectorAll(
-            ".subject-check:checked"
-        )
-    ).map(function(item){
-
-        return item.value;
-
-    });
-
-
-    const subjectsText =
-    selectedSubjects.length
-    ?
-    selectedSubjects.join(", ")
-    :
-    "No subject selected";
-
-
-    const photoHTML =
-    studentPhotoData
-    ?
-    `
-        <div
-        style="
-        text-align:center;
-        margin-bottom:20px;
-        ">
-
-            <img
-            src="${studentPhotoData}"
-            style="
-            width:100px;
-            height:100px;
-            border-radius:50%;
-            object-fit:cover;
-            border:3px solid #673ab7;
-            ">
-
-        </div>
-    `
-    :
-    `
-        <div
-        style="
-        text-align:center;
-        margin-bottom:20px;
-        color:#777;
-        ">
-
-            📷 No photo selected
-
-        </div>
-    `;
-
-
-    document.getElementById(
-        "studentSummary"
-    ).innerHTML = `
-
-        ${photoHTML}
-
-
-        <div
-        style="
-        background:#f8f6ff;
-        padding:18px;
-        border-radius:18px;
-        ">
-
-
-            <p style="margin-bottom:10px;">
-                <b>Student Name:</b>
-                ${escapeText(name)}
-            </p>
-
-
-            <p style="margin-bottom:10px;">
-                <b>Father's Name:</b>
-                ${escapeText(father)}
-            </p>
-
-
-            <p style="margin-bottom:10px;">
-                <b>Mobile:</b>
-                ${escapeText(mobile)}
-            </p>
-
-
-            <p style="margin-bottom:10px;">
-                <b>Roll Number:</b>
-                ${escapeText(roll)}
-            </p>
-
-
-            <p style="margin-bottom:10px;">
-                <b>Course:</b>
-                ${escapeText(course)}
-            </p>
-
-
-            <p style="margin-bottom:10px;">
-                <b>Batch:</b>
-                ${escapeText(batch)}
-            </p>
-
-
-            <p style="margin-bottom:10px;">
-                <b>Subjects:</b>
-                ${escapeText(subjectsText)}
-            </p>
-
-
-            <p>
-                <b>Admission Date:</b>
-                ${escapeText(date)}
-            </p>
-
-
-        </div>
-
-    `;
-}
-
-
-
-/* =====================================
-   MODIFY goToStep FOR STEP 5
-===================================== */
-
-/*
-   यह नया function पुराने goToStep()
-   को replace करेगा।
-*/
-
-function goToStep(step){
-
-    /* STEP 2 */
-
-    if(step === 2){
-
-        const name =
-        document
-        .getElementById("studentName")
-        .value.trim();
-
-
-        const father =
-        document
-        .getElementById("fatherName")
-        .value.trim();
-
-
-        const mobile =
-        document
-        .getElementById("mobile")
-        .value.trim();
-
-
-        const roll =
-        document
-        .getElementById("roll")
-        .value.trim();
-
-
-        if(!name){
-
-            alert(
-                "Please enter student name."
-            );
-
-            return;
-        }
-
-
-        if(!father){
-
-            alert(
-                "Please enter father's name."
-            );
-
-            return;
-        }
-
-
-        if(!/^[0-9]{10}$/.test(mobile)){
-
-            alert(
-                "Please enter a valid 10 digit mobile number."
-            );
-
-            return;
-        }
-
-
-        if(!roll){
-
-            alert(
-                "Please enter roll number."
-            );
-
-            return;
-        }
-
-    }
-
-
-
-    /* STEP 3 */
-
-    if(step === 3){
-
-        const course =
-        document
-        .getElementById("course")
-        .value;
-
-
-        const batch =
-        document
-        .getElementById("batch")
-        .value;
-
-
-        if(!course){
-
-            alert(
-                "Please select Class / Course."
-            );
-
-            return;
-        }
-
-
-        if(!batch){
-
-            alert(
-                "Please select Batch."
-            );
-
-            return;
-        }
-
-
-        showSubjects();
-
-    }
-
-
-
-    /* STEP 4 */
-
-    if(step === 4){
-
-        const selected =
-        document.querySelectorAll(
-            ".subject-check:checked"
-        );
-
-
-        if(selected.length === 0){
-
-            alert(
-                "Please select at least one subject."
-            );
-
-            return;
-        }
-
-    }
-
-
-
-    /* STEP 5 */
-
-    if(step === 5){
-
-        createStudentSummary();
-
-    }
-
-
-
-    /* HIDE ALL STEPS */
-
-    document
-    .querySelectorAll(".step-page")
-    .forEach(function(page){
-
-        page.classList.add(
-            "hidden"
-        );
-
-    });
-
-
-
-    /* SHOW SELECTED STEP */
-
-    const page =
-    document.getElementById(
-        "step" + step
-    );
-
-
-    if(page){
-
-        page.classList.remove(
-            "hidden"
-        );
-
-    }
-
-
-
-    /* UPDATE STEP CIRCLE */
-
-    document
-    .querySelectorAll(".step-circle")
-    .forEach(function(circle){
-
-        circle.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    const circle =
-    document.getElementById(
-        "circle" + step
-    );
-
-
-    if(circle){
-
-        circle.classList.add(
-            "active"
-        );
-
-    }
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-
-/* =====================================
-   BACK FUNCTION
-===================================== */
-
-function goBackToStep(step){
-
-    document
-    .querySelectorAll(".step-page")
-    .forEach(function(page){
-
-        page.classList.add(
-            "hidden"
-        );
-
-    });
-
-
-    document
-    .getElementById(
-        "step" + step
-    )
-    .classList.remove(
-        "hidden"
-    );
-
-
-    document
-    .querySelectorAll(".step-circle")
-    .forEach(function(circle){
-
-        circle.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    document
-    .getElementById(
-        "circle" + step
-    )
-    .classList.add(
-        "active"
-    );
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-
-/* =====================================
-   SAFE TEXT
-===================================== */
-
-function escapeText(text){
-
-    return String(text)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
-
-/* =====================================
-   REGISTER STUDENT
-===================================== */
-
-function registerStudent(){
-
-    const name =
-    document
-    .getElementById("studentName")
-    .value.trim();
-
-
-    const father =
-    document
-    .getElementById("fatherName")
-    .value.trim();
-
-
-    const mobile =
-    document
-    .getElementById("mobile")
-    .value.trim();
-
-
-    const roll =
-    document
-    .getElementById("roll")
-    .value.trim();
-
-
-    const course =
-    document
-    .getElementById("course")
-    .value;
-
-
-    const batch =
-    document
-    .getElementById("batch")
-    .value;
-
-
-    const date =
-    document
-    .getElementById("admissionDate")
-    .value;
-
-
-    const selectedSubjects =
-    Array.from(
-        document.querySelectorAll(
-            ".subject-check:checked"
-        )
-    ).map(function(item){
-
-        return item.value;
-
-    });
-
-
-
-    const student = {
-
-        id:
-        "STU" +
-        Date.now(),
-
-        name:name,
-
-        father:father,
-
-        mobile:mobile,
-
-        roll:roll,
-
-        course:course,
-
-        batch:batch,
-
-        admissionDate:date,
-
-        subjects:selectedSubjects,
-
-        photo:studentPhotoData,
-
-        attendance:{}
-
-    };
-
-
-    /*
-       अगले Part में students array
-       और localStorage जोड़ेंगे।
-
-       अभी temporary event रख रहे हैं।
-    */
-
-    window.pendingStudent =
-    student;
-
-
-    alert(
-        "Student details are ready. Part 4 में records और attendance save system जुड़ेगा."
-    );
-
-}
-
-</script>
-  <!-- ================= PART 4 START ================= -->
-
-<div class="card">
-  <h2>📊 Student Records</h2>
-
-  <div class="dashboard">
-    <div class="dash-box">
-      <b id="totalStudents">0</b>
-      <span>Total Students</span>
-    </div>
-
-    <div class="dash-box">
-      <b id="presentToday">0</b>
-      <span>Present Today</span>
-    </div>
-
-    <div class="dash-box">
-      <b id="absentToday">0</b>
-      <span>Absent Today</span>
-    </div>
-  </div>
-
-  <input
-    type="text"
-    id="studentSearch"
-    placeholder="🔎 Search student name / roll / mobile"
-    oninput="renderStudents()"
-  >
-
-  <div id="studentRecords"></div>
-</div>
-
-
-<div class="card">
-  <h2>📅 Attendance</h2>
-
-  <label>Select Date</label>
-  <input
-    type="date"
-    id="attendanceDate"
-    onchange="renderAttendance()"
-  >
-
-  <div id="attendanceRecords"></div>
-</div>
-
-
-<div class="card">
-  <h2>⚙️ Coaching Settings</h2>
-
-  <label>FormSubmit Email</label>
-
-  <input
-    type="email"
-    id="ownerEmail"
-    placeholder="your-email@example.com"
-  >
-
-  <button
-    type="button"
-    onclick="saveOwnerEmail()"
-  >
-    💾 Save Email
-  </button>
-
-  <p class="small-note">
-    Student registration details इसी email पर भेजे जा सकते हैं।
-  </p>
-</div>
-
-
-<style>
-
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin:15px 0;
-}
-
-.dash-box{
-  background:#f4f7ff;
-  border-radius:14px;
-  padding:15px 8px;
-  text-align:center;
-  border:1px solid #ddd;
-}
-
-.dash-box b{
-  display:block;
-  font-size:24px;
-  color:#4f46e5;
-}
-
-.dash-box span{
-  font-size:12px;
-}
-
-.student-item,
-.attendance-item{
-  background:#fff;
-  border:1px solid #ddd;
-  border-radius:15px;
-  padding:12px;
-  margin-top:12px;
-}
-
-.student-item{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.student-photo-small{
-  width:65px;
-  height:65px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid #4f46e5;
-}
-
-.student-info{
-  flex:1;
-}
-
-.student-info b{
-  font-size:16px;
-}
-
-.student-info small{
-  display:block;
-  color:#666;
-  margin-top:3px;
-}
-
-.record-buttons{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-  margin-top:8px;
-}
-
-.btn-small{
-  border:0;
-  border-radius:8px;
-  padding:7px 10px;
-  cursor:pointer;
-  font-size:12px;
-}
-
-.present-btn{
-  background:#16a34a;
-  color:white;
-}
-
-.absent-btn{
-  background:#dc2626;
-  color:white;
-}
-
-.delete-btn{
-  background:#111827;
-  color:white;
-}
-
-.detail-btn{
-  background:#4f46e5;
-  color:white;
-}
-
-.attendance-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.attendance-name{
-  flex:1;
-}
-
-.status-present{
-  color:#16a34a;
-  font-weight:bold;
-}
-
-.status-absent{
-  color:#dc2626;
-  font-weight:bold;
-}
-
-.small-note{
-  font-size:12px;
-  color:#666;
-}
-
-@media(max-width:600px){
-
-  .dashboard{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .dash-box{
-    padding:10px 4px;
-  }
-
-  .dash-box b{
-    font-size:20px;
-  }
-
-  .student-item{
-    align-items:flex-start;
-  }
-
-}
-
-</style>
-
-
-<script>
-
-let students =
-  JSON.parse(localStorage.getItem("coachingStudents")) || [];
-
-let attendance =
-  JSON.parse(localStorage.getItem("coachingAttendance")) || {};
-
-
-// ================= SAVE STUDENT =================
-
-function registerStudent(){
-
-  const name =
-    document.getElementById("studentName")?.value.trim();
-
-  const father =
-    document.getElementById("fatherName")?.value.trim();
-
-  const mobile =
-    document.getElementById("studentMobile")?.value.trim();
-
-  const roll =
-    document.getElementById("rollNumber")?.value.trim();
-
-  const course =
-    document.getElementById("course")?.value || "";
-
-  const batch =
-    document.getElementById("batch")?.value || "";
-
-  const admissionDate =
-    document.getElementById("admissionDate")?.value || "";
-
-  const photo =
-    window.studentPhotoData || "";
-
-
-  if(!name){
-    alert("Student name भरें");
-    return;
-  }
-
-
-  const selectedSubjects =
-    [...document.querySelectorAll(".subject-check:checked")]
-    .map(x => x.value);
-
-
-  const student = {
-
-    id:
-      "STU" + Date.now(),
-
-    name:name,
-
-    father:father,
-
-    mobile:mobile,
-
-    roll:roll,
-
-    course:course,
-
-    batch:batch,
-
-    admissionDate:admissionDate,
-
-    subjects:selectedSubjects,
-
-    photo:photo,
-
-    createdAt:
-      new Date().toLocaleString("en-IN")
-
-  };
-
-
-  students.push(student);
-
-  localStorage.setItem(
-    "coachingStudents",
-    JSON.stringify(students)
-  );
-
-
-  // Email भेजने की कोशिश
-  sendStudentByFormSubmit(student);
-
-
-  alert(
-    "✅ Student Registration Successful!\n\n" +
-    "Student ID: " + student.id
-  );
-
-
-  renderStudents();
-
-  renderAttendance();
-
-  updateDashboard();
-
-
-  // अगला registration करने के लिए form reset
-  window.pendingStudent = null;
-
-}
-
-
-// ================= FORM SUBMIT =================
-
-function saveOwnerEmail(){
-
-  const email =
-    document.getElementById("ownerEmail").value.trim();
-
-  if(!email){
-    alert("Email address डालें");
-    return;
-  }
-
-  localStorage.setItem(
-    "coachingOwnerEmail",
-    email
-  );
-
-  alert("✅ Email saved successfully");
-}
-
-
-function loadOwnerEmail(){
-
-  const email =
-    localStorage.getItem("coachingOwnerEmail");
-
-  if(email){
-
-    const input =
-      document.getElementById("ownerEmail");
-
-    if(input){
-      input.value = email;
-    }
-
-  }
-
-}
-
-
-function sendStudentByFormSubmit(student){
-
-  const email =
-    localStorage.getItem("coachingOwnerEmail");
-
-  if(!email){
-    return;
-  }
-
-
-  /*
-    FormSubmit को normal POST के माध्यम से
-    hidden form भेजा जा रहा है।
-  */
-
-  const form =
-    document.createElement("form");
-
-  form.method = "POST";
-
-  form.action =
-    "https://formsubmit.co/" +
-    encodeURIComponent(email);
-
-  form.target = "_blank";
-
-
-  const fields = {
-
-    _subject:
-      "New Coaching Student Registration",
-
-    _template:
-      "table",
-
-    _captcha:
-      "false",
-
-    Student_Name:
-      student.name,
-
-    Father_Name:
-      student.father,
-
-    Mobile:
-      student.mobile,
-
-    Roll_Number:
-      student.roll,
-
-    Course:
-      student.course,
-
-    Batch:
-      student.batch,
-
-    Admission_Date:
-      student.admissionDate,
-
-    Subjects:
-      student.subjects.join(", "),
-
-    Student_ID:
-      student.id
-
-  };
-
-
-  Object.keys(fields).forEach(key => {
-
-    const input =
-      document.createElement("input");
-
-    input.type = "hidden";
-
-    input.name = key;
-
-    input.value = fields[key] || "";
-
-    form.appendChild(input);
-
-  });
-
-
-  document.body.appendChild(form);
-
-  form.submit();
-
-  form.remove();
-
-}
-
-
-// ================= RENDER STUDENTS =================
-
-function renderStudents(){
-
-  const box =
-    document.getElementById("studentRecords");
-
-  if(!box) return;
-
-
-  const search =
-    document.getElementById("studentSearch")
-    ?.value
-    .toLowerCase()
-    .trim() || "";
-
-
-  const filtered =
-    students.filter(student =>
-
-      student.name
-        .toLowerCase()
-        .includes(search)
-
-      ||
-
-      student.roll
-        .toLowerCase()
-        .includes(search)
-
-      ||
-
-      student.mobile
-        .toLowerCase()
-        .includes(search)
-
-    );
-
-
-  if(filtered.length === 0){
-
-    box.innerHTML =
-      "<p style='text-align:center;color:#777'>" +
-      "No student found" +
-      "</p>";
-
-    return;
-
-  }
-
-
-  box.innerHTML = "";
-
-
-  filtered.forEach(student => {
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "student-item";
-
-
-    const photo =
-      student.photo ||
-
-      "data:image/svg+xml;charset=UTF-8," +
-
-      encodeURIComponent(`
-
-        <svg xmlns="http://www.w3.org/2000/svg"
-        width="100" height="100">
-
-        <rect width="100%" height="100%"
-        fill="#eeeeee"/>
-
-        <text x="50%" y="50%"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="35">👤</text>
-
-        </svg>
-
-      `);
-
-
-    div.innerHTML = `
-
-      <img
-        src="${photo}"
-        class="student-photo-small"
-      >
-
-      <div class="student-info">
-
-        <b>${escapeText(student.name)}</b>
-
-        <small>
-          Roll: ${escapeText(student.roll || "-")}
-        </small>
-
-        <small>
-          Course: ${escapeText(student.course || "-")}
-        </small>
-
-        <small>
-          Batch: ${escapeText(student.batch || "-")}
-        </small>
-
-        <small>
-          Mobile: ${escapeText(student.mobile || "-")}
-        </small>
-
-        <div class="record-buttons">
-
-          <button
-            class="btn-small detail-btn"
-            onclick="showStudentDetails('${student.id}')"
-          >
-            👁 Details
-          </button>
-
-          <button
-            class="btn-small delete-btn"
-            onclick="deleteStudent('${student.id}')"
-          >
-            🗑 Delete
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-
-    box.appendChild(div);
-
-  });
-
-}
-
-
-// ================= ATTENDANCE =================
-
-function getAttendanceKey(date,id){
-
-  return date + "_" + id;
-
-}
-
-
-function markAttendance(id,status){
-
-  const date =
-    document.getElementById("attendanceDate").value;
-
-  if(!date){
-
-    alert("पहले date select करें");
-
-    return;
-
-  }
-
-
-  const key =
-    getAttendanceKey(date,id);
-
-
-  attendance[key] =
-    status;
-
-
-  localStorage.setItem(
-    "coachingAttendance",
-    JSON.stringify(attendance)
-  );
-
-
-  renderAttendance();
-
-  updateDashboard();
-
-}
-
-
-function renderAttendance(){
-
-  const box =
-    document.getElementById("attendanceRecords");
-
-  if(!box) return;
-
-
-  const date =
-    document.getElementById("attendanceDate").value;
-
-
-  if(!date){
-
-    box.innerHTML =
-      "<p>Attendance date select करें।</p>";
-
-    return;
-
-  }
-
-
-  if(students.length === 0){
-
-    box.innerHTML =
-      "<p>No students registered.</p>";
-
-    return;
-
-  }
-
-
-  box.innerHTML = "";
-
-
-  students.forEach(student => {
-
-    const key =
-      getAttendanceKey(date,student.id);
-
-    const status =
-      attendance[key] || "";
-
-
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "attendance-item";
-
-
-    let statusText =
-      "Not Marked";
-
-    let statusClass = "";
-
-
-    if(status === "Present"){
-
-      statusText =
-        "✓ Present";
-
-      statusClass =
-        "status-present";
-
-    }
-
-
-    if(status === "Absent"){
-
-      statusText =
-        "✕ Absent";
-
-      statusClass =
-        "status-absent";
-
-    }
-
-
-    div.innerHTML = `
-
-      <div class="attendance-name">
-
-        <b>
-          ${escapeText(student.name)}
-        </b>
-
-        <small>
-          Roll: ${escapeText(student.roll || "-")}
-        </small>
-
-        <div class="${statusClass}">
-          ${statusText}
-        </div>
-
-      </div>
-
-
-      <button
-        class="btn-small present-btn"
-        onclick="markAttendance('${student.id}','Present')"
-      >
-        P
-      </button>
-
-
-      <button
-        class="btn-small absent-btn"
-        onclick="markAttendance('${student.id}','Absent')"
-      >
-        A
-      </button>
-
-    `;
-
-
-    box.appendChild(div);
-
-  });
-
-}
-
-
-// ================= DASHBOARD =================
-
-function updateDashboard(){
-
-  const total =
-    document.getElementById("totalStudents");
-
-  if(total){
-    total.textContent =
-      students.length;
-  }
-
-
-  const date =
-    document.getElementById("attendanceDate")
-    ?.value;
-
-
-  let present = 0;
-  let absent = 0;
-
-
-  students.forEach(student => {
-
-    const key =
-      getAttendanceKey(date,student.id);
-
-    if(attendance[key] === "Present"){
-      present++;
-    }
-
-    if(attendance[key] === "Absent"){
-      absent++;
-    }
-
-  });
-
-
-  const p =
-    document.getElementById("presentToday");
-
-  const a =
-    document.getElementById("absentToday");
-
-
-  if(p) p.textContent = present;
-
-  if(a) a.textContent = absent;
-
-}
-
-
-// ================= DETAILS =================
-
-function showStudentDetails(id){
-
-  const student =
-    students.find(x => x.id === id);
-
-  if(!student) return;
-
-
-  alert(
-
-    "👨‍🎓 Student Details\n\n" +
-
-    "Name: " + student.name + "\n" +
-
-    "Father: " + student.father + "\n" +
-
-    "Mobile: " + student.mobile + "\n" +
-
-    "Roll: " + student.roll + "\n" +
-
-    "Course: " + student.course + "\n" +
-
-    "Batch: " + student.batch + "\n" +
-
-    "Admission Date: " +
-      student.admissionDate + "\n\n" +
-
-    "Subjects: " +
-      (student.subjects || []).join(", ")
-
-  );
-
-}
-
-
-// ================= DELETE =================
-
-function deleteStudent(id){
-
-  const ok =
-    confirm(
-      "क्या आप इस student को delete करना चाहते हैं?"
-    );
-
-  if(!ok) return;
-
-
-  students =
-    students.filter(
-      student => student.id !== id
-    );
-
-
-  localStorage.setItem(
-    "coachingStudents",
-    JSON.stringify(students)
-  );
-
-
-  renderStudents();
-
-  renderAttendance();
-
-  updateDashboard();
-
-}
-
-
-// ================= ESCAPE TEXT =================
-
-function escapeText(text){
-
-  return String(text || "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-// ================= DATE =================
-
-function setAttendanceDate(){
-
-  const input =
-    document.getElementById("attendanceDate");
-
-  if(!input) return;
-
-
-  const today =
-    new Date()
-      .toISOString()
-      .split("T")[0];
-
-
-  input.value =
-    today;
-
-}
-
-
-// ================= LOAD =================
-
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
-
-    setAttendanceDate();
-
-    loadOwnerEmail();
-
-    renderStudents();
-
-    renderAttendance();
-
-    updateDashboard();
-
-  }
-);
-
-</script>
-
-<!-- ================= PART 4 END ================= -->
-  <!-- ================= PART 5 START ================= -->
-
-<div class="card">
-
-  <h2>📱 Install Coaching App</h2>
-
-  <p>
-    इस website को अपने mobile में app की तरह install करें।
-  </p>
-
-  <button
-    id="installBtn"
-    class="install-button"
-    style="display:none;"
-  >
-    📲 Install App
-  </button>
-
-</div>
-
-
-<div class="card creator-final">
-
-  <img
-    src="creator-photo.jpg"
-    alt="Amit Kumar Singh"
-    class="creator-final-photo"
-  >
-
-  <h2>Created by Amit Kumar Singh</h2>
-
-  <p>
-    Smart Coaching Management System
-  </p>
-
-</div>
-
-
-<style>
-
-.install-button{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:12px;
-  background:#4f46e5;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.creator-final{
-  text-align:center;
-  margin-top:20px;
-}
-
-.creator-final-photo{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #4f46e5;
-  display:block;
-  margin:auto;
-}
-
-.creator-final h2{
-  margin-bottom:5px;
-}
-
-.creator-final p{
-  color:#666;
-}
-
-</style>
-
-
-<script>
-
-// ================= PWA INSTALL =================
-
-let deferredInstallPrompt = null;
-
-
-window.addEventListener(
-  "beforeinstallprompt",
-  function(event){
-
-    event.preventDefault();
-
-    deferredInstallPrompt =
-      event;
-
-    const button =
-      document.getElementById("installBtn");
-
-    if(button){
-      button.style.display =
-        "block";
-    }
-
-  }
-);
-
-
-document
-  .getElementById("installBtn")
-  ?.addEventListener(
-    "click",
-    async function(){
-
-      if(!deferredInstallPrompt){
-
-        alert(
-          "Install option अभी available नहीं है।\n\n" +
-          "Chrome browser में website खोलकर फिर कोशिश करें।"
-        );
-
-        return;
-
-      }
-
-
-      deferredInstallPrompt.prompt();
-
-
-      const result =
-        await deferredInstallPrompt.userChoice;
-
-
-      console.log(
-        "Install result:",
-        result.outcome
-      );
-
-
-      deferredInstallPrompt =
-        null;
-
-
-      document
-        .getElementById("installBtn")
-        .style.display =
-        "none";
-
-    }
-  );
-
-
-// ================= SERVICE WORKER =================
-
-if(
-  "serviceWorker" in navigator &&
-  location.protocol === "https:"
-){
-
-  window.addEventListener(
-    "load",
-    function(){
-
-      navigator.serviceWorker
-        .register("service-worker.js")
-        .then(
-          function(){
-
-            console.log(
-              "Service Worker Registered"
-            );
-
-          }
-        )
-        .catch(
-          function(error){
-
-            console.log(
-              "Service Worker Error:",
-              error
-            );
-
-          }
-        );
-
-    }
-  );
-
-}
-
-
-// ================= FOOTER YEAR =================
-
-const yearElement =
-  document.getElementById("currentYear");
-
-if(yearElement){
-
-  yearElement.textContent =
-    new Date().getFullYear();
-
-}
-
-</script>
-
-
-<footer
-  style="
-    text-align:center;
-    padding:20px 10px;
-    margin-top:20px;
-    color:#666;
-    font-size:13px;
-  "
+  id="thankYou"
+  class="thankyou"
 >
 
-  © <span id="currentYear"></span>
-  Smart Coaching Institute
+  <div class="thank-icon">
+    ✓
+  </div>
+
+  <h2>
+    Thank You!
+  </h2>
+
+  <p>
+    Your SIH Problem Idea response
+    has been submitted successfully.
+  </p>
+
+  <p>
+    We have received your response.
+  </p>
+
+
+  <button
+    class="back-btn"
+    onclick="showForm()"
+  >
+    Submit Another Response
+  </button>
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  Smart India Hackathon •
+  Student Problem Selection Form
 
   <br>
 
-  Created by Amit Kumar Singh
+  <span class="creator">
+    Created by Amit Kumar Singh,Nandani Singh❤️❤️
+  </span>
 
 </footer>
 
 
-<!-- ================= PART 5 END ================= -->
+</div>
+
+
+<script>
+
+
+/* =================================
+   ELEMENTS
+================================= */
+
+const form =
+  document.getElementById("sihForm");
+
+const dateInput =
+  document.getElementById("date");
+
+const timeInput =
+  document.getElementById("time");
+
+const dayInput =
+  document.getElementById("day");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+const clearBtn =
+  document.getElementById("clearBtn");
+
+const formArea =
+  document.getElementById("formArea");
+
+const thankYou =
+  document.getElementById("thankYou");
+
+
+/* =================================
+   DAYS
+================================= */
+
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
+
+/* =================================
+   SET DATE TIME DAY
+================================= */
+
+function setCurrentDateTime(){
+
+  const now = new Date();
+
+
+  const year =
+    now.getFullYear();
+
+  const month =
+    String(
+      now.getMonth() + 1
+    ).padStart(2,"0");
+
+  const date =
+    String(
+      now.getDate()
+    ).padStart(2,"0");
+
+
+  dateInput.value =
+    `${year}-${month}-${date}`;
+
+
+  const hours =
+    String(
+      now.getHours()
+    ).padStart(2,"0");
+
+  const minutes =
+    String(
+      now.getMinutes()
+    ).padStart(2,"0");
+
+
+  timeInput.value =
+    `${hours}:${minutes}`;
+
+
+  dayInput.value =
+    days[now.getDay()];
+
+}
+
+
+/* Run when page opens */
+
+setCurrentDateTime();
+
+
+/* =================================
+   CLEAR BUTTON
+================================= */
+
+clearBtn.addEventListener(
+  "click",
+  function(){
+
+    setTimeout(
+      setCurrentDateTime,
+      50
+    );
+
+  }
+);
+
+
+/* =================================
+   FORM SUBMIT
+================================= */
+
+form.addEventListener(
+  "submit",
+  function(event){
+
+    event.preventDefault();
+
+
+    /* Disable button */
+
+    submitBtn.disabled = true;
+
+    submitBtn.textContent =
+      "Submitting...";
+
+
+    const formData =
+      new FormData(form);
+
+
+    /* Send to FormSubmit */
+
+    fetch(
+      form.action,
+      {
+        method:"POST",
+
+        body:formData,
+
+        headers:{
+          "Accept":"application/json"
+        }
+      }
+    )
+
+    .then(
+      function(response){
+
+        if(response.ok){
+
+          /* Hide form */
+
+          formArea.style.display =
+            "none";
+
+
+          /* Show thank you */
+
+          thankYou.style.display =
+            "block";
+
+
+          /* Scroll top */
+
+          window.scrollTo({
+            top:0,
+            behavior:"smooth"
+          });
+
+
+        }else{
+
+          throw new Error(
+            "Submission failed"
+          );
+
+        }
+
+      }
+    )
+
+    .catch(
+      function(error){
+
+        alert(
+          "Unable to submit form. Please check your internet connection and try again."
+        );
+
+
+        submitBtn.disabled =
+          false;
+
+        submitBtn.textContent =
+          "Submit";
+
+      }
+    );
+
+  }
+);
+
+
+/* =================================
+   SUBMIT ANOTHER RESPONSE
+================================= */
+
+function showForm(){
+
+  /* Hide thank you */
+
+  thankYou.style.display =
+    "none";
+
+
+  /* Show form */
+
+  formArea.style.display =
+    "block";
+
+
+  /* Reset */
+
+  form.reset();
+
+
+  /* Set new date/time/day */
+
+  setCurrentDateTime();
+
+
+  /* Reset submit button */
+
+  submitBtn.disabled =
+    false;
+
+  submitBtn.textContent =
+    "Submit";
+
+
+  /* Scroll */
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
 
 </body>
-  <body>
-
-  <div class="coaching-header">
-
-    <div class="coaching-logo">
-      <img
-        src="logo.png"
-        alt="Coaching Logo"
-      >
-    </div>
-
-    <div class="coaching-name">
-      Smart Coaching Institute
-    </div>
-
-    <div class="tagline">
-      Quality Education • Better Future
-    </div>
-
-  </div>
-
-
-  <div class="container">
-
-    <div class="steps">
-
-      <div class="step active">
-        1<br>Student
-      </div>
-
-      <div class="step">
-        2<br>Course
-      </div>
-
-      <div class="step">
-        3<br>Subjects
-      </div>
-
-      <div class="step">
-        4<br>Photo
-      </div>
-
-      <div class="step">
-        5<br>Confirm
-      </div>
-
-    </div>
-
-
-    <!-- STEP 1 -->
-
-    <div class="card">
-
-      <h2>👨‍🎓 Student Registration</h2>
-
-      <label>
-        Student Name
-      </label>
-
-      <input
-        type="text"
-        id="studentName"
-        placeholder="Enter student name"
-      >
-
-
-      <label>
-        Father's Name
-      </label>
-
-      <input
-        type="text"
-        id="fatherName"
-        placeholder="Enter father's name"
-      >
-
-
-      <label>
-        Mobile Number
-      </label>
-
-      <input
-        type="tel"
-        id="studentMobile"
-        placeholder="Enter mobile number"
-      >
-
-
-      <label>
-        Roll Number
-      </label>
-
-      <input
-        type="text"
-        id="rollNumber"
-        placeholder="Enter roll number"
-      >
-
-      <button onclick="goToStep(2)">
-        Next →
-      </button>
-
-    </div>
-
-
-    <!-- CREATOR -->
-
-    <div class="card creator">
-
-      <img
-        src="creator-photo.jpg"
-        alt="Created by Amit Kumar Singh Nandani Singh Rajput ❤️❤️"
-      >
-
-      <h3>
-        Created by Amit Kumar Singh, Nandani Singh Rajput ❤️❤️
-      </h3>
-
-      <p>
-        Smart Coaching Management System
-      </p>
-
-    </div>
-
-  </div>
-
-  </body>
 </html>
