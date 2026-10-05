@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-<title>SIH Problem Idea Form</title>
+<title>Smart DigiLocker 3.0</title>
 
 <style>
 
@@ -16,16 +18,54 @@
 ========================= */
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial, sans-serif;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+:root{
+
+    --primary:#1261d6;
+    --primary-dark:#073b91;
+
+    --bg:#f4f7fb;
+    --card:#ffffff;
+
+    --text:#172033;
+    --muted:#6b7280;
+
+    --border:#e5e7eb;
+
+    --danger:#dc2626;
+    --success:#16a34a;
+
+    --shadow:
+        0 8px 25px rgba(0,0,0,.08);
 }
 
 body{
-  background:#f1f3f4;
-  color:#202124;
-  line-height:1.5;
+
+    background:var(--bg);
+    color:var(--text);
+
+    min-height:100vh;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark{
+
+    --bg:#101827;
+    --card:#182235;
+
+    --text:#f3f4f6;
+    --muted:#aeb7c5;
+
+    --border:#2c384d;
 }
 
 
@@ -34,243 +74,971 @@ body{
 ========================= */
 
 .header{
-  background:linear-gradient(135deg,#673ab7,#512da8);
-  color:white;
-  padding:25px 18px;
-  box-shadow:0 2px 8px rgba(0,0,0,.15);
+
+    height:72px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-dark)
+        );
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 25px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.15);
 }
 
-.header-inner{
-  max-width:720px;
-  margin:auto;
+.logo-area h1{
+
+    font-size:23px;
 }
 
-.header h1{
-  font-size:27px;
-  margin-bottom:6px;
+.logo-area p{
+
+    font-size:12px;
+
+    opacity:.85;
+
+    margin-top:3px;
 }
 
-.header p{
-  font-size:14px;
-  opacity:.95;
+.header-actions{
+
+    display:flex;
+
+    gap:8px;
 }
 
+.header-btn{
 
-/* =========================
-   CONTAINER
-========================= */
+    border:none;
 
-.container{
-  max-width:720px;
-  margin:25px auto;
-  padding:0 12px;
+    background:
+        rgba(255,255,255,.18);
+
+    color:white;
+
+    padding:10px 13px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
 }
 
+.header-btn:hover{
 
-/* =========================
-   TITLE CARD
-========================= */
-
-.title-card{
-  background:white;
-  border-radius:10px;
-  border-top:9px solid #673ab7;
-  padding:26px;
-  margin-bottom:17px;
-  box-shadow:0 2px 7px rgba(0,0,0,.12);
-}
-
-.title-card h2{
-  font-size:27px;
-  margin-bottom:12px;
-  color:#202124;
-}
-
-.title-card p{
-  color:#5f6368;
-  line-height:1.7;
-}
-
-.required{
-  color:#d93025;
-  font-weight:bold;
-}
-
-
-/* =========================
-   FORM CARD
-========================= */
-
-.card{
-  background:white;
-  border-radius:10px;
-  padding:23px;
-  margin-bottom:17px;
-  box-shadow:0 2px 7px rgba(0,0,0,.10);
-}
-
-.card label{
-  display:block;
-  font-size:16px;
-  font-weight:600;
-  margin-bottom:11px;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-  border:none;
-  border-bottom:1px solid #aaa;
-  padding:12px 4px;
-  font-size:16px;
-  outline:none;
-  background:white;
-  color:#202124;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-bottom:2px solid #673ab7;
-}
-
-input::placeholder,
-textarea::placeholder{
-  color:#9aa0a6;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
+    background:
+        rgba(255,255,255,.3);
 }
 
 
 /* =========================
-   RADIO BUTTONS
+   LAYOUT
 ========================= */
 
-.options{
-  display:flex;
-  gap:35px;
-  margin-top:12px;
-}
+.layout{
 
-.option{
-  display:flex !important;
-  align-items:center;
-  gap:9px;
-  font-weight:normal !important;
-  margin:0 !important;
-  cursor:pointer;
-}
+    display:flex;
 
-.option input{
-  width:18px;
-  height:18px;
-  accent-color:#673ab7;
+    min-height:
+        calc(100vh - 72px);
 }
 
 
 /* =========================
-   BUTTON AREA
+   SIDEBAR
 ========================= */
 
-.bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:24px 0 35px;
+.sidebar{
+
+    width:235px;
+
+    background:var(--card);
+
+    border-right:
+        1px solid var(--border);
+
+    padding:20px 12px;
+
+    position:fixed;
+
+    top:72px;
+
+    bottom:0;
+
+    left:0;
+
+    overflow-y:auto;
 }
 
-.clear{
-  border:none;
-  background:none;
-  color:#673ab7;
-  font-weight:bold;
-  font-size:15px;
-  cursor:pointer;
-  padding:10px;
+.nav-title{
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    color:var(--muted);
+
+    padding:0 12px 10px;
+
+    font-weight:bold;
 }
 
-.clear:hover{
-  color:#512da8;
+.nav-btn{
+
+    width:100%;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--text);
+
+    padding:13px 14px;
+
+    margin-bottom:5px;
+
+    border-radius:10px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-size:14px;
 }
 
-.submit{
-  border:none;
-  background:#673ab7;
-  color:white;
-  padding:13px 30px;
-  border-radius:6px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
+.nav-btn:hover{
+
+    background:#eef4ff;
 }
 
-.submit:hover{
-  background:#512da8;
+body.dark .nav-btn:hover{
+
+    background:#202d43;
 }
 
-.submit:disabled{
-  opacity:.7;
-  cursor:not-allowed;
+.nav-btn.active{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #0d4bab
+        );
+
+    color:white;
 }
 
 
 /* =========================
-   THANK YOU
+   MAIN
 ========================= */
 
-.thankyou{
-  display:none;
-  background:white;
-  border-radius:12px;
-  padding:45px 25px;
-  text-align:center;
-  box-shadow:0 2px 8px rgba(0,0,0,.12);
-  margin-bottom:25px;
+.main{
+
+    margin-left:235px;
+
+    width:
+        calc(100% - 235px);
+
+    padding:25px;
 }
 
-.thank-icon{
-  width:75px;
-  height:75px;
-  margin:0 auto 18px;
-  border-radius:50%;
-  background:#e8f5e9;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:42px;
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    display:none;
+
+    animation:
+        fadeIn .25s ease;
 }
 
-.thankyou h2{
-  color:#673ab7;
-  font-size:29px;
-  margin-bottom:12px;
+.page.active{
+
+    display:block;
 }
 
-.thankyou p{
-  color:#5f6368;
-  font-size:16px;
-  line-height:1.7;
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(5px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
 }
 
-.back-btn{
-  margin-top:25px;
-  padding:12px 25px;
-  border:none;
-  border-radius:6px;
-  background:#673ab7;
-  color:white;
-  font-weight:bold;
-  font-size:15px;
-  cursor:pointer;
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #063785
+        );
+
+    color:white;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    margin-bottom:22px;
+
+    box-shadow:var(--shadow);
 }
 
-.back-btn:hover{
-  background:#512da8;
+.welcome h2{
+
+    font-size:25px;
+
+    margin-bottom:8px;
+}
+
+.welcome p{
+
+    opacity:.9;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.stat-card{
+
+    background:var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+}
+
+.stat-icon{
+
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.stat-card h3{
+
+    font-size:25px;
+
+    margin-bottom:5px;
+}
+
+.stat-card p{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:25px 0 15px;
+}
+
+.section-title h2{
+
+    font-size:20px;
+}
+
+
+/* =========================
+   QUICK ACTIONS
+========================= */
+
+.quick-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.quick-btn{
+
+    border:none;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:22px 12px;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
+}
+
+.quick-btn:hover{
+
+    transform:
+        translateY(-3px);
+}
+
+.quick-btn span{
+
+    display:block;
+
+    font-size:28px;
+
+    margin-bottom:9px;
+}
+
+.quick-btn strong{
+
+    font-size:14px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--card);
+
+    color:var(--text);
+
+    outline:none;
+
+    font-size:15px;
+
+    margin-bottom:15px;
+}
+
+.search-box:focus{
+
+    border-color:
+        var(--primary);
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+.filters{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:20px;
+}
+
+.filter-btn{
+
+    border:
+        1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+}
+
+.filter-btn.active{
+
+    background:
+        var(--primary);
+
+    color:white;
+
+    border-color:
+        var(--primary);
+}
+      /* =========================
+   DOCUMENT GRID
+========================= */
+
+.document-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fill,minmax(240px,1fr));
+    gap:18px;
+    margin-top:20px;
+}
+
+.document-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+}
+
+.document-card:hover{
+    transform:translateY(-4px);
+}
+
+.document-icon{
+    width:58px;
+    height:58px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eaf2ff;
+    font-size:30px;
+    margin-bottom:14px;
+}
+
+body.dark .document-icon{
+    background:#172b4d;
+}
+
+.document-name{
+    font-size:16px;
+    font-weight:700;
+    word-break:break-word;
+    margin-bottom:7px;
+}
+
+.document-info{
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.document-category{
+    display:inline-block;
+    margin-top:10px;
+    padding:5px 9px;
+    border-radius:20px;
+    background:#eef4ff;
+    color:var(--primary);
+    font-size:11px;
+    font-weight:700;
+}
+
+body.dark .document-category{
+    background:#182b4a;
+}
+
+.document-actions{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.document-actions button{
+    border:none;
+    border-radius:10px;
+    padding:8px 11px;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:600;
+    background:var(--bg);
+    color:var(--text);
+    border:1px solid var(--border);
+}
+
+.document-actions button:hover{
+    background:var(--primary);
+    color:white;
+}
+
+.document-actions .delete-btn:hover{
+    background:var(--danger);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state{
+    text-align:center;
+    padding:50px 20px;
+    color:var(--muted);
+    background:var(--card);
+    border:1px dashed var(--border);
+    border-radius:18px;
+    margin-top:20px;
+}
+
+.empty-icon{
+    font-size:55px;
+    margin-bottom:12px;
+}
+
+.empty-state h3{
+    color:var(--text);
+    margin-bottom:7px;
+}
+
+
+/* =========================
+   SAVE / PRIMARY BUTTON
+========================= */
+
+.save-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.save-btn:hover{
+    background:var(--primary-dark);
+    transform:translateY(-1px);
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fill,minmax(180px,1fr));
+    gap:18px;
+    margin-top:20px;
+}
+
+.category-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:.25s;
+}
+
+.category-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--primary);
+}
+
+.category-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.category-card h3{
+    font-size:17px;
+    margin-bottom:5px;
+}
+
+.category-card p{
+    font-size:12px;
+    color:var(--muted);
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card{
+    max-width:650px;
+    margin:20px auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:var(--shadow);
+}
+
+.profile-top{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.profile-photo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #dbeafe;
+    margin-bottom:12px;
+}
+
+.profile-name{
+    font-size:22px;
+    font-weight:800;
+}
+
+.profile-email{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:4px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    outline:none;
+    background:var(--bg);
+    color:var(--text);
+    font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--primary);
+}
+
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.activity-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+}
+
+.activity-item{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:15px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.activity-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eaf2ff;
+    font-size:20px;
+    flex-shrink:0;
+}
+
+body.dark .activity-icon{
+    background:#172b4d;
+}
+
+.activity-text{
+    flex:1;
+}
+
+.activity-text strong{
+    display:block;
+    font-size:14px;
+}
+
+.activity-text small{
+    color:var(--muted);
+    font-size:11px;
+}
+
+
+/* =========================
+   STORAGE
+========================= */
+
+.storage-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:22px;
+    margin-top:20px;
+    box-shadow:var(--shadow);
+}
+
+.storage-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.storage-title{
+    font-size:18px;
+    font-weight:800;
+}
+
+.storage-size{
+    font-size:13px;
+    color:var(--muted);
+}
+
+.storage-bar{
+    height:12px;
+    background:var(--bg);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.storage-progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #1261d6,
+        #4f8cff
+    );
+    border-radius:20px;
+    transition:.4s;
+}
+
+.storage-note{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+}
+
+
+/* =========================
+   BACKUP
+========================= */
+
+.backup-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:20px;
+}
+
+.backup-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.backup-card h3{
+    margin-bottom:8px;
+}
+
+.backup-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:16px;
+}
+
+.backup-btn{
+    width:100%;
+    padding:11px;
+    border:none;
+    border-radius:11px;
+    background:var(--primary);
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.backup-btn:hover{
+    background:var(--primary-dark);
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    padding:15px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(900px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:var(--card);
+    border-radius:20px;
+    padding:18px;
+    position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.modal-header h3{
+    font-size:18px;
+    word-break:break-word;
+}
+
+.close-modal{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:var(--bg);
+    color:var(--text);
+    cursor:pointer;
+    font-size:20px;
+}
+
+.preview-area{
+    min-height:250px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--bg);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.preview-area iframe{
+    width:100%;
+    height:65vh;
+    border:none;
+}
+
+.preview-area img{
+    max-width:100%;
+    max-height:65vh;
+    object-fit:contain;
+}
+
+.preview-area video{
+    max-width:100%;
+    max-height:65vh;
 }
 
 
@@ -278,825 +1046,7190 @@ textarea{
    FOOTER
 ========================= */
 
-footer{
-  text-align:center;
-  color:#777;
-  font-size:13px;
-  padding:5px 10px 30px;
-  line-height:1.7;
+.footer{
+    margin-top:40px;
+    padding:25px 15px;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
 }
 
-.creator{
-  color:#673ab7;
-  font-size:14px;
-  font-weight:bold;
+.footer strong{
+    color:var(--primary);
 }
 
 
 /* =========================
-   MOBILE
+   MOBILE NAVIGATION
 ========================= */
 
-@media(max-width:600px){
-
-  .header{
-    padding:21px 16px;
-  }
-
-  .header h1{
-    font-size:22px;
-  }
-
-  .header p{
-    font-size:13px;
-  }
-
-  .container{
-    margin:18px auto;
-    padding:0 10px;
-  }
-
-  .title-card,
-  .card{
-    padding:20px;
-    border-radius:9px;
-  }
-
-  .title-card h2{
-    font-size:23px;
-  }
-
-  .card label{
-    font-size:15px;
-  }
-
-  input,
-  select,
-  textarea{
-    font-size:15px;
-  }
-
-  .options{
-    gap:24px;
-  }
-
-  .bottom{
-    margin-bottom:25px;
-  }
-
-  .submit{
-    padding:12px 24px;
-  }
-
-  .thankyou{
-    padding:38px 20px;
-  }
-
-  .thankyou h2{
-    font-size:26px;
-  }
+.mobile-nav{
+    display:none;
 }
 
-</style>
+.mobile-nav button{
+    border:none;
+    background:none;
+    color:var(--muted);
+    font-size:10px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:3px;
+}
 
+.mobile-nav button span{
+    font-size:20px;
+}
+
+.mobile-nav button.active{
+    color:var(--primary);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .sidebar{
+        width:210px;
+    }
+
+    .main{
+        margin-left:210px;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:700px){
+
+    .header{
+        height:62px;
+        padding:0 14px;
+    }
+
+    .logo-area h1{
+        font-size:17px;
+    }
+
+    .logo-area p{
+        display:none;
+    }
+
+    .header-right .header-btn span{
+        display:none;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        margin-left:0;
+        padding:18px 14px 90px;
+    }
+
+    .welcome{
+        padding:20px;
+    }
+
+    .welcome h2{
+        font-size:22px;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+        gap:10px;
+    }
+
+    .stat-card{
+        padding:15px;
+    }
+
+    .stat-number{
+        font-size:21px;
+    }
+
+    .quick-actions{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .document-grid{
+        grid-template-columns:1fr;
+    }
+
+    .category-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+        gap:12px;
+    }
+
+    .mobile-nav{
+        position:fixed;
+        display:flex;
+        bottom:0;
+        left:0;
+        right:0;
+        height:68px;
+        background:var(--card);
+        border-top:1px solid var(--border);
+        z-index:900;
+        justify-content:space-around;
+        align-items:center;
+        box-shadow:0 -5px 20px rgba(0,0,0,.08);
+    }
+
+    .modal-box{
+        padding:12px;
+    }
+
+    .preview-area iframe{
+        height:60vh;
+    }
+
+    .preview-area img{
+        max-height:60vh;
+    }
+}
+
+
+@media(max-width:420px){
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick-actions{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .category-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat-card{
+        padding:12px 8px;
+    }
+
+    .stat-label{
+        font-size:10px;
+    }
+
+    .section-title h2{
+        font-size:18px;
+    }
+}
+      </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      HEADER
 ========================= -->
 
-<div class="header">
+<header class="header">
 
-  <div class="header-inner">
+    <div class="logo-area">
+        <div class="logo-icon">📁</div>
 
-    <h1>Smart India Hackathon</h1>
+        <div>
+            <h1>Smart DigiLocker</h1>
+            <p>Digital Document Manager</p>
+        </div>
+    </div>
 
-    <p>
-      Problem Idea Selection & Student Response Form
-    </p>
+    <div class="header-right">
 
-  </div>
+        <button
+            class="header-btn"
+            onclick="toggleLanguage()">
+            🌐 <span id="languageText">हिन्दी</span>
+        </button>
 
-</div>
+        <button
+            class="header-btn"
+            onclick="toggleDarkMode()">
+            🌙 <span>Dark</span>
+        </button>
 
+        <button
+            class="profile-mini"
+            onclick="showPage('profile')">
+            👤
+        </button>
 
-<div class="container">
+    </div>
+
+</header>
 
 
 <!-- =========================
-     FORM AREA
+     APP CONTAINER
 ========================= -->
 
-<div id="formArea">
-
-
-  <!-- TITLE -->
-
-  <div class="title-card">
-
-    <h2>SIH Problem Idea Form</h2>
-
-    <p>
-      Please fill in your details and select whether
-      you want to work on the proposed problem statement.
-    </p>
-
-    <br>
-
-    <p>
-      <span class="required">*</span>
-      Required question
-    </p>
-
-  </div>
-
-
-  <!-- =========================
-       FORM
-  ========================= -->
-
-  <form
-    id="sihForm"
-    action="https://formsubmit.co/amitsingh3312509@gmail.com"
-    method="POST"
-  >
-
-
-    <!-- FORMSUBMIT SETTINGS -->
-
-    <input
-      type="hidden"
-      name="_subject"
-      value="SIH Problem Idea Response"
-    >
-
-    <input
-      type="hidden"
-      name="_captcha"
-      value="false"
-    >
-
-    <input
-      type="hidden"
-      name="_template"
-      value="table"
-    >
+<div class="app-container">
 
 
     <!-- =========================
-         STUDENT NAME
+         SIDEBAR
     ========================= -->
 
-    <div class="card">
+    <aside class="sidebar">
 
-      <label>
-        Student Name
-        <span class="required">*</span>
-      </label>
+        <div class="sidebar-menu">
 
-      <input
-        type="text"
-        name="Student Name"
-        placeholder="Enter your full name"
-        autocomplete="name"
-        required
-      >
+            <button
+                class="menu-item active"
+                onclick="showPage('home')"
+                id="menu-home">
+
+                <span>🏠</span>
+                <span data-en="Home" data-hi="होम">
+                    Home
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('documents')"
+                id="menu-documents">
+
+                <span>📂</span>
+                <span data-en="My Documents" data-hi="मेरे दस्तावेज">
+                    My Documents
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('categories')"
+                id="menu-categories">
+
+                <span>🗂️</span>
+                <span data-en="Categories" data-hi="श्रेणियाँ">
+                    Categories
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('favorites')"
+                id="menu-favorites">
+
+                <span>⭐</span>
+                <span data-en="Favorites" data-hi="पसंदीदा">
+                    Favorites
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('activity')"
+                id="menu-activity">
+
+                <span>🕒</span>
+                <span data-en="Activity" data-hi="गतिविधि">
+                    Activity
+                </span>
+
+            </button>
+
+
+            <div class="sidebar-line"></div>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('storage')"
+                id="menu-storage">
+
+                <span>💾</span>
+                <span data-en="Storage" data-hi="स्टोरेज">
+                    Storage
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('backup')"
+                id="menu-backup">
+
+                <span>🔄</span>
+                <span data-en="Backup & Restore"
+                      data-hi="बैकअप और रिस्टोर">
+                    Backup & Restore
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="showPage('profile')"
+                id="menu-profile">
+
+                <span>👤</span>
+                <span data-en="Profile" data-hi="प्रोफाइल">
+                    Profile
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-info">
+                <span>🔒</span>
+
+                <div>
+                    <strong>Private Storage</strong>
+                    <small>Your files stay on this device.</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="main">
+
+
+        <!-- =========================
+             HOME PAGE
+        ========================= -->
+
+        <section
+            id="home"
+            class="page active">
+
+
+            <!-- Welcome -->
+
+            <div class="welcome">
+
+                <div class="welcome-text">
+
+                    <h2
+                        data-en="Welcome to Smart DigiLocker 👋"
+                        data-hi="Smart DigiLocker में आपका स्वागत है 👋">
+
+                        Welcome to Smart DigiLocker 👋
+
+                    </h2>
+
+                    <p
+                        data-en="Store, manage and open your important documents easily."
+                        data-hi="अपने महत्वपूर्ण दस्तावेज आसानी से सेव, मैनेज और खोलें।">
+
+                        Store, manage and open your important
+                        documents easily.
+
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    📄
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+
+            <div class="stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📄
+                    </div>
+
+                    <div>
+                        <div
+                            class="stat-number"
+                            id="totalDocuments">
+                            0
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            data-en="Documents"
+                            data-hi="दस्तावेज">
+
+                            Documents
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+                        <div
+                            class="stat-number"
+                            id="favoriteDocuments">
+                            0
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            data-en="Favorites"
+                            data-hi="पसंदीदा">
+
+                            Favorites
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        💾
+                    </div>
+
+                    <div>
+                        <div
+                            class="stat-number"
+                            id="storageUsed">
+                            0 MB
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            data-en="Storage Used"
+                            data-hi="स्टोरेज उपयोग">
+
+                            Storage Used
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🗂️
+                    </div>
+
+                    <div>
+                        <div
+                            class="stat-number"
+                            id="categoryCount">
+                            0
+                        </div>
+
+                        <div
+                            class="stat-label"
+                            data-en="Categories"
+                            data-hi="श्रेणियाँ">
+
+                            Categories
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Section Title -->
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2
+                        data-en="Quick Actions"
+                        data-hi="त्वरित कार्य">
+
+                        Quick Actions
+
+                    </h2>
+
+                    <p
+                        data-en="Manage your documents quickly"
+                        data-hi="अपने दस्तावेज जल्दी मैनेज करें">
+
+                        Manage your documents quickly
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quick Actions -->
+
+            <div class="quick-actions">
+
+
+                <button
+                    class="quick-card"
+                    onclick="openUpload()">
+
+                    <div class="quick-icon">
+                        ⬆️
+                    </div>
+
+                    <strong
+                        data-en="Upload Document"
+                        data-hi="दस्तावेज अपलोड करें">
+
+                        Upload Document
+
+                    </strong>
+
+                    <small
+                        data-en="Add a new file"
+                        data-hi="नई फाइल जोड़ें">
+
+                        Add a new file
+
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    onclick="showPage('documents')">
+
+                    <div class="quick-icon">
+                        📂
+                    </div>
+
+                    <strong
+                        data-en="My Documents"
+                        data-hi="मेरे दस्तावेज">
+
+                        My Documents
+
+                    </strong>
+
+                    <small
+                        data-en="View all files"
+                        data-hi="सभी फाइल देखें">
+
+                        View all files
+
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    onclick="showPage('favorites')">
+
+                    <div class="quick-icon">
+                        ⭐
+                    </div>
+
+                    <strong
+                        data-en="Favorites"
+                        data-hi="पसंदीदा">
+
+                        Favorites
+
+                    </strong>
+
+                    <small
+                        data-en="Important files"
+                        data-hi="महत्वपूर्ण फाइल">
+
+                        Important files
+
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="quick-card"
+                    onclick="showPage('backup')">
+
+                    <div class="quick-icon">
+                        🔄
+                    </div>
+
+                    <strong
+                        data-en="Backup"
+                        data-hi="बैकअप">
+
+                        Backup
+
+                    </strong>
+
+                    <small
+                        data-en="Backup your data"
+                        data-hi="डेटा का बैकअप लें">
+
+                        Backup your data
+
+                    </small>
+
+                </button>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2
+                        data-en="Recent Documents"
+                        data-hi="हाल के दस्तावेज">
+
+                        Recent Documents
+
+                    </h2>
+
+                    <p
+                        data-en="Your recently added documents"
+                        data-hi="हाल ही में जोड़े गए दस्तावेज">
+
+                        Your recently added documents
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="search"
+                    id="homeSearch"
+                    placeholder="Search documents..."
+                    data-placeholder-en="Search documents..."
+                    data-placeholder-hi="दस्तावेज खोजें..."
+                    oninput="searchDocuments(this.value)">
+
+            </div>
+
+
+            <!-- Filters -->
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    onclick="filterDocuments('all',this)"
+                    data-en="All"
+                    data-hi="सभी">
+
+                    All
+
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterDocuments('pdf',this)">
+
+                    📕 PDF
+
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterDocuments('image',this)">
+
+                    🖼️ Images
+
+                </button>
+
+                <button
+                    class="filter-btn"
+                    onclick="filterDocuments('document',this)">
+
+                    📄 Documents
+
+                </button>
+
+            </div>
+
+
+            <!-- Recent Documents Container -->
+
+            <div
+                id="recentDocuments"
+                class="document-grid">
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        📂
+                    </div>
+
+                    <h3
+                        data-en="No documents yet"
+                        data-hi="अभी कोई दस्तावेज नहीं है">
+
+                        No documents yet
+
+                    </h3>
+
+                    <p
+                        data-en="Upload your first document to get started."
+                        data-hi="शुरू करने के लिए अपना पहला दस्तावेज अपलोड करें।">
+
+                        Upload your first document to get started.
+
+                    </p>
+
+                    <br>
+
+                    <button
+                        class="save-btn"
+                        onclick="openUpload()"
+                        style="max-width:220px;">
+
+                        ⬆️
+                        <span
+                            data-en="Upload Document"
+                            data-hi="दस्तावेज अपलोड करें">
+
+                            Upload Document
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!--
+        बाकी pages Part 2/5 में आएंगे।
+        -->
+          <!-- =====================================================
+     MY DOCUMENTS PAGE
+===================================================== -->
+
+<section
+    id="documents"
+    class="page">
+
+    <div class="section-title">
+
+        <div>
+            <h2
+                data-en="My Documents"
+                data-hi="मेरे दस्तावेज">
+
+                My Documents
+
+            </h2>
+
+            <p
+                data-en="All your saved documents"
+                data-hi="आपके सभी सेव किए गए दस्तावेज">
+
+                All your saved documents
+
+            </p>
+        </div>
+
+        <button
+            class="save-btn"
+            onclick="openUpload()"
+            style="width:auto;padding:11px 18px;">
+
+            ⬆️
+            <span
+                data-en="Upload"
+                data-hi="अपलोड">
+
+                Upload
+
+            </span>
+
+        </button>
 
     </div>
 
 
-    <!-- =========================
-         BRANCH
-    ========================= -->
+    <!-- Search -->
 
-    <div class="card">
+    <div class="search-box">
 
-      <label>
-        Branch
-        <span class="required">*</span>
-      </label>
+        <span>🔍</span>
 
-      <select
-        name="Branch"
-        required
-      >
-
-        <option value="">
-          Select your branch
-        </option>
-
-        <option value="Computer Science and Engineering">
-          Computer Science and Engineering (CSE)
-        </option>
-
-        <option value="Information Technology">
-          Information Technology (IT)
-        </option>
-
-        <option value="Electronics and Communication">
-          Electronics & Communication (ECE)
-        </option>
-
-        <option value="Electrical Engineering">
-          Electrical Engineering (EE)
-        </option>
-
-        <option value="Mechanical Engineering">
-          Mechanical Engineering (ME)
-        </option>
-
-        <option value="Civil Engineering">
-          Civil Engineering (CE)
-        </option>
-
-        <option value="Other">
-          Other
-        </option>
-
-      </select>
+        <input
+            type="search"
+            id="documentSearch"
+            placeholder="Search documents..."
+            data-placeholder-en="Search documents..."
+            data-placeholder-hi="दस्तावेज खोजें..."
+            oninput="searchDocuments(this.value)">
 
     </div>
 
 
-    <!-- =========================
-         ROLL NUMBER
-    ========================= -->
+    <!-- Filters -->
 
-    <div class="card">
+    <div class="filters">
 
-      <label>
-        Roll Number
-        <span class="required">*</span>
-      </label>
+        <button
+            class="filter-btn active"
+            onclick="filterDocuments('all',this)"
+            data-en="All"
+            data-hi="सभी">
 
-      <input
-        type="text"
-        name="Roll Number"
-        placeholder="Enter your roll number"
-        required
-      >
+            All
 
-    </div>
+        </button>
 
+        <button
+            class="filter-btn"
+            onclick="filterDocuments('pdf',this)">
 
-    <!-- =========================
-         IDEA NAME
-    ========================= -->
+            📕 PDF
 
-    <div class="card">
+        </button>
 
-      <label>
-        Problem Idea Name
-        <span class="required">*</span>
-      </label>
+        <button
+            class="filter-btn"
+            onclick="filterDocuments('image',this)">
 
-      <input
-        type="text"
-        name="Problem Idea Name"
-        placeholder="Example: LandGuard AI"
-        required
-      >
+            🖼️ Images
 
-    </div>
+        </button>
 
+        <button
+            class="filter-btn"
+            onclick="filterDocuments('document',this)">
 
-    <!-- =========================
-         PROBLEM CODE
-    ========================= -->
+            📄 Documents
 
-    <div class="card">
+        </button>
 
-      <label>
-        Problem Statement Code
-        <span class="required">*</span>
-      </label>
+        <button
+            class="filter-btn"
+            onclick="filterDocuments('favorite',this)">
 
-      <input
-        type="text"
-        name="Problem Statement Code"
-        placeholder="Example: SIH26017"
-        required
-      >
+            ⭐
+            <span
+                data-en="Favorites"
+                data-hi="पसंदीदा">
+
+                Favorites
+
+            </span>
+
+        </button>
 
     </div>
 
 
-    <!-- =========================
-         PROBLEM STATEMENT
-    ========================= -->
+    <!-- Documents -->
 
-    <div class="card">
+    <div
+        id="allDocuments"
+        class="document-grid">
 
-      <label>
-        Problem Statement / Idea
-        <span class="required">*</span>
-      </label>
+        <div class="empty-state">
 
-      <textarea
-        name="Problem Statement"
-        placeholder="Write the problem statement or your idea..."
-        required
-      ></textarea>
+            <div class="empty-icon">
+                📂
+            </div>
+
+            <h3
+                data-en="No documents found"
+                data-hi="कोई दस्तावेज नहीं मिला">
+
+                No documents found
+
+            </h3>
+
+            <p
+                data-en="Upload a document to see it here."
+                data-hi="यहाँ देखने के लिए कोई दस्तावेज अपलोड करें।">
+
+                Upload a document to see it here.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIES PAGE
+===================================================== -->
+
+<section
+    id="categories"
+    class="page">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2
+                data-en="Document Categories"
+                data-hi="दस्तावेज श्रेणियाँ">
+
+                Document Categories
+
+            </h2>
+
+            <p
+                data-en="Organize your documents by category"
+                data-hi="अपने दस्तावेज श्रेणी के अनुसार व्यवस्थित करें">
+
+                Organize your documents by category
+
+            </p>
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         REASON
-    ========================= -->
+    <div class="category-grid">
 
-    <div class="card">
 
-      <label>
-        Why do you want to work on this problem?
-        <span class="required">*</span>
-      </label>
+        <!-- Education -->
 
-      <textarea
-        name="Reason"
-        placeholder="Write your reason..."
-        required
-      ></textarea>
+        <div
+            class="category-card"
+            onclick="openCategory('Education')">
+
+            <div class="category-icon">
+                🎓
+            </div>
+
+            <h3
+                data-en="Education"
+                data-hi="शिक्षा">
+
+                Education
+
+            </h3>
+
+            <p
+                id="count-Education">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Identity -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Identity')">
+
+            <div class="category-icon">
+                🪪
+            </div>
+
+            <h3
+                data-en="Identity"
+                data-hi="पहचान">
+
+                Identity
+
+            </h3>
+
+            <p
+                id="count-Identity">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Banking -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Banking')">
+
+            <div class="category-icon">
+                🏦
+            </div>
+
+            <h3
+                data-en="Banking"
+                data-hi="बैंकिंग">
+
+                Banking
+
+            </h3>
+
+            <p
+                id="count-Banking">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Government -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Government')">
+
+            <div class="category-icon">
+                🏛️
+            </div>
+
+            <h3
+                data-en="Government"
+                data-hi="सरकारी">
+
+                Government
+
+            </h3>
+
+            <p
+                id="count-Government">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Certificates -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Certificates')">
+
+            <div class="category-icon">
+                📜
+            </div>
+
+            <h3
+                data-en="Certificates"
+                data-hi="प्रमाण पत्र">
+
+                Certificates
+
+            </h3>
+
+            <p
+                id="count-Certificates">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Personal -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Personal')">
+
+            <div class="category-icon">
+                👤
+            </div>
+
+            <h3
+                data-en="Personal"
+                data-hi="व्यक्तिगत">
+
+                Personal
+
+            </h3>
+
+            <p
+                id="count-Personal">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Medical -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Medical')">
+
+            <div class="category-icon">
+                🏥
+            </div>
+
+            <h3
+                data-en="Medical"
+                data-hi="मेडिकल">
+
+                Medical
+
+            </h3>
+
+            <p
+                id="count-Medical">
+
+                0 Documents
+
+            </p>
+
+        </div>
+
+
+        <!-- Other -->
+
+        <div
+            class="category-card"
+            onclick="openCategory('Other')">
+
+            <div class="category-icon">
+                📁
+            </div>
+
+            <h3
+                data-en="Other"
+                data-hi="अन्य">
+
+                Other
+
+            </h3>
+
+            <p
+                id="count-Other">
+
+                0 Documents
+
+            </p>
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         YES / NO
-    ========================= -->
+    <!-- Category Documents -->
 
-    <div class="card">
+    <div
+        id="categoryDocuments"
+        style="margin-top:35px;">
 
-      <label>
-        Do you want to work on this problem?
-        <span class="required">*</span>
-      </label>
+    </div>
 
+</section>
+<!-- =====================================================
+     FAVORITES PAGE
+===================================================== -->
 
-      <div class="options">
+<section
+    id="favorites"
+    class="page">
 
+    <div class="section-title">
 
-        <label class="option">
+        <div>
 
-          <input
-            type="radio"
-            name="Want To Work"
-            value="Yes"
-            required
-          >
+            <h2
+                data-en="Favorite Documents"
+                data-hi="पसंदीदा दस्तावेज">
 
-          Yes
+                Favorite Documents
 
-        </label>
+            </h2>
 
+            <p
+                data-en="Your important documents"
+                data-hi="आपके महत्वपूर्ण दस्तावेज">
 
-        <label class="option">
+                Your important documents
 
-          <input
-            type="radio"
-            name="Want To Work"
-            value="No"
-          >
+            </p>
 
-          No
-
-        </label>
-
-
-      </div>
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         DATE
-    ========================= -->
+    <div
+        id="favoriteDocuments"
+        class="document-grid">
 
-    <div class="card">
+        <div class="empty-state">
 
-      <label>
-        Date
-        <span class="required">*</span>
-      </label>
+            <div class="empty-icon">
+                ⭐
+            </div>
 
-      <input
-        type="date"
-        name="Date"
-        id="date"
-        required
-      >
+            <h3
+                data-en="No favorite documents"
+                data-hi="कोई पसंदीदा दस्तावेज नहीं">
+
+                No favorite documents
+
+            </h3>
+
+            <p
+                data-en="Mark documents as favorite to see them here."
+                data-hi="दस्तावेजों को पसंदीदा करें और वे यहाँ दिखाई देंगे।">
+
+                Mark documents as favorite to see them here.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ACTIVITY PAGE
+===================================================== -->
+
+<section
+    id="activity"
+    class="page">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2
+                data-en="Recent Activity"
+                data-hi="हाल की गतिविधि">
+
+                Recent Activity
+
+            </h2>
+
+            <p
+                data-en="Your recent actions"
+                data-hi="आपकी हाल की गतिविधियाँ">
+
+                Your recent actions
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="filter-btn"
+            onclick="clearActivity()">
+
+            🗑️
+            <span
+                data-en="Clear"
+                data-hi="साफ करें">
+
+                Clear
+
+            </span>
+
+        </button>
 
     </div>
 
 
-    <!-- =========================
-         TIME
-    ========================= -->
+    <div
+        id="activityList"
+        class="activity-list">
 
-    <div class="card">
+        <div class="empty-state">
 
-      <label>
-        Time
-        <span class="required">*</span>
-      </label>
+            <div class="empty-icon">
+                🕒
+            </div>
 
-      <input
-        type="time"
-        name="Time"
-        id="time"
-        required
-      >
+            <h3
+                data-en="No activity yet"
+                data-hi="अभी कोई गतिविधि नहीं">
+
+                No activity yet
+
+            </h3>
+
+            <p
+                data-en="Your recent document activities will appear here."
+                data-hi="आपकी हाल की दस्तावेज गतिविधियाँ यहाँ दिखाई देंगी।">
+
+                Your recent document activities will appear here.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROFILE PAGE
+===================================================== -->
+
+<section
+    id="profile"
+    class="page">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2
+                data-en="My Profile"
+                data-hi="मेरी प्रोफाइल">
+
+                My Profile
+
+            </h2>
+
+            <p
+                data-en="Manage your personal information"
+                data-hi="अपनी व्यक्तिगत जानकारी मैनेज करें">
+
+                Manage your personal information
+
+            </p>
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         DAY
-    ========================= -->
+    <div class="profile-card">
 
-    <div class="card">
 
-      <label>
-        Day
-        <span class="required">*</span>
-      </label>
+        <!-- Profile Top -->
 
-      <select
-        name="Day"
-        id="day"
-        required
-      >
+        <div class="profile-top">
 
-        <option value="">
-          Select day
-        </option>
+            <img
+                id="profilePhoto"
+                class="profile-photo"
+                src=""
+                alt="Profile Photo"
+                style="display:none;">
 
-        <option>Monday</option>
-        <option>Tuesday</option>
-        <option>Wednesday</option>
-        <option>Thursday</option>
-        <option>Friday</option>
-        <option>Saturday</option>
-        <option>Sunday</option>
+            <div
+                id="profileDefaultIcon"
+                class="profile-photo"
+                style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    background:#eaf2ff;
+                    font-size:45px;
+                    margin-left:auto;
+                    margin-right:auto;
+                ">
 
-      </select>
+                👤
+
+            </div>
+
+
+            <div
+                class="profile-name"
+                id="profileDisplayName">
+
+                Your Name
+
+            </div>
+
+
+            <div
+                class="profile-email"
+                id="profileDisplayEmail">
+
+                Add your details below
+
+            </div>
+
+        </div>
+
+
+        <!-- Photo -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Profile Photo"
+                data-hi="प्रोफाइल फोटो">
+
+                Profile Photo
+
+            </label>
+
+            <input
+                type="file"
+                id="profilePhotoInput"
+                accept="image/*"
+                onchange="previewProfilePhoto(event)">
+
+        </div>
+
+
+        <!-- Name -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Full Name"
+                data-hi="पूरा नाम">
+
+                Full Name
+
+            </label>
+
+            <input
+                type="text"
+                id="profileName"
+                placeholder="Enter your name"
+                data-placeholder-en="Enter your name"
+                data-placeholder-hi="अपना नाम लिखें">
+
+        </div>
+
+
+        <!-- Email -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Email"
+                data-hi="ईमेल">
+
+                Email
+
+            </label>
+
+            <input
+                type="email"
+                id="profileEmail"
+                placeholder="Enter email"
+                data-placeholder-en="Enter email"
+                data-placeholder-hi="ईमेल लिखें">
+
+        </div>
+
+
+        <!-- Mobile -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Mobile Number"
+                data-hi="मोबाइल नंबर">
+
+                Mobile Number
+
+            </label>
+
+            <input
+                type="tel"
+                id="profileMobile"
+                placeholder="Enter mobile number"
+                data-placeholder-en="Enter mobile number"
+                data-placeholder-hi="मोबाइल नंबर लिखें">
+
+        </div>
+
+
+        <!-- Address -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Address"
+                data-hi="पता">
+
+                Address
+
+            </label>
+
+            <textarea
+                id="profileAddress"
+                rows="3"
+                placeholder="Enter your address"
+                data-placeholder-en="Enter your address"
+                data-placeholder-hi="अपना पता लिखें"></textarea>
+
+        </div>
+
+
+        <!-- Save -->
+
+        <button
+            class="save-btn"
+            onclick="saveProfile()">
+
+            💾
+            <span
+                data-en="Save Profile"
+                data-hi="प्रोफाइल सेव करें">
+
+                Save Profile
+
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     STORAGE PAGE
+===================================================== -->
+
+<section
+    id="storage"
+    class="page">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2
+                data-en="Storage"
+                data-hi="स्टोरेज">
+
+                Storage
+
+            </h2>
+
+            <p
+                data-en="Check your document storage usage"
+                data-hi="अपने दस्तावेजों का स्टोरेज उपयोग देखें">
+
+                Check your document storage usage
+
+            </p>
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
-         BUTTONS
-    ========================= -->
+    <div class="storage-card">
 
-    <div class="bottom">
+        <div class="storage-top">
 
-      <button
-        type="reset"
-        class="clear"
-        id="clearBtn"
-      >
-        Clear form
-      </button>
+            <div>
+                <div
+                    class="storage-title"
+                    data-en="Document Storage"
+                    data-hi="दस्तावेज स्टोरेज">
+
+                    Document Storage
+
+                </div>
+
+                <div
+                    class="storage-size"
+                    id="storageDetails">
+
+                    0 MB used
+
+                </div>
+            </div>
+
+            <div>
+                📁
+            </div>
+
+        </div>
 
 
-      <button
-        type="submit"
-        class="submit"
-        id="submitBtn"
-      >
-        Submit
-      </button>
+        <div class="storage-bar">
+
+            <div
+                class="storage-progress"
+                id="storageProgress">
+            </div>
+
+        </div>
+
+
+        <div
+            class="storage-note"
+            data-en="Documents are stored locally in your browser using IndexedDB. Browser storage limits may vary by device and browser."
+            data-hi="दस्तावेज आपके ब्राउज़र में IndexedDB का उपयोग करके सेव होते हैं। ब्राउज़र की स्टोरेज सीमा डिवाइस और ब्राउज़र के अनुसार अलग हो सकती है।">
+
+            Documents are stored locally in your browser using
+            IndexedDB. Browser storage limits may vary by device
+            and browser.
+
+        </div>
 
     </div>
 
 
-  </form>
+    <div class="stats">
 
-</div>
+        <div class="stat-card">
 
+            <div class="stat-icon">
+                📄
+            </div>
 
-<!-- =========================
-     THANK YOU
-========================= -->
+            <div>
 
-<div
-  id="thankYou"
-  class="thankyou"
->
+                <div
+                    class="stat-number"
+                    id="storageDocumentCount">
 
-  <div class="thank-icon">
-    ✓
-  </div>
+                    0
 
-  <h2>
-    Thank You!
-  </h2>
+                </div>
 
-  <p>
-    Your SIH Problem Idea response
-    has been submitted successfully.
-  </p>
+                <div
+                    class="stat-label"
+                    data-en="Total Files"
+                    data-hi="कुल फाइलें">
 
-  <p>
-    We have received your response.
-  </p>
+                    Total Files
 
+                </div>
 
-  <button
-    class="back-btn"
-    onclick="showForm()"
-  >
-    Submit Another Response
-  </button>
+            </div>
 
-</div>
+        </div>
 
 
-<!-- =========================
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📦
+            </div>
+
+            <div>
+
+                <div
+                    class="stat-number"
+                    id="storageTotalSize">
+
+                    0 MB
+
+                </div>
+
+                <div
+                    class="stat-label"
+                    data-en="Total Size"
+                    data-hi="कुल आकार">
+
+                    Total Size
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BACKUP & RESTORE PAGE
+===================================================== -->
+
+<section
+    id="backup"
+    class="page">
+
+    <div class="section-title">
+
+        <div>
+
+            <h2
+                data-en="Backup & Restore"
+                data-hi="बैकअप और रिस्टोर">
+
+                Backup & Restore
+
+            </h2>
+
+            <p
+                data-en="Save or restore your document data"
+                data-hi="अपने दस्तावेज डेटा का बैकअप या रिस्टोर करें">
+
+                Save or restore your document data
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="backup-grid">
+
+
+        <!-- Export -->
+
+        <div class="backup-card">
+
+            <div class="category-icon">
+                📤
+            </div>
+
+            <h3
+                data-en="Create Backup"
+                data-hi="बैकअप बनाएं">
+
+                Create Backup
+
+            </h3>
+
+            <p
+                data-en="Export your profile, settings and saved documents into a backup file."
+                data-hi="अपनी प्रोफाइल, सेटिंग और सेव दस्तावेजों का बैकअप फाइल बनाएं।">
+
+                Export your profile, settings and saved documents
+                into a backup file.
+
+            </p>
+
+            <button
+                class="backup-btn"
+                onclick="createBackup()">
+
+                📥
+                <span
+                    data-en="Download Backup"
+                    data-hi="बैकअप डाउनलोड करें">
+
+                    Download Backup
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Restore -->
+
+        <div class="backup-card">
+
+            <div class="category-icon">
+                📥
+            </div>
+
+            <h3
+                data-en="Restore Backup"
+                data-hi="बैकअप रिस्टोर करें">
+
+                Restore Backup
+
+            </h3>
+
+            <p
+                data-en="Select a previously created backup file and restore your data."
+                data-hi="पहले बनाई गई बैकअप फाइल चुनकर अपना डेटा रिस्टोर करें।">
+
+                Select a previously created backup file and
+                restore your data.
+
+            </p>
+
+            <button
+                class="backup-btn"
+                onclick="document.getElementById('restoreInput').click()">
+
+                📂
+                <span
+                    data-en="Choose Backup"
+                    data-hi="बैकअप चुनें">
+
+                    Choose Backup
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- Clear -->
+
+        <div class="backup-card">
+
+            <div class="category-icon">
+                🗑️
+            </div>
+
+            <h3
+                data-en="Clear Documents"
+                data-hi="दस्तावेज हटाएं">
+
+                Clear Documents
+
+            </h3>
+
+            <p
+                data-en="Delete all locally stored documents. This action cannot be undone."
+                data-hi="सभी स्थानीय दस्तावेज हटाएं। यह कार्य वापस नहीं किया जा सकता।">
+
+                Delete all locally stored documents.
+                This action cannot be undone.
+
+            </p>
+
+            <button
+                class="backup-btn"
+                onclick="clearAllDocuments()"
+                style="background:var(--danger);">
+
+                🗑️
+                <span
+                    data-en="Delete All"
+                    data-hi="सभी हटाएं">
+
+                    Delete All
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="storage-card"
+        style="margin-top:20px;">
+
+        <strong>ℹ️</strong>
+
+        <span
+            data-en="Important: This is a local browser-based document manager. It is not the official Government of India DigiLocker service."
+            data-hi="महत्वपूर्ण: यह एक स्थानीय ब्राउज़र आधारित दस्तावेज मैनेजर है। यह भारत सरकार की आधिकारिक DigiLocker सेवा नहीं है।">
+
+            Important: This is a local browser-based document manager.
+            It is not the official Government of India DigiLocker service.
+
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
-<footer>
+<footer class="footer">
 
-  Smart India Hackathon •
-  Student Problem Selection Form
+    <div>
 
-  <br>
+        © 2026 Smart DigiLocker
 
-  <span class="creator">
-    Created by Amit Kumar Singh,Nandani Singh❤️❤️
-  </span>
+    </div>
+
+    <div style="margin-top:6px;">
+
+        <strong>
+            Created by Amit Kumar Singh
+        </strong>
+
+    </div>
+
+    <div style="margin-top:6px;font-size:11px;">
+
+        Digital Document Manager
+
+    </div>
 
 </footer>
 
 
+
+<!-- =====================================================
+     MOBILE BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="mobile-nav">
+
+
+    <button
+        class="active"
+        onclick="showPage('home')">
+
+        <span>🏠</span>
+
+        <span
+            data-en="Home"
+            data-hi="होम">
+
+            Home
+
+        </span>
+
+    </button>
+
+
+    <button
+        onclick="showPage('documents')">
+
+        <span>📂</span>
+
+        <span
+            data-en="Files"
+            data-hi="फाइल">
+
+            Files
+
+        </span>
+
+    </button>
+
+
+    <button
+        onclick="openUpload()">
+
+        <span>➕</span>
+
+        <span
+            data-en="Upload"
+            data-hi="अपलोड">
+
+            Upload
+
+        </span>
+
+    </button>
+
+
+    <button
+        onclick="showPage('favorites')">
+
+        <span>⭐</span>
+
+        <span
+            data-en="Favorites"
+            data-hi="पसंदीदा">
+
+            Favorites
+
+        </span>
+
+    </button>
+
+
+    <button
+        onclick="showPage('profile')">
+
+        <span>👤</span>
+
+        <span
+            data-en="Profile"
+            data-hi="प्रोफाइल">
+
+            Profile
+
+        </span>
+
+    </button>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HIDDEN FILE INPUT
+===================================================== -->
+
+<input
+    type="file"
+    id="documentInput"
+    multiple
+    accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx,.txt"
+    style="display:none;"
+    onchange="handleFileUpload(event)">
+
+
+<input
+    type="file"
+    id="restoreInput"
+    accept=".json"
+    style="display:none;"
+    onchange="restoreBackup(event)">
+
+
+
+<!-- =====================================================
+     UPLOAD MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="uploadModal">
+
+    <div
+        class="modal-box"
+        style="max-width:520px;">
+
+
+        <div class="modal-header">
+
+            <h3
+                data-en="Upload Documents"
+                data-hi="दस्तावेज अपलोड करें">
+
+                Upload Documents
+
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeUpload()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="form-group">
+
+            <label
+                data-en="Select Documents"
+                data-hi="दस्तावेज चुनें">
+
+                Select Documents
+
+            </label>
+
+            <input
+                type="file"
+                id="uploadFilePicker"
+                multiple
+                accept=".pdf,.jpg,.jpeg,.png,.webp,.doc,.docx,.txt">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label
+                data-en="Category"
+                data-hi="श्रेणी">
+
+                Category
+
+            </label>
+
+            <select id="uploadCategory">
+
+                <option value="Education">
+                    🎓 Education / शिक्षा
+                </option>
+
+                <option value="Identity">
+                    🪪 Identity / पहचान
+                </option>
+
+                <option value="Banking">
+                    🏦 Banking / बैंकिंग
+                </option>
+
+                <option value="Government">
+                    🏛️ Government / सरकारी
+                </option>
+
+                <option value="Certificates">
+                    📜 Certificates / प्रमाण पत्र
+                </option>
+
+                <option value="Personal">
+                    👤 Personal / व्यक्तिगत
+                </option>
+
+                <option value="Medical">
+                    🏥 Medical / मेडिकल
+                </option>
+
+                <option value="Other">
+                    📁 Other / अन्य
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            id="selectedFiles"
+            style="
+                margin:12px 0;
+                font-size:13px;
+                color:var(--muted);
+            ">
+
+            No files selected.
+
+        </div>
+
+
+        <button
+            class="save-btn"
+            onclick="saveSelectedFiles()">
+
+            💾
+            <span
+                data-en="Save Documents"
+                data-hi="दस्तावेज सेव करें">
+
+                Save Documents
+
+            </span>
+
+        </button>
+
+    </div>
+
 </div>
 
 
+
+<!-- =====================================================
+     DOCUMENT PREVIEW MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="previewModal">
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+            <h3 id="previewTitle">
+                Document Preview
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closePreview()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="previewArea"
+            class="preview-area">
+
+            <div
+                style="
+                    text-align:center;
+                    color:var(--muted);
+                ">
+
+                Loading preview...
+
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                gap:10px;
+                margin-top:15px;
+                flex-wrap:wrap;
+            ">
+
+            <button
+                class="save-btn"
+                id="previewDownloadBtn"
+                style="flex:1;">
+
+                ⬇️ Download
+
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="closePreview()"
+                style="padding:12px 20px;">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DOCUMENT DETAILS / RENAME MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="renameModal">
+
+    <div
+        class="modal-box"
+        style="max-width:450px;">
+
+        <div class="modal-header">
+
+            <h3
+                data-en="Rename Document"
+                data-hi="दस्तावेज का नाम बदलें">
+
+                Rename Document
+
+            </h3>
+
+            <button
+                class="close-modal"
+                onclick="closeRename()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label
+                data-en="New Document Name"
+                data-hi="नया दस्तावेज नाम">
+
+                New Document Name
+
+            </label>
+
+            <input
+                type="text"
+                id="renameInput"
+                placeholder="Enter new name"
+                data-placeholder-en="Enter new name"
+                data-placeholder-hi="नया नाम लिखें">
+
+        </div>
+
+
+        <button
+            class="save-btn"
+            onclick="saveRename()">
+
+            💾
+            <span
+                data-en="Save Name"
+                data-hi="नाम सेव करें">
+
+                Save Name
+
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT START
+===================================================== -->
+
 <script>
+      /* =====================================================
+   SMART DIGILOCKER 3.0
+   PART 5A/3
+   DATABASE + UPLOAD + DOCUMENTS
+===================================================== */
+
+const DB_NAME = "SmartDigiLockerDB";
+const DB_VERSION = 1;
+const STORE_NAME = "documents";
+
+let db = null;
+let currentLanguage = "en";
+let currentFilter = "all";
+let currentSearch = "";
+let renameDocumentId = null;
+let currentPreviewUrl = null;
 
 
-/* =================================
-   ELEMENTS
-================================= */
+/* =========================
+   OPEN INDEXEDDB
+========================= */
 
-const form =
-  document.getElementById("sihForm");
+function openDB(){
 
-const dateInput =
-  document.getElementById("date");
+    return new Promise((resolve,reject)=>{
 
-const timeInput =
-  document.getElementById("time");
+        const request =
+            indexedDB.open(
+                DB_NAME,
+                DB_VERSION
+            );
 
-const dayInput =
-  document.getElementById("day");
+        request.onupgradeneeded =
+            function(event){
 
-const submitBtn =
-  document.getElementById("submitBtn");
+                const database =
+                    event.target.result;
 
-const clearBtn =
-  document.getElementById("clearBtn");
+                if(
+                    !database.objectStoreNames
+                    .contains(STORE_NAME)
+                ){
 
-const formArea =
-  document.getElementById("formArea");
+                    const store =
+                        database.createObjectStore(
+                            STORE_NAME,
+                            {
+                                keyPath:"id"
+                            }
+                        );
 
-const thankYou =
-  document.getElementById("thankYou");
+                    store.createIndex(
+                        "date",
+                        "date",
+                        {unique:false}
+                    );
 
-
-/* =================================
-   DAYS
-================================= */
-
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-
-
-/* =================================
-   SET DATE TIME DAY
-================================= */
-
-function setCurrentDateTime(){
-
-  const now = new Date();
+                    store.createIndex(
+                        "category",
+                        "category",
+                        {unique:false}
+                    );
+                }
+            };
 
 
-  const year =
-    now.getFullYear();
+        request.onsuccess =
+            function(event){
 
-  const month =
-    String(
-      now.getMonth() + 1
-    ).padStart(2,"0");
+                db =
+                    event.target.result;
 
-  const date =
-    String(
-      now.getDate()
-    ).padStart(2,"0");
+                resolve(db);
+
+            };
 
 
-  dateInput.value =
-    `${year}-${month}-${date}`;
+        request.onerror =
+            function(){
 
+                reject(request.error);
 
-  const hours =
-    String(
-      now.getHours()
-    ).padStart(2,"0");
+            };
 
-  const minutes =
-    String(
-      now.getMinutes()
-    ).padStart(2,"0");
-
-
-  timeInput.value =
-    `${hours}:${minutes}`;
-
-
-  dayInput.value =
-    days[now.getDay()];
+    });
 
 }
 
 
-/* Run when page opens */
+/* =========================
+   ADD DOCUMENT
+========================= */
 
-setCurrentDateTime();
+function addDocument(documentData){
+
+    return new Promise((resolve,reject)=>{
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readwrite"
+            );
+
+        const store =
+            transaction.objectStore(
+                STORE_NAME
+            );
+
+        const request =
+            store.add(documentData);
+
+        request.onsuccess =
+            () => resolve(true);
+
+        request.onerror =
+            () => reject(request.error);
+
+    });
+
+}
 
 
-/* =================================
-   CLEAR BUTTON
-================================= */
+/* =========================
+   GET ALL DOCUMENTS
+========================= */
 
-clearBtn.addEventListener(
-  "click",
-  function(){
+function getAllDocuments(){
 
-    setTimeout(
-      setCurrentDateTime,
-      50
-    );
+    return new Promise((resolve,reject)=>{
 
-  }
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readonly"
+            );
+
+        const store =
+            transaction.objectStore(
+                STORE_NAME
+            );
+
+        const request =
+            store.getAll();
+
+        request.onsuccess =
+            () => resolve(
+                request.result || []
+            );
+
+        request.onerror =
+            () => reject(request.error);
+
+    });
+
+}
+
+
+/* =========================
+   GET ONE DOCUMENT
+========================= */
+
+function getDocument(id){
+
+    return new Promise((resolve,reject)=>{
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readonly"
+            );
+
+        const store =
+            transaction.objectStore(
+                STORE_NAME
+            );
+
+        const request =
+            store.get(id);
+
+        request.onsuccess =
+            () => resolve(
+                request.result
+            );
+
+        request.onerror =
+            () => reject(request.error);
+
+    });
+
+}
+
+
+/* =========================
+   UPDATE DOCUMENT
+========================= */
+
+function updateDocument(documentData){
+
+    return new Promise((resolve,reject)=>{
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readwrite"
+            );
+
+        const store =
+            transaction.objectStore(
+                STORE_NAME
+            );
+
+        const request =
+            store.put(documentData);
+
+        request.onsuccess =
+            () => resolve(true);
+
+        request.onerror =
+            () => reject(request.error);
+
+    });
+
+}
+
+
+/* =========================
+   DELETE DOCUMENT
+========================= */
+
+function deleteDocumentFromDB(id){
+
+    return new Promise((resolve,reject)=>{
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readwrite"
+            );
+
+        const store =
+            transaction.objectStore(
+                STORE_NAME
+            );
+
+        const request =
+            store.delete(id);
+
+        request.onsuccess =
+            () => resolve(true);
+
+        request.onerror =
+            () => reject(request.error);
+
+    });
+
+}
+
+
+/* =========================
+   CLEAR ALL DOCUMENTS
+========================= */
+
+function clearDocumentsDB(){
+
+    return new Promise((resolve,reject)=>{
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readwrite"
+            );
+
+        const store =
+            transaction.objectStore(
+                STORE_NAME
+            );
+
+        const request =
+            store.clear();
+
+        request.onsuccess =
+            () => resolve(true);
+
+        request.onerror =
+            () => reject(request.error);
+
+    });
+
+}
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(pageId){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+
+    const page =
+        document.getElementById(pageId);
+
+    if(page){
+        page.classList.add("active");
+    }
+
+
+    document
+        .querySelectorAll(".menu-item")
+        .forEach(item=>{
+            item.classList.remove("active");
+        });
+
+
+    const menu =
+        document.getElementById(
+            "menu-" + pageId
+        );
+
+    if(menu){
+        menu.classList.add("active");
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    refreshPageData(pageId);
+
+}
+
+
+/* =========================
+   REFRESH PAGE
+========================= */
+
+async function refreshPageData(pageId){
+
+    if(pageId === "home")
+        await renderRecentDocuments();
+
+    if(pageId === "documents")
+        await renderDocuments();
+
+    if(pageId === "favorites")
+        await renderFavorites();
+
+    if(pageId === "categories")
+        await updateCategoryCounts();
+
+    if(pageId === "activity")
+        renderActivity();
+
+    if(pageId === "storage")
+        await updateStorage();
+
+}
+
+
+/* =========================
+   UPLOAD MODAL
+========================= */
+
+function openUpload(){
+
+    document
+        .getElementById("uploadModal")
+        .classList.add("show");
+
+}
+
+
+function closeUpload(){
+
+    document
+        .getElementById("uploadModal")
+        .classList.remove("show");
+
+
+    const input =
+        document.getElementById(
+            "uploadFilePicker"
+        );
+
+    if(input)
+        input.value = "";
+
+
+    const selected =
+        document.getElementById(
+            "selectedFiles"
+        );
+
+    if(selected)
+        selected.textContent =
+            "No files selected.";
+
+}
+
+
+/* =========================
+   SELECTED FILES
+========================= */
+
+document.addEventListener(
+    "change",
+    function(event){
+
+        if(
+            event.target.id !==
+            "uploadFilePicker"
+        )
+            return;
+
+
+        const files =
+            event.target.files;
+
+        const box =
+            document.getElementById(
+                "selectedFiles"
+            );
+
+
+        if(!files.length){
+
+            box.textContent =
+                "No files selected.";
+
+            return;
+
+        }
+
+
+        let html =
+            "<strong>" +
+            files.length +
+            " file(s) selected:</strong><br><br>";
+
+
+        Array.from(files)
+            .forEach(file=>{
+
+                html +=
+                    "📄 " +
+                    escapeHTML(file.name) +
+                    " (" +
+                    formatBytes(file.size) +
+                    ")<br>";
+
+            });
+
+
+        box.innerHTML = html;
+
+    }
 );
 
 
-/* =================================
-   FORM SUBMIT
-================================= */
+/* =========================
+   SAVE SELECTED FILES
+========================= */
 
-form.addEventListener(
-  "submit",
-  function(event){
+async function saveSelectedFiles(){
 
-    event.preventDefault();
+    const input =
+        document.getElementById(
+            "uploadFilePicker"
+        );
 
-
-    /* Disable button */
-
-    submitBtn.disabled = true;
-
-    submitBtn.textContent =
-      "Submitting...";
+    const category =
+        document.getElementById(
+            "uploadCategory"
+        ).value;
 
 
-    const formData =
-      new FormData(form);
+    const files =
+        Array.from(input.files);
 
 
-    /* Send to FormSubmit */
-
-    fetch(
-      form.action,
-      {
-        method:"POST",
-
-        body:formData,
-
-        headers:{
-          "Accept":"application/json"
-        }
-      }
-    )
-
-    .then(
-      function(response){
-
-        if(response.ok){
-
-          /* Hide form */
-
-          formArea.style.display =
-            "none";
-
-
-          /* Show thank you */
-
-          thankYou.style.display =
-            "block";
-
-
-          /* Scroll top */
-
-          window.scrollTo({
-            top:0,
-            behavior:"smooth"
-          });
-
-
-        }else{
-
-          throw new Error(
-            "Submission failed"
-          );
-
-        }
-
-      }
-    )
-
-    .catch(
-      function(error){
+    if(!files.length){
 
         alert(
-          "Unable to submit form. Please check your internet connection and try again."
+            currentLanguage === "hi"
+            ? "कृपया पहले फाइल चुनें।"
+            : "Please select at least one file."
+        );
+
+        return;
+
+    }
+
+
+    let savedCount = 0;
+
+
+    try{
+
+        for(const file of files){
+
+            if(
+                file.size >
+                50 * 1024 * 1024
+            ){
+
+                alert(
+                    file.name +
+                    "\n\nMaximum file size is 50 MB."
+                );
+
+                continue;
+
+            }
+
+
+            const documentData = {
+
+                id:
+                    "DOC-" +
+                    Date.now() +
+                    "-" +
+                    Math.random()
+                        .toString(36)
+                        .substring(2,8),
+
+                name:file.name,
+
+                type:
+                    file.type ||
+                    getMimeType(file.name),
+
+                size:file.size,
+
+                date:
+                    new Date()
+                    .toISOString(),
+
+                category:category,
+
+                favorite:false,
+
+                data:file
+
+            };
+
+
+            await addDocument(
+                documentData
+            );
+
+
+            addActivity(
+                "upload",
+                "Uploaded: " +
+                file.name
+            );
+
+
+            savedCount++;
+
+        }
+
+
+        closeUpload();
+
+        await updateAllUI();
+
+
+        alert(
+            currentLanguage === "hi"
+            ? savedCount +
+              " दस्तावेज सफलतापूर्वक सेव हुए।"
+            : savedCount +
+              " document(s) saved successfully."
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Unable to save document.\n\n" +
+            "Your browser may have reached its storage limit."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   MIME TYPE
+========================= */
+
+function getMimeType(name){
+
+    const extension =
+        name
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+
+    const types = {
+
+        pdf:
+            "application/pdf",
+
+        jpg:
+            "image/jpeg",
+
+        jpeg:
+            "image/jpeg",
+
+        png:
+            "image/png",
+
+        webp:
+            "image/webp",
+
+        txt:
+            "text/plain",
+
+        doc:
+            "application/msword",
+
+        docx:
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+
+    };
+
+
+    return (
+        types[extension] ||
+        "application/octet-stream"
+    );
+
+}
+
+
+/* =========================
+   DOCUMENT CARD
+========================= */
+
+function createDocumentCard(doc){
+
+    const icon =
+        getFileIcon(
+            doc.name,
+            doc.type
         );
 
 
-        submitBtn.disabled =
-          false;
-
-        submitBtn.textContent =
-          "Submit";
-
-      }
-    );
-
-  }
-);
+    const favoriteIcon =
+        doc.favorite
+        ? "⭐"
+        : "☆";
 
 
-/* =================================
-   SUBMIT ANOTHER RESPONSE
-================================= */
+    return `
 
-function showForm(){
+        <div
+            class="document-card"
+            data-id="${doc.id}">
 
-  /* Hide thank you */
+            <div class="document-icon">
+                ${icon}
+            </div>
 
-  thankYou.style.display =
-    "none";
+            <div class="document-name">
+                ${escapeHTML(doc.name)}
+            </div>
 
+            <div class="document-info">
 
-  /* Show form */
+                ${formatBytes(doc.size)}
 
-  formArea.style.display =
-    "block";
+                <br>
 
+                ${formatDate(doc.date)}
 
-  /* Reset */
+            </div>
 
-  form.reset();
+            <span class="document-category">
+                ${escapeHTML(doc.category)}
+            </span>
 
+            <div class="document-actions">
 
-  /* Set new date/time/day */
+                <button
+                    onclick="openDocument('${doc.id}')">
+                    👁️ Open
+                </button>
 
-  setCurrentDateTime();
+                <button
+                    onclick="downloadDocument('${doc.id}')">
+                    ⬇️ Download
+                </button>
 
+                <button
+                    onclick="toggleFavorite('${doc.id}')">
+                    ${favoriteIcon}
+                </button>
 
-  /* Reset submit button */
+                <button
+                    onclick="openRename('${doc.id}')">
+                    ✏️ Rename
+                </button>
 
-  submitBtn.disabled =
-    false;
+                <button
+                    class="delete-btn"
+                    onclick="removeDocument('${doc.id}')">
+                    🗑️ Delete
+                </button>
 
-  submitBtn.textContent =
-    "Submit";
+            </div>
 
+        </div>
 
-  /* Scroll */
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+    `;
 
 }
 
-</script>
 
+/* =========================
+   RENDER DOCUMENTS
+========================= */
+
+async function renderDocuments(){
+
+    const container =
+        document.getElementById(
+            "allDocuments"
+        );
+
+    if(!container) return;
+
+
+    let documents =
+        await getAllDocuments();
+
+
+    documents =
+        filterAndSearchDocuments(
+            documents
+        );
+
+
+    if(!documents.length){
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📂
+                </div>
+
+                <h3>
+                    ${
+                        currentLanguage === "hi"
+                        ? "कोई दस्तावेज नहीं मिला"
+                        : "No documents found"
+                    }
+                </h3>
+
+                <p>
+                    ${
+                        currentLanguage === "hi"
+                        ? "अपनी फाइलें अपलोड करके यहाँ देखें।"
+                        : "Upload your files to see them here."
+                    }
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        documents
+        .map(createDocumentCard)
+        .join("");
+
+}
+
+
+/* =========================
+   RECENT DOCUMENTS
+========================= */
+
+async function renderRecentDocuments(){
+
+    const container =
+        document.getElementById(
+            "recentDocuments"
+        );
+
+    if(!container) return;
+
+
+    let documents =
+        await getAllDocuments();
+
+
+    documents.sort(
+        (a,b)=>
+            new Date(b.date) -
+            new Date(a.date)
+    );
+
+
+    if(currentSearch){
+
+        documents =
+            filterAndSearchDocuments(
+                documents
+            );
+
+    }
+
+
+    documents =
+        documents.slice(0,8);
+
+
+    if(!documents.length){
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📂
+                </div>
+
+                <h3>
+                    ${
+                        currentLanguage === "hi"
+                        ? "अभी कोई दस्तावेज नहीं है"
+                        : "No documents yet"
+                    }
+                </h3>
+
+                <p>
+                    ${
+                        currentLanguage === "hi"
+                        ? "अपना पहला दस्तावेज अपलोड करें।"
+                        : "Upload your first document to get started."
+                    }
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        documents
+        .map(createDocumentCard)
+        .join("");
+
+}
+
+
+/* =========================
+   FAVORITES
+========================= */
+
+async function renderFavorites(){
+
+    const container =
+        document.getElementById(
+            "favoriteDocuments"
+        );
+
+    if(!container) return;
+
+
+    const documents =
+        await getAllDocuments();
+
+
+    const favorites =
+        documents.filter(
+            doc=>doc.favorite === true
+        );
+
+
+    if(!favorites.length){
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    ${
+                        currentLanguage === "hi"
+                        ? "कोई पसंदीदा दस्तावेज नहीं"
+                        : "No favorite documents"
+                    }
+                </h3>
+
+                <p>
+                    ${
+                        currentLanguage === "hi"
+                        ? "महत्वपूर्ण दस्तावेजों को ⭐ करें।"
+                        : "Mark important documents as favorite."
+                    }
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        favorites
+        .map(createDocumentCard)
+        .join("");
+
+}
+
+
+/* =========================
+   FAVORITE TOGGLE
+========================= */
+
+async function toggleFavorite(id){
+
+    const doc =
+        await getDocument(id);
+
+    if(!doc) return;
+
+
+    doc.favorite =
+        !doc.favorite;
+
+
+    await updateDocument(doc);
+
+
+    addActivity(
+        "favorite",
+        doc.favorite
+        ? "Added favorite: " + doc.name
+        : "Removed favorite: " + doc.name
+    );
+
+
+    await updateAllUI();
+
+}
+
+
+/* =========================
+   OPEN DOCUMENT
+========================= */
+
+async function openDocument(id){
+
+    const doc =
+        await getDocument(id);
+
+    if(!doc) return;
+
+
+    const modal =
+        document.getElementById(
+            "previewModal"
+        );
+
+    const title =
+        document.getElementById(
+            "previewTitle"
+        );
+
+    const area =
+        document.getElementById(
+            "previewArea"
+        );
+
+    const downloadBtn =
+        document.getElementById(
+            "previewDownloadBtn"
+        );
+
+
+    title.textContent =
+        doc.name;
+
+
+    area.innerHTML = `
+        <div style="
+            text-align:center;
+            padding:30px;
+            color:var(--muted);
+        ">
+            Loading preview...
+        </div>
+    `;
+
+
+    modal.classList.add("show");
+
+
+    if(currentPreviewUrl){
+
+        URL.revokeObjectURL(
+            currentPreviewUrl
+        );
+
+    }
+
+
+    currentPreviewUrl =
+        URL.createObjectURL(
+            doc.data
+        );
+
+
+    downloadBtn.onclick =
+        function(){
+
+            downloadDocument(id);
+
+        };
+
+
+    const type =
+        doc.type ||
+        getMimeType(doc.name);
+
+
+    if(type === "application/pdf"){
+
+        area.innerHTML = `
+
+            <iframe
+                src="${currentPreviewUrl}"
+                title="PDF Preview">
+            </iframe>
+
+        `;
+
+    }
+
+    else if(
+        type.startsWith("image/")
+    ){
+
+        area.innerHTML = `
+
+            <img
+                src="${currentPreviewUrl}"
+                alt="${escapeHTML(doc.name)}">
+
+        `;
+
+    }
+
+    else if(
+        type.startsWith("text/")
+    ){
+
+        try{
+
+            const text =
+                await doc.data.text();
+
+
+            area.innerHTML = `
+
+                <pre style="
+                    width:100%;
+                    padding:20px;
+                    white-space:pre-wrap;
+                    word-break:break-word;
+                    text-align:left;
+                    overflow:auto;
+                ">${escapeHTML(text)}</pre>
+
+            `;
+
+        }
+        catch(error){
+
+            showUnsupportedPreview(area);
+
+        }
+
+    }
+
+    else{
+
+        showUnsupportedPreview(area);
+
+    }
+
+
+    addActivity(
+        "open",
+        "Opened: " + doc.name
+    );
+
+}
+
+
+/* =========================
+   UNSUPPORTED PREVIEW
+========================= */
+
+function showUnsupportedPreview(area){
+
+    area.innerHTML = `
+
+        <div style="
+            text-align:center;
+            padding:50px 20px;
+        ">
+
+            <div style="
+                font-size:55px;
+                margin-bottom:15px;
+            ">
+                📄
+            </div>
+
+
+        /* ================================
+   SMART DIGILOCKER
+   PART 5A / 4
+================================ */
+
+let db;
+
+const DB_NAME = "SmartDigiLockerDB";
+const DB_VERSION = 1;
+const STORE_NAME = "documents";
+
+let currentFilter = "all";
+let currentSearch = "";
+let currentLanguage = "en";
+
+
+
+/* ================================
+   INDEXED DB
+================================ */
+
+function openDatabase(){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const request =
+                indexedDB.open(
+                    DB_NAME,
+                    DB_VERSION
+                );
+
+
+            request.onupgradeneeded =
+                function(event){
+
+                    const database =
+                        event.target.result;
+
+
+                    if(
+                        !database.objectStoreNames
+                        .contains(STORE_NAME)
+                    ){
+
+                        database.createObjectStore(
+                            STORE_NAME,
+                            {
+                                keyPath:"id"
+                            }
+                        );
+
+                    }
+
+                };
+
+
+            request.onsuccess =
+                function(event){
+
+                    db =
+                        event.target.result;
+
+                    resolve(db);
+
+                };
+
+
+            request.onerror =
+                function(){
+
+                    reject(
+                        request.error
+                    );
+
+                };
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   ADD DOCUMENT
+================================ */
+
+function addDocumentToDB(documentData){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+            const store =
+                transaction.objectStore(
+                    STORE_NAME
+                );
+
+
+            const request =
+                store.add(
+                    documentData
+                );
+
+
+            request.onsuccess =
+                ()=>resolve(true);
+
+            request.onerror =
+                ()=>reject(
+                    request.error
+                );
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   GET ALL DOCUMENTS
+================================ */
+
+function getAllDocuments(){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readonly"
+                );
+
+            const store =
+                transaction.objectStore(
+                    STORE_NAME
+                );
+
+
+            const request =
+                store.getAll();
+
+
+            request.onsuccess =
+                function(){
+
+                    resolve(
+                        request.result || []
+                    );
+
+                };
+
+
+            request.onerror =
+                function(){
+
+                    reject(
+                        request.error
+                    );
+
+                };
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   GET SINGLE DOCUMENT
+================================ */
+
+function getDocument(id){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readonly"
+                );
+
+            const store =
+                transaction.objectStore(
+                    STORE_NAME
+                );
+
+
+            const request =
+                store.get(id);
+
+
+            request.onsuccess =
+                function(){
+
+                    resolve(
+                        request.result
+                    );
+
+                };
+
+
+            request.onerror =
+                function(){
+
+                    reject(
+                        request.error
+                    );
+
+                };
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   UPDATE DOCUMENT
+================================ */
+
+function updateDocument(documentData){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+            const store =
+                transaction.objectStore(
+                    STORE_NAME
+                );
+
+
+            const request =
+                store.put(
+                    documentData
+                );
+
+
+            request.onsuccess =
+                ()=>resolve(true);
+
+            request.onerror =
+                ()=>reject(
+                    request.error
+                );
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   DELETE DOCUMENT
+================================ */
+
+function deleteDocumentFromDB(id){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+            const store =
+                transaction.objectStore(
+                    STORE_NAME
+                );
+
+
+            const request =
+                store.delete(id);
+
+
+            request.onsuccess =
+                ()=>resolve(true);
+
+            request.onerror =
+                ()=>reject(
+                    request.error
+                );
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   CLEAR DATABASE
+================================ */
+
+function clearDocumentDatabase(){
+
+    return new Promise(
+        (resolve,reject)=>{
+
+            const transaction =
+                db.transaction(
+                    STORE_NAME,
+                    "readwrite"
+                );
+
+            const store =
+                transaction.objectStore(
+                    STORE_NAME
+                );
+
+
+            const request =
+                store.clear();
+
+
+            request.onsuccess =
+                ()=>resolve(true);
+
+            request.onerror =
+                ()=>reject(
+                    request.error
+                );
+
+        }
+    );
+
+}
+
+
+
+/* ================================
+   FILE UPLOAD
+================================ */
+
+async function handleFileUpload(event){
+
+    const files =
+        Array.from(
+            event.target.files || []
+        );
+
+
+    if(!files.length){
+        return;
+    }
+
+
+    for(
+        const file of files
+    ){
+
+        if(
+            file.size >
+            50 * 1024 * 1024
+        ){
+
+            alert(
+                "File size must be below 50 MB."
+            );
+
+            continue;
+        }
+
+
+        const category =
+            detectCategory(file);
+
+
+        const documentData = {
+
+            id:
+                "DOC" +
+                Date.now() +
+                Math.random()
+                .toString(36)
+                .substring(2,8),
+
+            name:
+                file.name,
+
+            type:
+                file.type || "application/octet-stream",
+
+            size:
+                file.size,
+
+            date:
+                new Date()
+                .toISOString(),
+
+            category:
+                category,
+
+            favorite:
+                false,
+
+            data:
+                file
+
+        };
+
+
+        try{
+
+            await addDocumentToDB(
+                documentData
+            );
+
+            addActivity(
+                "Uploaded",
+                file.name
+            );
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            alert(
+                "Unable to save " +
+                file.name
+            );
+
+        }
+
+    }
+
+
+    event.target.value = "";
+
+
+    await refreshDocuments();
+
+}
+
+
+
+/* ================================
+   DETECT CATEGORY
+================================ */
+
+function detectCategory(file){
+
+    const name =
+        file.name.toLowerCase();
+
+
+    if(
+        name.includes("aadhaar") ||
+        name.includes("aadhar")
+    ){
+
+        return "Identity";
+
+    }
+
+
+    if(
+        name.includes("pan")
+    ){
+
+        return "Identity";
+
+    }
+
+
+    if(
+        name.includes("marksheet") ||
+        name.includes("mark-sheet") ||
+        name.includes("certificate")
+    ){
+
+        return "Education";
+
+    }
+
+
+    if(
+        name.includes("result") ||
+        name.includes("degree")
+    ){
+
+        return "Education";
+
+    }
+
+
+    if(
+        name.includes("bank") ||
+        name.includes("passbook")
+    ){
+
+        return "Finance";
+
+    }
+
+
+    if(
+        name.includes("medical") ||
+        name.includes("health")
+    ){
+
+        return "Health";
+
+    }
+
+
+    if(
+        file.type.startsWith("image/")
+    ){
+
+        return "Images";
+
+    }
+
+
+    return "Other";
+
+}
+
+
+
+/* ================================
+   REFRESH DOCUMENTS
+================================ */
+
+async function refreshDocuments(){
+
+    try{
+
+        const documents =
+            await getAllDocuments();
+
+
+        renderDocuments(
+            filterAndSearchDocuments(
+                documents
+            )
+        );
+
+
+        updateStats(
+            documents
+        );
+
+
+        updateCategoryCounts(
+            documents
+        );
+
+
+        updateStorage(
+            documents
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+
+/* ================================
+   SEARCH
+================================ */
+
+function searchDocuments(){
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    currentSearch =
+        (
+            input?.value || ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    refreshDocuments();
+
+}
+
+
+
+/* ================================
+   FILTER
+================================ */
+
+function setFilter(filter){
+
+    currentFilter =
+        filter;
+
+
+    document
+        .querySelectorAll(
+            ".filter-btn"
+        )
+        .forEach(
+            button =>
+                button.classList.remove(
+                    "active"
+                )
+        );
+
+
+    const activeButton =
+        document.querySelector(
+            `[data-filter="${filter}"]`
+        );
+
+
+    if(activeButton){
+
+        activeButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    refreshDocuments();
+
+}
+
+
+
+/* ================================
+   FILTER + SEARCH
+================================ */
+
+function filterAndSearchDocuments(
+    documents
+){
+
+    let result =
+        [...documents];
+
+
+    if(currentFilter === "favorite"){
+
+        result =
+            result.filter(
+                doc=>doc.favorite
+            );
+
+    }
+
+    else if(currentFilter === "pdf"){
+
+        result =
+            result.filter(
+                doc=>
+                    (doc.type || "")
+                    .toLowerCase()
+                    .includes("pdf")
+                    ||
+                    doc.name
+                    .toLowerCase()
+                    .endsWith(".pdf")
+            );
+
+    }
+
+    else if(currentFilter === "image"){
+
+        result =
+            result.filter(
+                doc=>
+                    (doc.type || "")
+                    .startsWith("image/")
+            );
+
+    }
+
+    else if(currentFilter === "document"){
+
+        result =
+            result.filter(doc=>{
+
+                const name =
+                    doc.name
+                    .toLowerCase();
+
+                return (
+                    name.endsWith(".doc") ||
+                    name.endsWith(".docx") ||
+                    name.endsWith(".txt")
+                );
+
+            });
+
+    }
+
+
+    if(currentSearch){
+
+        result =
+            result.filter(doc=>{
+
+                const text =
+                    (
+                        doc.name +
+                        " " +
+                        doc.category
+                    )
+                    .toLowerCase();
+
+                return text.includes(
+                    currentSearch
+                );
+
+            });
+
+    }
+
+
+    result.sort(
+        (a,b)=>
+            new Date(b.date) -
+            new Date(a.date)
+    );
+
+
+    return result;
+
+}
+/* ================================
+   PART 5B / 4
+   CATEGORY + DOCUMENT UI
+================================ */
+
+
+/* ================================
+   OPEN CATEGORY
+================================ */
+
+function openCategory(category){
+
+    currentFilter = "all";
+    currentSearch = "";
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        );
+
+    if(search){
+        search.value = "";
+    }
+
+
+    const categoryMap = {
+
+        identity: "Identity",
+        education: "Education",
+        finance: "Finance",
+        health: "Health",
+        images: "Images",
+        other: "Other"
+
+    };
+
+
+    if(
+        categoryMap[category]
+    ){
+
+        currentFilter =
+            "category:" +
+            categoryMap[category];
+
+    }
+
+
+    refreshDocuments();
+
+}
+
+
+
+/* ================================
+   RENDER DOCUMENTS
+================================ */
+
+function renderDocuments(documents){
+
+    const container =
+        document.getElementById(
+            "documentList"
+        );
+
+
+    if(!container){
+        return;
+    }
+
+
+    if(!documents.length){
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📂
+                </div>
+
+                <h3>
+                    No documents found
+                </h3>
+
+                <p>
+                    Upload your first document
+                    to see it here.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        documents.map(
+            doc =>
+                createDocumentCard(doc)
+        ).join("");
+
+}
+
+
+
+/* ================================
+   DOCUMENT CARD
+================================ */
+
+function createDocumentCard(doc){
+
+    const icon =
+        getFileIcon(doc);
+
+
+    const favorite =
+        doc.favorite
+            ? "★"
+            : "☆";
+
+
+    return `
+
+        <div
+            class="document-card"
+            onclick="openDocument('${doc.id}')"
+        >
+
+            <div class="document-icon">
+                ${icon}
+            </div>
+
+
+            <div class="document-info">
+
+                <h3
+                    title="${escapeHTML(doc.name)}"
+                >
+                    ${escapeHTML(doc.name)}
+                </h3>
+
+                <p>
+                    ${escapeHTML(doc.category)}
+                    •
+                    ${formatBytes(doc.size)}
+                </p>
+
+                <small>
+                    ${formatDate(doc.date)}
+                </small>
+
+            </div>
+
+
+            <button
+                class="favorite-btn"
+                onclick="
+                    event.stopPropagation();
+                    toggleFavorite('${doc.id}');
+                "
+                title="Favorite"
+            >
+                ${favorite}
+            </button>
+
+
+            <button
+                class="more-btn"
+                onclick="
+                    event.stopPropagation();
+                    showDocumentMenu('${doc.id}');
+                "
+                title="More"
+            >
+                ⋮
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* ================================
+   OPEN DOCUMENT
+================================ */
+
+async function openDocument(id){
+
+    try{
+
+        const doc =
+            await getDocument(id);
+
+
+        if(!doc){
+            alert("Document not found.");
+            return;
+        }
+
+
+        addActivity(
+            "Opened",
+            doc.name
+        );
+
+
+        const blob =
+            doc.data instanceof Blob
+                ? doc.data
+                : new Blob(
+                    [doc.data],
+                    {
+                        type:
+                            doc.type
+                    }
+                );
+
+
+        const url =
+            URL.createObjectURL(blob);
+
+
+        const preview =
+            document.getElementById(
+                "previewModal"
+            );
+
+
+        const content =
+            document.getElementById(
+                "previewContent"
+            );
+
+
+        if(!preview || !content){
+
+            window.open(
+                url,
+                "_blank"
+            );
+
+            return;
+        }
+
+
+        content.innerHTML = "";
+
+
+        if(
+            doc.type === "application/pdf" ||
+            doc.name
+                .toLowerCase()
+                .endsWith(".pdf")
+        ){
+
+            content.innerHTML = `
+
+                <iframe
+                    src="${url}"
+                    class="preview-frame"
+                ></iframe>
+
+            `;
+
+        }
+
+        else if(
+            doc.type.startsWith("image/")
+        ){
+
+            content.innerHTML = `
+
+                <img
+                    src="${url}"
+                    class="preview-image"
+                    alt="Document preview"
+                >
+
+            `;
+
+        }
+
+        else if(
+            doc.type ===
+            "text/plain"
+            ||
+            doc.name
+                .toLowerCase()
+                .endsWith(".txt")
+        ){
+
+            const text =
+                await blob.text();
+
+
+            content.innerHTML = `
+
+                <pre
+                    class="text-preview"
+                >${escapeHTML(text)}</pre>
+
+            `;
+
+        }
+
+        else{
+
+            content.innerHTML = `
+
+                <div class="file-preview">
+
+                    <div class="large-file-icon">
+                        ${getFileIcon(doc)}
+                    </div>
+
+                    <h3>
+                        ${escapeHTML(doc.name)}
+                    </h3>
+
+                    <p>
+                        Preview is not available
+                        for this file type.
+                    </p>
+
+                    <button
+                        class="primary-btn"
+                        onclick="
+                            downloadDocument('${doc.id}')
+                        "
+                    >
+                        ⬇ Download File
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+
+        preview.classList.add(
+            "show"
+        );
+
+
+        preview.dataset.url =
+            url;
+
+
+        preview.dataset.documentId =
+            id;
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Unable to open document."
+        );
+
+    }
+
+}
+
+
+
+/* ================================
+   CLOSE PREVIEW
+================================ */
+
+function closePreview(){
+
+    const modal =
+        document.getElementById(
+            "previewModal"
+        );
+
+
+    if(!modal){
+        return;
+    }
+
+
+    const url =
+        modal.dataset.url;
+
+
+    if(url){
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+
+
+    modal.classList.remove(
+        "show"
+    );
+
+
+    modal.dataset.url = "";
+
+}
+
+
+
+/* ================================
+   DOWNLOAD DOCUMENT
+================================ */
+
+async function downloadDocument(id){
+
+    try{
+
+        const doc =
+            await getDocument(id);
+
+
+        if(!doc){
+            alert("Document not found.");
+            return;
+        }
+
+
+        const blob =
+            doc.data instanceof Blob
+                ? doc.data
+                : new Blob(
+                    [doc.data],
+                    {
+                        type:
+                            doc.type
+                    }
+                );
+
+
+        const url =
+            URL.createObjectURL(blob);
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+        link.download =
+            doc.name;
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        setTimeout(
+            ()=>{
+                URL.revokeObjectURL(
+                    url
+                );
+            },
+            1000
+        );
+
+
+        addActivity(
+            "Downloaded",
+            doc.name
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Download failed."
+        );
+
+    }
+
+}
+
+
+
+/* ================================
+   FAVORITE
+================================ */
+
+async function toggleFavorite(id){
+
+    try{
+
+        const doc =
+            await getDocument(id);
+
+
+        if(!doc){
+            return;
+        }
+
+
+        doc.favorite =
+            !doc.favorite;
+
+
+        await updateDocument(
+            doc
+        );
+
+
+        addActivity(
+            doc.favorite
+                ? "Added to Favorites"
+                : "Removed from Favorites",
+            doc.name
+        );
+
+
+        refreshDocuments();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+
+/* ================================
+   DOCUMENT MENU
+================================ */
+
+async function showDocumentMenu(id){
+
+    const doc =
+        await getDocument(id);
+
+
+    if(!doc){
+        return;
+    }
+
+
+    const choice =
+        prompt(
+            "Choose action:\n\n" +
+            "1 = Download\n" +
+            "2 = Rename\n" +
+            "3 = Favorite\n" +
+            "4 = Delete"
+        );
+
+
+    if(choice === "1"){
+
+        downloadDocument(id);
+
+    }
+
+    else if(choice === "2"){
+
+        renameDocument(id);
+
+    }
+
+    else if(choice === "3"){
+
+        toggleFavorite(id);
+
+    }
+
+    else if(choice === "4"){
+
+        deleteSingleDocument(id);
+
+    }
+
+}
+
+
+
+/* ================================
+   RENAME DOCUMENT
+================================ */
+
+async function renameDocument(id){
+
+    try{
+
+        const doc =
+            await getDocument(id);
+
+
+        if(!doc){
+            return;
+        }
+
+
+        const oldName =
+            doc.name;
+
+
+        const newName =
+            prompt(
+                "Enter new file name:",
+                oldName
+            );
+
+
+        if(
+            !newName ||
+            !newName.trim()
+        ){
+
+            return;
+
+        }
+
+
+        doc.name =
+            newName.trim();
+
+
+        await updateDocument(
+            doc
+        );
+
+
+        addActivity(
+            "Renamed",
+            doc.name
+        );
+
+
+        refreshDocuments();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+
+/* ================================
+   DELETE SINGLE DOCUMENT
+================================ */
+
+async function deleteSingleDocument(id){
+
+    try{
+
+        const doc =
+            await getDocument(id);
+
+
+        if(!doc){
+            return;
+        }
+
+
+        const confirmed =
+            confirm(
+                "Delete this document?\n\n" +
+                doc.name
+            );
+
+
+        if(!confirmed){
+            return;
+        }
+
+
+        await deleteDocumentFromDB(
+            id
+        );
+
+
+        addActivity(
+            "Deleted",
+            doc.name
+        );
+
+
+        refreshDocuments();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Unable to delete document."
+        );
+
+    }
+
+}
+
+
+
+/* ================================
+   CATEGORY COUNTS
+================================ */
+
+async function updateCategoryCounts(
+    documents
+){
+
+    const counts = {
+
+        Identity: 0,
+        Education: 0,
+        Finance: 0,
+        Health: 0,
+        Images: 0,
+        Other: 0
+
+    };
+
+
+    documents.forEach(
+        doc => {
+
+            if(
+                counts[
+                    doc.category
+                ] !== undefined
+            ){
+
+                counts[
+                    doc.category
+                ]++;
+
+            }
+
+        }
+    );
+
+
+    Object.keys(counts)
+        .forEach(
+            category => {
+
+                const element =
+                    document.querySelector(
+                        `[data-category-count="${category}"]`
+                    );
+
+
+                if(element){
+
+                    element.textContent =
+                        counts[category];
+
+                }
+
+            }
+        );
+
+}
+
+
+
+/* ================================
+   STORAGE
+================================ */
+
+function updateStorage(
+    documents
+){
+
+    let total =
+        0;
+
+
+    documents.forEach(
+        doc => {
+
+            total +=
+                Number(doc.size) || 0;
+
+        }
+    );
+
+
+    const storageText =
+        document.getElementById(
+            "storageUsed"
+        );
+
+
+    const storageBar =
+        document.getElementById(
+            "storageBar"
+        );
+
+
+    if(storageText){
+
+        storageText.textContent =
+            formatBytes(total);
+
+    }
+
+
+    if(storageBar){
+
+        const reference =
+            100 * 1024 * 1024;
+
+
+        const percentage =
+            Math.min(
+                100,
+                (total / reference) *
+                100
+            );
+
+
+        storageBar.style.width =
+            percentage + "%";
+
+    }
+
+}
+
+
+
+/* ================================
+   STATISTICS
+================================ */
+
+function updateStats(
+    documents
+){
+
+    const total =
+        documents.length;
+
+
+    const favorites =
+        documents.filter(
+            doc => doc.favorite
+        ).length;
+
+
+    const pdfs =
+        documents.filter(
+            doc =>
+                (doc.type || "")
+                .includes("pdf")
+                ||
+                doc.name
+                    .toLowerCase()
+                    .endsWith(".pdf")
+        ).length;
+
+
+    const images =
+        documents.filter(
+            doc =>
+                (doc.type || "")
+                .startsWith("image/")
+        ).length;
+
+
+    const setText =
+        (id,value)=>{
+
+            const element =
+                document.getElementById(id);
+
+            if(element){
+
+                element.textContent =
+                    value;
+
+            }
+
+        };
+
+
+    setText(
+        "totalDocuments",
+        total
+    );
+
+
+    setText(
+        "favoriteDocuments",
+        favorites
+    );
+
+
+    setText(
+        "pdfDocuments",
+        pdfs
+    );
+
+
+    setText(
+        "imageDocuments",
+        images
+    );
+
+                          }
+                          <script>
+
+/* =========================
+   LANGUAGE SYSTEM
+========================= */
+
+const LANGUAGE_KEY =
+    "smartDigiLockerLanguage";
+
+let currentLanguage =
+    localStorage.getItem(
+        LANGUAGE_KEY
+    ) || "en";
+
+
+const translations = {
+
+    en: {
+
+        home:"Home",
+        documents:"Documents",
+        categories:"Categories",
+        favorites:"Favorites",
+        activity:"Activity",
+        profile:"Profile",
+        storage:"Storage",
+        settings:"Settings",
+
+        welcome:"Welcome to your Digital Locker",
+        upload:"Upload Documents",
+        search:"Search documents...",
+        all:"All",
+        identity:"Identity",
+        education:"Education",
+        financial:"Financial",
+        medical:"Medical",
+        certificate:"Certificate",
+        other:"Other",
+
+        totalDocuments:"Total Documents",
+        favoriteDocuments:"Favorites",
+        pdfDocuments:"PDF Documents",
+        imageDocuments:"Images",
+
+        recentDocuments:"Recent Documents",
+        noDocuments:"No Documents Found",
+
+        appSettings:"Application Settings",
+        language:"Language",
+        darkMode:"Dark Mode",
+        backup:"Backup",
+        restore:"Restore",
+        clearDocuments:"Clear All Documents"
+
+    },
+
+    hi: {
+
+        home:"होम",
+        documents:"दस्तावेज़",
+        categories:"श्रेणियाँ",
+        favorites:"पसंदीदा",
+        activity:"गतिविधि",
+        profile:"प्रोफ़ाइल",
+        storage:"स्टोरेज",
+        settings:"सेटिंग्स",
+
+        welcome:"आपके डिजिटल लॉकर में आपका स्वागत है",
+        upload:"दस्तावेज़ अपलोड करें",
+        search:"दस्तावेज़ खोजें...",
+        all:"सभी",
+        identity:"पहचान",
+        education:"शिक्षा",
+        financial:"वित्तीय",
+        medical:"मेडिकल",
+        certificate:"प्रमाणपत्र",
+        other:"अन्य",
+
+        totalDocuments:"कुल दस्तावेज़",
+        favoriteDocuments:"पसंदीदा",
+        pdfDocuments:"PDF दस्तावेज़",
+        imageDocuments:"इमेज",
+
+        recentDocuments:"हाल के दस्तावेज़",
+        noDocuments:"कोई दस्तावेज़ नहीं मिला",
+
+        appSettings:"एप्लिकेशन सेटिंग्स",
+        language:"भाषा",
+        darkMode:"डार्क मोड",
+        backup:"बैकअप",
+        restore:"रिस्टोर",
+        clearDocuments:"सभी दस्तावेज़ हटाएँ"
+
+    }
+
+};
+
+
+/* =========================
+   APPLY LANGUAGE
+========================= */
+
+function applyLanguage(){
+
+    const lang =
+        translations[currentLanguage]
+        || translations.en;
+
+
+    /*
+       Navigation
+    */
+
+    const navMap = {
+
+        homePage:"home",
+        documentsPage:"documents",
+        categoriesPage:"categories",
+        favoritePage:"favorites",
+        activityPage:"activity",
+        profilePage:"profile",
+        storagePage:"storage",
+        settingsPage:"settings"
+
+    };
+
+
+    Object.keys(navMap).forEach(
+        function(pageId){
+
+            const page =
+                document.getElementById(
+                    pageId
+                );
+
+            if(!page){
+                return;
+            }
+
+        }
+    );
+
+
+    /*
+       Text elements using
+       data-lang attribute
+    */
+
+    document
+        .querySelectorAll("[data-lang]")
+        .forEach(function(element){
+
+            const key =
+                element.getAttribute(
+                    "data-lang"
+                );
+
+
+            if(lang[key]){
+
+                element.textContent =
+                    lang[key];
+
+            }
+
+        });
+
+
+    /*
+       Search placeholders
+    */
+
+    const searchInput =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    const documentSearch =
+        document.getElementById(
+            "documentSearchInput"
+        );
+
+
+    if(searchInput){
+
+        searchInput.placeholder =
+            lang.search;
+
+    }
+
+
+    if(documentSearch){
+
+        documentSearch.placeholder =
+            lang.search;
+
+    }
+
+
+    /*
+       Language button
+    */
+
+    const languageButton =
+        document.getElementById(
+            "languageBtn"
+        );
+
+
+    if(languageButton){
+
+        languageButton.textContent =
+            currentLanguage === "en"
+            ? "हिं"
+            : "EN";
+
+        languageButton.title =
+            currentLanguage === "en"
+            ? "Switch to Hindi"
+            : "Switch to English";
+
+    }
+
+
+    document.documentElement
+        .setAttribute(
+            "lang",
+            currentLanguage === "hi"
+            ? "hi"
+            : "en"
+        );
+
+}
+
+
+/* =========================
+   TOGGLE LANGUAGE
+========================= */
+
+function toggleLanguage(){
+
+    currentLanguage =
+        currentLanguage === "en"
+        ? "hi"
+        : "en";
+
+
+    localStorage.setItem(
+        LANGUAGE_KEY,
+        currentLanguage
+    );
+
+
+    applyLanguage();
+
+
+    showToast(
+        currentLanguage === "hi"
+        ? "भाषा हिंदी में बदल दी गई।"
+        : "Language changed to English."
+    );
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+const DARK_MODE_KEY =
+    "smartDigiLockerDarkMode";
+
+
+function applyDarkMode(){
+
+    const enabled =
+        localStorage.getItem(
+            DARK_MODE_KEY
+        ) === "true";
+
+
+    document.body.classList.toggle(
+        "dark",
+        enabled
+    );
+
+
+    const button =
+        document.getElementById(
+            "darkModeBtn"
+        );
+
+
+    if(button){
+
+        button.textContent =
+            enabled ? "☀️" : "🌙";
+
+        button.title =
+            enabled
+            ? "Light Mode"
+            : "Dark Mode";
+
+    }
+
+}
+
+
+function toggleDarkMode(){
+
+    const enabled =
+        document.body.classList.contains(
+            "dark"
+        );
+
+
+    localStorage.setItem(
+        DARK_MODE_KEY,
+        String(!enabled)
+    );
+
+
+    applyDarkMode();
+
+
+    showToast(
+        !enabled
+        ? "Dark mode enabled."
+        : "Light mode enabled."
+    );
+
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+function loadSettings(){
+
+    applyLanguage();
+
+    applyDarkMode();
+
+}
+
+
+/* =========================
+   BACKUP
+========================= */
+
+async function createBackup(){
+
+    try{
+
+        showLoading();
+
+
+        const documents =
+            await getAllDocuments();
+
+
+        const profile =
+            getProfile();
+
+
+        const activities =
+            getActivities();
+
+
+        const backupData = {
+
+            app:"Smart DigiLocker",
+
+            version:"1.0",
+
+            date:
+                new Date().toISOString(),
+
+            documents:documents,
+
+            profile:profile,
+
+            activities:activities,
+
+            language:currentLanguage,
+
+            darkMode:
+                localStorage.getItem(
+                    DARK_MODE_KEY
+                ) === "true"
+
+        };
+
+
+        /*
+          File objects cannot be directly
+          converted safely using JSON.
+          Convert document files to Base64.
+        */
+
+        const convertedDocuments = [];
+
+
+        for(
+            const doc of documents
+        ){
+
+            let fileData = null;
+
+
+            if(doc.data){
+
+                fileData =
+                    await blobToBase64(
+                        doc.data
+                    );
+
+            }
+
+
+            convertedDocuments.push({
+
+                id:doc.id,
+
+                name:doc.name,
+
+                type:doc.type,
+
+                size:doc.size,
+
+                date:doc.date,
+
+                category:doc.category,
+
+                favorite:doc.favorite,
+
+                data:fileData
+
+            });
+
+        }
+
+
+        backupData.documents =
+            convertedDocuments;
+
+
+        const json =
+            JSON.stringify(
+                backupData
+            );
+
+
+        const blob =
+            new Blob(
+                [json],
+                {
+                    type:
+                        "application/json"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        const date =
+            new Date()
+                .toISOString()
+                .slice(0,10);
+
+
+        link.href = url;
+
+        link.download =
+            "Smart-DigiLocker-Backup-" +
+            date +
+            ".json";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+        link.remove();
+
+
+        setTimeout(
+            function(){
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+            },
+            1000
+        );
+
+
+        addActivity(
+            "💾",
+            "Backup created",
+            "Document backup downloaded"
+        );
+
+
+        showToast(
+            "Backup created successfully."
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Backup error:",
+            error
+        );
+
+
+        showToast(
+            "Unable to create backup."
+        );
+
+    }finally{
+
+        hideLoading();
+
+    }
+
+}
+
+
+/* =========================
+   BLOB TO BASE64
+========================= */
+
+function blobToBase64(blob){
+
+    return new Promise(
+        function(resolve,reject){
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(){
+
+                    resolve(
+                        reader.result
+                    );
+
+                };
+
+
+            reader.onerror =
+                function(){
+
+                    reject(
+                        reader.error
+                    );
+
+                };
+
+
+            reader.readAsDataURL(
+                blob
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   BASE64 TO BLOB
+========================= */
+
+function base64ToBlob(
+    base64,
+    type
+){
+
+    const parts =
+        base64.split(",");
+
+
+    const byteString =
+        atob(parts[1] || "");
+
+
+    const array =
+        new Uint8Array(
+            byteString.length
+        );
+
+
+    for(
+        let i = 0;
+        i < byteString.length;
+        i++
+    ){
+
+        array[i] =
+            byteString.charCodeAt(i);
+
+    }
+
+
+    return new Blob(
+        [array],
+        {
+            type:
+                type ||
+                "application/octet-stream"
+        }
+    );
+
+}
+
+
+/* =========================
+   RESTORE BACKUP
+========================= */
+
+async function restoreBackup(event){
+
+    const file =
+        event.target.files?.[0];
+
+
+    if(!file){
+        return;
+    }
+
+
+    if(
+        !file.name
+            .toLowerCase()
+            .endsWith(".json")
+    ){
+
+        showToast(
+            "Please select a valid backup file."
+        );
+
+        event.target.value = "";
+
+        return;
+
+    }
+
+
+    try{
+
+        showLoading();
+
+
+        const text =
+            await file.text();
+
+
+        const backup =
+            JSON.parse(text);
+
+
+        if(
+            !backup ||
+            !Array.isArray(
+                backup.documents
+            )
+        ){
+
+            throw new Error(
+                "Invalid backup"
+            );
+
+        }
+
+
+        const confirmed =
+            confirm(
+                "Restore backup? Existing documents with the same ID may be replaced."
+            );
+
+
+        if(!confirmed){
+
+            event.target.value = "";
+
+            hideLoading();
+
+            return;
+
+        }
+
+
+        /*
+           Restore documents
+        */
+
+        for(
+            const item
+            of backup.documents
+        ){
+
+            let blob = null;
+
+
+            if(item.data){
+
+                blob =
+                    base64ToBlob(
+                        item.data,
+                        item.type
+                    );
+
+            }
+
+
+            const restoredDocument = {
+
+                id:item.id,
+
+                name:item.name,
+
+                type:item.type,
+
+                size:item.size,
+
+                date:item.date,
+
+                category:
+                    item.category || "other",
+
+                favorite:
+                    item.favorite === true,
+
+                data:
+                    blob ||
+                    new Blob(
+                        [],
+                        {
+                            type:
+                                item.type ||
+                                "application/octet-stream"
+                        }
+                    )
+
+            };
+
+
+            await updateDocument(
+                restoredDocument
+            );
+
+        }
+
+
+        /*
+           Restore profile
+        */
+
+        if(backup.profile){
+
+            localStorage.setItem(
+                PROFILE_KEY,
+                JSON.stringify(
+                    backup.profile
+                )
+            );
+
+        }
+
+
+        /*
+           Restore activities
+        */
+
+        if(
+            Array.isArray(
+                backup.activities
+            )
+        ){
+
+            localStorage.setItem(
+                ACTIVITY_KEY,
+                JSON.stringify(
+                    backup.activities
+                )
+            );
+
+        }
+
+
+        /*
+           Restore language
+        */
+
+        if(
+            backup.language === "hi" ||
+            backup.language === "en"
+        ){
+
+            currentLanguage =
+                backup.language;
+
+
+            localStorage.setItem(
+                LANGUAGE_KEY,
+                currentLanguage
+            );
+
+        }
+
+
+        /*
+           Restore dark mode
+        */
+
+        if(
+            typeof backup.darkMode ===
+            "boolean"
+        ){
+
+            localStorage.setItem(
+                DARK_MODE_KEY,
+                String(
+                    backup.darkMode
+                )
+            );
+
+        }
+
+
+        loadProfile();
+
+        renderActivities();
+
+        applyLanguage();
+
+        applyDarkMode();
+
+        await refreshDocuments();
+
+
+        showToast(
+            "Backup restored successfully."
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Restore error:",
+            error
+        );
+
+
+        showToast(
+            "Invalid or damaged backup file."
+        );
+
+    }finally{
+
+        event.target.value = "";
+
+        hideLoading();
+
+    }
+
+}
+
+
+/* =========================
+   CLEAR ALL DOCUMENTS
+========================= */
+
+async function clearAllDocuments(){
+
+    const documents =
+        await getAllDocuments();
+
+
+    if(documents.length === 0){
+
+        showToast(
+            "There are no documents to delete."
+        );
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete ALL documents? This action cannot be undone."
+        );
+
+
+    if(!confirmed){
+        return;
+    }
+
+
+    try{
+
+        showLoading();
+
+
+        await clearDatabase();
+
+
+        addActivity(
+            "🗑️",
+            "All documents deleted",
+            documents.length +
+            " document(s) removed"
+        );
+
+
+        await refreshDocuments();
+
+
+        showToast(
+            "All documents have been deleted."
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Clear documents error:",
+            error
+        );
+
+
+        showToast(
+            "Unable to delete documents."
+        );
+
+    }finally{
+
+        hideLoading();
+
+    }
+
+}
+
+
+/* =========================
+   MODAL CLOSE HELPERS
+========================= */
+
+function closeModalById(id){
+
+    const modal =
+        document.getElementById(id);
+
+
+    if(modal){
+
+        modal.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+function closeRenameModal(){
+
+    closeModalById(
+        "renameModal"
+    );
+
+}
+
+
+function closeAboutModal(){
+
+    closeModalById(
+        "aboutModal"
+    );
+
+}
+
+
+function closeSecurityModal(){
+
+    closeModalById(
+        "securityModal"
+    );
+
+}
+
+
+function closeDocumentInfoModal(){
+
+    closeModalById(
+        "documentInfoModal"
+    );
+
+}
+
+
+/* =========================
+   LANGUAGE + DARK MODE
+   ON PAGE LOAD
+========================= */
+
+applyLanguage();
+
+applyDarkMode();
+
+
+/* =========================
+   PART 5B END
+========================= */
+
+<script>
+
+/* =========================
+   CATEGORY NAVIGATION
+========================= */
+
+function openCategory(category){
+
+    currentFilter = category;
+
+    currentSearch = "";
+
+
+    const searchInput =
+        document.getElementById(
+            "searchInput"
+        );
+
+    const documentSearchInput =
+        document.getElementById(
+            "documentSearchInput"
+        );
+
+
+    if(searchInput){
+        searchInput.value = "";
+    }
+
+
+    if(documentSearchInput){
+        documentSearchInput.value = "";
+    }
+
+
+    showPage("documents");
+
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(function(btn){
+
+            btn.classList.remove(
+                "active"
+            );
+
+            if(
+                btn.dataset.category ===
+                category
+            ){
+
+                btn.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
+
+
+    refreshDocuments();
+
+}
+
+
+/* =========================
+   DOCUMENT SEARCH
+========================= */
+
+function searchAllDocuments(value){
+
+    currentSearch =
+        String(
+            value || ""
+        )
+        .trim()
+        .toLowerCase();
+
+
+    const homeSearch =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    const documentSearch =
+        document.getElementById(
+            "documentSearchInput"
+        );
+
+
+    if(
+        document.activeElement ===
+        homeSearch &&
+        documentSearch
+    ){
+
+        documentSearch.value =
+            value;
+
+    }
+
+
+    if(
+        document.activeElement ===
+        documentSearch &&
+        homeSearch
+    ){
+
+        homeSearch.value =
+            value;
+
+    }
+
+
+    refreshDocuments();
+
+}
+
+
+/* =========================
+   UPLOAD BUTTON
+========================= */
+
+function openUpload(){
+
+    const input =
+        document.getElementById(
+            "fileInput"
+        );
+
+
+    if(input){
+
+        input.click();
+
+    }
+
+}
+
+
+/* =========================
+   MENU BUTTON CONNECTION
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const openBtn =
+            document.getElementById(
+                "menuOpenBtn"
+            );
+
+
+        const downloadBtn =
+            document.getElementById(
+                "menuDownloadBtn"
+            );
+
+
+        const favoriteBtn =
+            document.getElementById(
+                "menuFavoriteBtn"
+            );
+
+
+        const renameBtn =
+            document.getElementById(
+                "menuRenameBtn"
+            );
+
+
+        const deleteBtn =
+            document.getElementById(
+                "menuDeleteBtn"
+            );
+
+
+        const confirmDeleteBtn =
+            document.getElementById(
+                "confirmDeleteBtn"
+            );
+
+
+        const renameConfirmBtn =
+            document.getElementById(
+                "renameConfirmBtn"
+            );
+
+
+        const renameCancelBtn =
+            document.getElementById(
+                "renameCancelBtn"
+            );
+
+
+        const menuCloseBtn =
+            document.getElementById(
+                "documentMenuClose"
+            );
+
+
+        const previewCloseBtn =
+            document.getElementById(
+                "previewCloseBtn"
+            );
+
+
+        const profilePhoto =
+            document.getElementById(
+                "profilePhoto"
+            );
+
+
+        /*
+           Open
+        */
+
+        if(openBtn){
+
+            openBtn.onclick =
+                menuOpenDocument;
+
+        }
+
+
+        /*
+           Download
+        */
+
+        if(downloadBtn){
+
+            downloadBtn.onclick =
+                menuDownloadDocument;
+
+        }
+
+
+        /*
+           Favorite
+        */
+
+        if(favoriteBtn){
+
+            favoriteBtn.onclick =
+                menuToggleFavorite;
+
+        }
+
+
+        /*
+           Rename
+        */
+
+        if(renameBtn){
+
+            renameBtn.onclick =
+                openRenameModal;
+
+        }
+
+
+        /*
+           Delete
+        */
+
+        if(deleteBtn){
+
+            deleteBtn.onclick =
+                openDeleteModal;
+
+        }
+
+
+        /*
+           Confirm Delete
+        */
+
+        if(confirmDeleteBtn){
+
+            confirmDeleteBtn.onclick =
+                confirmDeleteDocument;
+
+        }
+
+
+        /*
+           Confirm Rename
+        */
+
+        if(renameConfirmBtn){
+
+            renameConfirmBtn.onclick =
+                renameDocument;
+
+        }
+
+
+        /*
+           Cancel Rename
+        */
+
+        if(renameCancelBtn){
+
+            renameCancelBtn.onclick =
+                closeRenameModal;
+
+        }
+
+
+        /*
+           Close document menu
+        */
+
+        if(menuCloseBtn){
+
+            menuCloseBtn.onclick =
+                closeDocumentMenu;
+
+        }
+
+
+        /*
+           Close preview
+        */
+
+        if(previewCloseBtn){
+
+            previewCloseBtn.onclick =
+                closePreview;
+
+        }
+
+
+        /*
+           Profile photo
+        */
+
+        if(profilePhoto){
+
+            profilePhoto.addEventListener(
+                "change",
+                handleProfilePhoto
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   CLOSE MODALS ON BACKDROP
+========================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target.classList.contains(
+                "modal"
+            )
+        ){
+
+            event.target.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key !== "Escape"){
+            return;
+        }
+
+
+        document
+            .querySelectorAll(".modal.show")
+            .forEach(function(modal){
+
+                modal.classList.remove(
+                    "show"
+                );
+
+            });
+
+    }
+);
+
+
+/* =========================
+   ENTER KEY FOR RENAME
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter" &&
+            document.activeElement?.id ===
+            "renameInput"
+        ){
+
+            renameDocument();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   SEARCH INPUT CONNECTION
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const homeSearch =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        const documentSearch =
+            document.getElementById(
+                "documentSearchInput"
+            );
+
+
+        if(homeSearch){
+
+            homeSearch.addEventListener(
+                "input",
+                function(){
+
+                    searchAllDocuments(
+                        this.value
+                    );
+
+                }
+            );
+
+        }
+
+
+        if(documentSearch){
+
+            documentSearch.addEventListener(
+                "input",
+                function(){
+
+                    searchAllDocuments(
+                        this.value
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   FILTER BUTTON CONNECTION
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document
+            .querySelectorAll(
+                ".filter-btn"
+            )
+            .forEach(function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const category =
+                            this.dataset.category
+                            || "all";
+
+
+                        setFilter(
+                            category,
+                            this
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+);
+
+
+/* =========================
+   NAVIGATION BUTTONS
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document
+            .querySelectorAll(
+                "[data-page]"
+            )
+            .forEach(function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const page =
+                            this.dataset.page;
+
+
+                        if(page){
+
+                            showPage(
+                                page,
+                                this
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+    }
+);
+
+
+/* =========================
+   FILE UPLOAD CONNECTION
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const input =
+            document.getElementById(
+                "fileInput"
+            );
+
+
+        if(input){
+
+            input.addEventListener(
+                "change",
+                handleFileUpload
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   CATEGORY CARDS
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document
+            .querySelectorAll(
+                ".category-card"
+            )
+            .forEach(function(card){
+
+                card.addEventListener(
+                    "click",
+                    function(){
+
+                        const category =
+                            this.dataset.category;
+
+
+                        if(category){
+
+                            openCategory(
+                                category
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+    }
+);
+
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        document
+            .querySelectorAll(
+                ".mobile-nav button"
+            )
+            .forEach(function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const page =
+                            this.dataset.page;
+
+
+                        if(page){
+
+                            showPage(
+                                page,
+                                this
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+    }
+);
+
+
+/* =========================
+   ABOUT APPLICATION
+========================= */
+
+function showAbout(){
+
+    const modal =
+        document.getElementById(
+            "aboutModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.add(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   SECURITY INFORMATION
+========================= */
+
+function showSecurity(){
+
+    const modal =
+        document.getElementById(
+            "securityModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.add(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   DOCUMENT INFORMATION
+========================= */
+
+async function showDocumentInfo(id){
+
+    try{
+
+        const doc =
+            await getDocument(id);
+
+
+        if(!doc){
+            return;
+        }
+
+
+        const modal =
+            document.getElementById(
+                "documentInfoModal"
+            );
+
+
+        const content =
+            document.getElementById(
+                "documentInfoContent"
+            );
+
+
+        if(!content){
+            return;
+        }
+
+
+        content.innerHTML = `
+
+            <div class="storage-box">
+
+                <strong>
+                    File Name
+                </strong>
+
+                <span>
+                    ${escapeHTML(doc.name)}
+                </span>
+
+            </div>
+
+
+            <div class="storage-box">
+
+                <strong>
+                    Category
+                </strong>
+
+                <span>
+                    ${escapeHTML(
+                        getCategoryName(
+                            doc.category
+                        )
+                    )}
+                </span>
+
+            </div>
+
+
+            <div class="storage-box">
+
+                <strong>
+                    File Size
+                </strong>
+
+                <span>
+                    ${formatFileSize(
+                        doc.size
+                    )}
+                </span>
+
+            </div>
+
+
+            <div class="storage-box">
+
+                <strong>
+                    Added
+                </strong>
+
+                <span>
+                    ${formatDateTime(
+                        doc.date
+                    )}
+                </span>
+
+            </div>
+
+
+            <div class="storage-box">
+
+                <strong>
+                    Favorite
+                </strong>
+
+                <span>
+                    ${
+                        doc.favorite
+                        ? "Yes ⭐"
+                        : "No"
+                    }
+                </span>
+
+            </div>
+
+        `;
+
+
+        modal.classList.add(
+            "show"
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =========================
+   INITIAL APP STATE
+========================= */
+
+function setInitialPage(){
+
+    const firstPage =
+        document.querySelector(
+            ".page.active"
+        );
+
+
+    if(!firstPage){
+
+        const home =
+            document.getElementById(
+                "homePage"
+            );
+
+
+        if(home){
+
+            home.classList.add(
+                "active"
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   GLOBAL ERROR HANDLING
+========================= */
+
+window.addEventListener(
+    "error",
+    function(event){
+
+        console.error(
+            "Smart DigiLocker Error:",
+            event.error ||
+            event.message
+        );
+
+    }
+);
+
+
+/* =========================
+   FINAL STARTUP
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setInitialPage();
+
+        applyLanguage();
+
+        applyDarkMode();
+
+        renderActivities();
+
+        loadProfile();
+
+    }
+);
+
+
+/* =========================
+   CREATED BY
+========================= */
+
+console.log(
+    "Smart DigiLocker | Created by Amit Kumar Singh"
+);
+
+
+/* =========================
+   FINAL PART
+========================= */
+
+</script>
 
 </body>
 </html>
