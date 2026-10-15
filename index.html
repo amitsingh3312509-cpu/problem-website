@@ -1,1352 +1,1217 @@
 
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1746a2">
-<meta name="description" content="Smart JanSeva and Student Portal">
-<title>Smart JanSeva & Student Portal</title>
+<meta name="theme-color" content="#153e75">
+<title>Smart Career & Job Portal</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --primary:#1746a2;
+  --primary:#153e75;
   --secondary:#087f8c;
-  --bg:#f3f6fc;
+  --accent:#ffb703;
+  --bg:#f3f6fb;
   --card:#fff;
-  --text:#172033;
+  --text:#1d2939;
   --muted:#667085;
-  --border:#dfe5ef;
+  --border:#e1e7ef;
 }
 body{
   font-family:Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.6;
-}
-body.dark{
-  --bg:#101827;
-  --card:#1c2738;
-  --text:#f2f5fa;
-  --muted:#b8c2d3;
-  --border:#354258;
+  line-height:1.5;
 }
 header{
-  background:linear-gradient(120deg,#123783,#087f8c);
-  color:white;padding:22px 16px;
+  background:var(--primary);
+  color:white;
+  padding:15px;
+  position:sticky;
+  top:0;
+  z-index:20;
+  box-shadow:0 3px 12px #0002;
 }
-.header-inner{
-  max-width:1100px;margin:auto;
-  display:flex;align-items:center;
-  justify-content:space-between;gap:12px;
+.topbar{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
   flex-wrap:wrap;
 }
-.logo{font-size:22px;font-weight:bold}
-.tagline{font-size:13px;opacity:.9}
-.header-actions{display:flex;gap:8px;flex-wrap:wrap}
-button,.btn{
-  border:0;border-radius:9px;padding:10px 14px;
-  cursor:pointer;font-size:14px;font-weight:bold;
+.logo{font-size:21px;font-weight:bold}
+.header-actions{display:flex;gap:8px}
+button{
+  font:inherit;
+  cursor:pointer;
+  border:0;
+  border-radius:8px;
+  padding:10px 14px;
 }
-.header-actions button{background:white;color:#1746a2}
+.lang-btn{
+  background:white;
+  color:var(--primary);
+  font-weight:bold;
+}
 nav{
-  background:var(--card);padding:10px;
-  display:flex;gap:8px;flex-wrap:wrap;
-  justify-content:center;border-bottom:1px solid var(--border);
+  max-width:1150px;
+  margin:13px auto 0;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
 }
-nav button{background:transparent;color:var(--text)}
-nav button:hover{background:var(--primary);color:white}
-.container{max-width:1100px;margin:auto;padding:18px}
+nav button{
+  background:#ffffff20;
+  color:white;
+  white-space:nowrap;
+}
+nav button:hover{background:#ffffff35}
 .hero{
-  background:linear-gradient(120deg,#1746a2,#08a6a6);
-  color:white;border-radius:18px;padding:28px 20px;
-  margin-bottom:20px;
+  background:linear-gradient(120deg,#153e75,#087f8c);
+  color:white;
+  padding:38px 18px;
 }
-.hero h1{font-size:clamp(25px,5vw,38px);line-height:1.25}
-.hero p{margin:12px 0;max-width:650px}
-.search-box{
-  display:flex;gap:8px;flex-wrap:wrap;margin-top:16px
+.hero-inner{max-width:1150px;margin:auto}
+.hero h1{
+  font-size:clamp(27px,5vw,43px);
+  margin-bottom:12px;
+}
+.hero p{max-width:650px;margin-bottom:18px}
+.hero-search{
+  display:flex;
+  gap:8px;
+  max-width:650px;
 }
 input,select,textarea{
-  width:100%;padding:12px;border-radius:9px;
+  width:100%;
+  padding:12px;
   border:1px solid var(--border);
-  background:var(--card);color:var(--text);
-  font:inherit;margin:5px 0 12px;
+  border-radius:8px;
+  background:white;
+  color:#222;
+  font:inherit;
 }
-.search-box input{flex:1;min-width:180px;margin:0}
-.primary{background:var(--primary);color:white}
-.secondary{background:var(--secondary);color:white}
-.light-btn{background:white;color:#1746a2}
-.section-title{font-size:23px;margin:24px 0 12px}
+.hero-search button{
+  background:var(--accent);
+  color:#222;
+  font-weight:bold;
+  white-space:nowrap;
+}
+main{
+  max-width:1150px;
+  margin:auto;
+  padding:16px;
+}
+.section{margin:24px 0}
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.section-title h2{font-size:23px}
 .muted{color:var(--muted)}
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:14px;
 }
 .card{
-  background:var(--card);padding:18px;
-  border:1px solid var(--border);border-radius:14px;
-  box-shadow:0 3px 12px #14254a0b;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:17px;
+  box-shadow:0 3px 12px #10204008;
 }
-.card h3{font-size:17px;margin-bottom:6px}
-.card p{font-size:14px;color:var(--muted);margin-bottom:12px}
-.card button{margin:3px 3px 0 0}
-.icon{font-size:27px;margin-bottom:8px}
-.panel{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:14px;padding:18px;margin-top:16px;
+.card h3{margin-bottom:8px;font-size:18px}
+.card p{color:var(--muted);margin:6px 0 12px}
+.card-icon{font-size:31px;margin-bottom:10px}
+.primary-btn{background:var(--primary);color:white}
+.secondary-btn{background:#e8edf5;color:var(--primary)}
+.success-btn{background:#087f8c;color:white}
+.danger-btn{background:#fee4e2;color:#b42318}
+.link-btn{
+  display:inline-block;
+  background:var(--primary);
+  color:white;
+  padding:9px 12px;
+  border-radius:7px;
+  text-decoration:none;
+  margin-top:6px;
 }
+.link-btn:hover{opacity:.9}
 .hidden{display:none!important}
+.panel{
+  background:var(--card);
+  padding:18px;
+  border-radius:13px;
+  border:1px solid var(--border);
+  margin:18px 0;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+.form-group{margin-bottom:12px}
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+.full{grid-column:1/-1}
+.button-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.result{
+  padding:14px;
+  background:#eef7ff;
+  border-radius:9px;
+  margin-top:14px;
+  overflow-wrap:anywhere;
+}
+.list-item{
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+}
+.list-item:last-child{border-bottom:0}
+.list-item h3{margin-bottom:4px}
 .badge{
-  display:inline-block;background:#e1f3f4;color:#075e65;
-  padding:4px 9px;border-radius:30px;font-size:12px;
-  margin-bottom:8px;
+  display:inline-block;
+  background:#e0f2fe;
+  color:#075985;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:12px;
+  margin:4px 0;
 }
-.action-row{display:flex;gap:8px;flex-wrap:wrap}
-.action-row button{margin-top:5px}
-hr{border:0;border-top:1px solid var(--border);margin:16px 0}
+.empty{
+  text-align:center;
+  padding:22px;
+  color:var(--muted);
+}
 footer{
-  margin-top:30px;background:#122447;color:white;
-  padding:25px 16px;text-align:center
+  background:#102746;
+  color:white;
+  text-align:center;
+  padding:25px 14px;
+  margin-top:35px;
 }
-footer a{color:#aeefff}
-.small{font-size:12px}
-@media(max-width:500px){
- .container{padding:12px}
- .hero{padding:22px 15px}
- .logo{font-size:19px}
- nav{justify-content:flex-start}
- nav button{font-size:12px;padding:9px}
+footer p{margin:6px}
+.small{font-size:13px}
+@media(max-width:800px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:540px){
+  .grid,.form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .hero-search{flex-direction:column}
+  .hero{padding:27px 16px}
+  .logo{font-size:18px}
+  main{padding:12px}
+  .card{padding:14px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <div class="header-inner">
-    <div>
-      <div class="logo">🌐 Smart Portal</div>
-      <div class="tagline" id="tagline">
-        Students aur Public ke liye ek digital platform
-      </div>
-    </div>
+  <div class="topbar">
+    <div class="logo" id="siteLogo">💼 Smart Career Portal</div>
     <div class="header-actions">
-      <button onclick="toggleLanguage()" id="langBtn">English</button>
-      <button onclick="toggleDark()">🌙 Theme</button>
+      <button class="lang-btn" id="languageButton"
+              onclick="toggleLanguage()">हिंदी</button>
     </div>
   </div>
+
+  <nav>
+    <button onclick="showSection('home')" id="navHome">🏠 Home</button>
+    <button onclick="showSection('jobs')" id="navJobs">💼 Jobs</button>
+    <button onclick="showSection('resume')" id="navResume">📄 Resume Maker</button>
+    <button onclick="showSection('interview')" id="navInterview">🎤 Interview</button>
+    <button onclick="showSection('tracker')" id="navTracker">📌 Application Tracker</button>
+  </nav>
 </header>
 
-<nav>
-  <button onclick="goHome()">🏠 Home</button>
-  <button onclick="showSection('studentSection')">🎓 Student</button>
-  <button onclick="showSection('publicSection')">🏛️ JanSeva</button>
-  <button onclick="showSection('plannerSection')">📅 Planner</button>
-  <button onclick="showSection('applicationSection')">📝 Application</button>
-  <button onclick="showSection('toolsSection')">🧰 Tools</button>
-  <button onclick="showSection('backupSection')">💾 Backup</button>
-</nav>
-
-<main class="container">
-  <section class="hero" id="homeSection">
-    <span class="badge">SMART DIGITAL INDIA</span>
-    <h1 id="heroTitle">Aapka Apna Smart JanSeva & Student Portal</h1>
-    <p id="heroDesc">
-      Padhai, daily planning, applications aur public services ki
-      zaroori jaankari ek hi jagah par.
+<section class="hero" id="heroSection">
+  <div class="hero-inner">
+    <h1 id="heroTitle">Build Your Career with Confidence</h1>
+    <p id="heroText">
+      Explore job opportunities, create your resume, practise interview
+      questions and keep track of your job applications.
     </p>
-
-    <div class="search-box">
-      <input id="globalSearch" type="search"
-        placeholder="Service search karein..."
-        oninput="searchCards()">
-      <button class="light-btn" onclick="searchCards()">🔍 Search</button>
+    <div class="hero-search">
+      <input id="heroJobSearch" placeholder="Search job title or skill...">
+      <button onclick="searchJobs()" id="heroSearchButton">Search Jobs</button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2 class="section-title" id="quickTitle">⚡ Quick Services</h2>
-    <div class="grid" id="quickGrid">
-      <article class="card service-card">
-        <div class="icon">🎓</div>
-        <h3>Student Dashboard</h3>
-        <p>Apni study details aur personal notes manage karein.</p>
-        <button class="primary" onclick="showSection('studentSection')">
-          Open
-        </button>
-      </article>
+<main>
 
-      <article class="card service-card">
-        <div class="icon">📅</div>
-        <h3>Study Planner</h3>
-        <p>Daily tasks aur important deadlines likhein.</p>
-        <button class="primary" onclick="showSection('plannerSection')">
-          Open
-        </button>
-      </article>
-
-      <article class="card service-card">
-        <div class="icon">📝</div>
-        <h3>Application Generator</h3>
-        <p>School, college ya office ke liye application draft karein.</p>
-        <button class="primary" onclick="showSection('applicationSection')">
-          Open
-        </button>
-      </article>
-
-      <article class="card service-card">
-        <div class="icon">🏛️</div>
-        <h3>Public Services</h3>
-        <p>Official government portals ke links dekhein.</p>
-        <button class="primary" onclick="showSection('publicSection')">
-          Open
-        </button>
-      </article>
-
-      <article class="card service-card">
-        <div class="icon">🧰</div>
-        <h3>Smart Tools</h3>
-        <p>Useful digital tools aur utilities ka section.</p>
-        <button class="primary" onclick="showSection('toolsSection')">
-          Open
-        </button>
-      </article>
-
-      <article class="card service-card">
-        <div class="icon">💾</div>
-        <h3>Data Backup</h3>
-        <p>Supported website data ki backup file banayein.</p>
-        <button class="primary" onclick="showSection('backupSection')">
-          Open
-        </button>
-      </article>
-    </div>
-  </section>
-
-  <div id="messagePanel" class="panel hidden" aria-live="polite">
-    <h3 id="messageTitle">Information</h3>
-    <p id="messageText"></p>
-    <button class="primary" onclick="closeMessage()">Close</button>
+<!-- HOME DASHBOARD -->
+<section id="home" class="section">
+  <div class="section-title">
+    <h2 id="welcomeTitle">Your Career Dashboard</h2>
   </div>
 
-  <!-- PART 2: Student aur JanSeva sections yahan aayenge -->
-  <!-- PART 3: Planner aur Application Generator yahan aayenge -->
-  <!-- PART 4: Tools aur Backup yahan aayenge -->
-  <!-- PART 5: JavaScript, footer aur closing tags yahan aayenge -->
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">💼</div>
+      <h3 id="jobCardTitle">Explore Jobs</h3>
+      <p id="jobCardText">Find job portals and career opportunities.</p>
+      <button class="primary-btn" onclick="showSection('jobs')" id="jobCardButton">
+        Find Jobs
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📄</div>
+      <h3 id="resumeCardTitle">Build Your Resume</h3>
+      <p id="resumeCardText">Create a simple professional resume.</p>
+      <button class="primary-btn" onclick="showSection('resume')" id="resumeCardButton">
+        Make Resume
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎤</div>
+      <h3 id="interviewCardTitle">Practise Interviews</h3>
+      <p id="interviewCardText">Prepare common interview questions.</p>
+      <button class="primary-btn" onclick="showSection('interview')" id="interviewCardButton">
+        Start Practice
+      </button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="section-title">
+      <h2 id="summaryTitle">📊 Application Summary</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <p id="totalApplicationsLabel">Total Applications</p>
+        <h2 id="totalApplications">0</h2>
+      </div>
+      <div class="card">
+        <p id="interviewCountLabel">Interviews</p>
+        <h2 id="interviewCount">0</h2>
+      </div>
+      <div class="card">
+        <p id="offerCountLabel">Offers</p>
+        <h2 id="offerCount">0</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOB SEARCH -->
+<section id="jobs" class="section hidden">
+  <div class="section-title">
+    <h2 id="jobsTitle">💼 Job Search & Career Links</h2>
+  </div>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label for="jobSearchInput" id="jobSearchLabel">Search by title or skill</label>
+      <input id="jobSearchInput" placeholder="e.g. Software Engineer">
+    </div>
+    <div class="form-group">
+      <label for="jobTypeFilter" id="jobTypeLabel">Job Type</label>
+      <select id="jobTypeFilter">
+        <option value="All">All Types</option>
+        <option value="Government">Government</option>
+        <option value="Private">Private</option>
+        <option value="Internship">Internship</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="jobResults" class="grid"></div>
+
+  <div class="section-title" style="margin-top:25px">
+    <h2 id="officialLinksTitle">🌐 Job Websites</h2>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>National Career Service</h3>
+      <p id="ncsText">Government career and employment services.</p>
+      <a class="link-btn" href="https://www.ncs.gov.in/"
+         target="_blank" rel="noopener noreferrer">Open Website ↗</a>
+    </div>
+    <div class="card">
+      <h3>UPSC</h3>
+      <p id="upscText">Official Union Public Service Commission website.</p>
+      <a class="link-btn" href="https://upsc.gov.in/"
+         target="_blank" rel="noopener noreferrer">Open Website ↗</a>
+    </div>
+    <div class="card">
+      <h3>SSC</h3>
+      <p id="sscText">Official Staff Selection Commission website.</p>
+      <a class="link-btn" href="https://ssc.gov.in/"
+         target="_blank" rel="noopener noreferrer">Open Website ↗</a>
+    </div>
+    <div class="card">
+      <h3>UPSC Online Applications</h3>
+      <p id="upscApplyText">Check official notices and application details.</p>
+      <a class="link-btn" href="https://upsconline.nic.in/"
+         target="_blank" rel="noopener noreferrer">Open Website ↗</a>
+    </div>
+    <div class="card">
+      <h3>LinkedIn Jobs</h3>
+      <p id="linkedinText">Explore professional and private-sector roles.</p>
+      <a class="link-btn" href="https://www.linkedin.com/jobs/"
+         target="_blank" rel="noopener noreferrer">Find Jobs ↗</a>
+    </div>
+    <div class="card">
+      <h3>Indeed India</h3>
+      <p id="indeedText">Search jobs across different industries.</p>
+      <a class="link-btn" href="https://in.indeed.com/"
+         target="_blank" rel="noopener noreferrer">Find Jobs ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME MAKER -->
+<section id="resume" class="section hidden">
+  <div class="section-title">
+    <h2 id="resumeTitle">📄 Resume Maker</h2>
+  </div>
+
+  <div class="panel">
+    <p class="muted" id="resumeIntro">
+      Enter your details to generate a basic resume that you can print or save as PDF.
+    </p>
+
+    <form id="resumeForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="resumeName" id="resumeNameLabel">Full Name *</label>
+          <input id="resumeName" required maxlength="100">
+        </div>
+        <div class="form-group">
+          <label for="resumeEmail" id="resumeEmailLabel">Email *</label>
+          <input id="resumeEmail" type="email" required maxlength="150">
+        </div>
+        <div class="form-group">
+          <label for="resumePhone" id="resumePhoneLabel">Phone</label>
+          <input id="resumePhone" type="tel" maxlength="20">
+        </div>
+        <div class="form-group">
+          <label for="resumeCity" id="resumeCityLabel">City</label>
+          <input id="resumeCity" maxlength="100">
+        </div>
+        <div class="form-group full">
+          <label for="resumeEducation" id="resumeEducationLabel">Education</label>
+          <textarea id="resumeEducation" rows="3" maxlength="1500"></textarea>
+        </div>
+        <div class="form-group full">
+          <label for="resumeSkills" id="resumeSkillsLabel">Skills</label>
+          <textarea id="resumeSkills" rows="2" maxlength="1000"></textarea>
+        </div>
+        <div class="form-group full">
+          <label for="resumeExperience" id="resumeExperienceLabel">Experience / Projects</label>
+          <textarea id="resumeExperience" rows="3" maxlength="2000"></textarea>
+        </div>
+        <div class="form-group full">
+          <label for="resumeObjective" id="resumeObjectiveLabel">Career Objective</label>
+          <textarea id="resumeObjective" rows="3" maxlength="1000"></textarea>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button type="button" class="primary-btn"
+                onclick="generateResume()" id="generateResumeButton">
+          Generate Resume
+        </button>
+        <button type="reset" class="secondary-btn" id="resetResumeButton">
+          Clear Form
+        </button>
+      </div>
+    </form>
+
+    <div id="resumeOutput" class="result hidden"></div>
+    <div class="button-row">
+      <button class="success-btn hidden" id="printResumeButton"
+              onclick="printResume()">🖨️ Print / Save PDF</button>
+    </div>
+  </div>
+</section>
+
+<!-- PART 2 YAHAN SE AAGE JODEIN -->
 
 </main>
-    
-<!-- PART 2: STUDENT DASHBOARD -->
 
-<section id="studentSection" class="panel">
-  <span class="badge">STUDENT ZONE</span>
-  <h2 class="section-title">🎓 Student Dashboard</h2>
-  <p class="muted">Apni student details aur study notes yahan manage karein.</p>
+<!-- PART 3 MEIN JAVASCRIPT, FOOTER AUR CLOSING TAGS COMPLETE HONGE -->
+  
+<!-- INTERVIEW PRACTICE SECTION -->
+<section id="interview" class="section hidden">
 
-  <form id="studentForm">
-    <label>Student Name / विद्यार्थी का नाम</label>
-    <input id="studentName" required placeholder="Apna naam likhein">
-
-    <label>Roll Number / रोल नंबर</label>
-    <input id="rollNumber" placeholder="Roll number">
-
-    <label>College / School Name</label>
-    <input id="collegeName" placeholder="Institute ka naam">
-
-    <label>Course / Class</label>
-    <input id="courseName" placeholder="Jaise B.Tech CSE">
-
-    <label>Semester / Class</label>
-    <select id="semester">
-      <option value="">Select karein</option>
-      <option>Class 10</option>
-      <option>Class 12</option>
-      <option>Semester 1</option>
-      <option>Semester 2</option>
-      <option>Semester 3</option>
-      <option>Semester 4</option>
-      <option>Semester 5</option>
-      <option>Semester 6</option>
-      <option>Semester 7</option>
-      <option>Semester 8</option>
-      <option>Other</option>
-    </select>
-
-    <button class="primary" type="submit">💾 Save Student Details</button>
-    <button class="secondary" type="button" onclick="loadStudent()">
-      View Saved Details
-    </button>
-    <button type="button" onclick="deleteStudent()">Delete Details</button>
-  </form>
-
-  <div id="studentOutput" class="panel">
-    <p class="muted">Abhi student details load nahi hui hain.</p>
+  <div class="section-title">
+    <h2 id="interviewTitle">🎤 Interview Practice</h2>
   </div>
 
-  <hr>
-  <h3>📚 Personal Study Notes</h3>
-  <label>Subject / विषय</label>
-  <input id="noteSubject" placeholder="Jaise Mathematics">
-
-  <label>Notes / नोट्स</label>
-  <textarea id="studyNotes" rows="5" placeholder="Apne notes likhein..."></textarea>
-
-  <div class="action-row">
-    <button class="primary" onclick="saveStudyNote()">Save Notes</button>
-    <button class="secondary" onclick="loadStudyNotes()">View Notes</button>
-    <button onclick="downloadStudyNotes()">Download Notes</button>
-    <button onclick="clearStudyNotes()">Clear Notes</button>
-  </div>
-  <div id="notesOutput" class="panel"></div>
-</section>
-
-<!-- PART 2: PUBLIC JANSEVA SERVICES -->
-
-<section id="publicSection" class="panel">
-  <span class="badge">PUBLIC SERVICE ZONE</span>
-  <h2 class="section-title">🏛️ JanSeva & Government Services</h2>
-  <p class="muted">
-    Neeche diye gaye links sambandhit official portals ke liye hain.
-    Eligibility aur documents ki details portal par verify karein.
-  </p>
-
-  <div class="grid">
-    <article class="card">
-      <div class="icon">🪪</div>
-      <h3>Aadhaar Services</h3>
-      <p>Aadhaar se sambandhit online services.</p>
-      <button class="primary"
-        onclick="openOfficial('https://uidai.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">💰</div>
-      <h3>PAN / Income Tax</h3>
-      <p>PAN aur income tax ki jaankari.</p>
-      <button class="primary"
-        onclick="openOfficial('https://www.incometax.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">🗳️</div>
-      <h3>Voter Services</h3>
-      <p>Voter registration aur electoral services.</p>
-      <button class="primary"
-        onclick="openOfficial('https://voters.eci.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">🎓</div>
-      <h3>Scholarship Information</h3>
-      <p>Scholarship schemes ki official jaankari.</p>
-      <button class="primary"
-        onclick="openOfficial('https://scholarships.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">💼</div>
-      <h3>Employment Services</h3>
-      <p>Jobs aur employment-related information.</p>
-      <button class="primary"
-        onclick="openOfficial('https://www.ncs.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">🇮🇳</div>
-      <h3>Government Schemes</h3>
-      <p>Alag-alag government schemes ki details.</p>
-      <button class="primary"
-        onclick="openOfficial('https://www.myscheme.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">🏢</div>
-      <h3>Uttar Pradesh Government</h3>
-      <p>UP government ki official website.</p>
-      <button class="primary"
-        onclick="openOfficial('https://up.gov.in/')">Open Official Site</button>
-    </article>
-
-    <article class="card">
-      <div class="icon">📄</div>
-      <h3>DigiLocker</h3>
-      <p>Digital documents ke liye official platform.</p>
-      <button class="primary"
-        onclick="openOfficial('https://www.digilocker.gov.in/')">Open Official Site</button>
-    </article>
-  </div>
-
-  <hr>
-  <h3>📋 Document Checklist</h3>
-  <p class="muted">Apne kaam ke liye zaroori documents ki checklist banayein.</p>
-
-  <div id="documentChecklist">
-    <label><input type="checkbox" class="docCheck" style="width:auto">
-      Identity proof ki requirement check kar li</label>
-    <label><input type="checkbox" class="docCheck" style="width:auto">
-      Address proof ki requirement check kar li</label>
-    <label><input type="checkbox" class="docCheck" style="width:auto">
-      Photo aur signature ki requirement check kar li</label>
-    <label><input type="checkbox" class="docCheck" style="width:auto">
-      Relevant certificates check kar liye</label>
-    <label><input type="checkbox" class="docCheck" style="width:auto">
-      Official form aur fees verify kar li</label>
-  </div>
-
-  <button class="primary" onclick="saveChecklist()">Save Checklist</button>
-  <button class="secondary" onclick="loadChecklist()">Load Checklist</button>
-</section>
-    
-<!-- PART 3: STUDY PLANNER -->
-
-<section id="plannerSection" class="panel">
-  <span class="badge">SMART PLANNER</span>
-  <h2 class="section-title">📅 Daily Study Planner</h2>
-  <p class="muted">Apne daily tasks, study targets aur important dates manage karein.</p>
-
-  <label>Task / काम</label>
-  <input id="taskInput" placeholder="Jaise Mathematics ke 5 questions">
-
-  <label>Due Date / तारीख</label>
-  <input id="taskDate" type="date">
-
-  <label>Category / प्रकार</label>
-  <select id="taskCategory">
-    <option>Study</option>
-    <option>Assignment</option>
-    <option>Exam</option>
-    <option>Personal</option>
-    <option>Government Work</option>
-  </select>
-
-  <button class="primary" onclick="addPlannerTask()">➕ Add Task</button>
-  <button class="secondary" onclick="showPlannerTasks()">🔄 Refresh Tasks</button>
-
-  <div id="plannerOutput" class="panel">
-    <p class="muted">Aapke tasks yahan dikhenge.</p>
-  </div>
-
-  <hr>
-  <h3>📊 Today's Study Target</h3>
-  <label>Aaj kitne ghante padhai ka target hai?</label>
-  <input type="number" id="studyTarget" min="0" max="24" placeholder="Jaise 3">
-
-  <label>Aaj kitne ghante padhai ki?</label>
-  <input type="number" id="studyCompleted" min="0" max="24" placeholder="Jaise 2">
-
-  <button class="primary" onclick="saveStudyTarget()">Save Study Target</button>
-  <button class="secondary" onclick="viewStudyTarget()">View Progress</button>
-  <div id="targetOutput" class="panel"></div>
-</section>
-
-<!-- PART 3: APPLICATION GENERATOR -->
-
-<section id="applicationSection" class="panel">
-  <span class="badge">APPLICATION HELPER</span>
-  <h2 class="section-title">📝 Application Generator</h2>
-  <p class="muted">
-    School, college, office ya kisi department ke liye application draft banayein.
-    Submit karne se pehle details zaroor check karein.
-  </p>
-
-  <label>Language / भाषा</label>
-  <select id="appLanguage">
-    <option value="hi">Hindi</option>
-    <option value="en">English</option>
-  </select>
-
-  <label>Receiver / सेवा में</label>
-  <input id="appReceiver" placeholder="Jaise Principal / प्रधानाचार्य">
-
-  <label>School, College ya Department</label>
-  <input id="appInstitute" placeholder="Institute ya department ka naam">
-
-  <label>Applicant Name / आवेदक का नाम</label>
-  <input id="applicantName" placeholder="Apna naam">
-
-  <label>Class / Course / कक्षा</label>
-  <input id="appClass" placeholder="Jaise B.Tech CSE">
-
-  <label>Application Subject / विषय</label>
-  <select id="appSubject">
-    <option value="leave">Leave Application / छुट्टी</option>
-    <option value="fee">Fee Concession / फीस में छूट</option>
-    <option value="certificate">Certificate Request / प्रमाण पत्र</option>
-    <option value="correction">Details Correction / सुधार</option>
-    <option value="other">Other / अन्य</option>
-  </select>
-
-  <label>Reason / कारण</label>
-  <textarea id="appReason" rows="4"
-    placeholder="Application ka reason likhein..."></textarea>
-
-  <button class="primary" onclick="generateApplication()">Generate Application</button>
-  <button class="secondary" onclick="copyApplication()">Copy</button>
-  <button class="secondary" onclick="downloadApplication()">Download TXT</button>
-  <button onclick="printApplication()">Print</button>
-
-  <label>Application Preview / आवेदन</label>
-  <textarea id="applicationOutput" rows="14"
-    placeholder="Aapki application yahan generate hogi..."></textarea>
-</section>
-    
-<!-- PART 4: SMART DIGITAL TOOLS -->
-
-<section id="toolsSection" class="panel">
-  <span class="badge">DIGITAL TOOLKIT</span>
-  <h2 class="section-title">🧰 Smart Digital Tools</h2>
-  <p class="muted">Rozmarra ke digital kaam ke liye useful tools.</p>
-
-  <div class="grid">
-    <article class="card">
-      <h3>🧮 Calculator</h3>
-      <input id="calcDisplay" placeholder="Jaise 25+15*2">
-      <button class="primary" onclick="calculateValue()">Calculate</button>
-      <button onclick="clearCalculator()">Clear</button>
-      <p id="calcResult" aria-live="polite"></p>
-    </article>
-
-    <article class="card">
-      <h3>🔤 Word Counter</h3>
-      <textarea id="wordText" rows="4" placeholder="Yahan text likhein..."></textarea>
-      <button class="primary" onclick="countText()">Count Words</button>
-      <p id="wordResult" aria-live="polite"></p>
-    </article>
-
-    <article class="card">
-      <h3>🎂 Age Calculator</h3>
-      <label>Date of Birth</label>
-      <input type="date" id="birthDate">
-      <button class="primary" onclick="calculateAgeTool()">Calculate Age</button>
-      <p id="ageResult" aria-live="polite"></p>
-    </article>
-
-    <article class="card">
-      <h3>🔐 Password Generator</h3>
-      <label>Password Length</label>
-      <input type="number" id="passwordLength" min="8" max="32" value="12">
-      <button class="primary" onclick="makePassword()">Generate</button>
-      <input id="generatedPassword" readonly placeholder="Generated password">
-      <button onclick="copyPasswordTool()">Copy Password</button>
-    </article>
-
-    <article class="card">
-      <h3>🗒️ Quick Notes</h3>
-      <p>Quick notes Part 2 ke Study Notes section mein bhi save kar sakte hain.</p>
-      <button class="primary" onclick="showSection('studentSection')">Open Study Notes</button>
-    </article>
-
-    <article class="card">
-      <h3>📋 Task Planner</h3>
-      <p>Apne assignments aur daily tasks manage karein.</p>
-      <button class="primary" onclick="showSection('plannerSection')">Open Planner</button>
-    </article>
-  </div>
-</section>
-
-<!-- PART 4: DATA BACKUP AND RESTORE -->
-
-<section id="backupSection" class="panel">
-  <span class="badge">DATA MANAGEMENT</span>
-  <h2 class="section-title">💾 Backup & Restore</h2>
-  <p class="muted">
-    Is website ke supported browser data ki JSON backup file bana sakte hain.
-    Backup file ko private rakhein.
-  </p>
-
-  <div class="card">
-    <h3>⬇️ Export Backup</h3>
-    <p>Student details, notes, tasks aur supported settings ka backup banayein.</p>
-    <button class="primary" onclick="exportPortalBackup()">Download Backup</button>
-  </div>
-
-  <hr>
-
-  <div class="card">
-    <h3>⬆️ Restore Backup</h3>
-    <p>Apni pehle se banayi hui JSON backup file select karein.</p>
-    <input type="file" id="backupFile" accept=".json,application/json">
-    <button class="secondary" onclick="restorePortalBackup()">Restore Backup</button>
-    <p id="backupStatus" aria-live="polite"></p>
-  </div>
-
-  <hr>
-
-  <div class="card">
-    <h3>🧹 Clear Website Data</h3>
-    <p>
-      Ye action is portal ki supported local data entries ko delete kar sakta hai.
-      Pehle backup download kar lein.
+  <div class="panel">
+    <p class="muted" id="interviewIntro">
+      Practise common interview questions. Select a category and reveal a sample answer.
     </p>
-    <button onclick="clearPortalData()">Clear Portal Data</button>
+
+    <div class="form-group">
+      <label for="interviewCategory" id="interviewCategoryLabel">
+        Select Category
+      </label>
+      <select id="interviewCategory" onchange="loadInterviewQuestion()">
+        <option value="General">General HR</option>
+        <option value="Technical">Technical</option>
+        <option value="Fresher">Fresher</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <span class="badge" id="questionNumber">Question 1</span>
+      <h3 id="interviewQuestion">Tell me about yourself.</h3>
+
+      <div class="button-row">
+        <button class="primary-btn" onclick="showInterviewAnswer()"
+                id="showAnswerButton">Show Sample Answer</button>
+        <button class="secondary-btn" onclick="nextInterviewQuestion()"
+                id="nextQuestionButton">Next Question →</button>
+      </div>
+
+      <div id="interviewAnswer" class="result hidden"></div>
+    </div>
+
+    <div class="form-group" style="margin-top:18px">
+      <label for="myInterviewAnswer" id="myAnswerLabel">
+        Write Your Own Answer
+      </label>
+      <textarea id="myInterviewAnswer" rows="5"
+                maxlength="3000"
+                placeholder="Write your practice answer here..."></textarea>
+    </div>
+
+    <button class="success-btn" onclick="savePracticeAnswer()"
+            id="savePracticeButton">Save Practice Answer</button>
+    <p id="practiceMessage" class="muted" style="margin-top:10px"></p>
+  </div>
+
+  <div class="panel">
+    <h3 id="practiceHistoryTitle">📝 Saved Practice Answers</h3>
+    <div id="practiceHistory">
+      <p class="empty">No saved answers yet.</p>
+    </div>
   </div>
 </section>
 
-<!-- Part 5 mein JavaScript, footer aur closing tags add honge -->
-    
-<!-- PART 5A: CORE JAVASCRIPT -->
+
+<!-- APPLICATION TRACKER SECTION -->
+<section id="tracker" class="section hidden">
+
+  <div class="section-title">
+    <h2 id="trackerTitle">📌 Job Application Tracker</h2>
+  </div>
+
+  <div class="panel">
+    <p class="muted" id="trackerIntro">
+      Record the jobs you apply for and update their status.
+      Your records are stored in this browser.
+    </p>
+
+    <form id="applicationForm">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="applicationCompany" id="companyLabel">
+            Company / Department *
+          </label>
+          <input id="applicationCompany" required maxlength="150"
+                 placeholder="Company or department name">
+        </div>
+
+        <div class="form-group">
+          <label for="applicationRole" id="roleLabel">Job Role *</label>
+          <input id="applicationRole" required maxlength="150"
+                 placeholder="Job title">
+        </div>
+
+        <div class="form-group">
+          <label for="applicationDate" id="applicationDateLabel">
+            Application Date *
+          </label>
+          <input id="applicationDate" type="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="applicationStatus" id="applicationStatusLabel">
+            Application Status
+          </label>
+          <select id="applicationStatus">
+            <option value="Applied">Applied</option>
+            <option value="Assessment">Assessment</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label for="applicationLink" id="applicationLinkLabel">
+            Job Link (Optional)
+          </label>
+          <input id="applicationLink" type="url" maxlength="500"
+                 placeholder="https://example.com/job">
+        </div>
+
+        <div class="form-group full">
+          <label for="applicationNotes" id="applicationNotesLabel">
+            Notes (Optional)
+          </label>
+          <textarea id="applicationNotes" rows="3" maxlength="1500"
+                    placeholder="Follow-up date, contact details, etc."></textarea>
+        </div>
+
+      </div>
+
+      <div class="button-row">
+        <button class="primary-btn" type="submit" id="saveApplicationButton">
+          + Save Application
+        </button>
+        <button class="secondary-btn" type="reset" id="clearApplicationButton">
+          Clear Form
+        </button>
+      </div>
+
+      <p id="applicationMessage" class="muted" style="margin-top:10px"></p>
+    </form>
+  </div>
+
+  <div class="panel">
+    <div class="section-title">
+      <h2 id="savedApplicationsTitle">📋 Saved Applications</h2>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="trackerSearch" id="trackerSearchLabel">
+          Search Applications
+        </label>
+        <input id="trackerSearch" oninput="renderApplications()"
+               placeholder="Search company or role">
+      </div>
+
+      <div class="form-group">
+        <label for="trackerFilter" id="trackerFilterLabel">
+          Filter by Status
+        </label>
+        <select id="trackerFilter" onchange="renderApplications()">
+          <option value="All">All Statuses</option>
+          <option value="Applied">Applied</option>
+          <option value="Assessment">Assessment</option>
+          <option value="Interview">Interview</option>
+          <option value="Offer">Offer</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="applicationList">
+      <p class="empty">No applications saved yet.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3 id="dataNoticeTitle">🔐 Data & Privacy</h3>
+    <p id="dataNoticeText" class="muted">
+      This demo stores your tracker and practice answers in this browser only.
+      Avoid entering sensitive personal information on a shared device.
+      Clearing browser data may delete saved records.
+    </p>
+  </div>
+
+</section>
+
+<!-- PART 3 YAHAN SE AAGE JODEIN -->
+</main>
+
+<!-- PART 3 MEIN JAVASCRIPT, FOOTER AUR CLOSING TAGS COMPLETE HONGE -->
+  
 <script>
-"use strict";
-
-function showSection(id){
-  const el=document.getElementById(id);
-  if(el)el.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-function goHome(){
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function toggleDark(){
-  document.body.classList.toggle("dark");
-  try{
-    localStorage.setItem(
-      "portal_theme",
-      document.body.classList.contains("dark")?"dark":"light"
-    );
-  }catch(e){}
-}
-
-function toggleLanguage(){
-  const btn=document.getElementById("langBtn");
-  const english=btn.textContent==="English";
-  btn.textContent=english?"हिन्दी":"English";
-
-  document.getElementById("tagline").textContent=english
-    ?"A digital platform for students and the public"
-    :"Students aur Public ke liye ek digital platform";
-
-  document.getElementById("heroTitle").textContent=english
-    ?"Your Smart JanSeva & Student Portal"
-    :"Aapka Apna Smart JanSeva & Student Portal";
-
-  document.getElementById("heroDesc").textContent=english
-    ?"Study planning, applications and public service links in one place."
-    :"Padhai, daily planning, applications aur public services ki jaankari ek jagah.";
-}
-
-function searchCards(){
-  const q=document.getElementById("globalSearch").value.toLowerCase().trim();
-
-  document.querySelectorAll(".service-card").forEach(card=>{
-    card.style.display=card.innerText.toLowerCase().includes(q)?"":"none";
-  });
-}
-
-function openOfficial(url){
-  const allowed=[
-    "https://uidai.gov.in/",
-    "https://www.incometax.gov.in/",
-    "https://voters.eci.gov.in/",
-    "https://scholarships.gov.in/",
-    "https://www.ncs.gov.in/",
-    "https://www.myscheme.gov.in/",
-    "https://up.gov.in/",
-    "https://www.digilocker.gov.in/"
-  ];
-
-  if(!allowed.includes(url)){
-    alert("Official link verify nahi ho saka.");
-    return;
-  }
-
-  window.open(url,"_blank","noopener,noreferrer");
-}
-
-function saveData(key,value){
-  try{
-    localStorage.setItem(key,JSON.stringify(value));
-    return true;
-  }catch(e){
-    alert("Data save nahi hua. Browser storage full ho sakti hai.");
-    return false;
-  }
-}
-
-function readData(key,fallback=null){
-  try{
-    const value=localStorage.getItem(key);
-    return value===null?fallback:JSON.parse(value);
-  }catch(e){
-    return fallback;
-  }
-}
-
-/* STUDENT DETAILS */
-
-document.getElementById("studentForm").addEventListener("submit",function(e){
-  e.preventDefault();
-
-  const student={
-    name:document.getElementById("studentName").value.trim(),
-    roll:document.getElementById("rollNumber").value.trim(),
-    college:document.getElementById("collegeName").value.trim(),
-    course:document.getElementById("courseName").value.trim(),
-    semester:document.getElementById("semester").value
-  };
-
-  if(!student.name){
-    alert("Student ka naam likhein.");
-    return;
-  }
-
-  if(saveData("portal_student",student)){
-    loadStudent();
-    alert("Student details save ho gayi.");
-  }
-});
-
-function loadStudent(){
-  const s=readData("portal_student");
-  const out=document.getElementById("studentOutput");
-  out.replaceChildren();
-
-  if(!s){
-    out.textContent="Koi saved student details nahi mili.";
-    return;
-  }
-
-  [
-    ["Name",s.name],
-    ["Roll Number",s.roll],
-    ["College",s.college],
-    ["Course",s.course],
-    ["Class / Semester",s.semester]
-  ].forEach(([label,value])=>{
-    const p=document.createElement("p");
-    p.textContent=label+": "+(value||"Not entered");
-    out.appendChild(p);
-  });
-}
-
-function deleteStudent(){
-  if(!confirm("Student details delete karni hain?"))return;
-  localStorage.removeItem("portal_student");
-  document.getElementById("studentForm").reset();
-  loadStudent();
-}
-
-/* STUDY NOTES */
-
-function saveStudyNote(){
-  const subject=document.getElementById("noteSubject").value.trim();
-  const text=document.getElementById("studyNotes").value.trim();
-
-  if(!subject&&!text){
-    alert("Subject ya notes likhein.");
-    return;
-  }
-
-  if(saveData("portal_notes",{subject,text})){
-    loadStudyNotes();
-    alert("Notes save ho gaye.");
-  }
-}
-
-function loadStudyNotes(){
-  const note=readData("portal_notes");
-  const out=document.getElementById("notesOutput");
-  out.replaceChildren();
-
-  if(!note){
-    out.textContent="Koi saved notes nahi mile.";
-    return;
-  }
-
-  const h=document.createElement("h3");
-  h.textContent=note.subject||"Study Notes";
-
-  const p=document.createElement("p");
-  p.style.whiteSpace="pre-wrap";
-  p.textContent=note.text||"";
-  out.append(h,p);
-
-  document.getElementById("noteSubject").value=note.subject||"";
-  document.getElementById("studyNotes").value=note.text||"";
-}
-
-function downloadText(filename,text){
-  const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement("a");
-  a.href=url;
-  a.download=filename;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-}
-
-function downloadStudyNotes(){
-  const note=readData("portal_notes");
-  if(!note){
-    alert("Pehle notes save karein.");
-    return;
-  }
-
-  downloadText(
-    "study-notes.txt",
-    (note.subject||"Study Notes")+"\n\n"+(note.text||"")
-  );
-}
-
-function clearStudyNotes(){
-  if(!confirm("Saved notes delete karne hain?"))return;
-  localStorage.removeItem("portal_notes");
-  document.getElementById("noteSubject").value="";
-  document.getElementById("studyNotes").value="";
-  loadStudyNotes();
-}
-
-/* DOCUMENT CHECKLIST */
-
-function saveChecklist(){
-  const values=[...document.querySelectorAll(".docCheck")]
-    .map(el=>el.checked);
-
-  if(saveData("portal_checklist",values)){
-    alert("Checklist save ho gayi.");
-  }
-}
-
-function loadChecklist(){
-  const values=readData("portal_checklist",[]);
-  document.querySelectorAll(".docCheck").forEach((el,i)=>{
-    el.checked=values[i]===true;
-  });
-}
-</script>
-    
-<!-- PART 5B: PLANNER, TOOLS, BACKUP AND FINAL FOOTER -->
-<script>
-/* PLANNER */
-
-function getTasks(){
-  const tasks=readData("portal_tasks",[]);
-  return Array.isArray(tasks)?tasks:[];
-}
-
-function addPlannerTask(){
-  const text=document.getElementById("taskInput").value.trim();
-  if(!text){
-    alert("Task ka naam likhein.");
-    return;
-  }
-
-  const tasks=getTasks();
-  tasks.push({
-    id:Date.now().toString(),
-    text,
-    date:document.getElementById("taskDate").value,
-    category:document.getElementById("taskCategory").value,
-    done:false
-  });
-
-  if(saveData("portal_tasks",tasks)){
-    document.getElementById("taskInput").value="";
-    showPlannerTasks();
-  }
-}
-
-function showPlannerTasks(){
-  const out=document.getElementById("plannerOutput");
-  const tasks=getTasks();
-  out.replaceChildren();
-
-  if(!tasks.length){
-    out.textContent="Abhi koi task nahi hai.";
-    return;
-  }
-
-  tasks.forEach(task=>{
-    const box=document.createElement("div");
-    box.className="card";
-    box.style.marginBottom="10px";
-
-    const title=document.createElement("p");
-    title.textContent=(task.done?"✅ ":"📌 ")+task.text;
-
-    const detail=document.createElement("p");
-    detail.textContent=(task.category||"Task")+" | "+(task.date||"No due date");
-
-    const toggle=document.createElement("button");
-    toggle.className="secondary";
-    toggle.textContent=task.done?"Mark Pending":"Mark Done";
-    toggle.onclick=()=>{
-      updateTask(task.id,"toggle");
-    };
-
-    const del=document.createElement("button");
-    del.textContent="Delete";
-    del.onclick=()=>{
-      updateTask(task.id,"delete");
-    };
-
-    box.append(title,detail,toggle,del);
-    out.appendChild(box);
-  });
-}
-
-function updateTask(id,action){
-  let tasks=getTasks();
-
-  if(action==="delete"){
-    if(!confirm("Task delete karna hai?"))return;
-    tasks=tasks.filter(t=>t.id!==id);
-  }else{
-    tasks=tasks.map(t=>t.id===id?{...t,done:!t.done}:t);
-  }
-
-  if(saveData("portal_tasks",tasks))showPlannerTasks();
-}
-
-/* STUDY TARGET */
-
-function saveStudyTarget(){
-  const target=Number(document.getElementById("studyTarget").value);
-  const completed=Number(document.getElementById("studyCompleted").value);
-
-  if(
-    document.getElementById("studyTarget").value===""||
-    document.getElementById("studyCompleted").value===""||
-    target<0||target>24||completed<0||completed>24
-  ){
-    alert("Dono fields mein 0 se 24 ke beech hours likhein.");
-    return;
-  }
-
-  if(saveData("portal_target",{target,completed,date:new Date().toLocaleDateString()})){
-    viewStudyTarget();
-  }
-}
-
-function viewStudyTarget(){
-  const data=readData("portal_target");
-  const out=document.getElementById("targetOutput");
-
-  if(!data){
-    out.textContent="Pehle study target save karein.";
-    return;
-  }
-
-  const percent=data.target>0
-    ?Math.min(100,Math.round(data.completed/data.target*100))
-    :0;
-
-  out.textContent="Target: "+data.target+" hours | Completed: "+
-    data.completed+" hours | Progress: "+percent+"%";
-}
-
-/* APPLICATION GENERATOR */
-
-function generateApplication(){
-  const lang=document.getElementById("appLanguage").value;
-  const receiver=document.getElementById("appReceiver").value.trim();
-  const institute=document.getElementById("appInstitute").value.trim();
-  const name=document.getElementById("applicantName").value.trim();
-  const course=document.getElementById("appClass").value.trim();
-  const reason=document.getElementById("appReason").value.trim();
-  const type=document.getElementById("appSubject").value;
-
-  if(!receiver||!name||!reason){
-    alert("Receiver, applicant name aur reason bharein.");
-    return;
-  }
-
-  const hi={
-    leave:"छुट्टी के लिए आवेदन",
-    fee:"फीस में छूट के लिए आवेदन",
-    certificate:"प्रमाण पत्र के लिए आवेदन",
-    correction:"विवरण में सुधार के लिए आवेदन",
-    other:"आवेदन"
-  };
-
-  const en={
-    leave:"Application for Leave",
-    fee:"Application for Fee Concession",
-    certificate:"Application for Certificate",
-    correction:"Application for Correction",
-    other:"Application"
-  };
-
-  let result;
-
-  if(lang==="hi"){
-    result=`सेवा में,
-${receiver}
-${institute}
-
-विषय: ${hi[type]}
-
-महोदय/महोदया,
-
-सविनय निवेदन है कि मेरा नाम ${name} है।
-${course?"मैं "+course+" का/की विद्यार्थी हूँ।":""}
-
-कारण: ${reason}
-
-अतः आपसे अनुरोध है कि मेरे आवेदन पर विचार कर आवश्यक कार्रवाई करने की कृपा करें।
-
-धन्यवाद।
-
-भवदीय,
-नाम: ${name}
-कक्षा/कोर्स: ${course||"________"}
-दिनांक: ${new Date().toLocaleDateString("en-IN")}`;
-  }else{
-    result=`To,
-${receiver}
-${institute}
-
-Subject: ${en[type]}
-
-Respected Sir/Madam,
-
-My name is ${name}.
-${course?"I am a student of "+course+".":""}
-
-Reason: ${reason}
-
-I kindly request you to consider my application and take the necessary action.
-
-Thank you.
-
-Yours faithfully,
-Name: ${name}
-Class/Course: ${course||"________"}
-Date: ${new Date().toLocaleDateString("en-IN")}`;
-  }
-
-  document.getElementById("applicationOutput").value=result;
-}
-
-async function copyApplication(){
-  const area=document.getElementById("applicationOutput");
-  if(!area.value){
-    alert("Pehle application generate karein.");
-    return;
-  }
-
-  try{
-    await navigator.clipboard.writeText(area.value);
-    alert("Application copy ho gayi.");
-  }catch(e){
-    area.focus();
-    area.select();
-    alert("Application select kar di gayi hai. Copy karein.");
-  }
-}
-
-function downloadApplication(){
-  const text=document.getElementById("applicationOutput").value;
-  if(!text){
-    alert("Pehle application generate karein.");
-    return;
-  }
-  downloadText("application.txt",text);
-}
-
-function printApplication(){
-  const text=document.getElementById("applicationOutput").value;
-  if(!text){
-    alert("Pehle application generate karein.");
-    return;
-  }
-
-  const win=window.open("","_blank");
-  if(!win){
-    alert("Print window allow karein.");
-    return;
-  }
-
-  const pre=win.document.createElement("pre");
-  pre.style.cssText="white-space:pre-wrap;font:16px Arial;padding:20px";
-  pre.textContent=text;
-  win.document.body.appendChild(pre);
-  win.document.title="Application";
-  win.focus();
-  win.print();
-}
-
-/* CALCULATOR */
-
-function calculateValue(){
-  const expression=document.getElementById("calcDisplay").value.trim();
-  const out=document.getElementById("calcResult");
-
-  if(!expression||expression.length>100||
-     !/^[0-9+\-*/().%\s]+$/.test(expression)){
-    out.textContent="Valid calculation likhein. Example: 25+15*2";
-    return;
-  }
-
-  try{
-    const tokens=expression.match(/\d+(?:\.\d+)?|[()+\-*/%]/g)||[];
-    if(tokens.join("")!==expression.replace(/\s/g,""))throw Error();
-
-    let i=0;
-
-    function primary(){
-      const t=tokens[i++];
-
-      if(t==="+"||t==="-"){
-        const n=primary();
-        return t==="-"?-n:n;
-      }
-
-      if(t==="("){
-        const n=addSub();
-        if(tokens[i++]!==")")throw Error();
-        return n;
-      }
-
-      if(t===undefined||!/^\d+(?:\.\d+)?$/.test(t))throw Error();
-      return Number(t);
-    }
-
-    function mulDiv(){
-      let n=primary();
-      while(["*","/","%"].includes(tokens[i])){
-        const op=tokens[i++];
-        const b=primary();
-        if((op==="/"||op==="%")&&b===0)throw Error();
-        if(op==="*")n*=b;
-        if(op==="/")n/=b;
-        if(op==="%")n%=b;
-      }
-      return n;
-    }
-
-    function addSub(){
-      let n=mulDiv();
-      while(tokens[i]==="+"||tokens[i]==="-"){
-        const op=tokens[i++];
-        const b=mulDiv();
-        n=op==="+"?n+b:n-b;
-      }
-      return n;
-    }
-
-    const answer=addSub();
-    if(i!==tokens.length||!Number.isFinite(answer))throw Error();
-    out.textContent="Result: "+answer;
-  }catch(e){
-    out.textContent="Calculation sahi nahi hai.";
-  }
-}
-
-function clearCalculator(){
-  document.getElementById("calcDisplay").value="";
-  document.getElementById("calcResult").textContent="";
-}
-
-/* WORD COUNTER */
-
-function countText(){
-  const text=document.getElementById("wordText").value.trim();
-  document.getElementById("wordResult").textContent=
-    "Words: "+(text?text.split(/\s+/).length:0)+
-    " | Characters: "+document.getElementById("wordText").value.length;
-}
-
-/* AGE CALCULATOR */
-
-function calculateAgeTool(){
-  const value=document.getElementById("birthDate").value;
-  const out=document.getElementById("ageResult");
-
-  if(!value){
-    out.textContent="Date of birth select karein.";
-    return;
-  }
-
-  const dob=new Date(value+"T00:00:00");
-  const now=new Date();
-
-  if(Number.isNaN(dob.getTime())||dob>now){
-    out.textContent="Valid past date select karein.";
-    return;
-  }
-
-  let years=now.getFullYear()-dob.getFullYear();
-  let months=now.getMonth()-dob.getMonth();
-  let days=now.getDate()-dob.getDate();
-
-  if(days<0){
-    months--;
-    days+=new Date(now.getFullYear(),now.getMonth(),0).getDate();
-  }
-  if(months<0){
-    years--;
-    months+=12;
-  }
-
-  out.textContent="Age: "+years+" years, "+months+" months, "+days+" days";
-}
-
-/* PASSWORD GENERATOR */
-
-function makePassword(){
-  const length=Number(document.getElementById("passwordLength").value);
-
-  if(!Number.isInteger(length)||length<8||length>32){
-    alert("Length 8 se 32 ke beech rakhein.");
-    return;
-  }
-
-  if(!crypto||!crypto.getRandomValues){
-    alert("Secure password generator available nahi hai.");
-    return;
-  }
-
-  const chars="ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%";
-  const random=new Uint32Array(length);
-  crypto.getRandomValues(random);
-
-  let password="";
-  for(let i=0;i<length;i++)password+=chars[random[i]%chars.length];
-
-  document.getElementById("generatedPassword").value=password;
-}
-
-async function copyPasswordTool(){
-  const input=document.getElementById("generatedPassword");
-  if(!input.value){
-    alert("Pehle password generate karein.");
-    return;
-  }
-
-  try{
-    await navigator.clipboard.writeText(input.value);
-    alert("Password copy ho gaya.");
-  }catch(e){
-    input.focus();
-    input.select();
-    alert("Password select kar diya gaya hai. Copy karein.");
-  }
-}
-
-/* BACKUP AND RESTORE */
-
-const PORTAL_KEYS=[
-  "portal_student","portal_notes","portal_checklist",
-  "portal_tasks","portal_target","portal_theme"
+let language = localStorage.getItem("career_language") || "en";
+
+const jobs = [
+ {title:"Government Job Notifications",company:"National Career Service",type:"Government",location:"India",description:"Check official career opportunities.",url:"https://www.ncs.gov.in/"},
+ {title:"UPSC Examination Updates",company:"UPSC",type:"Government",location:"India",description:"Check official examination notifications.",url:"https://upsc.gov.in/"},
+ {title:"SSC Examination Updates",company:"Staff Selection Commission",type:"Government",location:"India",description:"Check SSC notifications and application details.",url:"https://ssc.gov.in/"},
+ {title:"Software Developer Jobs",company:"LinkedIn Jobs",type:"Private",location:"India",description:"Search software development opportunities.",url:"https://www.linkedin.com/jobs/"},
+ {title:"Fresher Jobs",company:"Indeed India",type:"Private",location:"India",description:"Search fresher jobs.",url:"https://in.indeed.com/"},
+ {title:"Internship Opportunities",company:"Internshala",type:"Internship",location:"India",description:"Explore internship opportunities.",url:"https://internshala.com/"}
 ];
 
-function exportPortalBackup(){
-  const data={};
+function esc(value) {
+ return String(value ?? "").replace(/[&<>"']/g, c => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ })[c]);
+}
 
-  PORTAL_KEYS.forEach(key=>{
-    const value=localStorage.getItem(key);
-    if(value!==null){
-      try{data[key]=JSON.parse(value)}catch(e){}
-    }
+function safeURL(value) {
+ try {
+  let u = new URL(value);
+  return u.protocol === "https:" || u.protocol === "http:";
+ } catch(e) { return false; }
+}
+
+function showSection(id) {
+ document.querySelectorAll("main .section").forEach(s => s.classList.add("hidden"));
+ const section = document.getElementById(id);
+ if(section) section.classList.remove("hidden");
+
+ const hero = document.getElementById("heroSection");
+ if(hero) hero.classList.toggle("hidden", id !== "home" && id !== "jobs");
+
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function searchJobs() {
+ const a = document.getElementById("heroJobSearch");
+ const b = document.getElementById("jobSearchInput");
+ if(a && b) b.value = a.value;
+ showSection("jobs");
+ renderJobs();
+}
+
+function renderJobs() {
+ const box = document.getElementById("jobResults");
+ if(!box) return;
+
+ const query = (document.getElementById("jobSearchInput")?.value || "").toLowerCase();
+ const type = document.getElementById("jobTypeFilter")?.value || "All";
+
+ const list = jobs.filter(j =>
+  [j.title,j.company,j.type,j.location,j.description].join(" ").toLowerCase().includes(query) &&
+  (type === "All" || j.type === type)
+ );
+
+ if(!list.length) {
+  box.innerHTML = '<p class="empty">No matching results found.</p>';
+  return;
+ }
+
+ box.innerHTML = list.map(j => `
+  <article class="card">
+   <span class="badge">${esc(j.type)}</span>
+   <h3>${esc(j.title)}</h3>
+   <p><strong>${esc(j.company)}</strong></p>
+   <p>${esc(j.location)}</p>
+   <p>${esc(j.description)}</p>
+   <a class="primary-btn" href="${esc(j.url)}" target="_blank" rel="noopener noreferrer">Visit Website</a>
+  </article>
+ `).join("");
+}
+
+/* RESUME BUILDER */
+
+function generateResume() {
+ const get = id => document.getElementById(id)?.value.trim() || "";
+ const d = {
+  name:get("resumeName"),email:get("resumeEmail"),
+  phone:get("resumePhone"),city:get("resumeCity"),
+  education:get("resumeEducation"),skills:get("resumeSkills"),
+  experience:get("resumeExperience"),objective:get("resumeObjective")
+ };
+
+ if(!d.name || !d.email || !d.education) {
+  alert("Please enter your name, email and education.");
+  return;
+ }
+
+ const out = document.getElementById("resumeOutput");
+ if(!out) return;
+
+ out.innerHTML = `
+  <div class="panel" id="resumePrintable">
+   <h2>${esc(d.name)}</h2>
+   <p>${esc(d.email)} | ${esc(d.phone)} | ${esc(d.city)}</p>
+   <hr>
+   <h3>Career Objective</h3>
+   <p>${esc(d.objective || "To learn and contribute to an organization.")}</p>
+   <h3>Education</h3><p>${esc(d.education)}</p>
+   <h3>Skills</h3><p>${esc(d.skills || "Not provided")}</p>
+   <h3>Experience / Projects</h3><p>${esc(d.experience || "Fresher")}</p>
+  </div>
+ `;
+ out.classList.remove("hidden");
+ document.getElementById("printResumeButton")?.classList.remove("hidden");
+ out.scrollIntoView({behavior:"smooth"});
+}
+
+function printResume() {
+ const content = document.getElementById("resumePrintable");
+ if(!content) return alert("Please generate your resume first.");
+
+ const w = window.open("", "_blank");
+ if(!w) return alert("Allow pop-ups to print your resume.");
+
+ w.document.write(`<!DOCTYPE html><html><head><title>My Resume</title>
+ <style>body{font-family:Arial;max-width:800px;margin:30px auto;padding:20px;line-height:1.6}h2{color:#174ea6}</style>
+ </head><body>${content.innerHTML}</body></html>`);
+ w.document.close();
+ w.focus();
+ setTimeout(() => w.print(), 400);
+}
+
+/* INTERVIEW PRACTICE */
+
+const questions = {
+ General:[
+  ["Tell me about yourself.","Introduce your education, skills, projects and career goal."],
+  ["What are your strengths?","Mention genuine strengths such as teamwork and problem-solving."],
+  ["Why should we hire you?","Explain how your skills and willingness to learn can help."]
+ ],
+ Technical:[
+  ["What is a data structure?","A way to organize and store data. Examples: array, linked list and tree."],
+  ["What is an algorithm?","A finite sequence of steps used to solve a problem."],
+  ["What is Python?","Python is a high-level programming language with readable syntax."]
+ ],
+ Fresher:[
+  ["Why do you want this internship?","Explain what you want to learn and how the role matches your interests."],
+  ["Describe a college project.","Explain its goal, your role, tools used and what you learned."],
+  ["How do you solve a difficult task?","Break it into steps, research and test the solution."]
+ ]
+};
+
+let qIndex = {General:0,Technical:0,Fresher:0};
+
+function loadInterviewQuestion() {
+ const cat = document.getElementById("interviewCategory")?.value || "General";
+ const list = questions[cat] || questions.General;
+ const i = qIndex[cat] || 0;
+
+ const n = document.getElementById("questionNumber");
+ const q = document.getElementById("interviewQuestion");
+ const a = document.getElementById("interviewAnswer");
+
+ if(n) n.textContent = `Question ${i+1} of ${list.length}`;
+ if(q) q.textContent = list[i][0];
+ if(a) {
+  a.textContent = list[i][1];
+  a.classList.add("hidden");
+ }
+}
+
+function showInterviewAnswer() {
+ const cat = document.getElementById("interviewCategory")?.value || "General";
+ const a = document.getElementById("interviewAnswer");
+ if(a) {
+  a.textContent = questions[cat][qIndex[cat] || 0][1];
+  a.classList.remove("hidden");
+ }
+}
+
+function nextInterviewQuestion() {
+ const cat = document.getElementById("interviewCategory")?.value || "General";
+ qIndex[cat] = ((qIndex[cat] || 0) + 1) % questions[cat].length;
+ loadInterviewQuestion();
+}
+
+function savePracticeAnswer() {
+ const cat = document.getElementById("interviewCategory")?.value || "General";
+ const answer = document.getElementById("myInterviewAnswer")?.value.trim() || "";
+ if(!answer) return alert("Please write your answer first.");
+
+ let data = [];
+ try { data = JSON.parse(localStorage.getItem("career_practice_answers") || "[]"); }
+ catch(e) { data = []; }
+
+ data.unshift({
+  id:Date.now().toString() + Math.random().toString(16).slice(2),
+  category:cat,
+  question:document.getElementById("interviewQuestion")?.textContent || "",
+  answer,
+  date:new Date().toLocaleDateString()
+ });
+
+ try {
+  localStorage.setItem("career_practice_answers",JSON.stringify(data.slice(0,50)));
+  document.getElementById("practiceMessage").textContent = "Answer saved on this device.";
+  document.getElementById("myInterviewAnswer").value = "";
+  renderPracticeHistory();
+ } catch(e) {
+  alert("Storage full. Delete old browser data and try again.");
+ }
+}
+
+function renderPracticeHistory() {
+ const box = document.getElementById("practiceHistory");
+ if(!box) return;
+
+ let data = [];
+ try { data = JSON.parse(localStorage.getItem("career_practice_answers") || "[]"); }
+ catch(e) { data = []; }
+
+ if(!data.length) {
+  box.innerHTML = '<p class="empty">No saved answers yet.</p>';
+  return;
+ }
+
+ box.innerHTML = data.map(x => `
+  <article class="card">
+   <p><strong>${esc(x.category)}</strong> · ${esc(x.date)}</p>
+   <p>${esc(x.question)}</p>
+   <p>${esc(x.answer)}</p>
+   <button class="danger-btn" onclick="deletePracticeAnswer('${esc(x.id)}')">Delete</button>
+  </article>
+ `).join("");
+}
+
+function deletePracticeAnswer(id) {
+ let data = [];
+ try { data = JSON.parse(localStorage.getItem("career_practice_answers") || "[]"); }
+ catch(e) { data = []; }
+
+ data = data.filter(x => x.id !== id);
+ localStorage.setItem("career_practice_answers",JSON.stringify(data));
+ renderPracticeHistory();
+}
+  
+/* APPLICATION TRACKER */
+
+function loadApplications() {
+ try {
+  const data = JSON.parse(localStorage.getItem("career_applications") || "[]");
+  return Array.isArray(data) ? data : [];
+ } catch(e) {
+  return [];
+ }
+}
+
+function saveApplications(data) {
+ localStorage.setItem("career_applications", JSON.stringify(data));
+}
+
+const applicationForm = document.getElementById("applicationForm");
+
+if(applicationForm) {
+ applicationForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const company = document.getElementById("applicationCompany").value.trim();
+  const role = document.getElementById("applicationRole").value.trim();
+  const date = document.getElementById("applicationDate").value;
+  const status = document.getElementById("applicationStatus").value;
+  const link = document.getElementById("applicationLink").value.trim();
+  const notes = document.getElementById("applicationNotes").value.trim();
+
+  if(!company || !role || !date) {
+   alert("Company, role and date are required.");
+   return;
+  }
+
+  if(link && !safeURL(link)) {
+   alert("Enter a valid website URL starting with https:// or http://");
+   return;
+  }
+
+  const data = loadApplications();
+
+  data.unshift({
+   id:Date.now().toString() + Math.random().toString(16).slice(2),
+   company, role, date, status, link, notes
   });
 
-  downloadText("smart-portal-backup.json",JSON.stringify({
-    app:"Smart JanSeva & Student Portal",
-    version:1,
-    exportedAt:new Date().toISOString(),
-    data
-  },null,2));
-}
+  try {
+   saveApplications(data);
+   applicationForm.reset();
 
-async function restorePortalBackup(){
-  const file=document.getElementById("backupFile").files[0];
-  const status=document.getElementById("backupStatus");
+   const dateField = document.getElementById("applicationDate");
+   if(dateField) dateField.value = new Date().toISOString().slice(0,10);
 
-  if(!file){
-    status.textContent="JSON backup file select karein.";
-    return;
+   const msg = document.getElementById("applicationMessage");
+   if(msg) msg.textContent = "Application saved successfully.";
+
+   renderApplications();
+   updateDashboard();
+  } catch(e) {
+   alert("Browser storage is full. Please remove old records and try again.");
   }
-
-  if(file.size>1024*1024){
-    status.textContent="Backup file 1 MB se chhoti honi chahiye.";
-    return;
-  }
-
-  try{
-    const backup=JSON.parse(await file.text());
-
-    if(backup.app!=="Smart JanSeva & Student Portal"||
-       !backup.data||typeof backup.data!=="object"||
-       Array.isArray(backup.data))throw Error();
-
-    if(!confirm("Restore karne se supported data replace ho sakta hai. Continue?"))return;
-
-    const previous={};
-    PORTAL_KEYS.forEach(k=>previous[k]=localStorage.getItem(k));
-
-    try{
-      PORTAL_KEYS.forEach(k=>{
-        if(Object.prototype.hasOwnProperty.call(backup.data,k)){
-          localStorage.setItem(k,JSON.stringify(backup.data[k]));
-        }else{
-          localStorage.removeItem(k);
-        }
-      });
-    }catch(e){
-      PORTAL_KEYS.forEach(k=>{
-        if(previous[k]===null)localStorage.removeItem(k);
-        else localStorage.setItem(k,previous[k]);
-      });
-      throw Error();
-    }
-
-    applySavedSettings();
-    loadStudent();
-    loadStudyNotes();
-    loadChecklist();
-    showPlannerTasks();
-    viewStudyTarget();
-    status.textContent="Backup restore ho gaya.";
-  }catch(e){
-    status.textContent="Backup invalid hai ya restore nahi ho saka.";
-  }
+ });
 }
 
-function clearPortalData(){
-  if(!confirm("Portal ka supported saved data delete karna hai?"))return;
+function renderApplications() {
+ const box = document.getElementById("applicationList");
+ if(!box) return;
 
-  PORTAL_KEYS.forEach(k=>localStorage.removeItem(k));
+ const query = (document.getElementById("trackerSearch")?.value || "").toLowerCase();
+ const filter = document.getElementById("trackerFilter")?.value || "All";
 
-  document.getElementById("studentForm").reset();
-  document.getElementById("noteSubject").value="";
-  document.getElementById("studyNotes").value="";
-  document.getElementById("taskInput").value="";
-  document.getElementById("studyTarget").value="";
-  document.getElementById("studyCompleted").value="";
+ const data = loadApplications().filter(x => {
+  const text = [x.company,x.role,x.status,x.notes].join(" ").toLowerCase();
+  return text.includes(query) && (filter === "All" || x.status === filter);
+ });
 
-  applySavedSettings();
-  loadStudent();
-  loadStudyNotes();
-  loadChecklist();
-  showPlannerTasks();
-  viewStudyTarget();
+ if(!data.length) {
+  box.innerHTML = '<p class="empty">No applications found.</p>';
+  return;
+ }
 
-  document.getElementById("backupStatus").textContent="Portal data clear ho gaya.";
+ box.innerHTML = data.map(x => `
+  <article class="card">
+   <h3>${esc(x.role)}</h3>
+   <p><strong>${esc(x.company)}</strong></p>
+   <p>Date: ${esc(x.date)}</p>
+   ${safeURL(x.link || "") ?
+    `<p><a href="${esc(x.link)}" target="_blank" rel="noopener noreferrer">Open application link</a></p>` : ""}
+   <p>${esc(x.notes || "")}</p>
+
+   <label>Application Status</label>
+   <select onchange="updateApplicationStatus('${esc(x.id)}',this.value)">
+    ${["Applied","Assessment","Interview","Offer","Rejected"].map(s =>
+     `<option value="${s}" ${x.status === s ? "selected" : ""}>${s}</option>`
+    ).join("")}
+   </select>
+
+   <button class="danger-btn" onclick="deleteApplication('${esc(x.id)}')">
+    Delete Application
+   </button>
+  </article>
+ `).join("");
 }
 
-/* INITIAL SETUP */
+function updateApplicationStatus(id,status) {
+ const allowed = ["Applied","Assessment","Interview","Offer","Rejected"];
+ if(!allowed.includes(status)) return;
 
-function applySavedSettings(){
-  document.body.classList.toggle(
-    "dark",localStorage.getItem("portal_theme")==="dark"
-  );
+ const data = loadApplications();
+ const item = data.find(x => x.id === id);
+
+ if(item) {
+  item.status = status;
+  saveApplications(data);
+  updateDashboard();
+ }
 }
 
-document.getElementById("year").textContent=new Date().getFullYear();
+function deleteApplication(id) {
+ if(!confirm("Delete this application?")) return;
 
-applySavedSettings();
-loadStudent();
-loadStudyNotes();
-loadChecklist();
-showPlannerTasks();
-viewStudyTarget();
+ saveApplications(loadApplications().filter(x => x.id !== id));
+ renderApplications();
+ updateDashboard();
+}
+
+function updateDashboard() {
+ const data = loadApplications();
+
+ const total = document.getElementById("totalApplications");
+ const interviews = document.getElementById("interviewCount");
+ const offers = document.getElementById("offerCount");
+
+ if(total) total.textContent = data.length;
+ if(interviews) interviews.textContent =
+  data.filter(x => x.status === "Interview").length;
+ if(offers) offers.textContent =
+  data.filter(x => x.status === "Offer").length;
+}
+
+/* HINDI / ENGLISH */
+
+const translations = {
+ en:{
+  siteLogo:"Smart Career Portal",
+  heroTitle:"Build Your Career with Confidence",
+  heroText:"Explore jobs, create a resume, practice interviews and track applications.",
+  heroSearchButton:"Search Jobs",
+  welcomeTitle:"Welcome to Your Career Dashboard",
+  jobCardTitle:"Find Jobs",
+  jobCardText:"Explore job portals and career opportunities.",
+  jobCardButton:"Explore Jobs",
+  resumeCardTitle:"Resume Builder",
+  resumeCardText:"Create a professional resume.",
+  resumeCardButton:"Create Resume",
+  interviewCardTitle:"Interview Practice",
+  interviewCardText:"Practice common interview questions.",
+  interviewCardButton:"Start Practice",
+  summaryTitle:"Your Application Summary",
+  totalApplicationsLabel:"Total Applications",
+  interviewCountLabel:"Interviews",
+  offerCountLabel:"Offers",
+  jobsTitle:"Find Career Opportunities",
+  officialLinksTitle:"Useful Official Job Websites",
+  resumeTitle:"Resume Builder",
+  resumeIntro:"Fill in your details to create a resume.",
+  resumeNameLabel:"Full Name",
+  resumeEmailLabel:"Email",
+  resumePhoneLabel:"Phone",
+  resumeCityLabel:"City",
+  resumeEducationLabel:"Education",
+  resumeSkillsLabel:"Skills",
+  resumeExperienceLabel:"Experience / Projects",
+  resumeObjectiveLabel:"Career Objective",
+  generateResumeButton:"Generate Resume",
+  resetResumeButton:"Reset",
+  printResumeButton:"Print / Save PDF",
+  interviewTitle:"Interview Practice",
+  interviewIntro:"Choose a category and practice.",
+  showAnswerButton:"Show Sample Answer",
+  nextQuestionButton:"Next Question",
+  savePracticeButton:"Save My Answer",
+  practiceHistoryTitle:"Saved Practice Answers",
+  trackerTitle:"Job Application Tracker",
+  trackerIntro:"Save applications and update their status.",
+  companyLabel:"Company",
+  roleLabel:"Job Role",
+  applicationDateLabel:"Application Date",
+  applicationStatusLabel:"Status",
+  applicationLinkLabel:"Application Website (optional)",
+  applicationNotesLabel:"Notes",
+  saveApplicationButton:"Save Application",
+  clearApplicationButton:"Clear Form",
+  savedApplicationsTitle:"My Applications",
+  dataNoticeTitle:"Privacy Notice",
+  dataNoticeText:"Records are stored only in this browser.",
+  ncsText:"National Career Service",
+  upscText:"UPSC Notifications",
+  sscText:"SSC Notifications",
+  upscApplyText:"UPSC Online Application",
+  linkedinText:"LinkedIn Jobs",
+  indeedText:"Indeed India"
+ },
+ hi:{
+  siteLogo:"स्मार्ट करियर पोर्टल",
+  heroTitle:"आत्मविश्वास के साथ अपना करियर बनाएं",
+  heroText:"नौकरी खोजें, रिज्यूमे बनाएं, इंटरव्यू का अभ्यास करें और आवेदन ट्रैक करें।",
+  heroSearchButton:"नौकरी खोजें",
+  welcomeTitle:"आपके करियर डैशबोर्ड में स्वागत है",
+  jobCardTitle:"नौकरी खोजें",
+  jobCardText:"नौकरी पोर्टल और करियर अवसर देखें।",
+  jobCardButton:"नौकरी देखें",
+  resumeCardTitle:"रिज्यूमे बनाएं",
+  resumeCardText:"अपना प्रोफेशनल रिज्यूमे बनाएं।",
+  resumeCardButton:"रिज्यूमे बनाएं",
+  interviewCardTitle:"इंटरव्यू अभ्यास",
+  interviewCardText:"सामान्य इंटरव्यू प्रश्नों का अभ्यास करें।",
+  interviewCardButton:"अभ्यास शुरू करें",
+  summaryTitle:"आपके आवेदन का सारांश",
+  totalApplicationsLabel:"कुल आवेदन",
+  interviewCountLabel:"इंटरव्यू",
+  offerCountLabel:"ऑफर",
+  jobsTitle:"करियर के अवसर खोजें",
+  officialLinksTitle:"उपयोगी नौकरी वेबसाइट",
+  resumeTitle:"रिज्यूमे बनाएं",
+  resumeIntro:"रिज्यूमे बनाने के लिए अपनी जानकारी भरें।",
+  resumeNameLabel:"पूरा नाम",
+  resumeEmailLabel:"ईमेल",
+  resumePhoneLabel:"फोन",
+  resumeCityLabel:"शहर",
+  resumeEducationLabel:"शिक्षा",
+  resumeSkillsLabel:"कौशल",
+  resumeExperienceLabel:"अनुभव / प्रोजेक्ट",
+  resumeObjectiveLabel:"करियर उद्देश्य",
+  generateResumeButton:"रिज्यूमे बनाएं",
+  resetResumeButton:"रीसेट",
+  printResumeButton:"प्रिंट / PDF सेव करें",
+  interviewTitle:"इंटरव्यू अभ्यास",
+  interviewIntro:"श्रेणी चुनें और अभ्यास करें।",
+  showAnswerButton:"नमूना उत्तर देखें",
+  nextQuestionButton:"अगला प्रश्न",
+  savePracticeButton:"मेरा उत्तर सेव करें",
+  practiceHistoryTitle:"सेव किए गए उत्तर",
+  trackerTitle:"नौकरी आवेदन ट्रैकर",
+  trackerIntro:"अपने आवेदन सेव करें और स्टेटस बदलें।",
+  companyLabel:"कंपनी",
+  roleLabel:"नौकरी का पद",
+  applicationDateLabel:"आवेदन की तारीख",
+  applicationStatusLabel:"स्थिति",
+  applicationLinkLabel:"आवेदन वेबसाइट (वैकल्पिक)",
+  applicationNotesLabel:"नोट्स",
+  saveApplicationButton:"आवेदन सेव करें",
+  clearApplicationButton:"फॉर्म साफ करें",
+  savedApplicationsTitle:"मेरे आवेदन",
+  dataNoticeTitle:"गोपनीयता सूचना",
+  dataNoticeText:"डेटा केवल इसी ब्राउज़र में सेव होता है।",
+  ncsText:"नेशनल करियर सर्विस",
+  upscText:"UPSC सूचनाएं",
+  sscText:"SSC सूचनाएं",
+  upscApplyText:"UPSC ऑनलाइन आवेदन",
+  linkedinText:"लिंक्डइन जॉब्स",
+  indeedText:"इनडीड इंडिया"
+ }
+};
+
+function applyLanguage() {
+ const dict = translations[language] || translations.en;
+
+ Object.keys(dict).forEach(id => {
+  const el = document.getElementById(id);
+  if(el) el.textContent = dict[id];
+ });
+
+ const button = document.getElementById("languageButton");
+ if(button) button.textContent = language === "en" ? "हिन्दी" : "English";
+
+ const jobSearch = document.getElementById("jobSearchInput");
+ if(jobSearch) jobSearch.placeholder =
+  language === "hi" ? "नौकरी या कंपनी खोजें" : "Search job or company";
+
+ const heroSearch = document.getElementById("heroJobSearch");
+ if(heroSearch) heroSearch.placeholder =
+  language === "hi" ? "नौकरी या कौशल का नाम" : "Job title or skill";
+
+ const trackerSearch = document.getElementById("trackerSearch");
+ if(trackerSearch) trackerSearch.placeholder =
+  language === "hi" ? "आवेदन खोजें" : "Search applications";
+
+ loadInterviewQuestion();
+ renderJobs();
+ renderApplications();
+ updateDashboard();
+}
+
+function toggleLanguage() {
+ language = language === "en" ? "hi" : "en";
+ localStorage.setItem("career_language",language);
+ applyLanguage();
+}
+
+/* START WEBSITE */
+
+document.addEventListener("DOMContentLoaded",function() {
+ const date = document.getElementById("applicationDate");
+ if(date && !date.value) {
+  date.value = new Date().toISOString().slice(0,10);
+ }
+
+ renderJobs();
+ loadInterviewQuestion();
+ renderPracticeHistory();
+ renderApplications();
+ updateDashboard();
+ applyLanguage();
+});
 </script>
+
+<footer>
+ <p>© 2026 Smart Career &amp; Job Portal</p>
+ <p><strong>Created by Amit Kumar Singh</strong></p>
+ <p>Career resources and application tracking demo</p>
+ <p class="small">
+  Verify vacancy details, eligibility, fees and deadlines on official websites.
+  This portal does not guarantee employment.
+ </p>
+</footer>
 
 </main>
 </body>
 </html>
+
+
