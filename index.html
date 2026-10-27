@@ -1211,7 +1211,673 @@ document.addEventListener("DOMContentLoaded",function() {
 </footer>
 
 </main>
+  
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#4338ca">
+<title>Student Document Locker</title>
+<link rel="manifest" href="manifest.json">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#172033}
+header{background:linear-gradient(135deg,#312e81,#4f46e5);color:white;text-align:center;padding:20px 12px}
+header h1{font-size:24px;margin:8px 0}
+main{max-width:850px;margin:auto;padding:12px}
+.card{background:white;padding:16px;margin:13px 0;border-radius:14px;box-shadow:0 3px 12px #0001}
+h2{font-size:19px;margin-top:0;color:#3730a3}
+input,select,button{width:100%;padding:12px;margin:6px 0;border-radius:8px;font-size:15px}
+input,select{border:1px solid #cbd5e1;background:white}
+button{border:0;background:#4338ca;color:white;font-weight:bold;cursor:pointer}
+.secondary{background:#475569}
+.danger{background:#dc2626}
+.green{background:#15803d}
+.item{border:1px solid #dbe2ef;border-radius:12px;padding:13px;margin:12px 0;overflow-wrap:anywhere}
+.item h3{margin:5px 0}
+.meta{font-size:13px;color:#475569;line-height:1.8}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.actions button{margin:0}
+.small{font-size:13px;line-height:1.6;color:#475569}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#eef2ff;padding:13px;border-radius:10px;text-align:center}
+.stat strong{display:block;font-size:22px;color:#3730a3}
+footer{text-align:center;padding:20px;color:#475569}
+</style>
+</head>
+
+<body>
+<header>
+  <div style="font-size:35px">🔐</div>
+  <h1 data-hi="Student Document Locker" data-en="Student Document Locker">Student Document Locker</h1>
+  <p data-hi="आपके दस्तावेज़, एक जगह" data-en="Your documents in one place">आपके दस्तावेज़, एक जगह</p>
+  <button id="languageBtn" class="secondary" onclick="toggleLanguage()">🌐 English</button>
+</header>
+
+<main>
+
+<section class="card">
+  <h2 data-hi="📊 Locker Dashboard" data-en="📊 Locker Dashboard">📊 Locker Dashboard</h2>
+  <div class="stats">
+    <div class="stat">
+      <strong id="totalDocs">0</strong>
+      <span data-hi="कुल दस्तावेज़" data-en="Total documents">कुल दस्तावेज़</span>
+    </div>
+    <div class="stat">
+      <strong id="totalSize">0 KB</strong>
+      <span data-hi="कुल फाइल साइज" data-en="Total file size">कुल फाइल साइज</span>
+    </div>
+  </div>
+  <button class="secondary" onclick="checkStorage()" data-hi="📦 Storage Details" data-en="📦 Storage Details">📦 Storage Details</button>
+  <p id="storageInfo" class="small"></p>
+</section>
+
+<section class="card">
+  <h2 data-hi="🔑 Delete PIN सेट करें" data-en="🔑 Set Delete PIN">🔑 Delete PIN सेट करें</h2>
+  <p class="small" data-hi="Document delete करने से पहले PIN देना होगा।" data-en="A PIN is required before deleting a document.">Document delete करने से पहले PIN देना होगा।</p>
+  <button onclick="setPIN()" data-hi="Set / Change PIN" data-en="Set / Change PIN">Set / Change PIN</button>
+  <p id="pinStatus" class="small"></p>
+</section>
+
+<section class="card">
+  <h2 data-hi="📤 नया Document Upload करें" data-en="📤 Upload New Document">📤 नया Document Upload करें</h2>
+  <input id="docName" placeholder="Document का नाम" data-hi-placeholder="Document का नाम" data-en-placeholder="Document name">
+
+  <select id="docCategory">
+    <option value="Education" data-hi="Education / शिक्षा" data-en="Education">Education / शिक्षा</option>
+    <option value="Identity" data-hi="Identity / पहचान" data-en="Identity">Identity / पहचान</option>
+    <option value="Certificate" data-hi="Certificate / प्रमाणपत्र" data-en="Certificate">Certificate / प्रमाणपत्र</option>
+    <option value="Personal" data-hi="Personal / निजी" data-en="Personal">Personal / निजी</option>
+    <option value="Other" data-hi="Other / अन्य" data-en="Other">Other / अन्य</option>
+  </select>
+
+  <input id="docFile" type="file" accept="application/pdf,image/*">
+  <button onclick="uploadDocument()" data-hi="⬆️ Upload Document" data-en="⬆️ Upload Document">⬆️ Upload Document</button>
+  <p id="message" role="status"></p>
+  <p class="small" data-hi="PDF या फोटो चुनें। फाइलें इसी browser में सेव होंगी।" data-en="Choose a PDF or photo. Files are saved in this browser.">PDF या फोटो चुनें। फाइलें इसी browser में सेव होंगी।</p>
+</section>
+
+<section class="card">
+  <h2 data-hi="🔎 Documents खोजें" data-en="🔎 Search Documents">🔎 Documents खोजें</h2>
+  <input id="searchBox" placeholder="Document का नाम खोजें..." data-hi-placeholder="Document का नाम खोजें..." data-en-placeholder="Search document name...">
+
+  <select id="filterCategory">
+    <option value="All" data-hi="सभी Categories" data-en="All categories">सभी Categories</option>
+    <option value="Education" data-hi="Education / शिक्षा" data-en="Education">Education / शिक्षा</option>
+    <option value="Identity" data-hi="Identity / पहचान" data-en="Identity">Identity / पहचान</option>
+    <option value="Certificate" data-hi="Certificate / प्रमाणपत्र" data-en="Certificate">Certificate / प्रमाणपत्र</option>
+    <option value="Personal" data-hi="Personal / निजी" data-en="Personal">Personal / निजी</option>
+    <option value="Other" data-hi="Other / अन्य" data-en="Other">Other / अन्य</option>
+  </select>
+  <button class="secondary" onclick="renderDocuments()" data-hi="Search / Filter" data-en="Search / Filter">Search / Filter</button>
+  <div id="documentList"></div>
+</section>
+
+<section class="card">
+  <h2 data-hi="📲 Website Install करें" data-en="📲 Install Website">📲 Website Install करें</h2>
+  <p class="small" data-hi="Install सुविधा browser और PWA files पर निर्भर करती है।" data-en="Installation depends on browser support and PWA files.">Install सुविधा browser और PWA files पर निर्भर करती है।</p>
+  <button id="installBtn" onclick="installApp()" data-hi="📲 Install App" data-en="📲 Install App">📲 Install App</button>
+  <p id="installStatus" class="small"></p>
+</section>
+
+<section class="card">
+  <h2 data-hi="🛡️ Security Guidance" data-en="🛡️ Security Guidance">🛡️ Security Guidance</h2>
+  <p class="small" data-hi="यह स्थानीय demo है। वास्तविक सुरक्षा के लिए server-side login, access control और encrypted file storage चाहिए।" data-en="This is a local demo. Real security requires server-side login, access control and encrypted file storage.">यह स्थानीय demo है। वास्तविक सुरक्षा के लिए server-side login, access control और encrypted file storage चाहिए।</p>
+</section>
+
+</main>
+
+<footer>Created by Amit Kumar Singh</footer>
+
+<script>
+"use strict";
+
+let db = null;
+let currentLang = "hi";
+let installPrompt = null;
+
+const DB_NAME = "StudentDocumentLockerDB";
+const STORE_NAME = "documents";
+
+const words = {
+ hi: {
+  uploaded:"Document upload हो गया!",
+  uploadError:"Upload नहीं हो पाया। Storage check करें।",
+  enterName:"Document का नाम लिखें।",
+  selectFile:"पहले PDF या फोटो चुनें।",
+  pinWrong:"PIN गलत है।",
+  noPin:"पहले Delete PIN सेट करें।",
+  deleteConfirm:"क्या आप यह document delete करना चाहते हैं?",
+  deleted:"Document delete हो गया।",
+  noDocs:"कोई document नहीं मिला।",
+  rename:"नया document नाम लिखें:",
+  newPin:"नया PIN डालें (कम से कम 4 digits):",
+  confirmPin:"नया PIN दोबारा डालें:",
+  oldPin:"वर्तमान PIN डालें:",
+  pinDigits:"कम से कम 4 अंकों का PIN डालें।",
+  pinMismatch:"दोनों PIN मेल नहीं खाते।",
+  pinUpdated:"PIN सेट/अपडेट हो गया।",
+  enterPin:"Document delete करने के लिए PIN डालें:",
+  notReady:"Database तैयार नहीं है।",
+  storageError:"Storage जानकारी नहीं मिल सकी。",
+  empty:"अभी कोई document upload नहीं है।",
+  preview:"Preview",download:"Download",print:"Print",
+  edit:"Edit name/category",delete:"Delete",
+  installHelp:"PWA install के लिए HTTPS, manifest और service worker जरूरी हैं।"
+ },
+ en: {
+  uploaded:"Document uploaded!",
+  uploadError:"Upload failed. Check storage.",
+  enterName:"Enter a document name.",
+  selectFile:"Choose a PDF or photo first.",
+  pinWrong:"Incorrect PIN.",
+  noPin:"Set a delete PIN first.",
+  deleteConfirm:"Do you want to delete this document?",
+  deleted:"Document deleted.",
+  noDocs:"No documents found.",
+  rename:"Enter the new document name:",
+  newPin:"Enter new PIN (at least 4 digits):",
+  confirmPin:"Enter new PIN again:",
+  oldPin:"Enter your current PIN:",
+  pinDigits:"Enter a PIN with at least 4 digits.",
+  pinMismatch:"The PINs do not match.",
+  pinUpdated:"PIN set/updated.",
+  enterPin:"Enter PIN to delete this document:",
+  notReady:"Database is not ready.",
+  storageError:"Could not read storage information.",
+  empty:"No documents uploaded yet.",
+  preview:"Preview",download:"Download",print:"Print",
+  edit:"Edit name/category",delete:"Delete",
+  installHelp:"PWA installation requires HTTPS, a manifest and a service worker."
+ }
+};
+
+function t(key) {
+  return words[currentLang][key] || words.en[key] || key;
+}
+
+function applyLanguage() {
+  document.documentElement.lang = currentLang;
+  document.querySelectorAll("[data-hi][data-en]").forEach(el => {
+    el.textContent = el.getAttribute("data-" + currentLang);
+  });
+  document.querySelectorAll("[data-hi-placeholder][data-en-placeholder]").forEach(el => {
+    el.placeholder = el.getAttribute("data-" + currentLang + "-placeholder");
+  });
+  document.getElementById("languageBtn").textContent =
+    currentLang === "hi" ? "🌐 English" : "🌐 हिंदी";
+  renderDocuments();
+}
+
+function toggleLanguage() {
+  currentLang = currentLang === "hi" ? "en" : "hi";
+  applyLanguage();
+}
+
+function openDatabase() {
+  if (!("indexedDB" in window)) {
+    alert("IndexedDB supported nahi hai.");
+    return;
+  }
+
+  const request = indexedDB.open(DB_NAME, 1);
+
+  request.onupgradeneeded = function(event) {
+    const database = event.target.result;
+
+    if (!database.objectStoreNames.contains(STORE_NAME)) {
+      database.createObjectStore(STORE_NAME, {
+        keyPath: "id",
+        autoIncrement: true
+      });
+    }
+  };
+
+  request.onsuccess = function(event) {
+    db = event.target.result;
+    renderDocuments();
+    checkStorage();
+  };
+
+  request.onerror = function() {
+    alert(t("uploadError"));
+  };
+}
+
+function getStore(mode) {
+  return db.transaction(STORE_NAME, mode).objectStore(STORE_NAME);
+}
+
+function getAllDocuments() {
+  return new Promise((resolve, reject) => {
+    if (!db) return reject(new Error("Database not ready"));
+
+    const request = getStore("readonly").getAll();
+    request.onsuccess = () => resolve(request.result || []);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + " B";
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString(
+    currentLang === "hi" ? "hi-IN" : "en-IN"
+  );
+}
+
+/* PIN hashing is a basic improvement, not full security. */
+async function hashPIN(pin) {
+  if (window.crypto && crypto.subtle) {
+    const bytes = new TextEncoder().encode(pin);
+    const digest = await crypto.subtle.digest("SHA-256", bytes);
+
+    return Array.from(new Uint8Array(digest))
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  return "demo-" + btoa(pin);
+}
+
+async function setPIN() {
+  const oldHash = localStorage.getItem("lockerPinHash");
+
+  if (oldHash) {
+    const oldPIN = prompt(t("oldPin"));
+    if (oldPIN === null) return;
+
+    if (await hashPIN(oldPIN) !== oldHash) {
+      alert(t("pinWrong"));
+      return;
+    }
+  }
+
+  const pin = prompt(t("newPin"));
+  if (pin === null) return;
+
+  if (!/^\d{4,}$/.test(pin)) {
+    alert(t("pinDigits"));
+    return;
+  }
+
+  const confirmPIN = prompt(t("confirmPin"));
+
+  if (confirmPIN !== pin) {
+    alert(t("pinMismatch"));
+    return;
+  }
+
+  localStorage.setItem("lockerPinHash", await hashPIN(pin));
+  document.getElementById("pinStatus").textContent = t("pinUpdated");
+}
+
+async function uploadDocument() {
+  if (!db) return alert(t("notReady"));
+
+  const name = document.getElementById("docName").value.trim();
+  const category = document.getElementById("docCategory").value;
+  const fileInput = document.getElementById("docFile");
+  const file = fileInput.files[0];
+
+  if (!name) return alert(t("enterName"));
+  if (!file) return alert(t("selectFile"));
+
+  const validType =
+    file.type === "application/pdf" ||
+    file.type.startsWith("image/");
+
+  if (!validType) {
+    alert("Please select a PDF or image file.");
+    return;
+  }
+
+  const record = {
+    name: name,
+    category: category,
+    file: file,
+    type: file.type,
+    size: file.size,
+    uploadDate: new Date().toISOString()
+  };
+
+  try {
+    await new Promise((resolve, reject) => {
+      const request = getStore("readwrite").add(record);
+      request.onsuccess = resolve;
+      request.onerror = () => reject(request.error);
+    });
+
+    document.getElementById("docName").value = "";
+    fileInput.value = "";
+    document.getElementById("message").textContent = t("uploaded");
+
+    renderDocuments();
+    checkStorage();
+  } catch (error) {
+    alert(t("uploadError"));
+  }
+}
+
+function makeButton(label, className, callback) {
+  const button = document.createElement("button");
+  button.textContent = label;
+
+  if (className) button.className = className;
+
+  button.onclick = callback;
+  return button;
+}
+
+async function renderDocuments() {
+  const list = document.getElementById("documentList");
+  if (!list) return;
+
+  list.replaceChildren();
+  if (!db) return;
+
+  try {
+    const docs = await getAllDocuments();
+    const query = document.getElementById("searchBox")
+      .value.trim().toLowerCase();
+    const category = document.getElementById("filterCategory").value;
+
+    const filtered = docs.filter(doc =>
+      doc.name.toLowerCase().includes(query) &&
+      (category === "All" || doc.category === category)
+    );
+
+    document.getElementById("totalDocs").textContent = docs.length;
+
+    const totalBytes = docs.reduce(
+      (sum, doc) => sum + (doc.size || 0), 0
+    );
+
+    document.getElementById("totalSize").textContent =
+      formatSize(totalBytes);
+
+    if (!filtered.length) {
+      list.textContent = docs.length ? t("noDocs") : t("empty");
+      return;
+    }
+
+    filtered.sort((a, b) => b.id - a.id);
+
+    filtered.forEach(doc => {
+      const item = document.createElement("article");
+      item.className = "item";
+
+      const title = document.createElement("h3");
+      title.textContent = "📄 " + doc.name;
+      item.appendChild(title);
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      meta.textContent =
+        "Category: " + doc.category +
+        " | Date: " + formatDate(doc.uploadDate) +
+        " | Size: " + formatSize(doc.size || 0);
+
+      item.appendChild(meta);
+
+      const actions = document.createElement("div");
+      actions.className = "actions";
+
+      actions.appendChild(makeButton(
+        "👁️ " + t("preview"), "", () => previewDocument(doc.id)
+      ));
+
+      actions.appendChild(makeButton(
+        "⬇️ " + t("download"), "green", () => downloadDocument(doc.id)
+      ));
+
+      actions.appendChild(makeButton(
+        "🖨️ " + t("print"), "secondary", () => printDocument(doc.id)
+      ));
+
+      actions.appendChild(makeButton(
+        "✏️ " + t("edit"), "secondary", () => editDocument(doc.id)
+      ));
+
+      actions.appendChild(makeButton(
+        "🗑️ " + t("delete"), "danger", () => deleteDocument(doc.id)
+      ));
+
+      item.appendChild(actions);
+      list.appendChild(item);
+    });
+  } catch (error) {
+    list.textContent = t("storageError");
+  }
+}
+
+async function getDocument(id) {
+  return new Promise((resolve, reject) => {
+    const request = getStore("readonly").get(id);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function previewDocument(id) {
+  try {
+    const doc = await getDocument(id);
+    if (!doc) return alert("Document not found.");
+
+    if (
+      doc.type !== "application/pdf" &&
+      !doc.type.startsWith("image/")
+    ) {
+      return alert("Preview not available.");
+    }
+
+    const url = URL.createObjectURL(doc.file);
+    const opened = window.open(url, "_blank");
+
+    if (!opened) {
+      URL.revokeObjectURL(url);
+      alert("Popup blocked. Download the document instead.");
+      return;
+    }
+
+    // Keep the object URL alive while the new tab uses it.
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  } catch (error) {
+    alert("Preview could not be opened.");
+  }
+}
+
+async function downloadDocument(id) {
+  try {
+    const doc = await getDocument(id);
+    if (!doc) return alert("Document not found.");
+
+    const url = URL.createObjectURL(doc.file);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = doc.name;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 30000);
+  } catch (error) {
+    alert("Download failed.");
+  }
+}
+
+async function printDocument(id) {
+  try {
+    const doc = await getDocument(id);
+    if (!doc) return alert("Document not found.");
+
+    const url = URL.createObjectURL(doc.file);
+    const opened = window.open(url, "_blank");
+
+    if (!opened) {
+      URL.revokeObjectURL(url);
+      return alert("Popup blocked. Download the file, then print it.");
+    }
+
+    alert(t("printHelp") || "Use the browser Print option.");
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  } catch (error) {
+    alert("Could not open document for printing.");
+  }
+}
+
+async function editDocument(id) {
+  try {
+    const doc = await getDocument(id);
+    if (!doc) return alert("Document not found.");
+
+    const newName = prompt(t("rename"), doc.name);
+    if (newName === null) return;
+
+    if (!newName.trim()) {
+      alert(t("enterName"));
+      return;
+    }
+
+    const categories = [
+      "Education", "Identity", "Certificate", "Personal", "Other"
+    ];
+
+    const choice = prompt(
+      "Category: Education, Identity, Certificate, Personal, Other",
+      doc.category
+    );
+
+    if (choice === null) return;
+
+    const normalized = categories.find(
+      c => c.toLowerCase() === choice.trim().toLowerCase()
+    );
+
+    if (!normalized) {
+      alert("Invalid category.");
+      return;
+    }
+
+    doc.name = newName.trim();
+    doc.category = normalized;
+
+    await new Promise((resolve, reject) => {
+      const request = getStore("readwrite").put(doc);
+      request.onsuccess = resolve;
+      request.onerror = () => reject(request.error);
+    });
+
+    renderDocuments();
+  } catch (error) {
+    alert(t("editError") || "Update failed.");
+  }
+}
+  
+async function deleteDocument(id) {
+  if (!db) return alert(t("notReady"));
+
+  const savedHash = localStorage.getItem("lockerPinHash");
+
+  if (!savedHash) {
+    alert(t("noPin"));
+    return;
+  }
+
+  const enteredPIN = prompt(t("enterPin"));
+  if (enteredPIN === null) return;
+
+  if (await hashPIN(enteredPIN) !== savedHash) {
+    alert(t("pinWrong"));
+    return;
+  }
+
+  if (!confirm(t("deleteConfirm"))) return;
+
+  try {
+    await new Promise((resolve, reject) => {
+      const request = getStore("readwrite").delete(id);
+      request.onsuccess = resolve;
+      request.onerror = () => reject(request.error);
+    });
+
+    alert(t("deleted"));
+    renderDocuments();
+    checkStorage();
+  } catch (error) {
+    alert(t("uploadError"));
+  }
+}
+
+async function checkStorage() {
+  const output = document.getElementById("storageInfo");
+
+  try {
+    let usage = 0;
+    let quota = 0;
+
+    if (navigator.storage && navigator.storage.estimate) {
+      const estimate = await navigator.storage.estimate();
+      usage = estimate.usage || 0;
+      quota = estimate.quota || 0;
+    }
+
+    output.textContent =
+      "Storage used: " + formatSize(usage) +
+      (quota ? " | Estimated available limit: " + formatSize(quota) : "") +
+      ". Browser storage may be cleared by the device.";
+  } catch (error) {
+    output.textContent = t("storageError");
+  }
+}
+
+/* PWA install prompt */
+window.addEventListener("beforeinstallprompt", function(event) {
+  event.preventDefault();
+  installPrompt = event;
+  document.getElementById("installStatus").textContent =
+    currentLang === "hi" ? "Install करने के लिए तैयार।" : "Ready to install.";
+});
+
+async function installApp() {
+  if (installPrompt) {
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    return;
+  }
+
+  document.getElementById("installStatus").textContent =
+    t("installHelp");
+}
+
+window.addEventListener("appinstalled", function() {
+  document.getElementById("installStatus").textContent =
+    currentLang === "hi" ? "App install हो गया।" : "App installed.";
+});
+
+/* Search while typing */
+document.getElementById("searchBox").addEventListener("input", renderDocuments);
+document.getElementById("filterCategory").addEventListener("change", renderDocuments);
+
+/* Start the database */
+if ("indexedDB" in window) {
+  openDatabase();
+} else {
+  alert("Your browser does not support IndexedDB.");
+}
+
+applyLanguage();
+</script>
 </body>
 </html>
+  
 
 
